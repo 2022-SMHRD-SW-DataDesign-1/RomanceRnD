@@ -125,32 +125,33 @@
                 <p class="fs-5 fw-bold text-primary">Free Quote</p>
                 <h1 class="display-5 mb-5">Get A Free Quote</h1>
             </div>
+            <form action="quotoService">
             <div class="row justify-content-center">
                 <div class="col-lg-7">
                     <div class="bg-light rounded p-4 p-sm-5 wow fadeInUp" data-wow-delay="0.1s">
                         <div class="row g-3">
                             <div class="col-sm-6">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control border-0" id="gname" placeholder="Gurdian Name">
-                                    <label for="gname">Your Name</label>
+                                    Your Name<input type="text" name="name" class="form-control border-0" id="gname" placeholder="Gurdian Name">
+                                    
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-floating">
-                                    <input type="email" class="form-control border-0" id="gmail" placeholder="Gurdian Email">
-                                    <label for="gmail">Your Email</label>
+                                    Your Email<input type="email" name="email" class="form-control border-0" id="gmail" placeholder="Gurdian Email">
+                                    
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control border-0" id="cname" placeholder="Child Name">
-                                    <label for="cname">Your Mobile</label>
+                                    Your Mobile<input type="text" name="mobile" class="form-control border-0" id="cname" placeholder="Child Name">
+                                    
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control border-0" id="cage" placeholder="Child Age">
-                                    <label for="cage">Service Type</label>
+                                    Service Type<input type="text" name="serviceType" class="form-control border-0" id="cage" placeholder="Child Age">
+                                    
                                 </div>
                             </div>
                             <div class="col-12">
@@ -165,6 +166,7 @@
                         </div>
                     </div>
                 </div>
+            </form>
             </div>
         </div>
     </div>
