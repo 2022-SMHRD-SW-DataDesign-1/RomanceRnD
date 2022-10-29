@@ -10,8 +10,10 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class memberDTO {
 
+
 	@NonNull private String name;
 	@NonNull private String email;
-	private String mobile;
-	private String serviceType;
+	@NonNull private String mobile;
+	@NonNull private String serviceType;
+	
 }
