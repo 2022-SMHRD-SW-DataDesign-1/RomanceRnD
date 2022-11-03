@@ -13,7 +13,7 @@ public class memberDTO {
 
 	@NonNull private String name;
 	@NonNull private String email;
-	@NonNull private String mobile;
-	@NonNull private String serviceType;
+	private String mobile;
+	private String serviceType;
 	
 }

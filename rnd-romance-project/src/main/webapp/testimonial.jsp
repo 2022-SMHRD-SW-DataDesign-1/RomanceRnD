@@ -73,17 +73,17 @@
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0">
         <a href="index.jsp" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
-            <h1 class="m-0">Gardener</h1>
+            <h1 class="m-0">Mentorvation</h1>
         </a>
         <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
-                <a href="index.jsp" class="nav-item nav-link">Home</a>
-                <a href="about.jsp" class="nav-item nav-link active">About</a>
-                <a href="service.jsp" class="nav-item nav-link">Services</a>
-                <a href="project.jsp" class="nav-item nav-link">Projects</a>
+                <a href="index.jsp" class="nav-item nav-link active">Home</a>
+                <a href="about.jsp" class="nav-item nav-link">추천</a>
+                <a href="service.jsp" class="nav-item nav-link">캘린더</a>
+                <a href="project.jsp" class="nav-item nav-link">프로필</a>
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                     <div class="dropdown-menu bg-light m-0">
@@ -96,7 +96,7 @@
                 </div>
                 <a href="contact.jsp" class="nav-item nav-link">Contact</a>
             </div>
-            <a href="" class="btn btn-primary py-4 px-lg-4 rounded-0 d-none d-lg-block">Get A Quote<i class="fa fa-arrow-right ms-3"></i></a>
+            <a href="" class="btn btn-primary py-4 px-lg-4 rounded-0 d-none d-lg-block">LOGIN<i class="fa fa-arrow-right ms-3"></i></a>
         </div>
     </nav>
     <!-- Navbar End -->
