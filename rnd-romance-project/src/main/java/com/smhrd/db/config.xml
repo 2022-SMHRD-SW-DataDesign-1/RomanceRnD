@@ -8,9 +8,7 @@
 	
 	<!-- ★★★★★alias주는곳★★★★★★★★★★ -->
 	<typeAliases>
-		<typeAlias type="com.smhrd.model.MemberDTO" alias="MemberDTO"/>
-		<typeAlias type="com.smhrd.model.MessageDTO" alias="MessageDTO"/>
-		<typeAlias type="com.smhrd.model.BoardDTO" alias="BoardDTO"/>
+		<typeAlias type="com.smhrd.model.memberDTO" alias="memberDTO"/>
 	</typeAliases>
 	
 	
@@ -28,8 +26,6 @@
   <mappers>
   	<!-- mapper적어주기 -->
   	<!-- ★★★★★★ mapper경로 ★★★★★★ -->
-    <mapper resource="com/smhrd/mapper/MemberMapper.xml"/>
-    <mapper resource="com/smhrd/mapper/MessageMapper.xml"/>
-    <mapper resource="com/smhrd/mapper/BoardMapper.xml"/>
+  	<mapper resource="com/smhrd/mapper/MemberMapper.xml"/>
   </mappers>
 </configuration>

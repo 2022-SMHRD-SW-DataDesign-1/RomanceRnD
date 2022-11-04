@@ -14,14 +14,34 @@ public class memberDAO {
 	
 	// 로그인, 회원가입, 회원수정, 회원정보 전체 불러오는 메소드, 이메일 중복체크 메소드
 	
-	// quoteLogin 로그인 메소드
-	public int quoteLogin(memberDTO dto) {
+	// 회원가입 메소드
+	public int join(memberDTO dto) {
 		SqlSession session = sqlSessionFactory.openSession(true);
-		int row = session.selectOne("quoteLogin", dto);
+		int row = session.insert("join", dto);
 		
 		session.close();
 				
 		return row;
 	}
 	
+	// Login 메소드
+	public memberDTO login(memberDTO dto) {
+		SqlSession session = sqlSessionFactory.openSession(true);
+		memberDTO info = session.selectOne("login", dto);
+		
+		session.close();
+		
+		return info;
+	}
+	
+	// 회원정보 수정 메소드
+		public int updateId(memberDTO dto) {
+			SqlSession session = sqlSessionFactory.openSession(true);
+			int row = session.update("updateId", dto);
+			
+			session.close();
+			
+			return row;
+			
+		}
 }

@@ -4,8 +4,22 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.smhrd.mapper.MemberMapper">
 
-	<select id="quoteLogin" parameterType="memberDTO" resultType="memberDTO">
-		select * from quoteMember where name = #{name} and email= #{email} and mobile = #{mobile} and serviceType = #{serviceType}
-	</select>
-
+	<insert id="join" parameterType="memberDTO">
+		insert into member_table values(#{member_id}, #{member_pw}, #{member_name}, #{member_age}, #{member_type}, #{member_profile}, #{member_auth})
+	</insert>
+	
+	<select id="login" parameterType="memberDTO" resultType="memberDTO">
+		<!-- 여기 email값 pw로 바꿔줘야함! -->
+  		select * from member_table where member_id = #{member_id} and member_pw = #{member_pw}
+  	</select>
+	
+	<update id="updateId" parameterType="memberDTO">
+  		<!--  다시 필드값 정의 제대로하고 이 형식으로 회원 정보 수정해야함
+  		update web_member set pw = #{pw}, tel = #{tel}, address = #{address} 
+  		-->
+  		update member_table set member_name = #{member_name}, member_age = #{member_age}, member_type = #{member_type}, member_profile = #{member_profile}, member_auth = #{member_auth}
+  		where member_id = #{member_id}
+  	</update>
+  	
+  	
 </mapper>
