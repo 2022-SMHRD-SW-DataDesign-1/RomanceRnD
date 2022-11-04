@@ -10,13 +10,9 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class memberDTO {
 
-	
-	@NonNull private String member_id;
-	@NonNull private String member_pw;
-	private String member_name;
-	private String member_age;
-	private String member_type;
-	private String member_profile;
-	private String member_auth;
-	
+	@NonNull private String name;
+	@NonNull private String email;
+	private String mobile;
+	private String serviceType;
+
 }
