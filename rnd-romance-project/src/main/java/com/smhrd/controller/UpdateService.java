@@ -55,7 +55,7 @@ public class UpdateService implements Command {
 	
 		
 		// 여기 매개변수로 들어가는게 맞는지..?
-		memberDTO updateInfo = new memberDTO(member_pw, member_name, member_age, member_type, member_profile, member_auth, member_id);
+		memberDTO updateInfo = new memberDTO(member_pw, member_name, member_age, member_type, member_profile, member_auth);
 		
 		int row = new memberDAO().updateId(updateInfo);
 	

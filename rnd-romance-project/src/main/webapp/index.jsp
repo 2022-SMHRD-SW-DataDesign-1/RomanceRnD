@@ -546,7 +546,7 @@
 <body>
 
 	<%  
-	memberDTO info = (memberDTO)session.getAttribute("info");
+		memberDTO info = (memberDTO)session.getAttribute("info");
 	%>
 
 
@@ -597,7 +597,7 @@
             <div class="navbar-nav ms-auto p-4 p-lg-0">
                 <a href="index.jsp" class="nav-item nav-link active">Home</a>
                 <a href="about.jsp" class="nav-item nav-link">추천</a>
-                <a href="calendar_test.jsp" class="nav-item nav-link">캘린더</a>
+                <a href="service.jsp" class="nav-item nav-link">캘린더</a>
                 <a href="project.jsp" class="nav-item nav-link">프로필</a>
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
@@ -615,7 +615,12 @@
          	<nav class="main-nav">
 				<ul>
 					<!-- inser more links here -->
-					<li><a class="cd-signin" href="#0">Sign in</a></li>
+					<%if(info == null){ %>
+						<li><a class="cd-signin" href="#0">Sign in</a></li>
+					<%}else{ %>
+						<li><a class="cd-signin" href="UpdateMember.jsp">회원정보수정</a></li>
+						<li><a class="cd-signin" href="LogoutService.do">Logout</a></li>
+					<%} %>
 				</ul>
 			</nav>
             
@@ -1041,6 +1046,7 @@
 		  function signup_selected(){
 		    $form_login.removeClass('is-selected');
 		    $form_signup.addClass('is-selected');
+		    
 		    $form_forgot_password.removeClass('is-selected');
 		    $tab_login.removeClass('selected');
 		    $tab_signup.addClass('selected');

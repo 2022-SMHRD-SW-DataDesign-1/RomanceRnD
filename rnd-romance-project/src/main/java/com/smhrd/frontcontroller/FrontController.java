@@ -17,6 +17,7 @@ import com.smhrd.command.Command;
 import com.smhrd.controller.JoinService;
 import com.smhrd.controller.LoginService;
 import com.smhrd.controller.LogoutService;
+import com.smhrd.controller.UpdateService;
 
 
 
@@ -76,6 +77,9 @@ public class FrontController extends HttpServlet {
 		
 			service = new LoginService();
 			
+		}else if(result.equals("UpdateService.do")) {
+			
+			service = new UpdateService();
 		}
 		
 		

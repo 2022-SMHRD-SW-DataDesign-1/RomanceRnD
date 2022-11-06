@@ -39,6 +39,11 @@ public class memberDTO {
 	}
 	
 	
+	public memberDTO(String member_pw, String member_name, String member_age, String member_type,
+			String member_profile, String member_auth) {
+		// TODO Auto-generated constructor stub
+	}
+
 	public String getMember_id() {
 		return member_id;
 	}
