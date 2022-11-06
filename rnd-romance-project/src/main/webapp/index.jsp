@@ -1,3 +1,4 @@
+<%@page import="com.smhrd.model.memberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -543,6 +544,12 @@
 </head>
 
 <body>
+
+	<%  
+	memberDTO info = (memberDTO)session.getAttribute("info");
+	%>
+
+
     <!-- Spinner Start -->
     <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
         <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;"></div>
@@ -847,18 +854,18 @@
 
 			<div id="cd-login">
 				<!-- log in form -->
-				<form class="cd-form">
+				<form action="LoginService.do" class="cd-form" method="post">
 					<p class="fieldset">
 						<label class="image-replace cd-email" for="signin-email">E-mail</label>
 						<input class="full-width has-padding has-border" id="signin-email"
-							type="email" placeholder="E-mail"> <span
+							type="email" name="member_id" placeholder="E-mail"> <span
 							class="cd-error-message">Error message here!</span>
 					</p>
 
 					<p class="fieldset">
 						<label class="image-replace cd-password" for="signin-password">Password</label>
 						<input class="full-width has-padding has-border"
-							id="signin-password" type="text" placeholder="Password">
+							id="signin-password" type="text" name="member_pw" placeholder="Password">
 						<a href="#0" class="hide-password">Hide</a> <span
 							class="cd-error-message">Error message here!</span>
 					</p>
@@ -882,17 +889,17 @@
 
 			<div id="cd-signup">
 				<!-- sign up form -->
-				<form class="cd-form">
+				<form action="JoinService.do" class="cd-form" method="post">
 					<p class="fieldset">
 						<label class="image-replace cd-username" for="signup-username">Username</label>
-						<input class="full-width has-padding has-border"
+						<input class="full-width has-padding has-border" name="member_name"
 							id="signup-username" type="text" placeholder="Username">
 						<span class="cd-error-message">Error message here!</span>
 					</p>
 
 					<p class="fieldset">
 						<label class="image-replace cd-email" for="signup-email">E-mail</label>
-						<input class="full-width has-padding has-border" id="signup-email"
+						<input class="full-width has-padding has-border" name="member_id" id="signup-email"
 							type="email" placeholder="E-mail"> <span
 							class="cd-error-message">Error message here!</span>
 					</p>
@@ -900,7 +907,7 @@
 					<p class="fieldset">
 						<label class="image-replace cd-password" for="signup-password">Password</label>
 						<input class="full-width has-padding has-border"
-							id="signup-password" type="text" placeholder="Password">
+							id="signup-password" type="text" name="member_pw" placeholder="Password">
 						<a href="#0" class="hide-password">Hide</a> <span
 							class="cd-error-message">Error message here!</span>
 					</p>
@@ -1046,14 +1053,14 @@
 		  }
 
 		  //REMOVE THIS - it's just to show error messages 
-		  $form_login.find('input[type="submit"]').on('click', function(event){
+		  /* $form_login.find('input[type="submit"]').on('click', function(event){
 		    event.preventDefault();
 		    $form_login.find('input[type="email"]').toggleClass('has-error').next('span').toggleClass('is-visible');
 		  });
 		  $form_signup.find('input[type="submit"]').on('click', function(event){
 		    event.preventDefault();
 		    $form_signup.find('input[type="email"]').toggleClass('has-error').next('span').toggleClass('is-visible');
-		  });
+		  }); */
 
 
 		  //IE9 placeholder fallback

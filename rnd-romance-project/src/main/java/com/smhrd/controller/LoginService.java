@@ -23,7 +23,7 @@ public class LoginService implements Command {
 		System.out.println("member_pw : "+ member_pw);
 		
 		// 3. dto로 묶기(매개 변수로 들어갈 값 : name, pw로 바꾸어야함)
-		memberDTO dto = new memberDTO(member_id , member_pw);
+		memberDTO dto = new memberDTO(member_id, member_pw);
 		
 		// 4. login메소드 호출
 		memberDTO info = new memberDAO().login(dto);
@@ -36,6 +36,8 @@ public class LoginService implements Command {
 			// ★★★★★★★★★★★★★★★
 			// session으로 로그인 정보 유지(로그인한후 메인에 로그인아디뜨게하기)
 			HttpSession session = request.getSession();
+			
+			System.out.println(session);
 			
 			session.setAttribute("info", info);
 			

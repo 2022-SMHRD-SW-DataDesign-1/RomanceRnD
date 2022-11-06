@@ -5,11 +5,10 @@
 <mapper namespace="com.smhrd.mapper.MemberMapper">
 
 	<insert id="join" parameterType="memberDTO">
-		insert into member_table values(#{member_id}, #{member_pw}, #{member_name}, #{member_age}, #{member_type}, #{member_profile}, #{member_auth})
+		insert into member_table values(#{member_id}, #{member_pw}, #{member_name}, 1 , 'm', 'test', 'test')
 	</insert>
 	
 	<select id="login" parameterType="memberDTO" resultType="memberDTO">
-		<!-- 여기 email값 pw로 바꿔줘야함! -->
   		select * from member_table where member_id = #{member_id} and member_pw = #{member_pw}
   	</select>
 	
