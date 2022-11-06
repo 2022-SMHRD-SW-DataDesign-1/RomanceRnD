@@ -166,7 +166,8 @@ h6,
     align-items: center;
     justify-content: center;
     text-align: center;
-    background: rgba(15, 66, 41, .6);
+    background: rgba(15, 66, 41, .9);
+    /* 염건웅_수정_main_background_transparent */
     z-index: 1;
 }
 
