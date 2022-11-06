@@ -597,7 +597,7 @@
             <div class="navbar-nav ms-auto p-4 p-lg-0">
                 <a href="index.jsp" class="nav-item nav-link active">Home</a>
                 <a href="about.jsp" class="nav-item nav-link">추천</a>
-                <a href="service.jsp" class="nav-item nav-link">캘린더</a>
+                <a href="calendar_test.jsp" class="nav-item nav-link">캘린더</a>
                 <a href="project.jsp" class="nav-item nav-link">프로필</a>
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
