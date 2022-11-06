@@ -596,9 +596,9 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
                 <a href="index.jsp" class="nav-item nav-link active">Home</a>
-                <a href="about.jsp" class="nav-item nav-link">추천</a>
-                <a href="service.jsp" class="nav-item nav-link">캘린더</a>
-                <a href="project.jsp" class="nav-item nav-link">프로필</a>
+                <a href="about.jsp" class="nav-item nav-link">Recommendation</a>
+                <a href="calendar_test.jsp" class="nav-item nav-link">Calendar</a>
+                <a href="profile.jsp" class="nav-item nav-link">Profile</a>
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                     <div class="dropdown-menu bg-light m-0">
@@ -641,7 +641,7 @@
                                 <div class="col-lg-7">
                                     <h1 class="display-1 text-white mb-5 animated slideInDown">YOU WERE THE</h1>
                                     <h1 class="display-1 text-white mb-5 animated slideInDown" style="font-color: green;!important">MENTOR</h1>
-                                    <a href="" class="btn btn-primary py-sm-3 px-sm-4">멘토추천받기</a>
+                                    <a href="" class="btn btn-primary py-sm-3 px-sm-4">Get Mentor Recommendation</a>
                                 </div>
                             </div>
                         </div>
@@ -655,7 +655,7 @@
                                 <div class="col-lg-8">
                                     <h1 class="display-1 text-white mb-5 animated slideInDown">YOU COULD BE THE</h1>
                                     <h1 class="display-1 text-white mb-5 animated slideInDown">MENTOR</h1>
-                                    <a href="" class="btn btn-primary py-sm-3 px-sm-4">멘토추천받기</a>
+                                    <a href="" class="btn btn-primary py-sm-3 px-sm-4">Get Mentor Recommendation</a>
                                 </div>
                             </div>
                         </div>
@@ -669,7 +669,7 @@
                                 <div class="col-lg-7">
                                     <h1 class="display-1 text-white mb-5 animated slideInDown">YOU ARE THE</h1>
                                     <h1 class="display-1 text-white mb-5 animated slideInDown">MENTOR</h1>
-                                    <a href="" class="btn btn-primary py-sm-3 px-sm-4">멘토추천받기</a>
+                                    <a href="" class="btn btn-primary py-sm-3 px-sm-4">Get Mentor Recommendation</a>
                                 </div>
                             </div>
                         </div>
@@ -702,7 +702,7 @@
                             </div>
                             <div class="ps-3">
                                 <h4>YOU WERE THE MENTOR</h4>
-                                <span>내용</span>
+                                <span>Content</span>
                             </div>
                         </div>
                     </div>
@@ -715,7 +715,7 @@
                             </div>
                             <div class="ps-3">
                                 <h4>YOU COULD BE THE METNOR</h4>
-                                <span>내용</span>
+                                <span>Content</span>
                             </div>
                         </div>
                     </div>
@@ -728,7 +728,7 @@
                             </div>
                             <div class="ps-3">
                                 <h4>YOU ARE THE MENTOR</h4>
-                                <span>내용</span>
+                                <span>Content</span>
                             </div>
                         </div>
                     </div>
@@ -744,14 +744,14 @@
         <div class="container">
             <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
                 <p class="fs-5 fw-bold text-primary">MENTORVATION</p>
-                <h1 class="display-5 mb-5">멘토 추천</h1>
+                <h1 class="display-5 mb-5">Mentor Recommendation</h1>
             </div>
             <div class="row wow fadeInUp" data-wow-delay="0.3s">
                 <div class="col-12 text-center">
                     <ul class="list-inline rounded mb-5" id="portfolio-flters">
-                        <li class="mx-2 active" data-filter="*">전체보기</li>
-                        <li class="mx-2" data-filter=".first">핸드쉐이크</li>
-                        <li class="mx-2" data-filter=".second">티타임</li>
+                        <li class="mx-2 active" data-filter="*">All</li>
+                        <li class="mx-2" data-filter=".first">Handshake</li>
+                        <li class="mx-2" data-filter=".second">Tea Time</li>
                     </ul>
                 </div>
             </div>
@@ -835,7 +835,7 @@
         </div>
     </div>
    	<div style="text-align:center;">
-   		<a href="" class="btn btn-primary py-sm-3 px-sm-4" style="background: #263138; border-radius: 20px; border-color:white;">멘토 영상 추천 받기</a>
+   		<a href="" class="btn btn-primary py-sm-3 px-sm-4" style="background: #263138; border-radius: 20px; border-color:white;">Recommend Mentor Video</a>
    	</div>
    	<br><br>
    	
