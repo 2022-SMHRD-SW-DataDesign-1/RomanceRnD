@@ -1,9 +1,9 @@
 /********** Template CSS **********/
 :root {
-    --primary: #348E38;
+    --primary:#4a69bd;
     --secondary: #525368;
-    --light: #E8F5E9;
-    --dark: #0F4229;
+    --light: rgb(235, 247, 255);
+    --dark: #0c2461;
 }
 
 .back-to-top {
@@ -166,7 +166,8 @@ h6,
     align-items: center;
     justify-content: center;
     text-align: center;
-    background: rgba(15, 66, 41, .9);
+    /* 이미지사진 투명도 */
+    background: rgba(235, 247, 255, 0.62); 
     /* 염건웅_수정_main_background_transparent */
     z-index: 1;
 }
@@ -349,7 +350,8 @@ h6,
     height: 100%;
     top: 0;
     left: 0;
-    background: rgba(15, 66, 41, .6);
+    /* 한가연  영상추천 호버 배경 수정 */
+    background: rgba(235, 247, 255, 0.62);
     transition: .5s;
 }
 
