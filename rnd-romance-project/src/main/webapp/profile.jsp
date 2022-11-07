@@ -205,7 +205,7 @@
 	    border: none;
 	  }
 	  .main-nav a.cd-signin {
-	    background:#4a69bd;
+	    background: #27ae60;
 	    border: none;
 	  }
 	}
@@ -648,26 +648,67 @@
            		<input type="text">
            		<input type="button" value="검색">
            	</div>
+           	<br>
+           	<div style="text-align: right">
+	           	<input type="button" value="업로드">
+           	</div>
            	<br><br><br><br><br>
-            <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px; display:inline-flex;">
+            <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="display:inline-flex;">
                 <!-- <p class="fs-5 fw-bold text-primary">Profile</p> -->
      			<img src="img/profile_image.png" alt="profile-user-img" class="profile-user-img-img" style="border-style: solid; border-color: black;;">
-                <div>
-	                <h1 class="display-5 mb-5" style="padding: 0em; color: black; display: table-cell">USER</h1>
-	                <textarea rows="" cols=""></textarea>
+                <div style="padding-left: 6em; text-align: left;">
+					
+					<!-- <div style="text-align: center">
+						<div style="text-align: center">
+						a
+						</div>
+						
+						<div style="text-align: center">
+						b
+						</div>
+					</div> -->
+					<div style="width: 16em;text-align: center;">
+						<table style="border: 1px">
+							<tr style="text-align: center; width:16em;">
+								<td style="text-align: center;width: 8em;">
+								10명
+								</td>
+								<td style="text-align: center;width: 8em;">
+								10명
+								</td>
+							</tr>
+							<tr style="text-align: center; width: 16em;">
+								<td style="text-align: center;width: 8em;">
+								멘토
+								</td>
+								<td style="text-align: center;width: 8em;">
+								멘티
+								</td>
+							</tr>
+						</table>
+					</div>
+					<br><br><br><br>
+					<div>
+		                <input type="button" value="Handshke">
+		                <input type="button" value="Tea Time">
+		                <input type="button" value="Schedule">
+					</div>
                 </div>
-                
+            </div>
+            <div style="text-align: center; padding-right: 22em; ">
+	            <h1 class="display-5 mb-5" style="padding: 0em; color: black;margin-bottom: 0rem !important;">USER</h1>
+				<textarea rows="" cols=""></textarea>
             </div>
     		<br><br>
-            <div class="row wow fadeInUp" data-wow-delay="0.3s">
-               <!--  <div class="col-12 text-center">
+            <!-- <div class="row wow fadeInUp" data-wow-delay="0.3s">
+                <div class="col-12 text-center">
                     <ul class="list-inline rounded mb-5" id="portfolio-flters">
                         <li class="mx-2 active" data-filter="*">전체</li>
                         <li class="mx-2" data-filter=".first">이미지</li>
                         <li class="mx-2" data-filter=".second">영상</li>
                     </ul>
-                </div> -->
-            </div>
+                </div>
+            </div> -->
             <div class="row g-4 portfolio-container">
                 <div class="col-lg-4 col-md-6 portfolio-item first wow fadeInUp" data-wow-delay="0.1s">
                     <div class="portfolio-inner rounded">
