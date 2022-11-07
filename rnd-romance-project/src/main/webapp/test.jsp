@@ -29,7 +29,7 @@
             <!-- <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" data-toggle="lightbox">Justin Bieber - Love Yourself</a> -->
             <a href="http://localhost:8080/rnd-romance-project/test4.jsp" data-toggle="lightbox" data-gallery="example-gallery" class="col-sm-4">test</a>
             
-            <!-- <video src="test4.jsp"  autoplay controls loop width="300" height="250" data-toggle="lightbox"> aa</video> -->
+            <video src="test.mp4"  autoplay controls loop width="300" height="250" data-toggle="lightbox"> aa</video>
         </div>
     </div>
 </div>

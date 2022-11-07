@@ -1,4 +1,3 @@
-<%@page import="com.smhrd.model.memberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -6,7 +5,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>MENTORVATION</title>
+    <title>Gardener - Gardening Website Template</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -54,7 +53,7 @@
 	  font-size: 100%;
 	  font-family: "PT Sans", sans-serif;
 	  color: #505260;
-	  background-color: #fff;
+	  background-color: #3d3d3d;
 	}
 	
 	a {
@@ -544,12 +543,6 @@
 </head>
 
 <body>
-
-	<%  
-		memberDTO info = (memberDTO)session.getAttribute("info");
-	%>
-
-
     <!-- Spinner Start -->
     <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
         <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;"></div>
@@ -597,7 +590,7 @@
             <div class="navbar-nav ms-auto p-4 p-lg-0">
                 <a href="index.jsp" class="nav-item nav-link active">Home</a>
                 <a href="about.jsp" class="nav-item nav-link">Recommendation</a>
-                <a href="calendar_test.jsp" class="nav-item nav-link">Calendar</a>
+                <a href="service.jsp" class="nav-item nav-link">Calendar</a>
                 <a href="profile.jsp" class="nav-item nav-link">Profile</a>
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
@@ -615,12 +608,7 @@
          	<nav class="main-nav">
 				<ul>
 					<!-- inser more links here -->
-					<%if(info == null){ %>
-						<li><a class="cd-signin" href="#0">Sign in</a></li>
-					<%}else{ %>
-						<li><a class="cd-signin" href="UpdateMember.jsp">회원정보수정</a></li>
-						<li><a class="cd-signin" href="LogoutService.do">Logout</a></li>
-					<%} %>
+					<li><a class="cd-signin" href="#0">Sign in</a></li>
 				</ul>
 			</nav>
             
@@ -630,49 +618,35 @@
 
 
     <!-- Carousel Start -->
-    <div class="container-fluid p-0 wow fadeIn" data-wow-delay="0.1s">
+    <!-- <div class="container-fluid p-0 wow fadeIn" data-wow-delay="1.0s" style="width: 100em;"> -->
+    <br><br>
+    <div class="container-fluid p-0 wow fadeIn" style="width: 46em;">
         <div id="header-carousel" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img class="w-100" src="./img/metormain.png" alt="Image">
+            <div class="carousel-inner" style="border-radius: 8px;">
+                <div class="carousel-item active" style="width: 46em; height: 49em;">
+                    <img class="" src="./img/metormain.png" alt="Image" style="height: 100%">
                     <div class="carousel-caption">
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-7">
-                                    <h1 class="display-1 text-white mb-5 animated slideInDown">YOU WERE THE</h1>
-                                    <h1 class="display-1 text-white mb-5 animated slideInDown" style="font-color: green;!important">MENTOR</h1>
-                                    <a href="" class="btn btn-primary py-sm-3 px-sm-4">Get Mentor Recommendation</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img class="w-100" src="img/metormain.png" alt="Image">
-                    <div class="carousel-caption">
-                        <div class="container">
+                        <!-- <div class="container">
                             <div class="row justify-content-center">
                                 <div class="col-lg-8">
-                                    <h1 class="display-1 text-white mb-5 animated slideInDown">YOU COULD BE THE</h1>
-                                    <h1 class="display-1 text-white mb-5 animated slideInDown">MENTOR</h1>
-                                    <a href="" class="btn btn-primary py-sm-3 px-sm-4">Get Mentor Recommendation</a>
+                                    <h1 class="display-1 text-white mb-5 animated slideInDown">Do you have a mentor?</h1>
+                                    <a href="" class="btn btn-primary py-sm-3 px-sm-4">멘토추천받기</a>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
-                <div class="carousel-item">
-                    <img class="w-100" src="img/metormain.png" alt="Image">
+                <div class="carousel-item" style="width: 46em; height: 49em;">
+                    <img class="" src="img/metormain.png" alt="Image" style="height: 100%">
                     <div class="carousel-caption">
-                        <div class="container">
+                        <!-- <div class="container">
                             <div class="row justify-content-center">
                                 <div class="col-lg-7">
-                                    <h1 class="display-1 text-white mb-5 animated slideInDown">YOU ARE THE</h1>
-                                    <h1 class="display-1 text-white mb-5 animated slideInDown">MENTOR</h1>
-                                    <a href="" class="btn btn-primary py-sm-3 px-sm-4">Get Mentor Recommendation</a>
+                                    <h1 class="display-1 text-white mb-5 animated slideInDown">Your Create new hobby </h1>
+                                    <a href="" class="btn btn-primary py-sm-3 px-sm-4">취미 추천 받기</a>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -689,9 +663,10 @@
         </div>
     </div>
     <!-- Carousel End -->
-    
+
+
     <!-- Top Feature Start -->
-    <div class="container-fluid top-feature py-5 pt-lg-0">
+    <!-- <div class="container-fluid top-feature py-5 pt-lg-0">
         <div class="container py-5 pt-lg-0">
             <div class="row gx-0">
                 <div class="col-lg-4 wow fadeIn" data-wow-delay="0.1s">
@@ -701,8 +676,8 @@
                                 <i class="fa fa-times text-primary"></i>
                             </div>
                             <div class="ps-3">
-                                <h4>YOU WERE THE MENTOR</h4>
-                                <span>Content</span>
+                                <h4>No Hidden Cost</h4>
+                                <span>Clita erat ipsum lorem sit sed stet duo justo</span>
                             </div>
                         </div>
                     </div>
@@ -714,8 +689,8 @@
                                 <i class="fa fa-users text-primary"></i>
                             </div>
                             <div class="ps-3">
-                                <h4>YOU COULD BE THE METNOR</h4>
-                                <span>Content</span>
+                                <h4>Dedicated Team</h4>
+                                <span>Clita erat ipsum lorem sit sed stet duo justo</span>
                             </div>
                         </div>
                     </div>
@@ -727,392 +702,18 @@
                                 <i class="fa fa-phone text-primary"></i>
                             </div>
                             <div class="ps-3">
-                                <h4>YOU ARE THE MENTOR</h4>
-                                <span>Content</span>
+                                <h4>24/7 Available</h4>
+                                <span>Clita erat ipsum lorem sit sed stet duo justo</span>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- Top Feature End -->
-    
-    <!-- Mentor Recommendation -->
-	<!-- Projects Start -->
-    <div class="container-xxl py-5">
-        <div class="container">
-            <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
-                <p class="fs-5 fw-bold text-primary">MENTORVATION</p>
-                <h1 class="display-5 mb-5">Mentor Recommendation</h1>
-            </div>
-            <div class="row wow fadeInUp" data-wow-delay="0.3s">
-                <div class="col-12 text-center">
-                    <ul class="list-inline rounded mb-5" id="portfolio-flters">
-                        <li class="mx-2 active" data-filter="*">All</li>
-                        <li class="mx-2" data-filter=".first">Handshake</li>
-                        <li class="mx-2" data-filter=".second">Tea Time</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="row g-4 portfolio-container">
-                <div class="col-lg-4 col-md-6 portfolio-item first wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="portfolio-inner rounded">
-                        <img class="img-fluid" src="img/service-1.jpg" alt="">
-                        <div class="portfolio-text">
-                            <h4 class="text-white mb-4">Landscaping</h4>
-                            <div class="d-flex">
-                            <!-- 1. 버튼 영상보기 -->
-                            <!-- 2. 버튼 프로필 가기 -->
-                                <a class="btn btn-lg-square rounded-circle mx-2" href="img/service-1.jpg" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
-                                <a class="btn btn-lg-square rounded-circle mx-2" href=""><i class="fa fa-link"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 portfolio-item second wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="portfolio-inner rounded">
-                        <img class="img-fluid" src="img/service-2.jpg" alt="">
-                        <div class="portfolio-text">
-                            <h4 class="text-white mb-4">Pruning plants</h4>
-                            <div class="d-flex">
-                                <a class="btn btn-lg-square rounded-circle mx-2" href="img/service-2.jpg" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
-                                <a class="btn btn-lg-square rounded-circle mx-2" href=""><i class="fa fa-link"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 portfolio-item first wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="portfolio-inner rounded">
-                        <img class="img-fluid" src="img/service-3.jpg" alt="">
-                        <div class="portfolio-text">
-                            <h4 class="text-white mb-4">Irrigation & Drainage</h4>
-                            <div class="d-flex">
-                                <a class="btn btn-lg-square rounded-circle mx-2" href="img/service-3.jpg" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
-                                <a class="btn btn-lg-square rounded-circle mx-2" href=""><i class="fa fa-link"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 portfolio-item second wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="portfolio-inner rounded">
-                        <img class="img-fluid" src="img/service-4.jpg" alt="">
-                        <div class="portfolio-text">
-                            <h4 class="text-white mb-4">Garden Maintenance</h4>
-                            <div class="d-flex">
-                                <a class="btn btn-lg-square rounded-circle mx-2" href="img/service-4.jpg" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
-                                <a class="btn btn-lg-square rounded-circle mx-2" href=""><i class="fa fa-link"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 portfolio-item first wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="portfolio-inner rounded">
-                        <img class="img-fluid" src="img/service-5.jpg" alt="">
-                        <div class="portfolio-text">
-                            <h4 class="text-white mb-4">Green Technology</h4>
-                            <div class="d-flex">
-                                <a class="btn btn-lg-square rounded-circle mx-2" href="img/service-5.jpg" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
-                                <a class="btn btn-lg-square rounded-circle mx-2" href=""><i class="fa fa-link"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 portfolio-item second wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="portfolio-inner rounded">
-                        <img class="img-fluid" src="img/service-6.jpg" alt="">
-                        <div class="portfolio-text">
-                            <h4 class="text-white mb-4">Urban Gardening</h4>
-                            <div class="d-flex">
-                                <!-- <a class="btn btn-lg-square rounded-circle mx-2" href="img/test.mp4" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
-                                <a class="btn btn-lg-square rounded-circle mx-2" href=""><i class="fa fa-link"></i></a> -->
-                                <iframe width="auto" height="auto" src="https://www.youtube.com/embed/03qXDRVIPcA" title="K-미래에서는 모두가 승자입니다 | 샘 리처드 펜실베니아주립대 교수, 로리 멀비 ‘World In Conversation’ 디렉터 | 지식 GSEEK | 세바시 1556회" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-   	<div style="text-align:center;">
-   		<a href="" class="btn btn-primary py-sm-3 px-sm-4" style="background: #263138; border-radius: 20px; border-color:white;">Recommend Mentor Video</a>
-   	</div>
-   	<br><br>
-   	
-    
-    <!-- Projects End -->
-    <!-- Mentor Recommendation End-->
-	
-	    
-    <!-- Back to Top -->
-    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
-    
-    <!-- cd-user-modal Start -->
-    <div class="cd-user-modal">
-		<!-- this is the entire modal form, including the background -->
-		<div class="cd-user-modal-container">
-			<!-- this is the container wrapper -->
-			<ul class="cd-switcher">
-				<li><a href="#0">Sign in</a></li>
-				<li><a href="#0">New account</a></li>
-			</ul>
-
-			<div id="cd-login">
-				<!-- log in form -->
-				<form action="LoginService.do" class="cd-form" method="post">
-					<p class="fieldset">
-						<label class="image-replace cd-email" for="signin-email">E-mail</label>
-						<input class="full-width has-padding has-border" id="signin-email"
-							type="email" name="member_id" placeholder="E-mail"> <span
-							class="cd-error-message">Error message here!</span>
-					</p>
-
-					<p class="fieldset">
-						<label class="image-replace cd-password" for="signin-password">Password</label>
-						<input class="full-width has-padding has-border"
-							id="signin-password" type="text" name="member_pw" placeholder="Password">
-						<a href="#0" class="hide-password">Hide</a> <span
-							class="cd-error-message">Error message here!</span>
-					</p>
-
-					<p class="fieldset">
-						<input type="checkbox" id="remember-me" checked> <label
-							for="remember-me">Remember me</label>
-					</p>
-
-					<p class="fieldset">
-						<input class="full-width" type="submit" value="Login">
-					</p>
-				</form>
-
-				<p class="cd-form-bottom-message">
-					<a href="#0">Forgot your password?</a>
-				</p>
-				<!-- <a href="#0" class="cd-close-form">Close</a> -->
-			</div>
-			<!-- cd-login -->
-
-			<div id="cd-signup">
-				<!-- sign up form -->
-				<form action="JoinService.do" class="cd-form" method="post">
-					<p class="fieldset">
-						<label class="image-replace cd-username" for="signup-username">Username</label>
-						<input class="full-width has-padding has-border" name="member_name"
-							id="signup-username" type="text" placeholder="Username">
-						<span class="cd-error-message">Error message here!</span>
-					</p>
-
-					<p class="fieldset">
-						<label class="image-replace cd-email" for="signup-email">E-mail</label>
-						<input class="full-width has-padding has-border" name="member_id" id="signup-email"
-							type="email" placeholder="E-mail"> <span
-							class="cd-error-message">Error message here!</span>
-					</p>
-
-					<p class="fieldset">
-						<label class="image-replace cd-password" for="signup-password">Password</label>
-						<input class="full-width has-padding has-border"
-							id="signup-password" type="text" name="member_pw" placeholder="Password">
-						<a href="#0" class="hide-password">Hide</a> <span
-							class="cd-error-message">Error message here!</span>
-					</p>
-
-					<p class="fieldset">
-						<input type="checkbox" id="accept-terms"> <label
-							for="accept-terms">I agree to the <a href="#0">Terms</a></label>
-					</p>
-
-					<p class="fieldset">
-						<input class="full-width has-padding" type="submit"
-							value="Create account">
-					</p>
-				</form>
-
-				<!-- <a href="#0" class="cd-close-form">Close</a> -->
-			</div>
-
-			<!-- cd-signup -->
-			<div id="cd-reset-password">
-				<!-- reset password form -->
-				<p class="cd-form-message">Lost your password? Please enter your
-					email address. You will receive a link to create a new password.</p>
-
-				<form class="cd-form">
-					<p class="fieldset">
-						<label class="image-replace cd-email" for="reset-email">E-mail</label>
-						<input class="full-width has-padding has-border" id="reset-email"
-							type="email" placeholder="E-mail"> <span
-							class="cd-error-message">Error message here!</span>
-					</p>
-
-					<p class="fieldset">
-						<input class="full-width has-padding" type="submit"
-							value="Reset password">
-					</p>
-				</form>
-
-				<p class="cd-form-bottom-message">
-					<a href="#0">Back to log-in</a>
-				</p>
-			</div>
-			<!-- cd-reset-password -->
-			<a href="#0" class="cd-close-form">Close</a>
-		</div>
-		<!-- cd-user-modal-container -->
-	</div>
-	<!-- cd-user-modal -->
-	
-	<!-- JavaScript -->
-	<script>
-		jQuery(document).ready(function($){
-		  var $form_modal = $('.cd-user-modal'),
-		    $form_login = $form_modal.find('#cd-login'),
-		    $form_signup = $form_modal.find('#cd-signup'),
-		    $form_forgot_password = $form_modal.find('#cd-reset-password'),
-		    $form_modal_tab = $('.cd-switcher'),
-		    $tab_login = $form_modal_tab.children('li').eq(0).children('a'),
-		    $tab_signup = $form_modal_tab.children('li').eq(1).children('a'),
-		    $forgot_password_link = $form_login.find('.cd-form-bottom-message a'),
-		    $back_to_login_link = $form_forgot_password.find('.cd-form-bottom-message a'),
-		    $main_nav = $('.main-nav');
-
-		  //open modal
-		  $main_nav.on('click', function(event){
-
-		    if( $(event.target).is($main_nav) ) {
-		      // on mobile open the submenu
-		      $(this).children('ul').toggleClass('is-visible');
-		    } else {
-		      // on mobile close submenu
-		      $main_nav.children('ul').removeClass('is-visible');
-		      //show modal layer
-		      $form_modal.addClass('is-visible'); 
-		      //show the selected form
-		      ( $(event.target).is('.cd-signup') ) ? signup_selected() : login_selected();
-		    }
-
-		  });
-
-		  //close modal
-		  $('.cd-user-modal').on('click', function(event){
-		    if( $(event.target).is($form_modal) || $(event.target).is('.cd-close-form') ) {
-		      $form_modal.removeClass('is-visible');
-		    } 
-		  });
-		  //close modal when clicking the esc keyboard button
-		  $(document).keyup(function(event){
-		      if(event.which=='27'){
-		        $form_modal.removeClass('is-visible');
-		      }
-		    });
-
-		  //switch from a tab to another
-		  $form_modal_tab.on('click', function(event) {
-		    event.preventDefault();
-		    ( $(event.target).is( $tab_login ) ) ? login_selected() : signup_selected();
-		  });
-
-		  //hide or show password
-		  $('.hide-password').on('click', function(){
-		    var $this= $(this),
-		      $password_field = $this.prev('input');
-		    
-		    ( 'password' == $password_field.attr('type') ) ? $password_field.attr('type', 'text') : $password_field.attr('type', 'password');
-		    ( 'Hide' == $this.text() ) ? $this.text('Show') : $this.text('Hide');
-		    //focus and move cursor to the end of input field
-		    $password_field.putCursorAtEnd();
-		  });
-
-		  //show forgot-password form 
-		  $forgot_password_link.on('click', function(event){
-		    event.preventDefault();
-		    forgot_password_selected();
-		  });
-
-		  //back to login from the forgot-password form
-		  $back_to_login_link.on('click', function(event){
-		    event.preventDefault();
-		    login_selected();
-		  });
-
-		  function login_selected(){
-		    $form_login.addClass('is-selected');
-		    $form_signup.removeClass('is-selected');
-		    $form_forgot_password.removeClass('is-selected');
-		    $tab_login.addClass('selected');
-		    $tab_signup.removeClass('selected');
-		  }
-
-		  function signup_selected(){
-		    $form_login.removeClass('is-selected');
-		    $form_signup.addClass('is-selected');
-		    
-		    $form_forgot_password.removeClass('is-selected');
-		    $tab_login.removeClass('selected');
-		    $tab_signup.addClass('selected');
-		  }
-
-		  function forgot_password_selected(){
-		    $form_login.removeClass('is-selected');
-		    $form_signup.removeClass('is-selected');
-		    $form_forgot_password.addClass('is-selected');
-		  }
-
-		  //REMOVE THIS - it's just to show error messages 
-		  /* $form_login.find('input[type="submit"]').on('click', function(event){
-		    event.preventDefault();
-		    $form_login.find('input[type="email"]').toggleClass('has-error').next('span').toggleClass('is-visible');
-		  });
-		  $form_signup.find('input[type="submit"]').on('click', function(event){
-		    event.preventDefault();
-		    $form_signup.find('input[type="email"]').toggleClass('has-error').next('span').toggleClass('is-visible');
-		  }); */
 
 
-		  //IE9 placeholder fallback
-		  //credits http://www.hagenburger.net/BLOG/HTML5-Input-Placeholder-Fix-With-jQuery.html
-		  if(!Modernizr.input.placeholder){
-		    $('[placeholder]').focus(function() {
-		      var input = $(this);
-		      if (input.val() == input.attr('placeholder')) {
-		        input.val('');
-		        }
-		    }).blur(function() {
-		      var input = $(this);
-		        if (input.val() == '' || input.val() == input.attr('placeholder')) {
-		        input.val(input.attr('placeholder'));
-		        }
-		    }).blur();
-		    $('[placeholder]').parents('form').submit(function() {
-		        $(this).find('[placeholder]').each(function() {
-		        var input = $(this);
-		        if (input.val() == input.attr('placeholder')) {
-		          input.val('');
-		        }
-		        })
-		    });
-		  }
-
-		});
-
-
-		//credits https://css-tricks.com/snippets/jquery/move-cursor-to-end-of-textarea-or-input/
-		jQuery.fn.putCursorAtEnd = function() {
-		  return this.each(function() {
-		      // If this function exists...
-		      if (this.setSelectionRange) {
-		          // ... then use it (Doesn't work in IE)
-		          // Double the length because Opera is inconsistent about whether a carriage return is one character or two. Sigh.
-		          var len = $(this).val().length * 2;
-		          this.setSelectionRange(len, len);
-		      } else {
-		        // ... otherwise replace the contents with itself
-		        // (Doesn't work in Google Chrome)
-		          $(this).val($(this).val());
-		      }
-		  });
-		};
-	</script>
   
 
     <!-- JavaScript Libraries -->
