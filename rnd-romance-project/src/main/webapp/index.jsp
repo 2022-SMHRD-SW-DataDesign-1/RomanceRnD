@@ -596,7 +596,7 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
                 <a href="index.jsp" class="nav-item nav-link active">Home</a>
-                <a href="about.jsp" class="nav-item nav-link">Recommendation</a>
+                <a href="recommendation.jsp" class="nav-item nav-link">Recommendation</a>
                 <a href="calendar_test.jsp" class="nav-item nav-link">Calendar</a>
                 <a href="profile.jsp" class="nav-item nav-link">Profile</a>
                 <div class="nav-item dropdown">

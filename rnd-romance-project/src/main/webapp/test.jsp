@@ -18,18 +18,9 @@
 	<div class="row justify-content-center">
     <div class="col-md-8">
         <div class="row">
-            	<!-- <video src="img/test.mp4" controls muted loop poster="img/about.jpg"data-toggle="lightbox" class="col-sm-4" data-title="모달 제목" data-footer="모달 푸터내용">
-            	</video> -->
-            <a href="https://unsplash.it/1200/768.jpg?image=252" data-toggle="lightbox" data-gallery="example-gallery" class="col-sm-4">
+            <a href="img/test.mp4" data-toggle="lightbox" data-gallery="example-gallery" class="col-sm-4">
                 <img src="https://unsplash.it/600.jpg?image=252" class="img-fluid rounded">
             </a>
-            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" data-toggle="lightbox" data-gallery="example-gallery" class="col-sm-4">
-                <img src="https://unsplash.it/600.jpg?image=253" class="img-fluid rounded">
-            </a>
-            <!-- <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" data-toggle="lightbox">Justin Bieber - Love Yourself</a> -->
-            <a href="http://localhost:8080/rnd-romance-project/test4.jsp" data-toggle="lightbox" data-gallery="example-gallery" class="col-sm-4">test</a>
-            
-            <video src="test.mp4"  autoplay controls loop width="300" height="250" data-toggle="lightbox"> aa</video>
         </div>
     </div>
 </div>

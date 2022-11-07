@@ -643,11 +643,20 @@
 
     <!-- Projects Start -->
     <div class="container-xxl py-5">
-        <div class="container">
-            <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
-                <p class="fs-5 fw-bold text-primary">Profile</p>
-                <h1 class="display-5 mb-5">염 건 웅</h1>
-     			<img src="img/about.jpg" alt="profile-user-img" class="profile-user-img-img" style="">
+        <div class="container" style="text-align: center">
+           	<div style="text-align: right;">
+           		<input type="text">
+           		<input type="button" value="검색">
+           	</div>
+           	<br><br><br><br><br>
+            <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px; display:inline-flex;">
+                <!-- <p class="fs-5 fw-bold text-primary">Profile</p> -->
+     			<img src="img/profile_image.png" alt="profile-user-img" class="profile-user-img-img" style="border-style: solid; border-color: black;;">
+                <div>
+	                <h1 class="display-5 mb-5" style="padding: 0em; color: black; display: table-cell">USER</h1>
+	                <textarea rows="" cols=""></textarea>
+                </div>
+                
             </div>
     		<br><br>
             <div class="row wow fadeInUp" data-wow-delay="0.3s">
