@@ -205,7 +205,7 @@
 	    border: none;
 	  }
 	  .main-nav a.cd-signin {
-	    background: #27ae60;
+	    background:#4a69bd;
 	    border: none;
 	  }
 	}
@@ -648,33 +648,25 @@
            		<input type="text">
            		<input type="button" value="검색">
            	</div>
-           	<br>
-           	<div style="text-align: right">
-	           	<input type="button" value="업로드">
-           	</div>
            	<br><br><br><br><br>
             <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px; display:inline-flex;">
                 <!-- <p class="fs-5 fw-bold text-primary">Profile</p> -->
      			<img src="img/profile_image.png" alt="profile-user-img" class="profile-user-img-img" style="border-style: solid; border-color: black;;">
-                <div style="padding-left: 6em; text-align: left;">
+                <div>
 	                <h1 class="display-5 mb-5" style="padding: 0em; color: black; display: table-cell">USER</h1>
 	                <textarea rows="" cols=""></textarea>
-					<div>
-		                <input type="button" value="핸드쉐이크">
-		                <input type="button" value="티타임">
-		                <input type="button" value="스케줄">
-					</div>
                 </div>
+                
             </div>
     		<br><br>
             <div class="row wow fadeInUp" data-wow-delay="0.3s">
-                <div class="col-12 text-center">
+               <!--  <div class="col-12 text-center">
                     <ul class="list-inline rounded mb-5" id="portfolio-flters">
                         <li class="mx-2 active" data-filter="*">전체</li>
                         <li class="mx-2" data-filter=".first">이미지</li>
                         <li class="mx-2" data-filter=".second">영상</li>
                     </ul>
-                </div>
+                </div> -->
             </div>
             <div class="row g-4 portfolio-container">
                 <div class="col-lg-4 col-md-6 portfolio-item first wow fadeInUp" data-wow-delay="0.1s">

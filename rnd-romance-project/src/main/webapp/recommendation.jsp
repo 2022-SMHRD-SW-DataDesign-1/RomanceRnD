@@ -205,7 +205,7 @@
 	    border: none;
 	  }
 	  .main-nav a.cd-signin {
-	    background: #27ae60;
+	    background:#4a69bd;
 	    border: none;
 	  }
 	}

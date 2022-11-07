@@ -34,7 +34,71 @@
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
    <style>
-   
+   html {font-size:20px}
+
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4,h5, form, fieldset, p, button, input {
+	margin:0;
+	padding:0;
+	font-family: 'Noto Sans KR', 'NanumGothic', '나눔고딕';
+	line-height:1.5;
+	letter-spacing:-0.5px
+}
+
+input, select {
+	vertical-align:middle;
+	color:#666;
+   outline:none;
+}
+
+a {text-decoration:none}
+
+img, fieldset {border:none}
+ul li {	list-style:none outside none}
+ol li {	list-style:none outside none}
+
+caption, legend {
+	overflow:hidden;
+	position:absolute;
+	top:0;
+	left:-999em;
+	width:0;
+	height:0;
+	font-size:0;
+	line-height:0;
+	text-align:left;
+}
+
+strong {font-weight:500}
+
+table {table-layout:fixed;word-break:break-all}
+
+textarea { line-height:24px;
+		   letter-spacing:1px;
+		    border:1px solid #ddd;
+			overflow-y:scroll;
+			resize:none;}
+			
+			
+html {height:100%}
+body {height:100%;overflow:hidden}
+
+
+
+#wrapper{display:flex; align-items:center; justify-content:center; height:100%; background: url(img/Update_bg03.jpg) no-repeat center ,#ebf7ff; background-size:cover; 
+	margin-top:-3rem;}
+
+input::placeholder{color: #999; font-size: .65rem; padding: .2rem 0}
+
+.user_modify{width: 100%; max-width: 35rem; background: #fff; border-radius: 15px; padding: 2.5rem 0; margin: 0 auto; box-shadow: 6px 6px 6px rgb(0 0 0 / 30%);}
+.modify_wrap{width:fit-content; margin:0 auto;}
+.user_modify h4{font-size: 1.5rem; color:#333; font-weight: bold; padding-bottom: 2.5rem;}
+.user_modify p{font-size: .85rem; color:#777; padding-bottom: 1.5rem;}
+
+.user_modify .modify_content ul {width: fit-content; margin: 0 auto;}
+.user_modify .modify_content ul > li {display: block; color: #555; padding-bottom: .2rem;}
+.user_modify .modify_content ul > li > input{font-size: .75rem; border: 1px solid #dedede; border-radius: 5px; padding: .5rem 1.5rem .5rem .5rem;}
+.user_modify .modify_content ul > li:last-child{padding-bottom: 0; padding-top: .5rem;}
+.user_modify .modify_content .join_btn button{width: 100%; background: #8c9eff; font-size: .6rem; font-weight: 500; color: #fff; border-radius: 5px; border: none; padding: .35rem 0;}
    </style>
    </head>
    <body style="text-align: center;">
@@ -76,23 +140,25 @@
     </nav>
     <!-- Navbar End -->
 
-      <!-- Wrapper -->
+     <!-- Wrapper -->
          <div id="wrapper">
             <!-- Menu -->
-               <nav id="Update">
-                  <div class="Update_item" style="width:100% margin:0 auto">   
-                     <ul class="actions vertical">
-                        <li><h5>회원 정보 수정</h5></li>
-                           <form action="UpdateService.do" method="post">
-                              <li>접속한 Email : <%= info.getMember_id() %></li>
-                              <li>비밀번호<input name ="member_pw" type="password" placeholder="PW를 입력하세요" style="width: 500px; margin: 0 auto;"></li>
-                              <li>이름<input name ="member_name" type="text" placeholder="이름을 입력하세요" style="width: 500px; margin: 0 auto;"></li>
-                              <li><input type="submit" value="JoinUs" class="button fit" style="width: 500px; margin: 0 auto;"></li>
-                           </form>
-                     </ul>
-                  </div>   
-               </nav>         
+               <div class="user_modify">
+	               <div class="modify_wrap">
+	                  <img src="img/Update.png"/>
+	                  <h4>회원 정보 수정</h4>
+	                  <p>접속한 Email : <%=info.getMember_id() %></p>
+	                  <div class="modify_content">
+	                     <ul>
+	                        <li class="name"><input placeholder="이름을 작성하세요"></li>
+	                        <li class="password"><input placeholder="비밀번호를 작성하세요"></li>
+	                        <li class="join_btn"><button>OK</button></li>
+	                     </ul>
+	                  </div>
+                  </div>
+               </div>
          </div>
+     <!-- Wrapper End-->
       <!-- Scripts -->
          <script src="assets/js/jquery.min.js"></script>
          <script src="assets/js/jquery.scrolly.min.js"></script>
