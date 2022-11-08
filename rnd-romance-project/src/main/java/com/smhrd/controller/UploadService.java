@@ -8,7 +8,10 @@ import com.smhrd.model.videoDTO;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.math.BigDecimal;
 import java.net.URLEncoder;
+import java.sql.Date;
+import java.text.SimpleDateFormat;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -44,26 +47,36 @@ public class UploadService extends HttpServlet implements Command {
 		}
 		// new MultipartRequest(request, 저장경로, 사이즈, 인코딩 방식, 중복제거)
 
-		String video_seq = multi.getParameter("video_seq");
-		String upload_path = multi.getFilesystemName("upload_path");
+		BigDecimal video_seq = new BigDecimal(multi.getParameter("video_seq"));
+		String member_id = multi.getParameter("member_id");
+		String video_file = multi.getFilesystemName("video_file");
+		BigDecimal video_price = new BigDecimal(multi.getParameter("video_price"));
+		String video_desc = multi.getParameter("video_desc");
+		// date 타입 어케 받아오는 지 모르겠음.
+		String permissions = multi.getParameter("permissions");
+		
 		// 주의점 filename은 객체가 좀 다르다 getFilesystemName으로
 		//String filename = multi.getFilesystemName("filename");
 
 		try {
 			// filename = URLEncoder.encode(filename, "UTF-8");
-			upload_path = URLEncoder.encode(upload_path , "UTF-8");
+			video_file = URLEncoder.encode(video_file , "UTF-8");
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
 		// String content = multi.getParameter("content");
 
 		System.out.println("video_seq : " + video_seq);
-		System.out.println("upload_path :" + upload_path);
+		System.out.println("member_id :" + member_id);
+		System.out.println("video_file :" + video_file);
+		System.out.println("video_price :" + video_price);
+		System.out.println("video_desc :" + video_desc);
+		System.out.println("permissions :" + permissions);
 		
 		// System.out.println("content : "+ content);
 		//System.out.println("filename :"+filename);
 
-		videoDTO dto = new videoDTO(video_seq, upload_path);
+		videoDTO dto = new videoDTO(video_seq, member_id, video_file, video_price, video_desc, permissions);
 
 		int row = new videoDAO().upload(dto);
 

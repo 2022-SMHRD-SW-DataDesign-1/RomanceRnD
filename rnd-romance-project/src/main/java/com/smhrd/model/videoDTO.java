@@ -21,4 +21,20 @@ public class videoDTO {
 	private Date upload_dt;
 	private String permissions;
 	
+
+	public videoDTO(BigDecimal video_seq, String video_file) {
+		this.video_seq = video_seq;
+		this.video_file = video_file;
+	}
+
+
+	public videoDTO(BigDecimal video_seq, String member_id, String video_file, BigDecimal video_price,
+			String video_desc, String permissions) {
+		this.video_seq = video_seq;
+		this.member_id = member_id;
+		this.video_file = video_file;
+		this.video_price = video_price;
+		this.video_desc = video_desc;
+		this.permissions = permissions;
+	}
 }

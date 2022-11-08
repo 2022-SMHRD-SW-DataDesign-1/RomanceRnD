@@ -544,6 +544,10 @@
 </head>
 
 <body>
+	
+	<%  
+		memberDTO info = (memberDTO)session.getAttribute("info");
+	%>
     <!-- Spinner Start -->
     <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
         <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;"></div>
@@ -576,8 +580,7 @@
         </div>
     </div> -->
     <!-- Topbar End -->
-
-	<% memberDTO info = (memberDTO)session.getAttribute("info"); %>
+    
      <!-- Navbar Start -->
     	<!-- 염건웅_수정: 상단 navbar 높이 수정 -->
 		<nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0" style="height: 6em;">

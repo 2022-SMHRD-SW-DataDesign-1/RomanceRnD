@@ -789,7 +789,7 @@ header[role=banner]::after {
            	</div>
            	
            	<div style="text-align: right">
-	           	<input type="button" value="Upload">
+	           	<a href="Upload.jsp"><input type="button" value="Upload"></a>>
            	</div>
             <div class="text-center mx-auto wow fadeInUp"
 				data-wow-delay="0.1s" style="display:inline-flex;">
