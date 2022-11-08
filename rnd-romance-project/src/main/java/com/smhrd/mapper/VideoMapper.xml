@@ -5,6 +5,15 @@
   
   <mapper namespace="com.smhrd.VideoMapper">
   	<insert id="upload" parameterType="videoDTO">
-  		insert into upload_video_table values(#{video_seq}, #{member_id}, #{video_file}, #{video_price}, #{video_desc}, #{upload_dt}, #{permissions})
+  		insert into upload_video_table values(
+        vid_seq.nextval
+    ,   #{member_id}
+    ,   #{video_file}
+    ,   #{video_price}
+    ,   #{video_desc}
+    ,   sysdate
+    ,   'Y'
+    ,   #{video_path}
+		)
   	</insert>
   </mapper>

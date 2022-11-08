@@ -631,7 +631,7 @@ header[role=banner]::after {
 	background: #eee;
 	display: flex;
 	flex-direction: row;
-	padding: 0 0.2rem;
+	padding: 0 1rem;
 	height: 100%;
 	width: 100%;
 	justify-content: space-evenly;
@@ -649,12 +649,15 @@ header[role=banner]::after {
 </head>
 
 <body>
-
+	<!-- Scriptlet -->
 	<%
-	/* dwyane */
-	String profile_id = request.getParameter("profile_id");
-	System.out.println(profile_id);
+		/* dwyane */
+		String profile_id = request.getParameter("profile_id");
+		System.out.println(profile_id);
+		
+		/* memberDTO info = (memberDTO)session.getAttribute("info"); */
 	%>
+	
 	<!-- Spinner Start -->
 	<div id="spinner"
 		class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
@@ -704,7 +707,7 @@ header[role=banner]::after {
 		</a>
 
 		<!-- 한가연 검색창 만들기 -->
-		<div class="search_box" style="margin-left: 150px">
+		<div class="search_box" style="margin-left: 200px">
 			<div>
 				<input class="search_text" type="text" placeholder="search">
 			</div>
@@ -782,6 +785,38 @@ header[role=banner]::after {
            	
            	<div style="text-align: right">
 	           	<!-- <a href="Upload.jsp"><input type="button" value="Upload"></a> -->
+	           	<!-- Button trigger modal -->
+				<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+					Upload
+				</button>
+				
+				<!-- Modal -->
+				<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+					<div class="modal-dialog modal-fullscreen">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h1 class="modal-title fs-5" id="exampleModalLabel">Upload</h1>
+								<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+							</div>
+								<div class="modal-body">
+									<form action="UploadService.do" method="post" enctype="multipart/form-data">
+										<!-- 비디오시퀀스<input type="number" name="video_seq"><br>
+										멤버아이디<input type="text" name="member_id"><br> -->
+										비디오파일<input type="file" name="video_file"><br>
+										비디오가격<input type="number" name="video_price"><br>
+										비디오설명<input type="text" name="video_desc"><br>
+										<!-- 비디오업로드날짜<input type="date" name="upload_dt"><br>
+										허용권한<input type="text" name="permissions"><br> -->
+										<input type="submit">
+									</form>
+								</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+								<button type="button" class="btn btn-primary">Save changes</button>
+							</div>
+						</div>
+					</div>
+				</div>
            	</div>
             <div class="text-center mx-auto wow fadeInUp"
 				data-wow-delay="0.1s" style="display:inline-flex;">
