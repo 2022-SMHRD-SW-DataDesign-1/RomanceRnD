@@ -1,3 +1,7 @@
+<%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
+<%@page import="com.smhrd.model.memberDTO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.smhrd.model.memberDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -5,7 +9,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Gardener - Gardening Website Template</title>
+    <title>Mentorvation</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -551,6 +555,12 @@
 </head>
 
 <body>
+
+	<%
+		/* dwyane */
+		String profile_id = request.getParameter("profile_id");
+		System.out.println(profile_id);
+	%>
     <!-- Spinner Start -->
     <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
         <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;"></div>
@@ -646,17 +656,16 @@
         <div class="container" style="text-align: center">
            	<div style="text-align: right;">
            		<input type="text">
-           		<input type="button" value="검색">
+           		<input type="button" value="Search">
            	</div>
            	<br>
            	<div style="text-align: right">
-	           	<input type="button" value="업로드">
+	           	<input type="button" value="Upload">
            	</div>
-           	<br><br><br><br><br>
             <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="display:inline-flex;">
                 <!-- <p class="fs-5 fw-bold text-primary">Profile</p> -->
      			<img src="img/profile_image.png" alt="profile-user-img" class="profile-user-img-img" style="border-style: solid; border-color: black;;">
-                <div style="padding-left: 6em; text-align: left;">
+                <div style="padding-left: 6em; text-align: left;padding-top: 3rem;">
 					
 					<!-- <div style="text-align: center">
 						<div style="text-align: center">
@@ -671,32 +680,39 @@
 						<table style="border: 1px">
 							<tr style="text-align: center; width:16em;">
 								<td style="text-align: center;width: 8em;">
-								10명
+								10
 								</td>
 								<td style="text-align: center;width: 8em;">
-								10명
+								10
 								</td>
 							</tr>
 							<tr style="text-align: center; width: 16em;">
 								<td style="text-align: center;width: 8em;">
-								멘토
+								Mentor
 								</td>
 								<td style="text-align: center;width: 8em;">
-								멘티
+								Mentee
 								</td>
 							</tr>
 						</table>
 					</div>
-					<br><br><br><br>
-					<div>
-		                <input type="button" value="Handshke">
-		                <input type="button" value="Tea Time">
-		                <input type="button" value="Schedule">
+					<div style="margin: 1rem auto;">
+						<button value="Handshake" style="border: none;border-radius: 1rem;">Handshake</button>
+						<button value="Tea-Time" style="border: none;border-radius: 1rem;">Tea-Time</button>
+						<button value="Schedule" style="border: none;border-radius: 1rem;">Schedule</button>
 					</div>
                 </div>
             </div>
             <div style="text-align: center; padding-right: 22em; ">
-	            <h1 class="display-5 mb-5" style="padding: 0em; color: black;margin-bottom: 0rem !important;">USER</h1>
+            <!-- dwyane -->
+            	<%
+					memberDTO dto = new memberDTO();
+            		memberDAO dao = new memberDAO();
+					
+					memberDTO selected_member = dao.selectAll(profile_id);
+					System.out.println("info: "+ selected_member);
+				%>
+	            <h1 class="display-5 mb-5" style="padding: 0em; color: black;margin-bottom: 0rem !important;"><%=selected_member.getMember_name() %></h1>
 				<textarea rows="" cols=""></textarea>
             </div>
     		<br><br>

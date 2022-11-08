@@ -44,4 +44,14 @@ public class memberDAO {
 			return row;
 			
 		}
+	
+	// 회원정보 전체 조회 메소드
+		public memberDTO selectAll(String dto) {
+			SqlSession session = sqlSessionFactory.openSession(true);
+			memberDTO info = session.selectOne("selectAll", dto);
+			
+			session.close();
+			
+			return info;
+		}
 }
