@@ -18,6 +18,7 @@ public class memberDTO {
    private String member_type;
    private String member_profile;
    private String member_auth;
+   private String member_mbti;
 
    public memberDTO(String member_id, String member_pw, String member_name) {
       this.member_id = member_id;
@@ -25,8 +26,8 @@ public class memberDTO {
       this.member_name = member_name;
    }
 
-   public memberDTO(String member_id, String member_pw) {
-      this.member_id = member_id;
+   public memberDTO(String member_name, String member_pw) {
+      this.member_name = member_name;
       this.member_pw = member_pw;
    }
 
@@ -39,5 +40,11 @@ public class memberDTO {
       this.member_profile = member_profile;
       this.member_auth = member_auth;
    }
+
+public memberDTO(String member_pw) {
+	// TODO Auto-generated constructor stub
+	this.member_pw = member_pw;
+	
+}
 
 }

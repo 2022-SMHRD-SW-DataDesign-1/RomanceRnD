@@ -35,7 +35,7 @@ public class UploadService extends HttpServlet implements Command {
 		
 		// 중복제거 (중복 이름 제거) 해주는 객체
 		DefaultFileRenamePolicy rename = new DefaultFileRenamePolicy();
-
+		
 		MultipartRequest multi = null;
 		try {
 			multi = new MultipartRequest(request, savePath, maxSize, encoding, rename);
@@ -46,7 +46,6 @@ public class UploadService extends HttpServlet implements Command {
 
 		String video_seq = multi.getParameter("video_seq");
 		String upload_path = multi.getFilesystemName("upload_path");
-	
 		// 주의점 filename은 객체가 좀 다르다 getFilesystemName으로
 		//String filename = multi.getFilesystemName("filename");
 

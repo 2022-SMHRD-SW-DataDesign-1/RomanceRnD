@@ -1,5 +1,8 @@
 package com.smhrd.model;
 
+import java.math.BigDecimal;
+import java.sql.Date;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,13 +12,13 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class videoDTO {
 
-	private String video_seq;
-	private String upload_path;
-	private int uc_seq;
+	private BigDecimal video_seq;
+	private String member_id;
+	//private String upload_path;
+	private String video_file;
+	private BigDecimal video_price;
+	private String video_desc;
+	private Date upload_dt;
+	private String permissions;
 	
-	
-	public videoDTO(String video_seq, String upload_path) {
-		this.video_seq = video_seq;
-		this.upload_path = upload_path;
-	}
 }

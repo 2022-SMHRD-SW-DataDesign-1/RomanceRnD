@@ -862,9 +862,9 @@
 				<!-- log in form -->
 				<form action="LoginService.do" class="cd-form" method="post">
 					<p class="fieldset">
-						<label class="image-replace cd-email" for="signin-email">E-mail</label>
+						<label class="image-replace cd-email" for="signin-email">Username</label>
 						<input class="full-width has-padding has-border" id="signin-email"
-							type="email" name="member_id" placeholder="E-mail"> <span
+							type="text" name="member_name" placeholder="Username"> <span
 							class="cd-error-message">Error message here!</span>
 					</p>
 

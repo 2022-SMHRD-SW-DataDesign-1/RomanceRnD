@@ -16,14 +16,14 @@ public class LoginService implements Command {
 		
 
 		// 2. 사용자가 입력한 데이터 받아오기
-		String member_id = request.getParameter("member_id");
+		String member_name = request.getParameter("member_name");
 		String member_pw = request.getParameter("member_pw");
 		
-		System.out.println("member_id : "+ member_id);
+		System.out.println("member_name : "+ member_name);
 		System.out.println("member_pw : "+ member_pw);
 		
 		// 3. dto로 묶기(매개 변수로 들어갈 값 : name, pw로 바꾸어야함)
-		memberDTO dto = new memberDTO(member_id, member_pw);
+		memberDTO dto = new memberDTO(member_name, member_pw);
 		
 		// 4. login메소드 호출
 		memberDTO info = new memberDAO().login(dto);

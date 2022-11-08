@@ -5,15 +5,15 @@
 <mapper namespace="com.smhrd.mapper.MemberMapper">
 
 	<insert id="join" parameterType="memberDTO">
-		insert into member_table values(#{member_id}, #{member_pw}, #{member_name}, 1 , 'm', 'test', 'test')
+		insert into member_table values(#{member_id}, #{member_pw}, #{member_name}, 1 , 'm', 'test', 'test', 'test')
 	</insert>
 	
 	<select id="login" parameterType="memberDTO" resultType="memberDTO">
-  		select * from member_table where member_id = #{member_id} and member_pw = #{member_pw}
+  		select * from member_table where member_name = #{member_name} and member_pw = #{member_pw}
   	</select>
 	
-	<update id="updateId" parameterType="memberDTO">
-  		update member_table set member_pw = #{member_pw}, member_name = #{member_name}
+	<update id="updateId" parameterType="String">
+  		update member_table set member_pw = #{member_pw}
   		where member_id = #{member_id}
   	</update>
   	

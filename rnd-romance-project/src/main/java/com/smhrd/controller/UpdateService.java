@@ -32,13 +32,14 @@ public class UpdateService implements Command {
 		//★★★★★★★★★여기가 키포인트임 (저장된 세션 이메일)
 		// 이메일은 안바뀌고 update 회원정보 수정이니깐 pw,tel,address만 바뀌어야함
 		String member_id = info.getMember_id();
+		String member_name = info.getMember_name();
 	
 		
 		String member_pw = request.getParameter("member_pw");
-		String member_name = request.getParameter("member_name");
+		//String member_name = request.getParameter("member_name");
 		
 		System.out.println("member_pw : "+ member_pw);
-		System.out.println("member_name : "+ member_name);		
+		//System.out.println("member_name : "+ member_name);		
 		
 		memberDTO updateInfo = new memberDTO(member_id, member_pw, member_name);
 		
