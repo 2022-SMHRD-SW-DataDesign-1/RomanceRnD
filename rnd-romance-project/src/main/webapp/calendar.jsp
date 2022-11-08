@@ -599,7 +599,7 @@
         </div>
     </nav>
     <!-- Navbar End -->
-    
+    <div class="calendar_title">Scheduler</div>
     <div id='calendar'></div>
     
     
