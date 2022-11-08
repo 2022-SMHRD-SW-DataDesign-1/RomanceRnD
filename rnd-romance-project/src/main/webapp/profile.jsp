@@ -708,15 +708,10 @@ header[role=banner]::after {
 
 		<!-- 한가연 검색창 만들기 -->
 		<div class="search_box" style="margin-left: 150px">
-			<svg class="search_icon" xmlns="http://www.w3.org/2000/svg"
-				width="16" height="16" fill="currentColor" class="bi bi-send"
-				viewBox="0 0 16 16">
-  			<path
-					d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576 6.636 10.07Zm6.787-8.201L1.591 6.602l4.339 2.76 7.494-7.493Z" />
-			</svg>
-			<input class="search_text" type="text" placeholder="search">
-		
-    	</div>
+			<div>
+				<input class="search_text" type="text" placeholder="search">
+			</div>
+		</div>
         
         <button type="button" class="navbar-toggler me-4"
 			data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -783,13 +778,13 @@ header[role=banner]::after {
     <div class="container-xxl py-5">
         <div class="container" style="text-align: center">
            	<div style="text-align: right;">
-           		<input type="text">
-           		<input type="button" value="Search">
+           		<!-- <input type="text">
+           		<input type="button" value="Search"> -->
            		<!-- <button>검색</button> -->
            	</div>
            	
            	<div style="text-align: right">
-	           	<a href="Upload.jsp"><input type="button" value="Upload"></a>>
+	           	<!-- <a href="Upload.jsp"><input type="button" value="Upload"></a> -->
            	</div>
             <div class="text-center mx-auto wow fadeInUp"
 				data-wow-delay="0.1s" style="display:inline-flex;">
@@ -830,10 +825,80 @@ header[role=banner]::after {
 						</table>
 					</div>
 					<div style="margin: 1rem auto;">
-						<button value="Handshake"
-							style="border: none;border-radius: 1rem;">Handshake</button>
-						<button value="Tea-Time" style="border: none;border-radius: 1rem;">Tea-Time</button>
-						<button value="Schedule" style="border: none;border-radius: 1rem;">Schedule</button>
+						
+						<!--  -->
+						<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+							Handshake
+						</button>
+				
+						<!-- Modal -->
+						<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+						  <div class="modal-dialog">
+						    <div class="modal-content">
+						      <div class="modal-header">
+						        <h1 class="modal-title fs-5" id="staticBackdropLabel">Handshake</h1>
+						        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						      </div>
+						      <div class="modal-body">
+						      	Would you like to send Handshake to <%=profile_id%>
+						      </div>
+						      <div class="modal-footer">
+						        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+						        <button type="button" class="btn btn-primary">Ok</button>
+						      </div>
+						    </div>
+						  </div>
+						</div>
+						
+						<!-- dwyane -->
+				<!-- Button trigger modal -->
+				<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+					Tea-Time
+				</button>
+				
+				<!-- Modal -->
+				<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+					<div class="modal-dialog modal-fullscreen">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h1 class="modal-title fs-5" id="exampleModalLabel">Tea-Time</h1>
+								<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+							</div>
+								<div class="modal-body">
+								</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+								<button type="button" class="btn btn-primary">Save changes</button>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- dwyane -->
+				<!-- Button trigger modal -->
+				<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+					Schedule
+				</button>
+				
+				<!-- Modal -->
+				<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+					<div class="modal-dialog modal-fullscreen">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h1 class="modal-title fs-5" id="exampleModalLabel">Tea-Time</h1>
+								<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+							</div>
+								<div class="modal-body">
+								</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+								<button type="button" class="btn btn-primary">Save changes</button>
+							</div>
+						</div>
+					</div>
+				</div>
+						
+						
 					</div>
                 </div>
             </div>
