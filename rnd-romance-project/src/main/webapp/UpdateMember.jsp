@@ -108,9 +108,9 @@ input::placeholder{color: #999; font-size: .65rem; padding: .2rem 0}
    
    %>
    
-    <!-- Navbar Start -->
-       <!-- 염건웅_수정: 상단 navbar 높이 수정 -->
-      <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0" style="height: 6em;">
+     <!-- Navbar Start -->
+    	<!-- 염건웅_수정: 상단 navbar 높이 수정 -->
+		<nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0" style="height: 6em;">
         <a href="index.jsp" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
             <h1 class="m-0">Mentorvation</h1>
         </a>
@@ -120,10 +120,10 @@ input::placeholder{color: #999; font-size: .65rem; padding: .2rem 0}
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
                 <a href="index.jsp" class="nav-item nav-link active">Home</a>
-                <a href="about.jsp" class="nav-item nav-link">Recommendation</a>
-                <a href="calendar_test.jsp" class="nav-item nav-link">Calendar</a>
+                <a href="recommendation.jsp" class="nav-item nav-link">Recommendation</a>
+                <a href="calendar.jsp" class="nav-item nav-link">Calendar</a>
                 <a href="profile.jsp" class="nav-item nav-link">Profile</a>
-                <div class="nav-item dropdown">
+                <!-- <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                     <div class="dropdown-menu bg-light m-0">
                         <a href="feature.jsp" class="dropdown-item">Features</a>
@@ -133,9 +133,10 @@ input::placeholder{color: #999; font-size: .65rem; padding: .2rem 0}
                         <a href="404.jsp" class="dropdown-item">404 Page</a>
                     </div>
                 </div>
-                <a href="contact.jsp" class="nav-item nav-link">Contact</a>
+                <a href="contact.jsp" class="nav-item nav-link">Contact</a> -->
             </div>
             <!-- <a href="" class="btn btn-primary py-4 px-lg-4 rounded-0 d-none d-lg-block">LOGIN<i class="fa fa-arrow-right ms-3"></i></a> -->
+
         </div>
     </nav>
     <!-- Navbar End -->

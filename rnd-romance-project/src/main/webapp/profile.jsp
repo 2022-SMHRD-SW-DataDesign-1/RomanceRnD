@@ -1,3 +1,4 @@
+<%@page import="com.smhrd.model.memberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -5,7 +6,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Gardener - Gardening Website Template</title>
+    <title>Mentorvation - Gardening Website Template</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -201,11 +202,11 @@
 	    border-radius: 50em;
 	  }
 	  .main-nav a.cd-signup {
-	    background: #2f889a;
+	    background: #4a69bd;
 	    border: none;
 	  }
 	  .main-nav a.cd-signin {
-	    background: #27ae60;
+	    background: #4a69bd;
 	    border: none;
 	  }
 	}
@@ -584,8 +585,8 @@
     </div> -->
     <!-- Topbar End -->
 
-
-    <!-- Navbar Start -->
+	<% memberDTO info = (memberDTO)session.getAttribute("info"); %>
+     <!-- Navbar Start -->
     	<!-- 염건웅_수정: 상단 navbar 높이 수정 -->
 		<nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0" style="height: 6em;">
         <a href="index.jsp" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
@@ -597,10 +598,10 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
                 <a href="index.jsp" class="nav-item nav-link active">Home</a>
-                <a href="about.jsp" class="nav-item nav-link">Recommendation</a>
-                <a href="service.jsp" class="nav-item nav-link">Calendar</a>
+                <a href="recommendation.jsp" class="nav-item nav-link">Recommendation</a>
+                <a href="calendar.jsp" class="nav-item nav-link">Calendar</a>
                 <a href="profile.jsp" class="nav-item nav-link">Profile</a>
-                <div class="nav-item dropdown">
+                <!-- <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                     <div class="dropdown-menu bg-light m-0">
                         <a href="feature.jsp" class="dropdown-item">Features</a>
@@ -610,20 +611,24 @@
                         <a href="404.jsp" class="dropdown-item">404 Page</a>
                     </div>
                 </div>
-                <a href="contact.jsp" class="nav-item nav-link">Contact</a>
+                <a href="contact.jsp" class="nav-item nav-link">Contact</a> -->
             </div>
             <!-- <a href="" class="btn btn-primary py-4 px-lg-4 rounded-0 d-none d-lg-block">LOGIN<i class="fa fa-arrow-right ms-3"></i></a> -->
          	<nav class="main-nav">
 				<ul>
 					<!-- inser more links here -->
-					<li><a class="cd-signin" href="#0">Sign in</a></li>
+					<%if(info == null){ %>
+						<li><a class="cd-signin" href="#0">Sign in</a></li>
+					<%}else{ %>
+						<li><a class="cd-signin" href="UpdateMember.jsp">회원정보수정</a></li>
+						<li><a class="cd-signin" href="LogoutService.do">Logout</a></li>
+					<%} %>
 				</ul>
 			</nav>
             
         </div>
     </nav>
     <!-- Navbar End -->
-
 
     <!-- Page Header Start -->
     <!-- <div class="container-fluid page-header py-5 mb-5 wow fadeIn" data-wow-delay="0.1s">
@@ -649,12 +654,9 @@
            		<input type="button" value="검색">
            	</div>
            	<br>
-           	
            	<div style="text-align: right">
-	           	<a href="Upload.jsp"><input type="button" value="업로드"></a>
+	           	<input type="button" value="업로드">
            	</div>
-           	
-           	
            	<br><br><br><br><br>
             <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="display:inline-flex;">
                 <!-- <p class="fs-5 fw-bold text-primary">Profile</p> -->

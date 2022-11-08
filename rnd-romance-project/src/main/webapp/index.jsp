@@ -597,9 +597,9 @@
             <div class="navbar-nav ms-auto p-4 p-lg-0">
                 <a href="index.jsp" class="nav-item nav-link active">Home</a>
                 <a href="recommendation.jsp" class="nav-item nav-link">Recommendation</a>
-                <a href="calendar_test.jsp" class="nav-item nav-link">Calendar</a>
+                <a href="calendar.jsp" class="nav-item nav-link">Calendar</a>
                 <a href="profile.jsp" class="nav-item nav-link">Profile</a>
-                <div class="nav-item dropdown">
+                <!-- <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                     <div class="dropdown-menu bg-light m-0">
                         <a href="feature.jsp" class="dropdown-item">Features</a>
@@ -609,7 +609,7 @@
                         <a href="404.jsp" class="dropdown-item">404 Page</a>
                     </div>
                 </div>
-                <a href="contact.jsp" class="nav-item nav-link">Contact</a>
+                <a href="contact.jsp" class="nav-item nav-link">Contact</a> -->
             </div>
             <!-- <a href="" class="btn btn-primary py-4 px-lg-4 rounded-0 d-none d-lg-block">LOGIN<i class="fa fa-arrow-right ms-3"></i></a> -->
          	<nav class="main-nav">
@@ -764,9 +764,8 @@
                             <div class="d-flex">
                             <!-- 1. 버튼 영상보기 -->
                             <!-- 2. 버튼 프로필 가기 -->
-                            	<%String profile_id = "test@test.com";%>
                                 <a class="btn btn-lg-square rounded-circle mx-2" href="img/service-1.jpg" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
-                                <a class="btn btn-lg-square rounded-circle mx-2" href="profile.jsp?profile_id=<%=profile_id%>"><i class="fa fa-link"></i></a>
+                                <a class="btn btn-lg-square rounded-circle mx-2" href=""><i class="fa fa-link"></i></a>
                             </div>
                         </div>
                     </div>
