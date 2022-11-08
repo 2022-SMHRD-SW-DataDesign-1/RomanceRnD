@@ -9,6 +9,7 @@
 	<!-- ★★★★★alias주는곳★★★★★★★★★★ -->
 	<typeAliases>
 		<typeAlias type="com.smhrd.model.memberDTO" alias="memberDTO"/>
+		<typeAlias type="com.smhrd.model.videoDTO" alias="videoDTO"/>
 	</typeAliases>
 	
 	
@@ -27,5 +28,6 @@
   	<!-- mapper적어주기 -->
   	<!-- ★★★★★★ mapper경로 ★★★★★★ -->
   	<mapper resource="com/smhrd/mapper/MemberMapper.xml"/>
+  	<mapper resource="com/smhrd/mapper/VideoMapper.xml"/>
   </mappers>
 </configuration>
