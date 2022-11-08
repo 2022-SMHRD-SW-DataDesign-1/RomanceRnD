@@ -1,4 +1,7 @@
+<%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
 <%@page import="com.smhrd.model.memberDTO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.smhrd.model.memberDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -6,7 +9,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Mentorvation - Gardening Website Template</title>
+    <title>Mentorvation</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -202,11 +205,11 @@
 	    border-radius: 50em;
 	  }
 	  .main-nav a.cd-signup {
-	    background: #4a69bd;
+	    background: #2f889a;
 	    border: none;
 	  }
 	  .main-nav a.cd-signin {
-	    background: #4a69bd;
+	    background: #27ae60;
 	    border: none;
 	  }
 	}
@@ -552,6 +555,12 @@
 </head>
 
 <body>
+
+	<%
+		/* dwyane */
+		String profile_id = request.getParameter("profile_id");
+		System.out.println(profile_id);
+	%>
     <!-- Spinner Start -->
     <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
         <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;"></div>
@@ -585,8 +594,8 @@
     </div> -->
     <!-- Topbar End -->
 
-	<% memberDTO info = (memberDTO)session.getAttribute("info"); %>
-     <!-- Navbar Start -->
+
+    <!-- Navbar Start -->
     	<!-- 염건웅_수정: 상단 navbar 높이 수정 -->
 		<nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0" style="height: 6em;">
         <a href="index.jsp" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
@@ -598,10 +607,10 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
                 <a href="index.jsp" class="nav-item nav-link active">Home</a>
-                <a href="recommendation.jsp" class="nav-item nav-link">Recommendation</a>
-                <a href="calendar.jsp" class="nav-item nav-link">Calendar</a>
+                <a href="about.jsp" class="nav-item nav-link">Recommendation</a>
+                <a href="service.jsp" class="nav-item nav-link">Calendar</a>
                 <a href="profile.jsp" class="nav-item nav-link">Profile</a>
-                <!-- <div class="nav-item dropdown">
+                <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                     <div class="dropdown-menu bg-light m-0">
                         <a href="feature.jsp" class="dropdown-item">Features</a>
@@ -611,24 +620,20 @@
                         <a href="404.jsp" class="dropdown-item">404 Page</a>
                     </div>
                 </div>
-                <a href="contact.jsp" class="nav-item nav-link">Contact</a> -->
+                <a href="contact.jsp" class="nav-item nav-link">Contact</a>
             </div>
             <!-- <a href="" class="btn btn-primary py-4 px-lg-4 rounded-0 d-none d-lg-block">LOGIN<i class="fa fa-arrow-right ms-3"></i></a> -->
          	<nav class="main-nav">
 				<ul>
 					<!-- inser more links here -->
-					<%if(info == null){ %>
-						<li><a class="cd-signin" href="#0">Sign in</a></li>
-					<%}else{ %>
-						<li><a class="cd-signin" href="UpdateMember.jsp">회원정보수정</a></li>
-						<li><a class="cd-signin" href="LogoutService.do">Logout</a></li>
-					<%} %>
+					<li><a class="cd-signin" href="#0">Sign in</a></li>
 				</ul>
 			</nav>
             
         </div>
     </nav>
     <!-- Navbar End -->
+
 
     <!-- Page Header Start -->
     <!-- <div class="container-fluid page-header py-5 mb-5 wow fadeIn" data-wow-delay="0.1s">
@@ -651,17 +656,16 @@
         <div class="container" style="text-align: center">
            	<div style="text-align: right;">
            		<input type="text">
-           		<input type="button" value="검색">
+           		<input type="button" value="Search">
            	</div>
            	<br>
            	<div style="text-align: right">
-	           	<input type="button" value="업로드">
+	           	<input type="button" value="Upload">
            	</div>
-           	<br><br><br><br><br>
             <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="display:inline-flex;">
                 <!-- <p class="fs-5 fw-bold text-primary">Profile</p> -->
      			<img src="img/profile_image.png" alt="profile-user-img" class="profile-user-img-img" style="border-style: solid; border-color: black;;">
-                <div style="padding-left: 6em; text-align: left;">
+                <div style="padding-left: 6em; text-align: left;padding-top: 3rem;">
 					
 					<!-- <div style="text-align: center">
 						<div style="text-align: center">
@@ -676,32 +680,40 @@
 						<table style="border: 1px">
 							<tr style="text-align: center; width:16em;">
 								<td style="text-align: center;width: 8em;">
-								10명
+								10
 								</td>
 								<td style="text-align: center;width: 8em;">
-								10명
+								10
 								</td>
 							</tr>
 							<tr style="text-align: center; width: 16em;">
 								<td style="text-align: center;width: 8em;">
-								멘토
+								Mentor
 								</td>
 								<td style="text-align: center;width: 8em;">
-								멘티
+								Mentee
 								</td>
 							</tr>
 						</table>
 					</div>
-					<br><br><br><br>
-					<div>
-		                <input type="button" value="Handshke">
-		                <input type="button" value="Tea Time">
-		                <input type="button" value="Schedule">
+					<div style="margin: 1rem auto;">
+						<button value="Handshake" style="border: none;border-radius: 1rem;">Handshake</button>
+						<button value="Tea-Time" style="border: none;border-radius: 1rem;">Tea-Time</button>
+						<button value="Schedule" style="border: none;border-radius: 1rem;">Schedule</button>
 					</div>
                 </div>
             </div>
             <div style="text-align: center; padding-right: 22em; ">
-	            <h1 class="display-5 mb-5" style="padding: 0em; color: black;margin-bottom: 0rem !important;">USER</h1>
+            <!-- dwyane -->
+            	<%
+					memberDTO dto = new memberDTO();
+            		memberDAO dao = new memberDAO();
+					
+					memberDTO selected_member = dao.selectAll(profile_id);
+					String selected_member_name = selected_member.getMember_name();
+					System.out.println("info: "+ selected_member);
+				%>
+	            <h1 class="display-5 mb-5" style="padding: 0em; color: black;margin-bottom: 0rem !important;"><%=selected_member_name%></h1>
 				<textarea rows="" cols=""></textarea>
             </div>
     		<br><br>

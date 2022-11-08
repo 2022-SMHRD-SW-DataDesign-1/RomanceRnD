@@ -764,8 +764,9 @@
                             <div class="d-flex">
                             <!-- 1. 버튼 영상보기 -->
                             <!-- 2. 버튼 프로필 가기 -->
+                            <%String profile_id = "test@test.com"; %>
                                 <a class="btn btn-lg-square rounded-circle mx-2" href="img/service-1.jpg" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
-                                <a class="btn btn-lg-square rounded-circle mx-2" href=""><i class="fa fa-link"></i></a>
+                                <a class="btn btn-lg-square rounded-circle mx-2" href="profile.jsp?profile_id=<%= profile_id%>"><i class="fa fa-link"></i></a>
                             </div>
                         </div>
                     </div>
