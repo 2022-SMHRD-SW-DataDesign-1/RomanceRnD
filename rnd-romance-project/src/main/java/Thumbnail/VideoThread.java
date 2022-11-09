@@ -10,6 +10,8 @@ import org.jcodec.common.model.Picture;
 import org.jcodec.scale.AWTUtil;
 
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
+import com.smhrd.model.videoDAO;
+import com.smhrd.model.videoDTO;
 
 import org.jcodec.common.io.SeekableByteChannel;
 import org.jcodec.common.io.*;
@@ -26,7 +28,6 @@ public class VideoThread extends Thread {
         this.threadNo = threadNo;
         this.plusSize = plusSize;
     }
- 
     public void run() {
         FrameGrab grab;
         
@@ -34,6 +35,16 @@ public class VideoThread extends Thread {
             grab = FrameGrab.createFrameGrab(NIOUtils.readableChannel(source));
             
             for(int m = 0; m < 1; m++) {
+            	videoDTO secondLastThumbnail = new videoDAO().selectSecondLastThumbnail();
+        		/* System.out.println("lastThumbnail: "+lastThumbnail); */
+        		String secondLastThumbnail_name = "";
+        		System.out.println("secondLastThumbnail"+secondLastThumbnail.getVideo_thumbnail());
+        		secondLastThumbnail_name = secondLastThumbnail.getVideo_thumbnail().substring(0,9);
+        		int secondLastThumbnail_str = Integer.parseInt(secondLastThumbnail.getVideo_thumbnail().substring(9,secondLastThumbnail.getVideo_thumbnail().length()));
+        		
+        		String secondLastThumbnail_new_name = secondLastThumbnail_name + (secondLastThumbnail_str+1);
+        		System.out.println("secondLastThumbnail_new_name"+secondLastThumbnail_new_name);
+        		
                 if(m % threadSize == threadNo) {
                     double startSec = m * plusSize;
                     System.out.println(threadNo + " " + startSec);
@@ -47,7 +58,7 @@ public class VideoThread extends Thread {
                         //for JDK (jcodec-javase)
                         BufferedImage bufferedImage = AWTUtil.toBufferedImage(picture);
                         ImageIO.write(bufferedImage, "png", 
-                                new File("C:\\Users\\smhrd\\Desktop\\Web\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\rnd-romance-project\\file\\thumbnail"+m+".png"));   
+                                new File("C:\\Users\\smhrd\\Desktop\\Web\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\rnd-romance-project\\file\\"+secondLastThumbnail_new_name+".png"));   
                     }
                 }
             }    

@@ -12,15 +12,6 @@ public class videoDAO {
 
 	private SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSession();
 
-	// 이전 Thumbnail 경로 내 이름 가져오기
-	public videoDTO selectLastThumbnail() {
-		SqlSession session = sqlSessionFactory.openSession(true);
-		videoDTO info = session.selectOne("selectLastThumbnail");
-		
-		session.close();
-		
-		return info;
-	}
 	// 업로드
 	public int upload(videoDTO dto) {
 		SqlSession session = sqlSessionFactory.openSession(true);
@@ -54,4 +45,26 @@ public class videoDAO {
 			return row;
 			
 		}
+		
+		// Thumbnail 경로 내 마지막 이름 가져오기
+		public videoDTO selectLastThumbnail() {
+			SqlSession session = sqlSessionFactory.openSession(true);
+			videoDTO info = session.selectOne("selectLastThumbnail");
+			
+			session.close();
+			
+			return info;
+		}
+		
+		// Thumbnail 경로 내 마지막 두 번째 이름 가져오기
+		public videoDTO selectSecondLastThumbnail() {
+			SqlSession session = sqlSessionFactory.openSession(true);
+			videoDTO info = session.selectOne("selectSecondLastThumbnail");
+			
+			session.close();
+			
+			return info;
+		}
+		
+		
 }

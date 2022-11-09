@@ -26,11 +26,13 @@
 		select * from(select * from upload_video_table order by upload_dt DESC) where ROWNUM = 1
   	</select>
   	
+  	<select id="selectSecondLastThumbnail" resultType="videoDTO">
+		select video_thumbnail from (select rownum as rn, video_thumbnail from (select video_thumbnail from upload_video_table where video_seq is not null order by video_seq desc)) where rn = 2
+  	</select>
+  	
 	<update id="updateThumbnail" parameterType="String">
   		update upload_video_table set video_thumbnail = '${value}'
   		where video_seq = (select video_seq from(select * from upload_video_table order by upload_dt DESC) where ROWNUM = 1)
   	</update>
-  	
-  	
   	
   </mapper>

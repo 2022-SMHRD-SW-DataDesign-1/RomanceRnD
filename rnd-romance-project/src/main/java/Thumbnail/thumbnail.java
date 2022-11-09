@@ -10,7 +10,7 @@ public class thumbnail {
     }
 
 	public static String makeThumbnail(String video_path, String video_file) throws Exception {
-		System.out.println("thumnail 들어옴!!!"+video_path+video_file);
+		System.out.println("thumnail 들어옴!!!"+video_path+'\\'+video_file);
 		Mp4Test mp4Test = new Mp4Test();
 		String src = video_path+'\\'+ video_file;
 		

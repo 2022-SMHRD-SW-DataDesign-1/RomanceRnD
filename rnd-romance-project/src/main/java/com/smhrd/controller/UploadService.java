@@ -63,7 +63,11 @@ public class UploadService extends HttpServlet implements Command {
 		
 		// 주의점 filename은 객체가 좀 다르다 getFilesystemName으로
 		//String filename = multi.getFilesystemName("filename");
-
+		
+		// dwyane_add
+		// 파일 공백 제거
+		video_file = video_file.replaceAll("\\s", "");
+		
 		try {
 			// filename = URLEncoder.encode(filename, "UTF-8");
 			video_file = URLEncoder.encode(video_file , "UTF-8");
@@ -82,6 +86,8 @@ public class UploadService extends HttpServlet implements Command {
 		// System.out.println("content : "+ content);
 		//System.out.println("filename :"+filename);
 
+		videoDTO dto = new videoDTO(member_id, video_file, video_price, video_desc, video_path);
+		
 		// 생성 전 마지막 썸네일 조회
 		videoDTO lastThumbnail = new videoDAO().selectLastThumbnail();
 		System.out.println("lastThumbnail: "+lastThumbnail);
@@ -89,8 +95,6 @@ public class UploadService extends HttpServlet implements Command {
 		int lastThumbnail_str = Integer.parseInt(lastThumbnail.getVideo_thumbnail().substring(9,lastThumbnail.getVideo_thumbnail().length()));
 		
 		String lastThumbnail_new_name = lastThumbnail_name + (lastThumbnail_str+1);
-		
-		videoDTO dto = new videoDTO(member_id, video_file, video_price, video_desc, video_path);
 		
 		// 동영상 업로드			
 
@@ -100,7 +104,6 @@ public class UploadService extends HttpServlet implements Command {
 		} else {
 			System.out.println("업로드 실패!");
 		}
-
 		
 //		썸네일 생성
 		String result = "";
@@ -116,6 +119,7 @@ public class UploadService extends HttpServlet implements Command {
 		} else {
 			System.out.println("썸네일 생성 실패!");
 		}
+		
 		
 //		마지막 썸네일 수정
 		int rowThumbnail = new videoDAO().updateThumbnail(lastThumbnail_new_name);
