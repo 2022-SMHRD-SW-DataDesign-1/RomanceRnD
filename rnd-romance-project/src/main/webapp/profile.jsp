@@ -784,14 +784,14 @@ header[role=banner]::after {
            	</div>
            	
            	<div style="text-align: right">
-	           	<!-- <a href="Upload.jsp"><input type="button" value="Upload"></a> -->
+	           	<a href="Upload.jsp"><input type="button" value="Upload"></a>
 	           	<!-- Button trigger modal -->
-				<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+				<!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
 					Upload
-				</button>
+				</button> -->
 				
 				<!-- Modal -->
-				<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 					<div class="modal-dialog modal-fullscreen">
 						<div class="modal-content">
 							<div class="modal-header">
@@ -800,13 +800,13 @@ header[role=banner]::after {
 							</div>
 								<div class="modal-body">
 									<form action="UploadService.do" method="post" enctype="multipart/form-data">
-										<!-- 비디오시퀀스<input type="number" name="video_seq"><br>
-										멤버아이디<input type="text" name="member_id"><br> -->
+										비디오시퀀스<input type="number" name="video_seq"><br>
+										멤버아이디<input type="text" name="member_id"><br>
 										비디오파일<input type="file" name="video_file"><br>
 										비디오가격<input type="number" name="video_price"><br>
 										비디오설명<input type="text" name="video_desc"><br>
-										<!-- 비디오업로드날짜<input type="date" name="upload_dt"><br>
-										허용권한<input type="text" name="permissions"><br> -->
+										비디오업로드날짜<input type="date" name="upload_dt"><br>
+										허용권한<input type="text" name="permissions"><br>
 										<input type="submit">
 									</form>
 								</div>
@@ -816,7 +816,7 @@ header[role=banner]::after {
 							</div>
 						</div>
 					</div>
-				</div>
+				</div> -->
            	</div>
             <div class="text-center mx-auto wow fadeInUp"
 				data-wow-delay="0.1s" style="display:inline-flex;">
@@ -888,7 +888,7 @@ header[role=banner]::after {
 					Tea-Time
 				</button>
 				
-				<!-- Modal -->
+				<!-- Modal Start -->
 				<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 					<div class="modal-dialog modal-fullscreen">
 						<div class="modal-content">
@@ -905,6 +905,7 @@ header[role=banner]::after {
 						</div>
 					</div>
 				</div>
+				<!-- Modal End -->
 
 				<!-- dwyane -->
 				<!-- Button trigger modal -->
@@ -964,18 +965,23 @@ header[role=banner]::after {
 					class="col-lg-4 col-md-6 portfolio-item first wow fadeInUp"
 					data-wow-delay="0.1s">
                     <div class="portfolio-inner rounded">
-                        <img class="img-fluid" src="img/service-1.jpg"
+                        <img class="img-fluid" src="./file/zz.png"
 							alt="">
                         <div class="portfolio-text">
                             <h4 class="text-white mb-4">Landscaping</h4>
                             <div class="d-flex">
-                                <a
+                                <!-- dwyane -->
+                                <button type="button" onclick="location.href='recommendation.jsp'">영상</button>
+                                
+                                <!-- <a
 									class="btn btn-lg-square rounded-circle mx-2"
-									href="img/service-1.jpg" data-lightbox="portfolio"><i
-									class="fa fa-eye"></i></a>
-                                <a
+									href="./file/zz.png" data-lightbox="portfolio"><i
+									class="fa fa-eye"></i>
+								</a> -->
+                                <!-- <a
 									class="btn btn-lg-square rounded-circle mx-2" href=""><i
-									class="fa fa-link"></i></a>
+									class="fa fa-link"></i>
+								</a> -->
                             </div>
                         </div>
                     </div>
