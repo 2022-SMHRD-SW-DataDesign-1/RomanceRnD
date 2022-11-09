@@ -82,17 +82,51 @@ public class UploadService extends HttpServlet implements Command {
 		// System.out.println("content : "+ content);
 		//System.out.println("filename :"+filename);
 
+		// 생성 전 마지막 썸네일 조회
+		videoDTO lastThumbnail = new videoDAO().selectLastThumbnail();
+		System.out.println("lastThumbnail: "+lastThumbnail);
+		String lastThumbnail_name = lastThumbnail.getVideo_thumbnail().substring(0,9);
+		int lastThumbnail_str = Integer.parseInt(lastThumbnail.getVideo_thumbnail().substring(9,lastThumbnail.getVideo_thumbnail().length()));
+		
+		String lastThumbnail_new_name = lastThumbnail_name + (lastThumbnail_str+1);
+		
 		videoDTO dto = new videoDTO(member_id, video_file, video_price, video_desc, video_path);
+		
+		// 동영상 업로드			
 
 		int row = new videoDAO().upload(dto);
-
 		if (row > 0) {
 			System.out.println("업로드 성공!");
 		} else {
 			System.out.println("업로드 실패!");
 		}
 
-		return "profile.jsp";
+		
+//		썸네일 생성
+		String result = "";
+		try {
+			result = Thumbnail.thumbnail.makeThumbnail(video_path, video_file);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		if (result != null) {
+			System.out.println("썸네일 생성 성공!");
+		} else {
+			System.out.println("썸네일 생성 실패!");
+		}
+		
+//		마지막 썸네일 수정
+		int rowThumbnail = new videoDAO().updateThumbnail(lastThumbnail_new_name);
+		
+		if (rowThumbnail > 0) {
+			System.out.println("Thumnail_update 성공!");
+		} else {
+			System.out.println("Thumnail_update 실패!");
+		}
+		
+		return "myprofile.jsp";
 	}
 
 }

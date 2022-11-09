@@ -19,3 +19,5 @@ insert into UPLOAD_VIDEO_TABLE values(
 )
 select * from upload_video_table;
 
+
+sele

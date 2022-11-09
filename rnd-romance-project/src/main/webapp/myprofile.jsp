@@ -1,3 +1,5 @@
+<%@page import="com.smhrd.model.videoDAO"%>
+<%@page import="com.smhrd.model.videoDTO"%>
 <%@page import="java.lang.ProcessHandle.Info"%>
 <%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
 <%@page import="com.smhrd.model.memberDTO"%>
@@ -653,11 +655,23 @@ header[role=banner]::after {
 	<!-- Scriptlet -->
 	<%
 		/* dwyane */
-		String profile_id = request.getParameter("profile_id");
-		System.out.println(profile_id);
-		
+		/* String profile_id = request.getParameter("profile_id");
+		System.out.println(profile_id); */
 		/* memberDTO info = (memberDTO)session.getAttribute("info"); */
+		/* Login_Member Start */
+		memberDTO info = (memberDTO)session.getAttribute("info");
+		System.out.println("info: "+info);
+		String member_name = info.getMember_name();
+		String member_id = info.getMember_id();
+		/* Login_Member Start */
+	
+		/* Video Start */
+		ArrayList<videoDTO> videoList = new videoDAO().selectAllVideos(member_id);
+		System.out.println("videoList: "+ videoList);
+		
+		/* Video End */
 	%>
+	
 	
 	<!-- Spinner Start -->
 	<div id="spinner"
@@ -694,9 +708,6 @@ header[role=banner]::after {
     </div> -->
 	<!-- Topbar End -->
 
-	<%
-	memberDTO info = (memberDTO) session.getAttribute("info");
-	%>
 	<!-- Navbar Start -->
 	<!-- 염건웅_수정: 상단 navbar 높이 수정 -->
 	<nav
@@ -707,12 +718,13 @@ header[role=banner]::after {
 			<h1 class="m-0">Mentorvation</h1>
 		</a>
 
-		<!-- 한가연 검색창 만들기 -->
+		<!-- 한가연 검색창 만들기 Start -->
 		<div class="search_box" style="margin-left: 200px">
 			<div>
 				<input class="search_text" type="text" placeholder="search">
 			</div>
 		</div>
+		<!-- 한가연 검색창 만들기 End -->
         
         <button type="button" class="navbar-toggler me-4"
 			data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -723,7 +735,7 @@ header[role=banner]::after {
                 <a href="index.jsp" class="nav-item nav-link active">Home</a>
                 <a href="recommendation.jsp" class="nav-item nav-link">Recommendation</a>
                 <a href="calendar.jsp" class="nav-item nav-link">Calendar</a>
-                <a href="profile.jsp" class="nav-item nav-link">Profile</a>
+                <a href="myprofile.jsp" class="nav-item nav-link">MyProfile</a>
                 <!-- <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                     <div class="dropdown-menu bg-light m-0">
@@ -873,7 +885,7 @@ header[role=banner]::after {
 						        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 						      </div>
 						      <div class="modal-body">
-						      	Would you like to send Handshake to <%=profile_id%>
+						      	Would you like to send Handshake to <%-- <%=profile_id%> --%>
 						      </div>
 						      <div class="modal-footer">
 						        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -948,7 +960,7 @@ header[role=banner]::after {
 				%> --%>
 	            <%-- <h1 class="display-5 mb-5" style="padding: 0em; color: black;margin-bottom: 0rem !important;"><%=selected_member_name%></h1> --%>
 	            <h1 class="display-5 mb-5"
-					style="padding: 0em; color: black;margin-bottom: 0rem !important;">test</h1>
+					style="padding: 0em; color: black;margin-bottom: 0rem !important;"><%= member_name %></h1>
 				<textarea rows="" cols=""></textarea>
             </div>
     		<br><br>
@@ -964,21 +976,35 @@ header[role=banner]::after {
             <!-- Video Container End -->
 			<div class="row g-4 portfolio-container">
 			
-				<!-- Individual Video End -->
-                <div class="col-lg-4 col-md-6 portfolio-item second wow fadeInUp"data-wow-delay="0.3s">
-                        <img class="img-fluid" src="img/service-2.jpg"alt="">
-                        <div class="portfolio-text">
-                            <h4 class="text-white mb-4"> Video Name </h4>
-                            <div class="d-flex">
-                                <a
-									class="btn btn-lg-square rounded-circle mx-2" href="watchvideo.jsp?video_seq=video_seq"><i
-									class="fa fa-eye"></i>
-								</a>
+				<!-- Individual Video Start -->
+				<%	
+					String html = "";
+					System.out.println("videoList.size():"+videoList.size());
+					for (int i = 0; i < videoList.size(); i++) {	
+						
+						
+						
+					html += " <div class='col-lg-4 col-md-6 portfolio-item first wow fadeInUp'data-wow-delay='0.3s'> ";
+					html += " <div class='portfolio-inner rounded'> ";
+					html += " <img class='img-fluid' src='./file/"+videoList.get(i).getVideo_thumbnail()+".png'alt=''> ";
+					html += " <div class='portfolio-text'> ";
+					html += " <h4 class='text-white mb-4'></h4> ";
+					html += " <div class='d-flex'> ";
+					html += " <a class='btn btn-lg-square rounded-circle mx-2' href='watchvideo.jsp?video_file="+videoList.get(i).getVideo_file()+"'><i class='fa fa-eye'></i>";
+					html += " </a></div></div></div></div> ";
+					}
+					
+					
+				%>
+                <%= html %>
+                    
+                        
+                        
+                            
+                            
+                                
+									
 								
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 <!-- Individual Video End -->
                 
             </div>

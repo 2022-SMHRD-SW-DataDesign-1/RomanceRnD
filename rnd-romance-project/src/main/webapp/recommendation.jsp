@@ -582,7 +582,7 @@
     
      <!-- Navbar Start -->
     	<!-- 염건웅_수정: 상단 navbar 높이 수정 -->
-		<%-- <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0" style="height: 6em;">
+		<nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0" style="height: 6em;">
         <a href="index.jsp" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
             <h1 class="m-0">Mentorvation</h1>
         </a>
@@ -620,7 +620,7 @@
 			</nav>
             
         </div>
-    </nav> --%>
+    </nav>
     <!-- Navbar End -->
 
 

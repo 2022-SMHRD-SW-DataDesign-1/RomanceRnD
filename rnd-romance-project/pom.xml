@@ -69,7 +69,20 @@
 		    <artifactId>cos</artifactId>
 		    <version>2020.4</version>
 		</dependency>
-
+		
+		<!-- thumbnail_염건웅: thumbnail 추가 -->
+		<dependency>
+			<groupId>org.jcodec</groupId>
+			<artifactId>jcodec</artifactId>
+			<version>0.2.3</version>
+		</dependency>
+		
+		<!-- thumbnail_염건웅: thumbnail 추가 -->
+		<dependency>
+			<groupId>org.jcodec</groupId>
+			<artifactId>jcodec-javase</artifactId>
+			<version>0.2.3</version>
+		</dependency>
 
 	</dependencies>
 	

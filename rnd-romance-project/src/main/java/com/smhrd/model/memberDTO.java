@@ -42,9 +42,9 @@ public class memberDTO {
    }
 
 public memberDTO(String member_pw) {
-	// TODO Auto-generated constructor stub
-	this.member_pw = member_pw;
-	
+   // TODO Auto-generated constructor stub
+   this.member_pw = member_pw;
+   
 }
 
 }

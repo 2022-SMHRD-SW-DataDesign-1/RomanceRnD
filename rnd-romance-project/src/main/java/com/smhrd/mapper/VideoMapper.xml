@@ -5,15 +5,32 @@
   
   <mapper namespace="com.smhrd.VideoMapper">
   	<insert id="upload" parameterType="videoDTO">
-  		insert into upload_video_table values(
-        vid_seq.nextval
-    ,   #{member_id}
-    ,   #{video_file}
-    ,   #{video_price}
-    ,   #{video_desc}
-    ,   sysdate
-    ,   'Y'
-    ,   #{video_path}
+  		insert into upload_video_table values (
+		        vid_seq.nextval
+		    ,   #{member_id}
+		    ,   #{video_file}
+		    ,   #{video_price}
+		    ,   #{video_desc}
+		    ,   sysdate
+		    ,   'Y'
+		    ,   #{video_path}
+		    ,   'default'
 		)
   	</insert>
+  	
+  	<select id="selectAllVideos" parameterType="String" resultType="videoDTO">
+  		select * from upload_video_table where member_id = #{member_id} order by video_seq asc
+ 	</select>
+  	
+	<select id="selectLastThumbnail" resultType="videoDTO">
+		select * from(select * from upload_video_table order by upload_dt DESC) where ROWNUM = 1
+  	</select>
+  	
+	<update id="updateThumbnail" parameterType="String">
+  		update upload_video_table set video_thumbnail = '${value}'
+  		where video_seq = (select video_seq from(select * from upload_video_table order by upload_dt DESC) where ROWNUM = 1)
+  	</update>
+  	
+  	
+  	
   </mapper>
