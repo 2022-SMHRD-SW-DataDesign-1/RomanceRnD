@@ -46,20 +46,27 @@
    	<description></description>
    	<servlet-class>com.smhrd.controller.UploadService</servlet-class>
    </servlet>
+   
    <servlet>
    	<servlet-name>SearchService</servlet-name>
    	<display-name>SearchService</display-name>
    	<description></description>
    	<servlet-class>com.smhrd.controller.SearchService</servlet-class>
    </servlet>
+   
    <servlet>
    	<servlet-name>handshakeService</servlet-name>
    	<display-name>handshakeService</display-name>
    	<description></description>
    	<servlet-class>com.smhrd.controller.handshakeService</servlet-class>
    </servlet>
-
-  
+   
+   <servlet>
+   	<servlet-name>CalenderService</servlet-name>
+   	<display-name>CalenderService</display-name>
+   	<description></description>
+   	<servlet-class>com.smhrd.controller.CalenderService</servlet-class>
+   </servlet>
 
    <servlet-mapping>
    	<servlet-name>JoinService</servlet-name>
@@ -98,9 +105,15 @@
   	<!-- ★★★★FrontController url패턴 : *.do -->
   	<url-pattern>*.do</url-pattern>
   </servlet-mapping>
+  
    <servlet-mapping>
    	<servlet-name>handshakeService</servlet-name>
    	<url-pattern>/handshakeService</url-pattern>
+   </servlet-mapping>
+   
+   <servlet-mapping>
+   	<servlet-name>CalenderService</servlet-name>
+   	<url-pattern>/CalenderService</url-pattern>
    </servlet-mapping>
   
 </web-app>

@@ -1,6 +1,3 @@
-<%@page import="java.lang.ProcessHandle.Info"%>
-<%@page import="com.smhrd.model.handshakeDAO"%>
-<%@page import="com.smhrd.model.handshakeDTO"%>
 <%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
 <%@page import="com.smhrd.model.memberDTO"%>
 <%@page import="java.util.ArrayList"%>
@@ -603,11 +600,10 @@ header[role=banner]::after {
 }
 
 .profile-user-img-img {
-	width: 161px;
-	height: 161px;
-	border-radius: 70%;
+	height: 200px;
 	overflow: hidden;
 	/* 한가연 검색창 추가 */
+	/* 장서연 높이값수정, border, width값 삭제 */
 }
 
 @media screen and (max-width:981px) {
@@ -620,7 +616,7 @@ header[role=banner]::after {
 .search_box {
 	background: #eee;
 	padding: 0.4rem;
-	margin: 1rem 0.5rem;
+	margin: 1rem 0;
 	width: 15%;
 	border: 0;
 	outline: none;
@@ -634,7 +630,7 @@ header[role=banner]::after {
 	background: #eee;
 	display: flex;
 	flex-direction: row;
-	padding: 0 1rem;
+	padding: 0 0.2rem;
 	height: 100%;
 	width: 100%;
 	justify-content: space-evenly;
@@ -642,9 +638,10 @@ header[role=banner]::after {
 	align-content: stretch;
 }
 
-.search_icon {
+
+/* .search_icon {
 	display: inline-block;
-}
+} */
 </style>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -652,15 +649,12 @@ header[role=banner]::after {
 </head>
 
 <body>
-	<!-- Scriptlet -->
+
 	<%
-		/* dwyane */
-		String profile_id = request.getParameter("profile_id");
-		System.out.println(profile_id);
-		
-		/* memberDTO info = (memberDTO)session.getAttribute("info"); */
+	/* dwyane */
+	String profile_id = request.getParameter("profile_id");
+	System.out.println(profile_id);
 	%>
-	
 	<!-- Spinner Start -->
 	<div id="spinner"
 		class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
@@ -708,6 +702,7 @@ header[role=banner]::after {
 			class="navbar-brand d-flex align-items-center px-4 px-lg-5">
 			<h1 class="m-0">Mentorvation</h1>
 		</a>
+
 		<!-- 최우정 검색 기능 get방식으로 profile_id만 보냄-->
 		<!-- 한가연 검색창 만들기 -->
 		<div class="search_box" style="margin-left: 180px;margin-bottom: 0;">
@@ -790,48 +785,15 @@ header[role=banner]::after {
            	</div>
            	
            	<div style="text-align: right">
-	           	<a href="Upload.jsp"><input type="button" class="btn btn-primary" value="Upload"></a>
-	           	<!-- Button trigger modal -->
-				<!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-					Upload
-				</button> -->
-				
-				<!-- Modal -->
-				<!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-					<div class="modal-dialog modal-fullscreen">
-						<div class="modal-content">
-							<div class="modal-header">
-								<h1 class="modal-title fs-5" id="exampleModalLabel">Upload</h1>
-								<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-							</div>
-								<div class="modal-body">
-									<form action="UploadService.do" method="post" enctype="multipart/form-data">
-										비디오시퀀스<input type="number" name="video_seq"><br>
-										멤버아이디<input type="text" name="member_id"><br>
-										비디오파일<input type="file" name="video_file"><br>
-										비디오가격<input type="number" name="video_price"><br>
-										비디오설명<input type="text" name="video_desc"><br>
-										비디오업로드날짜<input type="date" name="upload_dt"><br>
-										허용권한<input type="text" name="permissions"><br>
-										<input type="submit">
-									</form>
-								</div>
-							<div class="modal-footer">
-								<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-								<button type="button" class="btn btn-primary">Save changes</button>
-							</div>
-						</div>
-					</div>
-				</div> -->
+	           	<!-- <a href="Upload.jsp"><input type="button" value="Upload"></a> -->
            	</div>
             <div class="text-center mx-auto wow fadeInUp"
-				data-wow-delay="0.1s" style="display:inline-flex;">
+				data-wow-delay="0.1s" style="display:inline-flex; align-items:center; justify-content:center; margin-bottom:3rem;">
                 <!-- <p class="fs-5 fw-bold text-primary">Profile</p> -->
-     			<img src="img/profile_image.png" alt="profile-user-img"
-					class="profile-user-img-img"
-					style="border-style: solid; border-color: black;">
+     			<img src="img/profile_img04.png" alt="profile-user-img"
+					class="profile-user-img-img">
                 <div
-					style="padding-left: 6em; text-align: left;padding-top: 3rem;">
+					style="text-align: left; margin-left:4rem;">
 					
 					<!-- <div style="text-align: center">
 						<div style="text-align: center">
@@ -842,27 +804,41 @@ header[role=banner]::after {
 						b
 						</div>
 					</div> -->
-					<div style="width: 16em;text-align: center;">
+					<!-- 서연 추가 -->
+					<div>
+		            <!-- dwyane -->
+		            	<%-- <%
+							memberDTO dto = new memberDTO();
+		            		memberDAO dao = new memberDAO();
+							
+							memberDTO selected_member = dao.selectAll(profile_id);
+							String selected_member_name = selected_member.getMember_name();
+							System.out.println("info: "+ selected_member);
+						%> --%>
+			            <%-- <h1 class="display-5 mb-5" style="padding: 0em; color: black;margin-bottom: 0rem !important;"><%=selected_member_name%></h1> --%>
+			            <h4 class="display-5 mb-5"
+							style="padding: 0em; color: #222; font-size:2.5rem; font-weight:500 !important; margin-bottom: 0rem !important;"><%= profile_id %></h4>
+		            </div>
+		            
+					<div style="width: 16em; padding-top:.6rem; text-align: center;">
 						<table style="border: 1px">
 							<tr style="text-align: center; width:16em;">
-								<td style="text-align: center;width: 8em;">
-								10
-								</td>
-								<td style="text-align: center;width: 8em;">
-								10
-								</td>
-							</tr>
-							<tr style="text-align: center; width: 16em;">
-								<td style="text-align: center;width: 8em;">
+								<td style="text-align: left;width: 8em; color:#666;">
 								Mentor
 								</td>
-								<td style="text-align: center;width: 8em;">
+								<td style="text-align: left;width: 8em; color:#444; font-weight:bold;">
+								10
+								</td>
+								<td style="text-align: left;width: 8em; color:#666;">
 								Mentee
+								</td>
+								<td style="text-align: left;width: 8em; color:#444; font-weight:bold;">
+								10
 								</td>
 							</tr>
 						</table>
 					</div>
-					<div style="margin: 1rem auto;">
+					<div style="margin: .9rem auto;">
 						
 						<!--  -->
 						<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
@@ -896,7 +872,7 @@ header[role=banner]::after {
 												onclick="btn-follow" id="follow11">
 										</form>
 										<%} %>
-									</div>
+						      </div>
 						    </div>
 						  </div>
 						</div>
@@ -907,7 +883,7 @@ header[role=banner]::after {
 					Tea-Time
 				</button>
 				
-				<!-- Modal Start -->
+				<!-- Modal -->
 				<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 					<div class="modal-dialog modal-fullscreen">
 						<div class="modal-content">
@@ -924,7 +900,6 @@ header[role=banner]::after {
 						</div>
 					</div>
 				</div>
-				<!-- Modal End -->
 
 				<!-- dwyane -->
 				<!-- Button trigger modal -->
@@ -949,37 +924,11 @@ header[role=banner]::after {
 						</div>
 					</div>
 				</div>
-						
-						
-					</div>
                 </div>
+                <textarea class="profile_txtArea" rows="" cols=""></textarea>
+                
+					</div>
             </div>
-            <div style="text-align: center; padding-right: 22em; ">
-            <!-- dwyane -->
-            	<%-- <%
-					memberDTO dto = new memberDTO();
-            		memberDAO dao = new memberDAO();
-					
-					memberDTO selected_member = dao.selectAll(profile_id);
-					String selected_member_name = selected_member.getMember_name();
-					System.out.println("info: "+ selected_member);
-				%> --%>
-	            <%-- <h1 class="display-5 mb-5" style="padding: 0em; color: black;margin-bottom: 0rem !important;"><%=selected_member_name%></h1> --%>
-	            <h1 class="display-5 mb-5"
-					style="padding: 0em; color: black;margin-bottom: 0rem !important;"><%= profile_id%></h1>
-				<textarea rows="" cols=""></textarea>
-            </div>
-				<!-- 우정 : 팔로우 추가 -->
-				<%-- <%if(info != null){ %>
-				<form action="handshakeService.do" method="post">
-					<input type="hidden" name="member_id" value="<%= info.getMember_id() %>">
-					<input type="hidden" name="hs_id" value="<%=profile_id %>">
-					<input type="submit" class="btn btn-primary" value="팔로우" onclick="btn-follow" id="follow11">
-				</form>
-				<%} %> --%>
-				
-            </div>
-    		<br><br>
             <!-- <div class="row wow fadeInUp" data-wow-delay="0.3s">
                 <div class="col-12 text-center">
                     <ul class="list-inline rounded mb-5" id="portfolio-flters">
@@ -989,29 +938,128 @@ header[role=banner]::after {
                     </ul>
                 </div>
             </div> -->
-            <!-- Video Container End -->
-			<div class="row g-4 portfolio-container">
-			
-				<!-- Individual Video End -->
-                <div class="col-lg-4 col-md-6 portfolio-item second wow fadeInUp"data-wow-delay="0.3s">
-                        <img class="img-fluid" src="img/service-2.jpg"alt="">
+            <div class="row g-4 portfolio-container">
+                <div
+					class="col-lg-4 col-md-6 portfolio-item first wow fadeInUp"
+					data-wow-delay="0.1s">
+                    <div class="portfolio-inner rounded">
+                        <img class="img-fluid" src="img/service-1.jpg"
+							alt="">
                         <div class="portfolio-text">
-                            <h4 class="text-white mb-4"> Video Name </h4>
+                            <h4 class="text-white mb-4">Landscaping</h4>
                             <div class="d-flex">
                                 <a
-									class="btn btn-lg-square rounded-circle mx-2" href="watchvideo.jsp?video_seq=video_seq"><i
-									class="fa fa-eye"></i>
-								</a>
-								
+									class="btn btn-lg-square rounded-circle mx-2"
+									href="img/service-1.jpg" data-lightbox="portfolio"><i
+									class="fa fa-eye"></i></a>
+                                <a
+									class="btn btn-lg-square rounded-circle mx-2" href=""><i
+									class="fa fa-link"></i></a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- Individual Video End -->
-                
+                <div
+					class="col-lg-4 col-md-6 portfolio-item second wow fadeInUp"
+					data-wow-delay="0.3s">
+                    <div class="portfolio-inner rounded">
+                        <img class="img-fluid" src="img/service-2.jpg"
+							alt="">
+                        <div class="portfolio-text">
+                            <h4 class="text-white mb-4">Pruning plants</h4>
+                            <div class="d-flex">
+                                <a
+									class="btn btn-lg-square rounded-circle mx-2"
+									href="img/service-2.jpg" data-lightbox="portfolio"><i
+									class="fa fa-eye"></i></a>
+                                <a
+									class="btn btn-lg-square rounded-circle mx-2" href=""><i
+									class="fa fa-link"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div
+					class="col-lg-4 col-md-6 portfolio-item first wow fadeInUp"
+					data-wow-delay="0.5s">
+                    <div class="portfolio-inner rounded">
+                        <img class="img-fluid" src="img/service-3.jpg"
+							alt="">
+                        <div class="portfolio-text">
+                            <h4 class="text-white mb-4">Irrigation & Drainage</h4>
+                            <div class="d-flex">
+                                <a
+									class="btn btn-lg-square rounded-circle mx-2"
+									href="img/service-3.jpg" data-lightbox="portfolio"><i
+									class="fa fa-eye"></i></a>
+                                <a
+									class="btn btn-lg-square rounded-circle mx-2" href=""><i
+									class="fa fa-link"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div
+					class="col-lg-4 col-md-6 portfolio-item second wow fadeInUp"
+					data-wow-delay="0.1s">
+                    <div class="portfolio-inner rounded">
+                        <img class="img-fluid" src="img/service-4.jpg"
+							alt="">
+                        <div class="portfolio-text">
+                            <h4 class="text-white mb-4">Garden Maintenance</h4>
+                            <div class="d-flex">
+                                <a
+									class="btn btn-lg-square rounded-circle mx-2"
+									href="img/service-4.jpg" data-lightbox="portfolio"><i
+									class="fa fa-eye"></i></a>
+                                <a
+									class="btn btn-lg-square rounded-circle mx-2" href=""><i
+									class="fa fa-link"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div
+					class="col-lg-4 col-md-6 portfolio-item first wow fadeInUp"
+					data-wow-delay="0.3s">
+                    <div class="portfolio-inner rounded">
+                        <img class="img-fluid" src="img/service-5.jpg"
+							alt="">
+                        <div class="portfolio-text">
+                            <h4 class="text-white mb-4">Green Technology</h4>
+                            <div class="d-flex">
+                                <a
+									class="btn btn-lg-square rounded-circle mx-2"
+									href="img/service-5.jpg" data-lightbox="portfolio"><i
+									class="fa fa-eye"></i></a>
+                                <a
+									class="btn btn-lg-square rounded-circle mx-2" href=""><i
+									class="fa fa-link"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div
+					class="col-lg-4 col-md-6 portfolio-item second wow fadeInUp"
+					data-wow-delay="0.5s">
+                    <div class="portfolio-inner rounded">
+                        <img class="img-fluid" src="img/service-6.jpg"
+							alt="">
+                        <div class="portfolio-text">
+                            <h4 class="text-white mb-4">Urban Gardening</h4>
+                            <div class="d-flex">
+                                <a
+									class="btn btn-lg-square rounded-circle mx-2"
+									href="img/service-6.jpg" data-lightbox="portfolio"><i
+									class="fa fa-eye"></i></a>
+                                <a
+									class="btn btn-lg-square rounded-circle mx-2" href=""><i
+									class="fa fa-link"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <!-- Video Container End -->
-            
         </div>
     </div>
     <!-- Projects End -->
@@ -1205,7 +1253,7 @@ header[role=banner]::after {
 	<script>
 	
 	// 우정 : 팔로우 버튼 누를 시 ajax.
-	function btn-follow(){
+	<%-- function btn-follow(){
 		// 팔로우 여부 체크
 		let follow_ck;
 		console.log(follow_ck);
@@ -1253,7 +1301,7 @@ header[role=banner]::after {
 		})
 
 	}
-	}
+	} --%>
 	// follow-ajax-end
 	
 		jQuery(document).ready(function($){

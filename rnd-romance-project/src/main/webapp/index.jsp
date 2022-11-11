@@ -536,6 +536,38 @@
 	#display-1 text-white mb-5 animated slideInDown_2 {
 		font-color: green !important;
 	}
+	@media screen and (max-width:981px) {
+	.search_box {
+		/* padding: 0.4rem; */
+		margin-left: 150px;
+	}
+	}
+	
+	.search_box {
+		background: #eee;
+		padding: 0.4rem;
+		margin: 1rem 0;
+		width: 15%;
+		border: 0;
+		outline: none;
+		border-radius: 0.9rem;
+		/* box-shadow: inset 7px 2px 10px #d8dbd9, inset -5px -5px 12px #fff; */
+	}
+	
+	.search_text {
+		border: 0;
+		outline: 0;
+		background: #eee;
+		display: flex;
+		flex-direction: row;
+		padding: 0 0.2rem;
+		height: 100%;
+		width: 100%;
+		justify-content: space-evenly;
+		align-items: baseline;
+		align-content: stretch;
+	}
+	
 </style>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -590,6 +622,17 @@
         <a href="index.jsp" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
             <h1 class="m-0">Mentorvation</h1>
         </a>
+        
+        
+        <!-- 한가연 검색창 만들기 -->
+		<div class="search_box" style="margin-left: 180px;margin-bottom: 0;">
+			<div>
+				<input class="search_text" type="text" placeholder="search">
+			</div>
+		</div>
+		<!-- 검색창 END -->
+		
+		
         <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -598,7 +641,7 @@
                 <a href="index.jsp" class="nav-item nav-link active">Home</a>
                 <a href="recommendation.jsp" class="nav-item nav-link">Recommendation</a>
                 <a href="calendar.jsp" class="nav-item nav-link">Calendar</a>
-                <a href="myprofile.jsp" class="nav-item nav-link">MyProfile</a>
+                <a href="profile.jsp" class="nav-item nav-link">Profile</a>
                 <!-- <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                     <div class="dropdown-menu bg-light m-0">

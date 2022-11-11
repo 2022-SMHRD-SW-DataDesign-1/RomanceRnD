@@ -523,3 +523,11 @@ h6,
 .copyright a:hover {
     color: var(--primary);
 }
+
+
+
+
+
+
+/* 추가 */
+.profile_txtArea{width:100%; font-size:.8rem; border:1px solid #dedede; padding:.2rem; box-sizing:border-box; outline:none;}

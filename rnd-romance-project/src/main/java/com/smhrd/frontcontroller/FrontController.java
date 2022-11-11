@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import com.smhrd.command.Command;
+import com.smhrd.controller.CalenderService;
 import com.smhrd.controller.JoinService;
 import com.smhrd.controller.LoginService;
 import com.smhrd.controller.LogoutService;
@@ -92,6 +93,9 @@ public class FrontController extends HttpServlet {
 		}else if(result.equals("handshakeService.do")) {
 			
 			service = new handshakeService();
+		}else if(result.equals("CalenderService.do")) {
+			
+			service = new CalenderService();
 		}
 		
 		
