@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Mentorvation - Gardening Website Template</title>
+<title>Mentorvation</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <meta content="" name="keywords">
 <meta content="" name="description">
@@ -42,7 +42,7 @@
 <!-- Template Stylesheet -->
 <link href="css/style.css" rel="stylesheet">
 <style>
-html {
+ /* html {
 	font-size: 20px
 }
 
@@ -106,6 +106,7 @@ textarea {
 	resize: none;
 }
 
+
 html {
 	height: 100%
 }
@@ -113,6 +114,192 @@ html {
 body {
 	height: 100%;
 	overflow: hidden
+}
+  */
+ 
+html * {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+	
+*, *:after, *:before {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+body {
+	font-size: 100%;
+	font-family: 'Noto Sans KR', 'NanumGothic', '나눔고딕';
+	color: #505260;
+	background-color: #fff;
+/* 	height: 100%;
+	overflow: hidden; */
+}
+
+a {
+	color: #2f889a;
+	text-decoration: none;
+}
+
+img {
+	max-width: 100%;
+}
+
+input, textarea {
+	font-family: "PT Sans", sans-serif;
+	font-size: 16px;
+	font-size: 1rem;
+}
+
+input::-ms-clear, textarea::-ms-clear {
+	display: none;
+}
+
+/* -------------------------------- 
+	
+	Main components 
+	
+	-------------------------------- */
+header[role=banner] {
+	position: relative;
+	height: 50px;
+	background: #343642;
+}
+
+header[role=banner] #cd-logo {
+	float: left;
+	margin: 4px 0 0 5%;
+	/* reduce logo size on mobile and make sure it is left aligned with the transform-origin property */
+	-webkit-transform-origin: 0 50%;
+	-moz-transform-origin: 0 50%;
+	-ms-transform-origin: 0 50%;
+	-o-transform-origin: 0 50%;
+	transform-origin: 0 50%;
+	-webkit-transform: scale(0.8);
+	-moz-transform: scale(0.8);
+	-ms-transform: scale(0.8);
+	-o-transform: scale(0.8);
+	transform: scale(0.8);
+}
+
+header[role=banner] #cd-logo img {
+	display: block;
+}
+
+header[role=banner]::after {
+	/* clearfix */
+	content: "";
+	display: table;
+	clear: both;
+}
+
+@media only screen and (min-width: 768px) {
+	header[role=banner] {
+		height: 80px;
+	}
+	header[role=banner] #cd-logo {
+		margin: 20px 0 0 5%;
+		-webkit-transform: scale(1);
+		-moz-transform: scale(1);
+		-ms-transform: scale(1);
+		-o-transform: scale(1);
+		transform: scale(1);
+	}
+}
+
+.main-nav {
+	float: right;
+	margin-right: 2%;
+	margin-top: 1%;
+	width: 44px;
+	height: 100%;
+	background:
+		url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-menu.svg")
+		no-repeat center center;
+	cursor: pointer;
+}
+
+.main-nav ul {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	-webkit-transform: translateY(-100%);
+	-moz-transform: translateY(-100%);
+	-ms-transform: translateY(-100%);
+	-o-transform: translateY(-100%);
+	transform: translateY(-100%);
+}
+
+.main-nav ul.is-visible {
+	-webkit-transform: translateY(50px);
+	-moz-transform: translateY(50px);
+	-ms-transform: translateY(50px);
+	-o-transform: translateY(50px);
+	transform: translateY(50px);
+}
+
+.main-nav a {
+	display: block;
+	height: 50px;
+	line-height: 50px;
+	padding-left: 5%;
+	background: #292a34;
+	border-top: 1px solid #3b3d4b;
+	color: #FFF;
+}
+
+@media only screen and (min-width: 768px) {
+	.main-nav {
+		width: auto;
+		height: auto;
+		background: none;
+		cursor: auto;
+	}
+	.main-nav ul {
+		position: static;
+		width: auto;
+		-webkit-transform: translateY(0);
+		-moz-transform: translateY(0);
+		-ms-transform: translateY(0);
+		-o-transform: translateY(0);
+		transform: translateY(0);
+		line-height: 80px;
+	}
+	.main-nav ul.is-visible {
+		-webkit-transform: translateY(0);
+		-moz-transform: translateY(0);
+		-ms-transform: translateY(0);
+		-o-transform: translateY(0);
+		transform: translateY(0);
+	}
+	.main-nav li {
+		display: inline-block;
+		margin-left: 1em;
+	}
+	.main-nav li:nth-last-child(2) {
+		margin-left: 2em;
+	}
+	.main-nav a {
+		display: inline-block;
+		height: auto;
+		line-height: normal;
+		background: transparent;
+	}
+	.main-nav a.cd-signin, .main-nav a.cd-signup {
+		padding: 0.6em 1em;
+		border: 1px solid rgba(255, 255, 255, 0.6);
+		border-radius: 50em;
+	}
+	.main-nav a.cd-signup {
+		background: #2f889a;
+		border: none;
+	}
+	.main-nav a.cd-signin {
+		background: #4a69bd;
+		border: none;
+	}
 }
 
 #wrapper {
@@ -192,48 +379,75 @@ input::placeholder {
 	border: none;
 	padding: .35rem 0;
 }
+
+@media screen and (max-width:981px) {
+	.search_box {
+		/* padding: 0.4rem; */
+		margin-left: 150px;
+	}
+}
+
+.search_box {
+	background: #eee;
+	padding: 0.4rem;
+	margin: 1rem 0;
+	width: 15%;
+	border: 0;
+	outline: none;
+	border-radius: 0.9rem;
+	/* box-shadow: inset 7px 2px 10px #d8dbd9, inset -5px -5px 12px #fff; */
+}
+
+.search_text {
+	border: 0;
+	outline: 0;
+	background: #eee;
+	display: flex;
+	flex-direction: row;
+	padding: 0 0.2rem;
+	height: 100%;
+	width: 100%;
+	justify-content: space-evenly;
+	align-items: baseline;
+	align-content: stretch;
+}
 </style>
 </head>
+
 <body style="text-align: center;">
 
 	<%
-      memberDTO info = (memberDTO)session.getAttribute("info");
-   
-   %>
+	memberDTO info = (memberDTO) session.getAttribute("info");
+	%>
 
 	<!-- Navbar Start -->
-	<!-- 염건웅_수정: 상단 navbar 높이 수정 -->
-	<nav
-		class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0"
-		style="height: 6em;"> <a href="index.jsp"
-		class="navbar-brand d-flex align-items-center px-4 px-lg-5">
-		<h1 class="m-0">Mentorvation</h1>
-	</a>
-	<button type="button" class="navbar-toggler me-4"
-		data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-		<span class="navbar-toggler-icon"></span>
-	</button>
-	<div class="collapse navbar-collapse" id="navbarCollapse">
-		<div class="navbar-nav ms-auto p-4 p-lg-0">
-			<a href="index.jsp" class="nav-item nav-link active">Home</a> <a
-				href="recommendation.jsp" class="nav-item nav-link">Recommendation</a>
-			<a href="calendar.jsp" class="nav-item nav-link">Calendar</a> <a
-				href="profile.jsp" class="nav-item nav-link">Profile</a>
-			<!-- <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                    <div class="dropdown-menu bg-light m-0">
-                        <a href="feature.jsp" class="dropdown-item">Features</a>
-                        <a href="quote.jsp" class="dropdown-item">Free Quote</a>
-                        <a href="team.jsp" class="dropdown-item">Our Team</a>
-                        <a href="testimonial.jsp" class="dropdown-item">Testimonial</a>
-                        <a href="404.jsp" class="dropdown-item">404 Page</a>
-                    </div>
-                </div>
-                <a href="contact.jsp" class="nav-item nav-link">Contact</a> -->
+	<nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0" style="height: 6em;"> 
+		<a href="index.jsp" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+			<h1 class="m-0">Mentorvation</h1>
+		</a>
+		<div class="search_box" style="margin-left: 180px; margin-bottom: 0;">
+			<div>
+				<input class="search_text" type="text" placeholder="search">
+			</div>
 		</div>
-		<!-- <a href="" class="btn btn-primary py-4 px-lg-4 rounded-0 d-none d-lg-block">LOGIN<i class="fa fa-arrow-right ms-3"></i></a> -->
-
-	</div>
+		<button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarCollapse">
+			<div class="navbar-nav ms-auto p-4 p-lg-0">
+				<a href="index.jsp" class="nav-item nav-link active">Home</a> <a
+					href="watchvideo.jsp" class="nav-item nav-link">Recommendation</a>
+				<a href="calendar.jsp" class="nav-item nav-link">Mycalendar</a> <a
+					href="myprofile.jsp" class="nav-item nav-link">Myprofile</a>
+	
+			</div>
+			<nav class="main-nav">
+			<ul style="padding-left: 0px;">
+				<!-- inser more links here -->
+				<li><a class="cd-signin" href="LogoutService.do">Logout</a></li>
+			</ul>
+			</nav>
+		</div>
 	</nav>
 	<!-- Navbar End -->
 
@@ -245,17 +459,12 @@ input::placeholder {
 				<div class="modify_wrap">
 					<img src="img/Update.png" />
 					<h4>회원 정보 수정</h4>
-					<p>
-						접속한 Email :
-						<%=info.getMember_id() %></p>
-					<p>
-						접속한 Username :
-						<%=info.getMember_name() %></p>
+					<p>Email : <%=info.getMember_id()%></p>
+					<p>User name : <%=info.getMember_name()%></p>
+					<!-- 여기에 프로필 사진 수정 할 것 만들어 두기 -->
 					<div class="modify_content">
 						<ul>
-							<!--<li class="name"><input placeholder="이름을 작성하세요"></li>-->
-							<li class="password"><input name="member_pw"
-								placeholder="새로운 비밀번호를 작성하세요"></li>
+							<li class="password"><input name="member_pw" placeholder="새로운 비밀번호를 작성하세요"></li>
 							<li class="join_btn"><button type="submit">OK</button></li>
 						</ul>
 					</div>

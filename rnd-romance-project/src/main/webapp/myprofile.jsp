@@ -647,32 +647,39 @@ header[role=banner]::after {
 }
 </style>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
 </head>
 
 <body>
 	<!-- Scriptlet -->
 	<%
-		/* dwyane */
-		/* String profile_id = request.getParameter("profile_id");
-		System.out.println(profile_id); */
-		/* memberDTO info = (memberDTO)session.getAttribute("info"); */
-		/* Login_Member Start */
-		memberDTO info = (memberDTO)session.getAttribute("info");
-		System.out.println("info: "+info);
-		String member_name = info.getMember_name();
-		String member_id = info.getMember_id();
-		/* Login_Member Start */
-	
-		/* Video Start */
-		ArrayList<videoDTO> videoList = new videoDAO().selectAllVideos(member_id);
-		System.out.println("videoList: "+ videoList);
-		
-		/* Video End */
+	/* dwyane */
+	/* String profile_id = request.getParameter("profile_id");
+	System.out.println(profile_id); */
+	/* memberDTO info = (memberDTO)session.getAttribute("info"); */
+	/* Login_Member Start */
+	memberDTO info = (memberDTO) session.getAttribute("info");
+	System.out.println("info: " + info);
+	String member_name = info.getMember_name();
+	String member_id = info.getMember_id();
+	/* Login_Member Start */
+
+	/* Video Start */
+	ArrayList<videoDTO> videoList = new videoDAO().selectAllVideos(member_id);
+	System.out.println("videoList: " + videoList);
+
+	/* Video End */
 	%>
 	
-	
+	<%
+	/* dwyane */
+	String profile_id = request.getParameter("profile_id");
+	System.out.println(profile_id);
+	%>
+
 	<!-- Spinner Start -->
 	<div id="spinner"
 		class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
@@ -681,411 +688,110 @@ header[role=banner]::after {
 	</div>
 	<!-- Spinner End -->
 
-
-	<!-- Topbar Start -->
-	<!-- <div class="container-fluid bg-dark text-light px-0 py-2">
-        <div class="row gx-0 d-none d-lg-flex">
-            <div class="col-lg-7 px-5 text-start">
-                <div class="h-100 d-inline-flex align-items-center me-4">
-                    <span class="fa fa-phone-alt me-2"></span>
-                    <span>010-3615-0272</span>
-                </div>
-                <div class="h-100 d-inline-flex align-items-center">
-                    <span class="far fa-envelope me-2"></span>
-                    <span>keonungs@gmail.com</span>
-                </div>
-            </div>
-            <div class="col-lg-5 px-5 text-end">
-                <div class="h-100 d-inline-flex align-items-center mx-n2">
-                    <span>Follow Us:</span>
-                    <a class="btn btn-link text-light" href=""><i class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-link text-light" href=""><i class="fab fa-twitter"></i></a>
-                    <a class="btn btn-link text-light" href=""><i class="fab fa-linkedin-in"></i></a>
-                    <a class="btn btn-link text-light" href=""><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-        </div>
-    </div> -->
-	<!-- Topbar End -->
-
 	<!-- Navbar Start -->
-	<!-- 염건웅_수정: 상단 navbar 높이 수정 -->
-	<nav
-		class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0"
-		style="height: 6em;">
-		<a href="index.jsp"
-			class="navbar-brand d-flex align-items-center px-4 px-lg-5">
-			<h1 class="m-0">Mentorvation</h1>
-		</a>
-
-		<!-- 한가연 검색창 만들기 Start -->
-		<div class="search_box" style="margin-left: 200px">
+	<nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0" style="height: 6em;">
+       <a href="index.jsp" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+           <h1 class="m-0">Mentorvation</h1>
+       </a>
+	<div class="search_box" style="margin-left: 180px;margin-bottom: 0;">
+		<form action="SearchService.do" method="get">
 			<div>
-				<input class="search_text" type="text" placeholder="search">
+				<input name="profile_id" class="search_text" type="text" placeholder="search">
 			</div>
-		</div>
-		<!-- 한가연 검색창 만들기 End -->
-        
-        <button type="button" class="navbar-toggler me-4"
-			data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-            <div class="navbar-nav ms-auto p-4 p-lg-0">
-                <a href="index.jsp" class="nav-item nav-link active">Home</a>
-                <a href="recommendation.jsp" class="nav-item nav-link">Recommendation</a>
-                <a href="calendar.jsp" class="nav-item nav-link">Calendar</a>
-                <a href="myprofile.jsp" class="nav-item nav-link">MyProfile</a>
-                <!-- <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                    <div class="dropdown-menu bg-light m-0">
-                        <a href="feature.jsp" class="dropdown-item">Features</a>
-                        <a href="quote.jsp" class="dropdown-item">Free Quote</a>
-                        <a href="team.jsp" class="dropdown-item">Our Team</a>
-                        <a href="testimonial.jsp" class="dropdown-item">Testimonial</a>
-                        <a href="404.jsp" class="dropdown-item">404 Page</a>
-                    </div>
-                </div>
-                <a href="contact.jsp" class="nav-item nav-link">Contact</a> -->
-            </div>
-            <!-- <a href="" class="btn btn-primary py-4 px-lg-4 rounded-0 d-none d-lg-block">LOGIN<i class="fa fa-arrow-right ms-3"></i></a> -->
-         	<nav class="main-nav">
-				<ul>
-					<!-- inser more links here -->
-					<%
-					if (info == null) {
-					%>
-						<li><a class="cd-signin" href="#0">Sign in</a></li>
-					<%
-					} else {
-					%>
-						<li><a class="cd-signin" href="UpdateMember.jsp">회원정보수정</a></li>
-						<li><a class="cd-signin" href="LogoutService.do">Logout</a></li>
-					<%
-					}
-					%>
-				</ul>
-			</nav>
+		</form>
+	</div>
+       <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+       <div class="collapse navbar-collapse" id="navbarCollapse">
+           <div class="navbar-nav ms-auto p-4 p-lg-0">
+               <a href="index.jsp" class="nav-item nav-link active">Home</a>
+               <a href="watchvideo.jsp" class="nav-item nav-link">Recommendation</a>
+               <a href="calendar.jsp" class="nav-item nav-link">Mycalendar</a>
+               <a href="myprofile.jsp" class="nav-item nav-link">Myprofile</a>
             
-        </div>
-    </nav>
+           </div>
+        	<nav class="main-nav">
+			<ul style="padding-left: 0px;">
+				<!-- inser more links here -->
+					<li><a class="cd-signin" href="UpdateMember.jsp">회원정보수정</a></li>
+					<li><a class="cd-signin" href="LogoutService.do">Logout</a></li>
+			</ul>
+		</nav>
+       </div>
+   	</nav>
+	<!-- Navbar ENd -->
 
 
-    <!-- Page Header Start -->
-    <!-- <div class="container-fluid page-header py-5 mb-5 wow fadeIn" data-wow-delay="0.1s">
-        <div class="container text-center py-5">
-            <h1 class="display-3 text-white mb-4 animated slideInDown">Projects</h1>
-            <nav aria-label="breadcrumb animated slideInDown">
-                <ol class="breadcrumb justify-content-center mb-0">
-                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item"><a href="#">Pages</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Projects</li>
-                </ol>
-            </nav>
-        </div>
-    </div> -->
-    <!-- Page Header End -->
-
-
-    <!-- Projects Start -->
-    <div class="container-xxl py-5">
-        <div class="container" style="text-align: center">
-           	<div style="text-align: right;">
-           		<!-- <input type="text">
-           		<input type="button" value="Search"> -->
-           		<!-- <button>검색</button> -->
-           	</div>
-           	
-           	<div style="text-align: right">
-	           	<a href="Upload.jsp"><input type="button" value="Upload"></a>
-	           	<!-- Button trigger modal -->
-				<!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-					Upload
-				</button> -->
-				
-				<!-- Modal -->
-				<!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-					<div class="modal-dialog modal-fullscreen">
-						<div class="modal-content">
-							<div class="modal-header">
-								<h1 class="modal-title fs-5" id="exampleModalLabel">Upload</h1>
-								<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-							</div>
-								<div class="modal-body">
-									<form action="UploadService.do" method="post" enctype="multipart/form-data">
-										비디오시퀀스<input type="number" name="video_seq"><br>
-										멤버아이디<input type="text" name="member_id"><br>
-										비디오파일<input type="file" name="video_file"><br>
-										비디오가격<input type="number" name="video_price"><br>
-										비디오설명<input type="text" name="video_desc"><br>
-										비디오업로드날짜<input type="date" name="upload_dt"><br>
-										허용권한<input type="text" name="permissions"><br>
-										<input type="submit">
-									</form>
-								</div>
-							<div class="modal-footer">
-								<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-								<button type="button" class="btn btn-primary">Save changes</button>
-							</div>
-						</div>
-					</div>
-				</div> -->
-           	</div>
-            <div class="text-center mx-auto wow fadeInUp"
-				data-wow-delay="0.1s" style="display:inline-flex;">
-                <!-- <p class="fs-5 fw-bold text-primary">Profile</p> -->
-     			<img src="img/profile_image.png" alt="profile-user-img"
-					class="profile-user-img-img"
-					style="border-style: solid; border-color: black;">
-                <div
-					style="padding-left: 6em; text-align: left;padding-top: 3rem;">
-					
-					<!-- <div style="text-align: center">
-						<div style="text-align: center">
-						a
-						</div>
-						
-						<div style="text-align: center">
-						b
-						</div>
-					</div> -->
-					<div style="width: 16em;text-align: center;">
+	<!-- Projects Start -->
+	<div class="container-xxl py-5">
+		<div class="container" style="text-align: center">
+			<!-- upload 버튼   -->
+			<div style="text-align: right">
+				<a href="Upload.jsp"><input type="button" value="Upload"></a>
+			</div>
+			<div style="text-align: right">
+				<a href="UpdateMember.jsp"><input type="button" value="프로필사진수정"></a>
+			</div>			
+			<!-- upload 버튼 End   -->
+			<div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="display:inline-flex; align-items:center; justify-content:center; margin-bottom:3rem;">
+     			<img src="img/profile_img04.png" alt="profile-user-img" class="profile-user-img-img">
+                <div style="text-align: left; margin-left:4rem;">
+					<div>
+			            <h4 class="display-5 mb-5" style="padding: 0em; color: #222; font-size:2.5rem; font-weight:500 !important; margin-bottom: 0rem !important;"><%= profile_id %></h4>
+		            </div>
+		            
+					<div style="width: 16em; padding-top:.6rem; text-align: center;">
 						<table style="border: 1px">
 							<tr style="text-align: center; width:16em;">
-								<td style="text-align: center;width: 8em;">
-								10
-								</td>
-								<td style="text-align: center;width: 8em;">
-								10
-								</td>
-							</tr>
-							<tr style="text-align: center; width: 16em;">
-								<td style="text-align: center;width: 8em;">
-								Mentor
-								</td>
-								<td style="text-align: center;width: 8em;">
-								Mentee
-								</td>
+								<td style="text-align: left;width: 8em; color:#666;">Mentor</td>
+								<td style="text-align: left;width: 8em; color:#444; font-weight:bold;">10</td>
+								<td style="text-align: left;width: 8em; color:#666;">Mentee</td>
+								<td style="text-align: left;width: 8em; color:#444; font-weight:bold;">10</td>
 							</tr>
 						</table>
 					</div>
-					<div style="margin: 1rem auto;">
-						
-						<!--  -->
-						<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-							Handshake
-						</button>
-				
-						<!-- Modal -->
-						<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-						  <div class="modal-dialog">
-						    <div class="modal-content">
-						      <div class="modal-header">
-						        <h1 class="modal-title fs-5" id="staticBackdropLabel">Handshake</h1>
-						        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-						      </div>
-						      <div class="modal-body">
-						      	Would you like to send Handshake to <%-- <%=profile_id%> --%>
-						      </div>
-						      <div class="modal-footer">
-						        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-						        <button type="button" class="btn btn-primary">Ok</button>
-						      </div>
-						    </div>
-						  </div>
-						</div>
-						
-						<!-- dwyane -->
-				<!-- Button trigger modal -->
-				<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-					Tea-Time
-				</button>
-				
-				<!-- Modal Start -->
-				<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-					<div class="modal-dialog modal-fullscreen">
-						<div class="modal-content">
-							<div class="modal-header">
-								<h1 class="modal-title fs-5" id="exampleModalLabel">Tea-Time</h1>
-								<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-							</div>
-								<div class="modal-body">
-								</div>
-							<div class="modal-footer">
-								<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-								<button type="button" class="btn btn-primary">Save changes</button>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- Modal End -->
-
-				<!-- dwyane -->
-				<!-- Button trigger modal -->
-				<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-					Schedule
-				</button>
-				
-				<!-- Modal -->
-				<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-					<div class="modal-dialog modal-fullscreen">
-						<div class="modal-content">
-							<div class="modal-header">
-								<h1 class="modal-title fs-5" id="exampleModalLabel">Tea-Time</h1>
-								<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-							</div>
-								<div class="modal-body">
-								</div>
-							<div class="modal-footer">
-								<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-								<button type="button" class="btn btn-primary">Save changes</button>
-							</div>
-						</div>
-					</div>
-				</div>
-						
-						
-					</div>
-                </div>
-            </div>
-            <div style="text-align: center; padding-right: 22em; ">
-            <!-- dwyane -->
-            	<%-- <%
-					memberDTO dto = new memberDTO();
-            		memberDAO dao = new memberDAO();
-					
-					memberDTO selected_member = dao.selectAll(profile_id);
-					String selected_member_name = selected_member.getMember_name();
-					System.out.println("info: "+ selected_member);
-				%> --%>display-5 mb-5
-	            <%-- <h1 class="" style="padding: 0em; color: black;margin-bottom: 0rem !important;"><%=selected_member_name%></h1> --%>
-	            <h1 class="display-5 mb-5"
-					style="padding: 0em; color: black;margin-bottom: 0rem !important;"><%= member_name %></h1>
-				<textarea rows="" cols=""></textarea>
-            </div>
-    		<br><br>
-            <!-- <div class="row wow fadeInUp" data-wow-delay="0.3s">
-                <div class="col-12 text-center">
-                    <ul class="list-inline rounded mb-5" id="portfolio-flters">
-                        <li class="mx-2 active" data-filter="*">전체</li>
-                        <li class="mx-2" data-filter=".first">이미지</li>
-                        <li class="mx-2" data-filter=".second">영상</li>
-                    </ul>
-                </div>
-            </div> -->
-            <!-- Video Container End -->
-			<div class="row g-4 portfolio-container">
+			<textarea class="profile_txtArea" rows="" cols=""></textarea>
 			
+
+			<!-- Video Container End -->
+			<div class="row g-4 portfolio-container">
+
 				<!-- Individual Video Start -->
-				<%	
-					String html = "";
-					System.out.println("videoList.size():"+videoList.size());
-					for (int i = 0; i < videoList.size(); i++) {	
-						
-						
-						
+				<%
+				String html = "";
+				System.out.println("videoList.size():" + videoList.size());
+				for (int i = 0; i < videoList.size(); i++) {
+
 					html += " <div class='col-lg-4 col-md-6 portfolio-item first wow fadeInUp'data-wow-delay='0.3s'> ";
 					html += " <div class='portfolio-inner rounded'> ";
-					html += " <img class='img-fluid' src='./file/"+videoList.get(i).getVideo_thumbnail()+".png'alt=''> ";
+					html += " <img class='img-fluid' src='./file/" + videoList.get(i).getVideo_thumbnail() + ".png'alt=''> ";
 					html += " <div class='portfolio-text'> ";
 					html += " <h4 class='text-white mb-4'></h4> ";
 					html += " <div class='d-flex'> ";
-					html += " <a class='btn btn-lg-square rounded-circle mx-2' href='watchvideo.jsp?video_file="+videoList.get(i).getVideo_file()+"'><i class='fa fa-eye'></i>";
+					html += " <a class='btn btn-lg-square rounded-circle mx-2' href='watchvideo.jsp?video_file="
+					+ videoList.get(i).getVideo_file() + "'><i class='fa fa-eye'></i>";
 					html += " </a></div></div></div></div> ";
-					}
-					
-					
+				}
 				%>
-                <%= html %>
-                    
-                        
-                        
-                            
-                            
-                                
-									
-								
-                <!-- Individual Video End -->
-                
-            </div>
-            <!-- Video Container End -->
-            
-        </div>
-    </div>
-    <!-- Projects End -->
+				<%=html%>
 
+				<!-- Individual Video End -->
 
-    <!-- Footer Start -->
-    <!-- <div class="container-fluid bg-dark text-light footer mt-5 py-5 wow fadeIn" data-wow-delay="0.1s">
-        <div class="container py-5">
-            <div class="row g-5">
-                <div class="col-lg-3 col-md-6">
-                    <h4 class="text-white mb-4">Our Office</h4>
-                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
-                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
-                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@example.com</p>
-                    <div class="d-flex pt-2">
-                        <a class="btn btn-square btn-outline-light rounded-circle me-2" href=""><i class="fab fa-twitter"></i></a>
-                        <a class="btn btn-square btn-outline-light rounded-circle me-2" href=""><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-square btn-outline-light rounded-circle me-2" href=""><i class="fab fa-youtube"></i></a>
-                        <a class="btn btn-square btn-outline-light rounded-circle me-2" href=""><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <h4 class="text-white mb-4">Services</h4>
-                    <a class="btn btn-link" href="">Landscaping</a>
-                    <a class="btn btn-link" href="">Pruning plants</a>
-                    <a class="btn btn-link" href="">Urban Gardening</a>
-                    <a class="btn btn-link" href="">Garden Maintenance</a>
-                    <a class="btn btn-link" href="">Green Technology</a>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <h4 class="text-white mb-4">Quick Links</h4>
-                    <a class="btn btn-link" href="">About Us</a>
-                    <a class="btn btn-link" href="">Contact Us</a>
-                    <a class="btn btn-link" href="">Our Services</a>
-                    <a class="btn btn-link" href="">Terms & Condition</a>
-                    <a class="btn btn-link" href="">Support</a>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <h4 class="text-white mb-4">Newsletter</h4>
-                    <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
-                    <div class="position-relative w-100">
-                        <input class="form-control bg-light border-light w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
-                        <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
-    <!-- Footer End -->
+			</div>
+			<!-- Video Container End -->
 
+		</div>
+	</div>
+	<!-- Projects End -->
 
-    <!-- Copyright Start -->
-    <!-- <div class="container-fluid copyright py-4">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                    &copy; <a class="border-bottom" href="#">Your Site Name</a>, All Right Reserved.
-                </div>
-                <div class="col-md-6 text-center text-md-end">
-                    /*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/
-                    Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a> Distributed By <a href="https://themewagon.com">ThemeWagon</a>
-                </div>
-            </div>
-        </div>
-    </div> -->
-    <!-- Copyright End -->
-
-	
-	
     <!-- Back to Top -->
-    <a href="#"
-		class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i
-		class="bi bi-arrow-up"></i></a>
-	
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top">
+    	<i class="bi bi-arrow-up"></i>
+    </a>
+
 	<!-- cd-user-modal Start -->
-    <div class="cd-user-modal">
+	<div class="cd-user-modal">
 		<!-- this is the entire modal form, including the background -->
 		<div class="cd-user-modal-container">
 			<!-- this is the container wrapper -->
@@ -1107,9 +813,10 @@ header[role=banner]::after {
 					<p class="fieldset">
 						<label class="image-replace cd-password" for="signin-password">Password</label>
 						<input class="full-width has-padding has-border"
-							id="signin-password" type="text" name="member_pw" placeholder="Password">
-						<a href="#0" class="hide-password">Hide</a> <span
-							class="cd-error-message">Error message here!</span>
+							id="signin-password" type="text" name="member_pw"
+							placeholder="Password"> <a href="#0"
+							class="hide-password">Hide</a> <span class="cd-error-message">Error
+							message here!</span>
 					</p>
 
 					<p class="fieldset">
@@ -1134,24 +841,26 @@ header[role=banner]::after {
 				<form action="JoinService.do" class="cd-form" method="post">
 					<p class="fieldset">
 						<label class="image-replace cd-username" for="signup-username">Username</label>
-						<input class="full-width has-padding has-border" name="member_name"
-							id="signup-username" type="text" placeholder="Username">
-						<span class="cd-error-message">Error message here!</span>
+						<input class="full-width has-padding has-border"
+							name="member_name" id="signup-username" type="text"
+							placeholder="Username"> <span class="cd-error-message">Error
+							message here!</span>
 					</p>
 
 					<p class="fieldset">
 						<label class="image-replace cd-email" for="signup-email">E-mail</label>
-						<input class="full-width has-padding has-border" name="member_id" id="signup-email"
-							type="email" placeholder="E-mail"> <span
+						<input class="full-width has-padding has-border" name="member_id"
+							id="signup-email" type="email" placeholder="E-mail"> <span
 							class="cd-error-message">Error message here!</span>
 					</p>
 
 					<p class="fieldset">
 						<label class="image-replace cd-password" for="signup-password">Password</label>
 						<input class="full-width has-padding has-border"
-							id="signup-password" type="text" name="member_pw" placeholder="Password">
-						<a href="#0" class="hide-password">Hide</a> <span
-							class="cd-error-message">Error message here!</span>
+							id="signup-password" type="text" name="member_pw"
+							placeholder="Password"> <a href="#0"
+							class="hide-password">Hide</a> <span class="cd-error-message">Error
+							message here!</span>
 					</p>
 
 					<p class="fieldset">
@@ -1198,175 +907,212 @@ header[role=banner]::after {
 		<!-- cd-user-modal-container -->
 	</div>
 	<!-- cd-user-modal -->
-	
+
 	<!-- JavaScript -->
 	<script>
-		jQuery(document).ready(function($){
-		  var $form_modal = $('.cd-user-modal'),
-		    $form_login = $form_modal.find('#cd-login'),
-		    $form_signup = $form_modal.find('#cd-signup'),
-		    $form_forgot_password = $form_modal.find('#cd-reset-password'),
-		    $form_modal_tab = $('.cd-switcher'),
-		    $tab_login = $form_modal_tab.children('li').eq(0).children('a'),
-		    $tab_signup = $form_modal_tab.children('li').eq(1).children('a'),
-		    $forgot_password_link = $form_login.find('.cd-form-bottom-message a'),
-		    $back_to_login_link = $form_forgot_password.find('.cd-form-bottom-message a'),
-		    $main_nav = $('.main-nav');
-
-		  //open modal
-		  $main_nav.on('click', function(event){
-
-		    if( $(event.target).is($main_nav) ) {
-		      // on mobile open the submenu
-		      $(this).children('ul').toggleClass('is-visible');
-		    } else {
-		      // on mobile close submenu
-		      $main_nav.children('ul').removeClass('is-visible');
-		      //show modal layer
-		      $form_modal.addClass('is-visible'); 
-		      //show the selected form
-		      ( $(event.target).is('.cd-signup') ) ? signup_selected() : login_selected();
-		    }
-
-		  });
-
-		  //close modal
-		  $('.cd-user-modal').on('click', function(event){
-		    if( $(event.target).is($form_modal) || $(event.target).is('.cd-close-form') ) {
-		      $form_modal.removeClass('is-visible');
-		    } 
-		  });
-		  //close modal when clicking the esc keyboard button
-		  $(document).keyup(function(event){
-		      if(event.which=='27'){
-		        $form_modal.removeClass('is-visible');
-		      }
-		    });
-
-		  //switch from a tab to another
-		  $form_modal_tab.on('click', function(event) {
-		    event.preventDefault();
-		    ( $(event.target).is( $tab_login ) ) ? login_selected() : signup_selected();
-		  });
-
-		  //hide or show password
-		  $('.hide-password').on('click', function(){
-		    var $this= $(this),
-		      $password_field = $this.prev('input');
-		    
-		    ( 'password' == $password_field.attr('type') ) ? $password_field.attr('type', 'text') : $password_field.attr('type', 'password');
-		    ( 'Hide' == $this.text() ) ? $this.text('Show') : $this.text('Hide');
-		    //focus and move cursor to the end of input field
-		    $password_field.putCursorAtEnd();
-		  });
-
-		  //show forgot-password form 
-		  $forgot_password_link.on('click', function(event){
-		    event.preventDefault();
-		    forgot_password_selected();
-		  });
-
-		  //back to login from the forgot-password form
-		  $back_to_login_link.on('click', function(event){
-		    event.preventDefault();
-		    login_selected();
-		  });
-
-		  function login_selected(){
-		    $form_login.addClass('is-selected');
-		    $form_signup.removeClass('is-selected');
-		    $form_forgot_password.removeClass('is-selected');
-		    $tab_login.addClass('selected');
-		    $tab_signup.removeClass('selected');
-		  }
-
-		  function signup_selected(){
-		    $form_login.removeClass('is-selected');
-		    $form_signup.addClass('is-selected');
-		    
-		    $form_forgot_password.removeClass('is-selected');
-		    $tab_login.removeClass('selected');
-		    $tab_signup.addClass('selected');
-		  }
-
-		  function forgot_password_selected(){
-		    $form_login.removeClass('is-selected');
-		    $form_signup.removeClass('is-selected');
-		    $form_forgot_password.addClass('is-selected');
-		  }
-
-		  //REMOVE THIS - it's just to show error messages 
-		  /* $form_login.find('input[type="submit"]').on('click', function(event){
-		    event.preventDefault();
-		    $form_login.find('input[type="email"]').toggleClass('has-error').next('span').toggleClass('is-visible');
-		  });
-		  $form_signup.find('input[type="submit"]').on('click', function(event){
-		    event.preventDefault();
-		    $form_signup.find('input[type="email"]').toggleClass('has-error').next('span').toggleClass('is-visible');
-		  }); */
-
-
-		  //IE9 placeholder fallback
-		  //credits http://www.hagenburger.net/BLOG/HTML5-Input-Placeholder-Fix-With-jQuery.html
-		  if(!Modernizr.input.placeholder){
-		    $('[placeholder]').focus(function() {
-		      var input = $(this);
-		      if (input.val() == input.attr('placeholder')) {
-		        input.val('');
-		        }
-		    }).blur(function() {
-		      var input = $(this);
-		        if (input.val() == '' || input.val() == input.attr('placeholder')) {
-		        input.val(input.attr('placeholder'));
-		        }
-		    }).blur();
-		    $('[placeholder]').parents('form').submit(function() {
-		        $(this).find('[placeholder]').each(function() {
-		        var input = $(this);
-		        if (input.val() == input.attr('placeholder')) {
-		          input.val('');
-		        }
-		        })
-		    });
-		  }
-
+		jQuery(document).ready(function($) {
+			var $form_modal = $('.cd-user-modal'), $form_login = $form_modal
+					.find('#cd-login'), $form_signup = $form_modal
+					.find('#cd-signup'), $form_forgot_password = $form_modal
+					.find('#cd-reset-password'), $form_modal_tab = $('.cd-switcher'), $tab_login = $form_modal_tab
+					.children('li').eq(0).children('a'), $tab_signup = $form_modal_tab
+					.children('li').eq(1).children('a'), $forgot_password_link = $form_login
+					.find('.cd-form-bottom-message a'), $back_to_login_link = $form_forgot_password
+					.find('.cd-form-bottom-message a'), $main_nav = $('.main-nav');
+	
+			//open modal
+			$main_nav
+					.on(
+							'click',function(event) {
+	
+								if ($(event.target).is($main_nav)) {
+									// on mobile open the submenu
+									$(this).children('ul').toggleClass('is-visible');
+								} else {
+									// on mobile close submenu
+									$main_nav.children('ul').removeClass('is-visible');
+									//show modal layer
+									$form_modal.addClass('is-visible');
+									//show the selected form
+									($(event.target).is('.cd-signup')) ? signup_selected(): login_selected();
+								}
+	
+							});
+	
+			//close modal
+			$('.cd-user-modal').on('click',function(event) {
+						if ($(event.target).is($form_modal)
+								|| $(event.target).is(
+										'.cd-close-form')) {
+							$form_modal
+									.removeClass('is-visible');
+						}
+					});
+			//close modal when clicking the esc keyboard button
+			$(document).keyup(function(event) {
+				if (event.which == '27') {
+					$form_modal.removeClass('is-visible');
+				}
+			});
+	
+			//switch from a tab to another
+			$form_modal_tab
+					.on(
+							'click',
+							function(event) {
+								event.preventDefault();
+								($(event.target).is($tab_login)) ? login_selected()
+										: signup_selected();
+							});
+	
+			//hide or show password
+			$('.hide-password')
+					.on(
+							'click',
+							function() {
+								var $this = $(this), $password_field = $this
+										.prev('input');
+	
+								('password' == $password_field
+										.attr('type')) ? $password_field
+										.attr('type', 'text')
+										: $password_field.attr(
+												'type',
+												'password');
+								('Hide' == $this.text()) ? $this
+										.text('Show')
+										: $this.text('Hide');
+								//focus and move cursor to the end of input field
+								$password_field
+										.putCursorAtEnd();
+							});
+	
+			//show forgot-password form 
+			$forgot_password_link.on('click', function(event) {
+				event.preventDefault();
+				forgot_password_selected();
+			});
+	
+			//back to login from the forgot-password form
+			$back_to_login_link.on('click', function(event) {
+				event.preventDefault();
+				login_selected();
+			});
+	
+			function login_selected() {
+				$form_login.addClass('is-selected');
+				$form_signup.removeClass('is-selected');
+				$form_forgot_password
+						.removeClass('is-selected');
+				$tab_login.addClass('selected');
+				$tab_signup.removeClass('selected');
+			}
+	
+			function signup_selected() {
+				$form_login.removeClass('is-selected');
+				$form_signup.addClass('is-selected');
+	
+				$form_forgot_password
+						.removeClass('is-selected');
+				$tab_login.removeClass('selected');
+				$tab_signup.addClass('selected');
+			}
+	
+			function forgot_password_selected() {
+				$form_login.removeClass('is-selected');
+				$form_signup.removeClass('is-selected');
+				$form_forgot_password.addClass('is-selected');
+			}
+	
+			//REMOVE THIS - it's just to show error messages 
+			/* $form_login.find('input[type="submit"]').on('click', function(event){
+			  event.preventDefault();
+			  $form_login.find('input[type="email"]').toggleClass('has-error').next('span').toggleClass('is-visible');
+			});
+			$form_signup.find('input[type="submit"]').on('click', function(event){
+			  event.preventDefault();
+			  $form_signup.find('input[type="email"]').toggleClass('has-error').next('span').toggleClass('is-visible');
+			}); */
+	
+			//IE9 placeholder fallback
+			//credits http://www.hagenburger.net/BLOG/HTML5-Input-Placeholder-Fix-With-jQuery.html
+			if (!Modernizr.input.placeholder) {
+				$('[placeholder]')
+						.focus(
+								function() {
+									var input = $(this);
+									if (input.val() == input
+											.attr('placeholder')) {
+										input.val('');
+									}
+								})
+						.blur(
+								function() {
+									var input = $(this);
+									if (input.val() == ''
+											|| input.val() == input
+													.attr('placeholder')) {
+										input
+												.val(input
+														.attr('placeholder'));
+									}
+								}).blur();
+				$('[placeholder]')
+						.parents('form')
+						.submit(
+								function() {
+									$(this)
+											.find(
+													'[placeholder]')
+											.each(
+													function() {
+														var input = $(this);
+														if (input
+																.val() == input
+																.attr('placeholder')) {
+															input
+																	.val('');
+														}
+													})
+								});
+			}
+	
 		});
-
 
 		//credits https://css-tricks.com/snippets/jquery/move-cursor-to-end-of-textarea-or-input/
 		jQuery.fn.putCursorAtEnd = function() {
-		  return this.each(function() {
-		      // If this function exists...
-		      if (this.setSelectionRange) {
-		          // ... then use it (Doesn't work in IE)
-		          // Double the length because Opera is inconsistent about whether a carriage return is one character or two. Sigh.
-		          var len = $(this).val().length * 2;
-		          this.setSelectionRange(len, len);
-		      } else {
-		        // ... otherwise replace the contents with itself
-		        // (Doesn't work in Google Chrome)
-		          $(this).val($(this).val());
-		      }
-		  });
-		  
+			return this.each(function() {
+				// If this function exists...
+				if (this.setSelectionRange) {
+					// ... then use it (Doesn't work in IE)
+					// Double the length because Opera is inconsistent about whether a carriage return is one character or two. Sigh.
+					var len = $(this).val().length * 2;
+					this.setSelectionRange(len, len);
+				} else {
+					// ... otherwise replace the contents with itself
+					// (Doesn't work in Google Chrome)
+					$(this).val($(this).val());
+				}
+			});
+
 		};
 	</script>
 
-    <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script
+	<!-- JavaScript Libraries -->
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/wow/wow.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="lib/counterup/counterup.min.js"></script>
-    <script src="lib/parallax/parallax.min.js"></script>
-    <script src="lib/isotope/isotope.pkgd.min.js"></script>
-    <script src="lib/lightbox/js/lightbox.min.js"></script>
+	<script src="lib/wow/wow.min.js"></script>
+	<script src="lib/easing/easing.min.js"></script>
+	<script src="lib/waypoints/waypoints.min.js"></script>
+	<script src="lib/owlcarousel/owl.carousel.min.js"></script>
+	<script src="lib/counterup/counterup.min.js"></script>
+	<script src="lib/parallax/parallax.min.js"></script>
+	<script src="lib/isotope/isotope.pkgd.min.js"></script>
+	<script src="lib/lightbox/js/lightbox.min.js"></script>
 
-    <!-- Template Javascript -->
-    <script src="js/main.js"></script>
+	<!-- Template Javascript -->
+	<script src="js/main.js"></script>
 </body>
 
 

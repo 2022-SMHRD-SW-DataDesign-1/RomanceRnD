@@ -1,3 +1,5 @@
+<%@page import="com.smhrd.model.videoDAO"%>
+<%@page import="com.smhrd.model.videoDTO"%>
 <%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
 <%@page import="com.smhrd.model.memberDTO"%>
 <%@page import="java.util.ArrayList"%>
@@ -652,6 +654,25 @@ header[role=banner]::after {
 
 	<%
 	/* dwyane */
+	/* String profile_id = request.getParameter("profile_id");
+	System.out.println(profile_id); */
+	/* memberDTO info = (memberDTO)session.getAttribute("info"); */
+	/* Login_Member Start */
+	memberDTO info = (memberDTO) session.getAttribute("info");
+	System.out.println("info: " + info);
+	String member_name = info.getMember_name();
+	String member_id = info.getMember_id();
+	/* Login_Member Start */
+
+	/* Video Start */
+	ArrayList<videoDTO> videoList = new videoDAO().selectAllVideos(member_id);
+	System.out.println("videoList: " + videoList);
+
+	/* Video End */
+	%>
+	
+	<%
+	/* dwyane */
 	String profile_id = request.getParameter("profile_id");
 	System.out.println(profile_id);
 	%>
@@ -663,187 +684,98 @@ header[role=banner]::after {
 	</div>
 	<!-- Spinner End -->
 
-
-	<!-- Topbar Start -->
-	<!-- <div class="container-fluid bg-dark text-light px-0 py-2">
-        <div class="row gx-0 d-none d-lg-flex">
-            <div class="col-lg-7 px-5 text-start">
-                <div class="h-100 d-inline-flex align-items-center me-4">
-                    <span class="fa fa-phone-alt me-2"></span>
-                    <span>010-3615-0272</span>
-                </div>
-                <div class="h-100 d-inline-flex align-items-center">
-                    <span class="far fa-envelope me-2"></span>
-                    <span>keonungs@gmail.com</span>
-                </div>
-            </div>
-            <div class="col-lg-5 px-5 text-end">
-                <div class="h-100 d-inline-flex align-items-center mx-n2">
-                    <span>Follow Us:</span>
-                    <a class="btn btn-link text-light" href=""><i class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-link text-light" href=""><i class="fab fa-twitter"></i></a>
-                    <a class="btn btn-link text-light" href=""><i class="fab fa-linkedin-in"></i></a>
-                    <a class="btn btn-link text-light" href=""><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-        </div>
-    </div> -->
-	<!-- Topbar End -->
-
 	<%
-	memberDTO info = (memberDTO) session.getAttribute("info");
+	info = (memberDTO) session.getAttribute("info");
 	%>
-	<!-- Navbar Start -->
-	<!-- 염건웅_수정: 상단 navbar 높이 수정 -->
-	<nav
-		class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0"
-		style="height: 6em;">
-		<a href="index.jsp"
-			class="navbar-brand d-flex align-items-center px-4 px-lg-5">
-			<h1 class="m-0">Mentorvation</h1>
-		</a>
-
-		<!-- 최우정 검색 기능 get방식으로 profile_id만 보냄-->
-		<!-- 한가연 검색창 만들기 -->
-		<div class="search_box" style="margin-left: 180px;margin-bottom: 0;">
-		<!-- <form action="profile.jsp" method="get"> -->
-		<form action="SearchService.do" method="get">
-				<div>
-					<input name="profile_id" class="search_text" type="text" placeholder="search">
+    <!-- Navbar Start -->
+    <%if(info == null){ %>
+			<nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0" style="height: 6em;">
+		        <a href="index.jsp" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+		            <h1 class="m-0">Mentorvation</h1>
+		        </a>
+				<div class="search_box" style="margin-left: 180px;margin-bottom: 0;">
+					<form action="SearchService.do" method="get">
+						<div>
+							<input name="profile_id" class="search_text" type="text" placeholder="search">
+						</div>
+					</form>
 				</div>
-		</form>
-		</div>
-        
-        <button type="button" class="navbar-toggler me-4"
-			data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-            <div class="navbar-nav ms-auto p-4 p-lg-0">
-                <a href="index.jsp" class="nav-item nav-link active">Home</a>
-                <a href="recommendation.jsp" class="nav-item nav-link">Recommendation</a>
-                <a href="calendar.jsp" class="nav-item nav-link">Calendar</a>
-                <a href="profile.jsp" class="nav-item nav-link">Profile</a>
-                <!-- <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                    <div class="dropdown-menu bg-light m-0">
-                        <a href="feature.jsp" class="dropdown-item">Features</a>
-                        <a href="quote.jsp" class="dropdown-item">Free Quote</a>
-                        <a href="team.jsp" class="dropdown-item">Our Team</a>
-                        <a href="testimonial.jsp" class="dropdown-item">Testimonial</a>
-                        <a href="404.jsp" class="dropdown-item">404 Page</a>
-                    </div>
-                </div>
-                <a href="contact.jsp" class="nav-item nav-link">Contact</a> -->
-            </div>
-            <!-- <a href="" class="btn btn-primary py-4 px-lg-4 rounded-0 d-none d-lg-block">LOGIN<i class="fa fa-arrow-right ms-3"></i></a> -->
-         	<nav class="main-nav">
-				<ul>
-					<!-- inser more links here -->
-					<%
-					if (info == null) {
-					%>
-						<li><a class="cd-signin" href="#0">Sign in</a></li>
-					<%
-					} else {
-					%>
-						<li><a class="cd-signin" href="UpdateMember.jsp">회원정보수정</a></li>
-						<li><a class="cd-signin" href="LogoutService.do">Logout</a></li>
-					<%
-					}
-					%>
-				</ul>
-			</nav>
-            
-        </div>
-    </nav>
+		        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+		        <div class="collapse navbar-collapse" id="navbarCollapse">
+		            <div class="navbar-nav ms-auto p-4 p-lg-0">
+		                <a href="index.jsp" class="nav-item nav-link active">Home</a>
+		                <a href="watchvideo.jsp" class="nav-item nav-link">Recommendation</a>
+		            </div>
+		         	<nav class="main-nav">
+						<ul style="padding-left: 0px;">
+							<!-- inser more links here -->
+								<li><a class="cd-signin" href="#0">Sign in</a></li>
+						</ul>
+					</nav>
+		        </div>
+		    </nav>
+    <%}else{ %>
+		<nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0" style="height: 6em;">
+	        <a href="index.jsp" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+	            <h1 class="m-0">Mentorvation</h1>
+	        </a>
+			<div class="search_box" style="margin-left: 180px;margin-bottom: 0;">
+				<form action="SearchService.do" method="get">
+					<div>
+						<input name="profile_id" class="search_text" type="text" placeholder="search">
+					</div>
+				</form>
+			</div>
+	        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+	        <div class="collapse navbar-collapse" id="navbarCollapse">
+	            <div class="navbar-nav ms-auto p-4 p-lg-0">
+	                <a href="index.jsp" class="nav-item nav-link active">Home</a>
+	                <a href="watchvideo.jsp" class="nav-item nav-link">Recommendation</a>
+	                <a href="calendar.jsp" class="nav-item nav-link">Mycalendar</a>
+	                <a href="myprofile.jsp" class="nav-item nav-link">Myprofile</a>
+	             
+	            </div>
+	         	<nav class="main-nav">
+					<ul style="padding-left: 0px;">
+						<!-- inser more links here -->
+							<li><a class="cd-signin" href="UpdateMember.jsp">회원정보수정</a></li>
+							<li><a class="cd-signin" href="LogoutService.do">Logout</a></li>
+					</ul>
+				</nav>
+	        </div>
+    	</nav>
+   <%} %>
+   <!-- Navbar End -->
 
-
-    <!-- Page Header Start -->
-    <!-- <div class="container-fluid page-header py-5 mb-5 wow fadeIn" data-wow-delay="0.1s">
-        <div class="container text-center py-5">
-            <h1 class="display-3 text-white mb-4 animated slideInDown">Projects</h1>
-            <nav aria-label="breadcrumb animated slideInDown">
-                <ol class="breadcrumb justify-content-center mb-0">
-                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item"><a href="#">Pages</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Projects</li>
-                </ol>
-            </nav>
-        </div>
-    </div> -->
-    <!-- Page Header End -->
-
-
-    <!-- Projects Start -->
+   <!-- Projects Start -->
     <div class="container-xxl py-5">
         <div class="container" style="text-align: center">
-           	<div style="text-align: right;">
-           		<!-- <input type="text">
-           		<input type="button" value="Search"> -->
-           		<!-- <button>검색</button> -->
-           	</div>
-           	
-           	<div style="text-align: right">
-	           	<!-- <a href="Upload.jsp"><input type="button" value="Upload"></a> -->
-           	</div>
-            <div class="text-center mx-auto wow fadeInUp"
-				data-wow-delay="0.1s" style="display:inline-flex; align-items:center; justify-content:center; margin-bottom:3rem;">
-                <!-- <p class="fs-5 fw-bold text-primary">Profile</p> -->
-     			<img src="img/profile_img04.png" alt="profile-user-img"
-					class="profile-user-img-img">
-                <div
-					style="text-align: left; margin-left:4rem;">
-					
-					<!-- <div style="text-align: center">
-						<div style="text-align: center">
-						a
-						</div>
-						
-						<div style="text-align: center">
-						b
-						</div>
-					</div> -->
-					<!-- 서연 추가 -->
+            <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="display:inline-flex; align-items:center; justify-content:center; margin-bottom:3rem;">
+     			<img src="img/profile_img04.png" alt="profile-user-img" class="profile-user-img-img">
+                <div style="text-align: left; margin-left:4rem;">
 					<div>
-		            <!-- dwyane -->
-		            	<%-- <%
-							memberDTO dto = new memberDTO();
-		            		memberDAO dao = new memberDAO();
-							
-							memberDTO selected_member = dao.selectAll(profile_id);
-							String selected_member_name = selected_member.getMember_name();
-							System.out.println("info: "+ selected_member);
-						%> --%>
-			            <%-- <h1 class="display-5 mb-5" style="padding: 0em; color: black;margin-bottom: 0rem !important;"><%=selected_member_name%></h1> --%>
-			            <h4 class="display-5 mb-5"
-							style="padding: 0em; color: #222; font-size:2.5rem; font-weight:500 !important; margin-bottom: 0rem !important;"><%= profile_id %></h4>
+			            <h4 class="display-5 mb-5" style="padding: 0em; color: #222; font-size:2.5rem; font-weight:500 !important; margin-bottom: 0rem !important;"><%= profile_id %></h4>
 		            </div>
 		            
 					<div style="width: 16em; padding-top:.6rem; text-align: center;">
 						<table style="border: 1px">
 							<tr style="text-align: center; width:16em;">
-								<td style="text-align: left;width: 8em; color:#666;">
-								Mentor
-								</td>
-								<td style="text-align: left;width: 8em; color:#444; font-weight:bold;">
-								10
-								</td>
-								<td style="text-align: left;width: 8em; color:#666;">
-								Mentee
-								</td>
-								<td style="text-align: left;width: 8em; color:#444; font-weight:bold;">
-								10
-								</td>
+								<td style="text-align: left;width: 8em; color:#666;">Mentor</td>
+								<td style="text-align: left;width: 8em; color:#444; font-weight:bold;">10</td>
+								<td style="text-align: left;width: 8em; color:#666;">Mentee</td>
+								<td style="text-align: left;width: 8em; color:#444; font-weight:bold;">10</td>
 							</tr>
 						</table>
 					</div>
+					
 					<div style="margin: .9rem auto;">
 						
 						<!--  -->
-						<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-							Handshake
-						</button>
+						<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Handshake</button>
 				
 						<!-- Modal -->
 						<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -853,8 +785,7 @@ header[role=banner]::after {
 						        <h1 class="modal-title fs-5" id="staticBackdropLabel">Handshake</h1>
 						        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 						      </div>
-						      <div class="modal-body">
-						      	Would you like to send Handshake to <%=profile_id%>
+						      <div class="modal-body">Would you like to send Handshake to <%=profile_id%>
 						      </div>
 						      <div class="modal-footer">
 						        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -879,11 +810,9 @@ header[role=banner]::after {
 						
 						<!-- dwyane -->
 				<!-- Button trigger modal -->
-				<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-					Tea-Time
-				</button>
+				<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Tea-Time</button>
 				
-				<!-- Modal -->
+				<!-- Modal Start-->
 				<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 					<div class="modal-dialog modal-fullscreen">
 						<div class="modal-content">
@@ -900,7 +829,8 @@ header[role=banner]::after {
 						</div>
 					</div>
 				</div>
-
+				<!-- Modal End -->
+				
 				<!-- dwyane -->
 				<!-- Button trigger modal -->
 				<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -929,210 +859,35 @@ header[role=banner]::after {
                 
 					</div>
             </div>
-            <!-- <div class="row wow fadeInUp" data-wow-delay="0.3s">
-                <div class="col-12 text-center">
-                    <ul class="list-inline rounded mb-5" id="portfolio-flters">
-                        <li class="mx-2 active" data-filter="*">전체</li>
-                        <li class="mx-2" data-filter=".first">이미지</li>
-                        <li class="mx-2" data-filter=".second">영상</li>
-                    </ul>
-                </div>
-            </div> -->
+            
+            <!-- Individual Video Start -->
             <div class="row g-4 portfolio-container">
-                <div
-					class="col-lg-4 col-md-6 portfolio-item first wow fadeInUp"
-					data-wow-delay="0.1s">
-                    <div class="portfolio-inner rounded">
-                        <img class="img-fluid" src="img/service-1.jpg"
-							alt="">
-                        <div class="portfolio-text">
-                            <h4 class="text-white mb-4">Landscaping</h4>
-                            <div class="d-flex">
-                                <a
-									class="btn btn-lg-square rounded-circle mx-2"
-									href="img/service-1.jpg" data-lightbox="portfolio"><i
-									class="fa fa-eye"></i></a>
-                                <a
-									class="btn btn-lg-square rounded-circle mx-2" href=""><i
-									class="fa fa-link"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div
-					class="col-lg-4 col-md-6 portfolio-item second wow fadeInUp"
-					data-wow-delay="0.3s">
-                    <div class="portfolio-inner rounded">
-                        <img class="img-fluid" src="img/service-2.jpg"
-							alt="">
-                        <div class="portfolio-text">
-                            <h4 class="text-white mb-4">Pruning plants</h4>
-                            <div class="d-flex">
-                                <a
-									class="btn btn-lg-square rounded-circle mx-2"
-									href="img/service-2.jpg" data-lightbox="portfolio"><i
-									class="fa fa-eye"></i></a>
-                                <a
-									class="btn btn-lg-square rounded-circle mx-2" href=""><i
-									class="fa fa-link"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div
-					class="col-lg-4 col-md-6 portfolio-item first wow fadeInUp"
-					data-wow-delay="0.5s">
-                    <div class="portfolio-inner rounded">
-                        <img class="img-fluid" src="img/service-3.jpg"
-							alt="">
-                        <div class="portfolio-text">
-                            <h4 class="text-white mb-4">Irrigation & Drainage</h4>
-                            <div class="d-flex">
-                                <a
-									class="btn btn-lg-square rounded-circle mx-2"
-									href="img/service-3.jpg" data-lightbox="portfolio"><i
-									class="fa fa-eye"></i></a>
-                                <a
-									class="btn btn-lg-square rounded-circle mx-2" href=""><i
-									class="fa fa-link"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div
-					class="col-lg-4 col-md-6 portfolio-item second wow fadeInUp"
-					data-wow-delay="0.1s">
-                    <div class="portfolio-inner rounded">
-                        <img class="img-fluid" src="img/service-4.jpg"
-							alt="">
-                        <div class="portfolio-text">
-                            <h4 class="text-white mb-4">Garden Maintenance</h4>
-                            <div class="d-flex">
-                                <a
-									class="btn btn-lg-square rounded-circle mx-2"
-									href="img/service-4.jpg" data-lightbox="portfolio"><i
-									class="fa fa-eye"></i></a>
-                                <a
-									class="btn btn-lg-square rounded-circle mx-2" href=""><i
-									class="fa fa-link"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div
-					class="col-lg-4 col-md-6 portfolio-item first wow fadeInUp"
-					data-wow-delay="0.3s">
-                    <div class="portfolio-inner rounded">
-                        <img class="img-fluid" src="img/service-5.jpg"
-							alt="">
-                        <div class="portfolio-text">
-                            <h4 class="text-white mb-4">Green Technology</h4>
-                            <div class="d-flex">
-                                <a
-									class="btn btn-lg-square rounded-circle mx-2"
-									href="img/service-5.jpg" data-lightbox="portfolio"><i
-									class="fa fa-eye"></i></a>
-                                <a
-									class="btn btn-lg-square rounded-circle mx-2" href=""><i
-									class="fa fa-link"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div
-					class="col-lg-4 col-md-6 portfolio-item second wow fadeInUp"
-					data-wow-delay="0.5s">
-                    <div class="portfolio-inner rounded">
-                        <img class="img-fluid" src="img/service-6.jpg"
-							alt="">
-                        <div class="portfolio-text">
-                            <h4 class="text-white mb-4">Urban Gardening</h4>
-                            <div class="d-flex">
-                                <a
-									class="btn btn-lg-square rounded-circle mx-2"
-									href="img/service-6.jpg" data-lightbox="portfolio"><i
-									class="fa fa-eye"></i></a>
-                                <a
-									class="btn btn-lg-square rounded-circle mx-2" href=""><i
-									class="fa fa-link"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+            	<%
+				String html = "";
+				System.out.println("videoList.size():" + videoList.size());
+				for (int i = 0; i < videoList.size(); i++) {
+
+					html += " <div class='col-lg-4 col-md-6 portfolio-item first wow fadeInUp'data-wow-delay='0.3s'> ";
+					html += " <div class='portfolio-inner rounded'> ";
+					html += " <img class='img-fluid' src='./file/" + videoList.get(i).getVideo_thumbnail() + ".png'alt=''> ";
+					html += " <div class='portfolio-text'> ";
+					html += " <h4 class='text-white mb-4'></h4> ";
+					html += " <div class='d-flex'> ";
+					html += " <a class='btn btn-lg-square rounded-circle mx-2' href='watchvideo.jsp?video_file="
+					+ videoList.get(i).getVideo_file() + "'><i class='fa fa-eye'></i>";
+					html += " </a></div></div></div></div> ";
+				}
+				%>
+				<%=html%>
+    		</div>
+			<!-- Individual Video End -->
+
     <!-- Projects End -->
-
-
-    <!-- Footer Start -->
-    <!-- <div class="container-fluid bg-dark text-light footer mt-5 py-5 wow fadeIn" data-wow-delay="0.1s">
-        <div class="container py-5">
-            <div class="row g-5">
-                <div class="col-lg-3 col-md-6">
-                    <h4 class="text-white mb-4">Our Office</h4>
-                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
-                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
-                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@example.com</p>
-                    <div class="d-flex pt-2">
-                        <a class="btn btn-square btn-outline-light rounded-circle me-2" href=""><i class="fab fa-twitter"></i></a>
-                        <a class="btn btn-square btn-outline-light rounded-circle me-2" href=""><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-square btn-outline-light rounded-circle me-2" href=""><i class="fab fa-youtube"></i></a>
-                        <a class="btn btn-square btn-outline-light rounded-circle me-2" href=""><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <h4 class="text-white mb-4">Services</h4>
-                    <a class="btn btn-link" href="">Landscaping</a>
-                    <a class="btn btn-link" href="">Pruning plants</a>
-                    <a class="btn btn-link" href="">Urban Gardening</a>
-                    <a class="btn btn-link" href="">Garden Maintenance</a>
-                    <a class="btn btn-link" href="">Green Technology</a>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <h4 class="text-white mb-4">Quick Links</h4>
-                    <a class="btn btn-link" href="">About Us</a>
-                    <a class="btn btn-link" href="">Contact Us</a>
-                    <a class="btn btn-link" href="">Our Services</a>
-                    <a class="btn btn-link" href="">Terms & Condition</a>
-                    <a class="btn btn-link" href="">Support</a>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <h4 class="text-white mb-4">Newsletter</h4>
-                    <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
-                    <div class="position-relative w-100">
-                        <input class="form-control bg-light border-light w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
-                        <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
-    <!-- Footer End -->
-
-
-    <!-- Copyright Start -->
-    <!-- <div class="container-fluid copyright py-4">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                    &copy; <a class="border-bottom" href="#">Your Site Name</a>, All Right Reserved.
-                </div>
-                <div class="col-md-6 text-center text-md-end">
-                    /*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/
-                    Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a> Distributed By <a href="https://themewagon.com">ThemeWagon</a>
-                </div>
-            </div>
-        </div>
-    </div> -->
-    <!-- Copyright End -->
-
-	
 	
     <!-- Back to Top -->
-    <a href="#"
-		class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i
-		class="bi bi-arrow-up"></i></a>
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top">
+    	<i class="bi bi-arrow-up"></i>
+    </a>
 	
 	<!-- cd-user-modal Start -->
     <div class="cd-user-modal">

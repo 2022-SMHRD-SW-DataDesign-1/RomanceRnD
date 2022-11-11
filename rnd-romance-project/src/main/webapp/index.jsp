@@ -577,9 +577,7 @@
 
 <body>
 
-	<%  
-		memberDTO info = (memberDTO)session.getAttribute("info");
-	%>
+	<% memberDTO info = (memberDTO)session.getAttribute("info"); %>
 
 
     <!-- Spinner Start -->
@@ -588,87 +586,69 @@
     </div>
     <!-- Spinner End -->
 
-
-    <!-- Topbar Start -->
-    <!-- <div class="container-fluid bg-dark text-light px-0 py-2">
-        <div class="row gx-0 d-none d-lg-flex">
-            <div class="col-lg-7 px-5 text-start">
-                <div class="h-100 d-inline-flex align-items-center me-4">
-                    <span class="fa fa-phone-alt me-2"></span>
-                    <span>010-3615-0272</span>
-                </div>
-                <div class="h-100 d-inline-flex align-items-center">
-                    <span class="far fa-envelope me-2"></span>
-                    <span>keonungs@gmail.com</span>
-                </div>
-            </div>
-            <div class="col-lg-5 px-5 text-end">
-                <div class="h-100 d-inline-flex align-items-center mx-n2">
-                    <span>Follow Us:</span>
-                    <a class="btn btn-link text-light" href=""><i class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-link text-light" href=""><i class="fab fa-twitter"></i></a>
-                    <a class="btn btn-link text-light" href=""><i class="fab fa-linkedin-in"></i></a>
-                    <a class="btn btn-link text-light" href=""><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-        </div>
-    </div> -->
-    <!-- Topbar End -->
-
-
+    
     <!-- Navbar Start -->
-    	<!-- 염건웅_수정: 상단 navbar 높이 수정 -->
+    <%if(info == null){ %>
+			<nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0" style="height: 6em;">
+	        <a href="index.jsp" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+	            <h1 class="m-0">Mentorvation</h1>
+	        </a>
+			<div class="search_box" style="margin-left: 180px;margin-bottom: 0;">
+				<form action="SearchService.do" method="get">
+					<div>
+						<input name="profile_id" class="search_text" type="text" placeholder="search">
+					</div>
+				</form>
+			</div>
+	        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+	        <div class="collapse navbar-collapse" id="navbarCollapse">
+	            <div class="navbar-nav ms-auto p-4 p-lg-0">
+	                <a href="index.jsp" class="nav-item nav-link active">Home</a>
+	                <a href="watchvideo.jsp" class="nav-item nav-link">Recommendation</a>
+	            </div>
+	         	<nav class="main-nav">
+					<ul style="padding-left: 0px;">
+						<!-- inser more links here -->
+							<li><a class="cd-signin" href="#0">Sign in</a></li>
+					</ul>
+				</nav>
+	        </div>
+		    </nav>
+    <%}else{ %>
 		<nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0" style="height: 6em;">
         <a href="index.jsp" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
             <h1 class="m-0">Mentorvation</h1>
         </a>
-        
-        
-        <!-- 한가연 검색창 만들기 -->
 		<div class="search_box" style="margin-left: 180px;margin-bottom: 0;">
-			<div>
-				<input class="search_text" type="text" placeholder="search">
-			</div>
+			<form action="SearchService.do" method="get">
+				<div>
+					<input name="profile_id" class="search_text" type="text" placeholder="search">
+				</div>
+			</form>
 		</div>
-		<!-- 검색창 END -->
-		
-		
         <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+			<span class="navbar-toggler-icon"></span>
+		</button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
                 <a href="index.jsp" class="nav-item nav-link active">Home</a>
-                <a href="recommendation.jsp" class="nav-item nav-link">Recommendation</a>
-                <a href="calendar.jsp" class="nav-item nav-link">Calendar</a>
-                <a href="profile.jsp" class="nav-item nav-link">Profile</a>
-                <!-- <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                    <div class="dropdown-menu bg-light m-0">
-                        <a href="feature.jsp" class="dropdown-item">Features</a>
-                        <a href="quote.jsp" class="dropdown-item">Free Quote</a>
-                        <a href="team.jsp" class="dropdown-item">Our Team</a>
-                        <a href="testimonial.jsp" class="dropdown-item">Testimonial</a>
-                        <a href="404.jsp" class="dropdown-item">404 Page</a>
-                    </div>
-                </div>
-                <a href="contact.jsp" class="nav-item nav-link">Contact</a> -->
+                <a href="watchvideo.jsp" class="nav-item nav-link">Recommendation</a>
+                <a href="calendar.jsp" class="nav-item nav-link">Mycalendar</a>
+                <a href="myprofile.jsp" class="nav-item nav-link">Myprofile</a>
+             
             </div>
-            <!-- <a href="" class="btn btn-primary py-4 px-lg-4 rounded-0 d-none d-lg-block">LOGIN<i class="fa fa-arrow-right ms-3"></i></a> -->
          	<nav class="main-nav">
-				<ul>
+				<ul style="padding-left: 0px;">
 					<!-- inser more links here -->
-					<%if(info == null){ %>
-						<li><a class="cd-signin" href="#0">Sign in</a></li>
-					<%}else{ %>
 						<li><a class="cd-signin" href="UpdateMember.jsp">회원정보수정</a></li>
 						<li><a class="cd-signin" href="LogoutService.do">Logout</a></li>
-					<%} %>
 				</ul>
 			</nav>
-            
         </div>
-    </nav>
+    	</nav>
+    <%} %>
     <!-- Navbar End -->
 
 
@@ -690,45 +670,7 @@
                         </div>
                     </div>
                 </div>
-<!--                 <div class="carousel-item">
-                    <img class="w-100" src="img/metormain.png" alt="Image">
-                    <div class="carousel-caption">
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8">
-                                    <h1 class="display-1 text-white mb-5 animated slideInDown">YOU COULD BE THE</h1>
-                                    <h1 class="display-1 text-white mb-5 animated slideInDown">MENTOR</h1>
-                                    <a href="" class="btn btn-primary py-sm-3 px-sm-4">Get Mentor Recommendation</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img class="w-100" src="img/metormain.png" alt="Image">
-                    <div class="carousel-caption">
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-7">
-                                    <h1 class="display-1 text-white mb-5 animated slideInDown">YOU ARE THE</h1>
-                                    <h1 class="display-1 text-white mb-5 animated slideInDown">MENTOR</h1>
-                                    <a href="" class="btn btn-primary py-sm-3 px-sm-4">Get Mentor Recommendation</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div> 
-                </div> -->
             </div>
-           <!--  <button class="carousel-control-prev" type="button" data-bs-target="#header-carousel"
-                data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#header-carousel"
-                data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button> -->
         </div>
     </div>
     <!-- Carousel End -->

@@ -609,6 +609,42 @@ header[role=banner]::after {
 #display-1 text-white mb-5 animated slideInDown_2 {
 	font-color: green !important;
 }
+
+@media screen and (max-width:981px) {
+	.search_box {
+		/* padding: 0.4rem; */
+		margin-left: 150px;
+	}
+}
+
+.search_box {
+	background: #eee;
+	padding: 0.4rem;
+	margin: 1rem 0.5rem;
+	width: 15%;
+	border: 0;
+	outline: none;
+	border-radius: 0.9rem;
+	/* box-shadow: inset 7px 2px 10px #d8dbd9, inset -5px -5px 12px #fff; */
+}
+
+.search_text {
+	border: 0;
+	outline: 0;
+	background: #eee;
+	display: flex;
+	flex-direction: row;
+	padding: 0 1rem;
+	height: 100%;
+	width: 100%;
+	justify-content: space-evenly;
+	align-items: baseline;
+	align-content: stretch;
+}
+
+.search_icon {
+	display: inline-block;
+}
 </style>
 
 </head>
@@ -616,50 +652,37 @@ header[role=banner]::after {
 	<% memberDTO info = (memberDTO)session.getAttribute("info"); %>
 
 	<!-- Navbar Start -->
-	<!-- 염건웅_수정: 상단 navbar 높이 수정 -->
-	<nav
-		class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0"
-		style="height: 6em;">
-		<a href="index.jsp"
-			class="navbar-brand d-flex align-items-center px-4 px-lg-5">
-			<h1 class="m-0">Mentorvation</h1>
-		</a>
-		<button type="button" class="navbar-toggler me-4"
-			data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse" id="navbarCollapse">
-			<div class="navbar-nav ms-auto p-4 p-lg-0">
-				<a href="index.jsp" class="nav-item nav-link active">Home</a> <a
-					href="recommendation.jsp" class="nav-item nav-link">Recommendation</a>
-				<a href="calendar.jsp" class="nav-item nav-link">Calendar</a> <a
-					href="profile.jsp" class="nav-item nav-link">Profile</a>
-				<!-- <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                    <div class="dropdown-menu bg-light m-0">
-                        <a href="feature.jsp" class="dropdown-item">Features</a>
-                        <a href="quote.jsp" class="dropdown-item">Free Quote</a>
-                        <a href="team.jsp" class="dropdown-item">Our Team</a>
-                        <a href="testimonial.jsp" class="dropdown-item">Testimonial</a>
-                        <a href="404.jsp" class="dropdown-item">404 Page</a>
-                    </div>
-                </div>
-                <a href="contact.jsp" class="nav-item nav-link">Contact</a> -->
+	<nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0" style="height: 6em;">
+       <a href="index.jsp" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+           <h1 class="m-0">Mentorvation</h1>
+       </a>
+	<div class="search_box" style="margin-left: 180px;margin-bottom: 0;">
+		<form action="SearchService.do" method="get">
+			<div>
+				<input name="profile_id" class="search_text" type="text" placeholder="search">
 			</div>
-			<!-- <a href="" class="btn btn-primary py-4 px-lg-4 rounded-0 d-none d-lg-block">LOGIN<i class="fa fa-arrow-right ms-3"></i></a> -->
-			<nav class="main-nav">
-				<ul>
-					<!-- inser more links here -->
-					<%if(info == null){ %>
-					<li><a class="cd-signin" href="#0">Sign in</a></li>
-					<%}else{ %>
+		</form>
+	</div>
+       <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+       <div class="collapse navbar-collapse" id="navbarCollapse">
+           <div class="navbar-nav ms-auto p-4 p-lg-0">
+               <a href="index.jsp" class="nav-item nav-link active">Home</a>
+               <a href="watchvideo.jsp" class="nav-item nav-link">Recommendation</a>
+               <a href="calendar.jsp" class="nav-item nav-link">Mycalendar</a>
+               <a href="myprofile.jsp" class="nav-item nav-link">Myprofile</a>
+            
+           </div>
+        	<nav class="main-nav">
+			<ul style="padding-left: 0px;">
+				<!-- inser more links here -->
+					<li><a class="cd-signin" href="UpdateMember.jsp">회원정보수정</a></li>
 					<li><a class="cd-signin" href="LogoutService.do">Logout</a></li>
-					<%} %>
-				</ul>
-			</nav>
-
-		</div>
-	</nav>
+			</ul>
+		</nav>
+       </div>
+   	</nav>
 	<!-- Navbar End -->
 	<div class="calendar_title">Scheduler</div>
 	<div id='calendar'></div>
