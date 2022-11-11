@@ -726,14 +726,6 @@ header[role=banner]::after {
 	<!-- Projects Start -->
 	<div class="container-xxl py-5">
 		<div class="container" style="text-align: center">
-			<!-- upload 버튼   -->
-			<div style="text-align: right">
-				<a href="Upload.jsp"><input type="button" value="Upload"></a>
-			</div>
-			<div style="text-align: right">
-				<a href="UpdateMember.jsp"><input type="button" value="프로필사진수정"></a>
-			</div>			
-			<!-- upload 버튼 End   -->
 			<div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="display:inline-flex; align-items:center; justify-content:center; margin-bottom:3rem;">
      			<img src="img/profile_img04.png" alt="profile-user-img" class="profile-user-img-img">
                 <div style="text-align: left; margin-left:4rem;">
@@ -751,10 +743,20 @@ header[role=banner]::after {
 							</tr>
 						</table>
 					</div>
+			<!-- upload 버튼   -->
+			<div class="profile_up_btn">
+				<ul>
+					<li><a href="Upload.jsp"><button type="submit">Upload</button></a></li>
+					<li><a href="UpdateMember.jsp"><button type="submit">회원정보수정</button></a></li>
+				</ul>
+			</div>		
+			<!-- upload 버튼 End   -->
 			<textarea class="profile_txtArea" rows="" cols=""></textarea>
 			
 
-			<!-- Video Container End -->
+
+		</div>
+			<!-- Video Container Start -->
 			<div class="row g-4 portfolio-container">
 
 				<!-- Individual Video Start -->
@@ -780,8 +782,6 @@ header[role=banner]::after {
 
 			</div>
 			<!-- Video Container End -->
-
-		</div>
 	</div>
 	<!-- Projects End -->
 

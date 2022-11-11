@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Mentorvation - Gardening Website Template</title>
+<title>Mentorvation</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <meta content="" name="keywords">
 <meta content="" name="description">
@@ -46,7 +46,7 @@ html {
 	font-size: 20px
 }
 
-body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, form, fieldset, p,
+body, div, dl, dt, dd, ul, ol, li, h2, h3, h4, h5, form, fieldset, p,
 	button, input {
 	margin: 0;
 	padding: 0;
@@ -59,10 +59,6 @@ input, select {
 	vertical-align: middle;
 	color: #666;
 	outline: none;
-}
-
-a {
-	text-decoration: none
 }
 
 img, fieldset {
@@ -106,6 +102,7 @@ textarea {
 	resize: none;
 }
 
+
 html {
 	height: 100%
 }
@@ -114,107 +111,14 @@ body {
 	height: 100%;
 	overflow: hidden
 }
-
-#wrapper {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	height: 100%;
-	background: url(img/Update_bg03.jpg) no-repeat center, #ebf7ff;
-	background-size: cover;
-	margin-top: -3rem;
-}
-
-input::placeholder {
-	color: #999;
-	font-size: .65rem;
-	padding: .2rem 0
-}
-
-.user_modify {
-	width: 100%;
-	max-width: 35rem;
-	background: #fff;
-	border-radius: 15px;
-	padding: 2.5rem 0;
-	margin: 0 auto;
-	box-shadow: 6px 6px 6px rgb(0 0 0/ 30%);
-}
-
-.modify_wrap {
-	width: fit-content;
-	margin: 0 auto;
-}
-
-.user_modify h4 {
-	font-size: 1.5rem;
-	color: #333;
-	font-weight: bold;
-	padding-bottom: 2.5rem;
-}
-
-.user_modify p {
-	font-size: .85rem;
-	color: #777;
-	padding-bottom: 1.5rem;
-}
-
-.user_modify .modify_content ul {
-	width: fit-content;
-	margin: 0 auto;
-}
-
-.user_modify .modify_content ul>li {
-	display: block;
-	color: #555;
-	padding-bottom: .2rem;
-}
-
-.user_modify .modify_content ul>li>input {
-	font-size: .75rem;
-	border: 1px solid #dedede;
-	border-radius: 5px;
-	padding: .5rem 1.5rem .5rem .5rem;
-}
-
-.user_modify .modify_content ul>li:last-child {
-	padding-bottom: 0;
-	padding-top: .5rem;
-}
-
-.user_modify .modify_content .join_btn button {
-	width: 100%;
-	background: #8c9eff;
-	font-size: .6rem;
-	font-weight: 500;
-	color: #fff;
-	border-radius: 5px;
-	border: none;
-	padding: .35rem 0;
-}
-
-/* -------------------------------- 
+ 
 	
-	Primary style
-	
-	-------------------------------- */
-html * {
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-}
-
 *, *:after, *:before {
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 }
 
-body {
-	font-size: 100%;
-	font-family: "PT Sans", sans-serif;
-	color: #505260;
-	background-color: #fff;
-}
 
 a {
 	color: #2f889a;
@@ -225,7 +129,7 @@ img {
 	max-width: 100%;
 }
 
-input, textarea {
+textarea {
 	font-family: "PT Sans", sans-serif;
 	font-size: 16px;
 	font-size: 1rem;
@@ -381,6 +285,78 @@ header[role=banner]::after {
 	}
 }
 
+.userWrap {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	background: url(img/Update_bg03.jpg) no-repeat center, #ebf7ff;
+	background-size: cover;
+}
+
+input::placeholder {
+	color: #999;
+	font-size: .65rem;
+	padding: .2rem 0
+}
+
+.user_modify {
+	width: 100%;
+	max-width: 35rem;
+	background: #fff;
+	border-radius: 15px;
+	padding: 2.5rem 0;
+	margin: 0 auto;
+	box-shadow: 6px 6px 6px rgb(0 0 0/ 30%);
+}
+
+.modify_wrap {
+	max-width:450px;
+	margin: 0 auto;
+}
+
+.user_modify h4 {
+	font-size: 1.5rem;
+	color: #333;
+	font-weight: bold;
+	padding-bottom: 2.5rem;
+}
+
+
+.user_modify .modify_content ul {
+	width: fit-content;
+	margin: 0 auto;
+}
+
+.user_modify .modify_content ul>li {
+	display: block;
+	color: #555;
+	padding-bottom: .2rem;
+}
+
+.user_modify .modify_content ul>li>input {
+	font-size: .75rem;
+	border: 1px solid #dedede;
+	border-radius: 5px;
+	padding: .5rem 1.5rem .5rem .5rem;
+}
+
+.user_modify .modify_content ul>li:last-child {
+	padding-bottom: 0;
+	padding-top: .5rem;
+}
+
+.user_modify .modify_content .join_btn button {
+	width: 100%;
+	background: #8c9eff;
+	font-size: .6rem;
+	font-weight: 500;
+	color: #fff;
+	border-radius: 5px;
+	border: none;
+	padding: .35rem 0;
+}
+
 @media screen and (max-width:981px) {
 	.search_box {
 		/* padding: 0.4rem; */
@@ -391,7 +367,7 @@ header[role=banner]::after {
 .search_box {
 	background: #eee;
 	padding: 0.4rem;
-	margin: 1rem 0.5rem;
+	margin: 1rem 0;
 	width: 15%;
 	border: 0;
 	outline: none;
@@ -405,91 +381,73 @@ header[role=banner]::after {
 	background: #eee;
 	display: flex;
 	flex-direction: row;
-	padding: 0 1rem;
+	padding: 0 0.2rem;
 	height: 100%;
 	width: 100%;
 	justify-content: space-evenly;
 	align-items: baseline;
 	align-content: stretch;
 }
-
-.search_icon {
-	display: inline-block;
-}
 </style>
 </head>
+
 <body style="text-align: center;">
+
 	<%
-      memberDTO info = (memberDTO)session.getAttribute("info");
+	memberDTO info = (memberDTO) session.getAttribute("info");
 	%>
 
 	<!-- Navbar Start -->
-	<nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0" style="height: 6em;">
-        <a href="index.jsp" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
-            <h1 class="m-0">Mentorvation</h1>
-        </a>
-		<div class="search_box" style="margin-left: 180px;margin-bottom: 0;">
-			<form action="SearchService.do" method="get">
-				<div>
-					<input name="profile_id" class="search_text" type="text" placeholder="search">
-				</div>
-			</form>
+	<nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0" style="height: 6em;"> 
+		<a href="index.jsp" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+			<h1 class="m-0">Mentorvation</h1>
+		</a>
+		<div class="search_box search_holder" style="margin-left: 180px; margin-bottom: 0;">
+			<div>
+				<input class="search_text" type="text" placeholder="search">
+			</div>
 		</div>
-        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+		<button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
 			<span class="navbar-toggler-icon"></span>
 		</button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-            <div class="navbar-nav ms-auto p-4 p-lg-0">
-                <a href="index.jsp" class="nav-item nav-link active">Home</a>
-                <a href="watchvideo.jsp" class="nav-item nav-link">Recommendation</a>
-                <a href="calendar.jsp" class="nav-item nav-link">Mycalendar</a>
-                <a href="myprofile.jsp" class="nav-item nav-link">Myprofile</a>
-             
-            </div>
-         	<nav class="main-nav">
-				<ul style="padding-left: 0px;">
-					<!-- inser more links here -->
-						<li><a class="cd-signin" href="UpdateMember.jsp">회원정보수정</a></li>
-						<li><a class="cd-signin" href="LogoutService.do">Logout</a></li>
-				</ul>
+		<div class="collapse navbar-collapse" id="navbarCollapse">
+			<div class="navbar-nav ms-auto p-4 p-lg-0">
+				<a href="index.jsp" class="nav-item nav-link active">Home</a> <a
+					href="watchvideo.jsp" class="nav-item nav-link">Recommendation</a>
+				<a href="calendar.jsp" class="nav-item nav-link">Mycalendar</a> <a
+					href="myprofile.jsp" class="nav-item nav-link">Myprofile</a>
+	
+			</div>
+			<nav class="main-nav">
+			<ul style="padding-left: 0px;">
+				<!-- inser more links here -->
+				<li><a class="cd-signin" href="LogoutService.do">Logout</a></li>
+			</ul>
 			</nav>
-        </div>
-    </nav>
+		</div>
+	</nav>
 	<!-- Navbar End -->
 
 	<!-- Wrapper -->
 		<!-- Menu -->
+	<div class="userWrap">
 		<div class="user_modify">
 			<div class="modify_wrap">
-				<%-- <img src="img/Update.png" />
-				<h4>회원 정보 수정</h4>
-				<p>
-					접속한 Email :
-					<%=info.getMember_id() %></p>
-				<p>
-					접속한 Username :
-					<%=info.getMember_name() %></p> --%>
-					<form action="UploadService.do" method="post" enctype="multipart/form-data">
-						<!-- 비디오시퀀스<input type="number" name="video_seq"><br> -->
-						<!-- 멤버아이디<input type="text" name="member_id"><br> -->
-						비디오파일<input type="file" name="video_file"><br>
-						비디오가격<input type="number" name="video_price"><br>
-						비디오설명<input type="text" name="video_desc"><br>
-						<!-- 비디오업로드날짜<input type="date" name="upload_dt"><br -->>
-						<!-- 허용권한<input type="text" name="permissions"><br> -->
-						<input type="submit">
-					</form>
-					
-				<!-- <div class="modify_content">
+				<h4 style="color: #444;">UPLOAD</h4>
+				<form action="UploadService.do" method="post" enctype="multipart/form-data">
 					<ul>
-						<li class="name"><input placeholder="이름을 작성하세요"></li>
-						<li class="password"><input name="member_pw"
-							placeholder="새로운 비밀번호를 작성하세요"></li>
-						<li class="join_btn"><button type="submit">OK</button></li>
+						<li><p class="modify_txt">비디오파일</p>
+							<label for="file">파일찾기</label> 
+							<input style="border:none; background:none;" type="file" id="file" name="video_file">
+						</li>
+						<li><p class="modify_txt">비디오가격</p><input class="mod_txt" type="number" name="video_price"></li>
+						<li><p class="modify_txt">비디오설명</p><input class="mod_txt" type="text" name="video_desc"></li>
 					</ul>
-				</div> -->
+					<input class="modify_upload_btn" type="submit" value="Upload">
+				</form>
 			</div>
 		</div>
+	</div>
 	<!-- Wrapper End-->
 	<!-- Scripts -->
 	<script src="assets/js/jquery.min.js"></script>

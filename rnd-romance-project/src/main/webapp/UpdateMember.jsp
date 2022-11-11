@@ -42,11 +42,11 @@
 <!-- Template Stylesheet -->
 <link href="css/style.css" rel="stylesheet">
 <style>
- /* html {
+html {
 	font-size: 20px
 }
 
-body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, form, fieldset, p,
+body, div, dl, dt, dd, ul, ol, li, h2, h3, h4, h5, form, fieldset, p,
 	button, input {
 	margin: 0;
 	padding: 0;
@@ -59,10 +59,6 @@ input, select {
 	vertical-align: middle;
 	color: #666;
 	outline: none;
-}
-
-a {
-	text-decoration: none
 }
 
 img, fieldset {
@@ -115,12 +111,7 @@ body {
 	height: 100%;
 	overflow: hidden
 }
-  */
  
-html * {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
 	
 *, *:after, *:before {
 	-webkit-box-sizing: border-box;
@@ -128,14 +119,6 @@ html * {
 	box-sizing: border-box;
 }
 
-body {
-	font-size: 100%;
-	font-family: 'Noto Sans KR', 'NanumGothic', '나눔고딕';
-	color: #505260;
-	background-color: #fff;
-/* 	height: 100%;
-	overflow: hidden; */
-}
 
 a {
 	color: #2f889a;
@@ -146,7 +129,7 @@ img {
 	max-width: 100%;
 }
 
-input, textarea {
+textarea {
 	font-family: "PT Sans", sans-serif;
 	font-size: 16px;
 	font-size: 1rem;
@@ -309,7 +292,6 @@ header[role=banner]::after {
 	height: 100%;
 	background: url(img/Update_bg03.jpg) no-repeat center, #ebf7ff;
 	background-size: cover;
-	margin-top: -3rem;
 }
 
 input::placeholder {
@@ -421,11 +403,11 @@ input::placeholder {
 	%>
 
 	<!-- Navbar Start -->
-	<nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0" style="height: 6em;"> 
+	<nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0 add nav_position" style="height: 6em;"> 
 		<a href="index.jsp" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
 			<h1 class="m-0">Mentorvation</h1>
 		</a>
-		<div class="search_box" style="margin-left: 180px; margin-bottom: 0;">
+		<div class="search_box search_holder" style="margin-left: 180px; margin-bottom: 0;">
 			<div>
 				<input class="search_text" type="text" placeholder="search">
 			</div>
@@ -452,7 +434,7 @@ input::placeholder {
 	<!-- Navbar End -->
 
 	<!-- Wrapper -->
-	<form action="UpdateService.do" method="post">
+	<form action="UpdateService.do" method="post" class="form_posit">
 		<div id="wrapper">
 			<!-- Menu -->
 			<div class="user_modify">

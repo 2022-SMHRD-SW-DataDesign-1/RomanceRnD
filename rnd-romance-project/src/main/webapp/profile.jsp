@@ -857,9 +857,9 @@ header[role=banner]::after {
                 </div>
                 <textarea class="profile_txtArea" rows="" cols=""></textarea>
                 
-					</div>
-            </div>
-            
+		  </div>
+        </div>
+        
             <!-- Individual Video Start -->
             <div class="row g-4 portfolio-container">
             	<%
@@ -881,6 +881,7 @@ header[role=banner]::after {
 				<%=html%>
     		</div>
 			<!-- Individual Video End -->
+            
 
     <!-- Projects End -->
 	
