@@ -957,8 +957,8 @@ header[role=banner]::after {
 					memberDTO selected_member = dao.selectAll(profile_id);
 					String selected_member_name = selected_member.getMember_name();
 					System.out.println("info: "+ selected_member);
-				%> --%>
-	            <%-- <h1 class="display-5 mb-5" style="padding: 0em; color: black;margin-bottom: 0rem !important;"><%=selected_member_name%></h1> --%>
+				%> --%>display-5 mb-5
+	            <%-- <h1 class="" style="padding: 0em; color: black;margin-bottom: 0rem !important;"><%=selected_member_name%></h1> --%>
 	            <h1 class="display-5 mb-5"
 					style="padding: 0em; color: black;margin-bottom: 0rem !important;"><%= member_name %></h1>
 				<textarea rows="" cols=""></textarea>

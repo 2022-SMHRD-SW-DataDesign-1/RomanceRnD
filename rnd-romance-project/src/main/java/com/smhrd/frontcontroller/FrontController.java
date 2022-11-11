@@ -17,8 +17,10 @@ import com.smhrd.command.Command;
 import com.smhrd.controller.JoinService;
 import com.smhrd.controller.LoginService;
 import com.smhrd.controller.LogoutService;
+import com.smhrd.controller.SearchService;
 import com.smhrd.controller.UpdateService;
 import com.smhrd.controller.UploadService;
+import com.smhrd.controller.handshakeService;
 
 
 
@@ -84,6 +86,12 @@ public class FrontController extends HttpServlet {
 		}else if(result.equals("UploadService.do")) {
 			
 			service = new UploadService();
+		}else if(result.equals("SearchService.do")) {
+			
+			service = new SearchService();
+		}else if(result.equals("handshakeService.do")) {
+			
+			service = new handshakeService();
 		}
 		
 		

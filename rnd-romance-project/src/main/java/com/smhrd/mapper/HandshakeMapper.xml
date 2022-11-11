@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smhrd.mapper.HandshakeMapper">
+
+	<insert id="follow" parameterType="handshakeDTO">
+		insert into handshake_table values(1 ,#{member_id}, #{hs_id}, sysdate)
+	</insert>
+
+	<delete id="unfollow" parameterType="handshakeDTO">
+		delete from handshake_table where member_id = #{member_id} and hs_id = #{hs_id} 
+	</delete>
+	
+	<select id="followCheck" parameterType="String" resultType="int">
+		select count(*) from handshake_table where member_id = #{member_id} and hs_id = #{hs_id}
+	</select>
+	
+	<select id="followCnt" parameterType="String" resultType="int">
+		select count(*) from handshake_table where member_id = #{member_id}
+	</select>
+	
+	<select id="followerCnt" parameterType="String" resultType="int">
+		select count(*) from handshake_table where hs_id = #{member_id}
+	</select>
+	
+  	
+</mapper>

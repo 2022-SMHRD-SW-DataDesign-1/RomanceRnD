@@ -1,4 +1,6 @@
 <%@page import="java.lang.ProcessHandle.Info"%>
+<%@page import="com.smhrd.model.handshakeDAO"%>
+<%@page import="com.smhrd.model.handshakeDTO"%>
 <%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
 <%@page import="com.smhrd.model.memberDTO"%>
 <%@page import="java.util.ArrayList"%>
@@ -706,12 +708,15 @@ header[role=banner]::after {
 			class="navbar-brand d-flex align-items-center px-4 px-lg-5">
 			<h1 class="m-0">Mentorvation</h1>
 		</a>
-
+		<!-- 최우정 검색 기능 get방식으로 profile_id만 보냄-->
 		<!-- 한가연 검색창 만들기 -->
-		<div class="search_box" style="margin-left: 200px">
-			<div>
-				<input class="search_text" type="text" placeholder="search">
-			</div>
+		<div class="search_box" style="margin-left: 180px;margin-bottom: 0;">
+		<!-- <form action="profile.jsp" method="get"> -->
+		<form action="SearchService.do" method="get">
+				<div>
+					<input name="profile_id" class="search_text" type="text" placeholder="search">
+				</div>
+		</form>
 		</div>
         
         <button type="button" class="navbar-toggler me-4"
@@ -785,7 +790,7 @@ header[role=banner]::after {
            	</div>
            	
            	<div style="text-align: right">
-	           	<a href="Upload.jsp"><input type="button" value="Upload"></a>
+	           	<a href="Upload.jsp"><input type="button" class="btn btn-primary" value="Upload"></a>
 	           	<!-- Button trigger modal -->
 				<!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
 					Upload
@@ -877,8 +882,21 @@ header[role=banner]::after {
 						      </div>
 						      <div class="modal-footer">
 						        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-						        <button type="button" class="btn btn-primary">Ok</button>
-						      </div>
+						        <!-- 우정 : href 매핑 바꿔줘야할듯 -->
+						        <!-- <a href="follow.jsp"><button type="button" class="btn btn-primary">Ok</button></a> -->
+
+										<%
+										if(info != null) {
+										%>
+										<form action="handshakeService.do" method="post">
+											<input type="hidden" name="member_id"
+												value="<%=info.getMember_id()%>"> <input
+												type="hidden" name="hs_id" value="<%=profile_id%>">
+											<input type="submit" class="btn btn-primary" value="Ok"
+												onclick="btn-follow" id="follow11">
+										</form>
+										<%} %>
+									</div>
 						    </div>
 						  </div>
 						</div>
@@ -948,8 +966,18 @@ header[role=banner]::after {
 				%> --%>
 	            <%-- <h1 class="display-5 mb-5" style="padding: 0em; color: black;margin-bottom: 0rem !important;"><%=selected_member_name%></h1> --%>
 	            <h1 class="display-5 mb-5"
-					style="padding: 0em; color: black;margin-bottom: 0rem !important;">test</h1>
+					style="padding: 0em; color: black;margin-bottom: 0rem !important;"><%= profile_id%></h1>
 				<textarea rows="" cols=""></textarea>
+            </div>
+				<!-- 우정 : 팔로우 추가 -->
+				<%-- <%if(info != null){ %>
+				<form action="handshakeService.do" method="post">
+					<input type="hidden" name="member_id" value="<%= info.getMember_id() %>">
+					<input type="hidden" name="hs_id" value="<%=profile_id %>">
+					<input type="submit" class="btn btn-primary" value="팔로우" onclick="btn-follow" id="follow11">
+				</form>
+				<%} %> --%>
+				
             </div>
     		<br><br>
             <!-- <div class="row wow fadeInUp" data-wow-delay="0.3s">
@@ -1175,6 +1203,59 @@ header[role=banner]::after {
 	
 	<!-- JavaScript -->
 	<script>
+	
+	// 우정 : 팔로우 버튼 누를 시 ajax.
+	function btn-follow(){
+		// 팔로우 여부 체크
+		let follow_ck;
+		console.log(follow_ck);
+		
+		let followBtn = document.getElementByID('follow11').val();
+		console.log(followBtn);
+		
+		let member_id = '<%= info.getMember_id() %>';
+		console.log(member_id);
+		
+		let profile_id = '<%=profile_id %>';
+		console.log(profile_id);
+		
+		let follow_cnt = '<%=new handshakeDAO().followCnt(info.getMember_id())%>';
+		console.log(follow_cnt);
+		
+		if(followBtn == '팔로우'){
+			followBtn.attr('value','언팔로우');
+			follow_ck = 0;
+		}else{
+			followBtn.attr('value','팔로우');
+			follow_ck = 1;
+			
+		}
+		
+		$.ajax({
+			url : 'handshakeService.do',  // 요청 서버 url
+			data : {'member_id': member_id,
+					'hs_id' : profile_id,
+					'follow_ck' : follow_ck}, // 요청할 때 같이 보내줄 데이터
+			type : 'post',				// 요청 타입(method)
+			success : function(data){	// 통신성공 (function(넘겨준 데이터))
+				console.log(typeof data);
+				//resultCheckE
+				if(data == 'true'){
+					$('#xxx').text('사용할 수 없는 아이디');								
+				}else{
+					$('#resultCheckE').text('사용할 수 있는 아이디');
+				}
+			
+			},
+			error : function(){			// 통신실패
+				console.log("통신실패");
+			}
+		})
+
+	}
+	}
+	// follow-ajax-end
+	
 		jQuery(document).ready(function($){
 		  var $form_modal = $('.cd-user-modal'),
 		    $form_login = $form_modal.find('#cd-login'),

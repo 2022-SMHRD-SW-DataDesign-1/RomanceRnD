@@ -46,6 +46,19 @@
    	<description></description>
    	<servlet-class>com.smhrd.controller.UploadService</servlet-class>
    </servlet>
+   <servlet>
+   	<servlet-name>SearchService</servlet-name>
+   	<display-name>SearchService</display-name>
+   	<description></description>
+   	<servlet-class>com.smhrd.controller.SearchService</servlet-class>
+   </servlet>
+   <servlet>
+   	<servlet-name>handshakeService</servlet-name>
+   	<display-name>handshakeService</display-name>
+   	<description></description>
+   	<servlet-class>com.smhrd.controller.handshakeService</servlet-class>
+   </servlet>
+
   
 
    <servlet-mapping>
@@ -68,6 +81,17 @@
    	<url-pattern>/UpdateService</url-pattern>
    </servlet-mapping>
 	
+
+   <servlet-mapping>
+   	<servlet-name>UploadService</servlet-name>
+   	<url-pattern>/UploadService</url-pattern>
+   </servlet-mapping>
+
+   <servlet-mapping>
+   	<servlet-name>SearchService</servlet-name>
+   	<url-pattern>/SearchService</url-pattern>
+   </servlet-mapping>
+
 	<!-- frontcontroller -> .do -->
    <servlet-mapping>
   	<servlet-name>FrontController</servlet-name>
@@ -75,8 +99,8 @@
   	<url-pattern>*.do</url-pattern>
   </servlet-mapping>
    <servlet-mapping>
-   	<servlet-name>UploadService</servlet-name>
-   	<url-pattern>/UploadService</url-pattern>
+   	<servlet-name>handshakeService</servlet-name>
+   	<url-pattern>/handshakeService</url-pattern>
    </servlet-mapping>
   
 </web-app>
