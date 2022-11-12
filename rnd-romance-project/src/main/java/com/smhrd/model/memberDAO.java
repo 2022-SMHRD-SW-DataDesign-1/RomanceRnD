@@ -1,5 +1,6 @@
 package com.smhrd.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -77,4 +78,15 @@ public class memberDAO {
          
          return info;
       }
+      
+  	// SelectMemberAllInWatchVideo
+  	public ArrayList<memberDTO> selectAllInVideo (String dto) {
+  		SqlSession session = sqlSessionFactory.openSession(true);
+
+  		List<memberDTO> list = session.selectList("selectAllInVideo", dto);
+  		session.close();
+
+  		return (ArrayList<memberDTO>) list;
+
+  	}
 }

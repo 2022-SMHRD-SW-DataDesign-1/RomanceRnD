@@ -659,9 +659,13 @@ header[role=banner]::after {
 	<%
 	/* dwyane code Start */
 
+	/* Before Session get member_name Start */
+	String member_name = request.getParameter("member_name");
+	/* Before Session get member_name End */
+	
 	/* Session_Login_Member Start */
 	memberDTO info = (memberDTO) session.getAttribute("info");
-	String member_name = info.getMember_name();
+	member_name = info.getMember_name();
 	String member_id = info.getMember_id();
 	/* Session_Login_Member End */
 
@@ -672,7 +676,7 @@ header[role=banner]::after {
 
 	String profile_id = request.getParameter("profile_id");
 	System.out.println(profile_id);
-	
+
 	/* Handshake countAll Start */
 	// mentor
 	System.out.println("member_id"+member_id);
@@ -787,8 +791,7 @@ header[role=banner]::after {
 					html += " <div class='portfolio-text'> ";
 					html += " <h4 class='text-white mb-4'></h4> ";
 					html += " <div class='d-flex'> ";
-					html += " <a class='btn btn-lg-square rounded-circle mx-2' href='watchvideo.jsp?video_file="
-					+ videoList.get(i).getVideo_file() + "'><i class='fa fa-eye'></i>";
+					html += " <a class='btn btn-lg-square rounded-circle mx-2' href='watchvideo.jsp?video_file=" + videoList.get(i).getVideo_file()+ "'><i class='fa fa-eye'></i>";
 					html += " </a></div></div></div></div> ";
 				}
 				%>

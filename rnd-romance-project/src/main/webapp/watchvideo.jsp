@@ -1,3 +1,5 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.smhrd.model.memberDAO"%>
 <%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
 <%@page import="com.smhrd.model.memberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -555,7 +557,32 @@
 <body>
 
 	<%  
+		memberDTO info = (memberDTO) session.getAttribute("info");
+		String member_name = info.getMember_name();
+		
 		String video_file = request.getParameter("video_file");
+		System.out.println("video_file: "+ video_file);
+		
+		/* Exit move target Start */
+		ArrayList<memberDTO> memberList = new memberDAO().selectAllInVideo(video_file);
+		
+		System.out.println("memberList"+memberList);
+		
+		String video_Name = memberList.get(0).getMember_name();
+		
+		System.out.println("video_Name"+video_Name);
+		System.out.println("member_name"+member_name);
+		
+		String videoSrc = "";
+		
+		if (video_Name.equals(member_name)) {
+			videoSrc = "myprofile.jsp?member_name=" + member_name;
+		}else {
+			videoSrc = "profile.jsp?profile_name=" + video_Name;
+		}
+		
+		/* Exit move target End */
+		
 		
 		String video_file_str = video_file.substring(video_file.length()-3,video_file.length());
 		System.out.println(video_file_str);
@@ -578,7 +605,7 @@
 		}
 	%>
 	<div class="video_title">MENTORVATION
-		<button type="button" onclick="location.href='myprofile.jsp'">닫기</button>
+			<button type="button" onclick="location.href='<%=videoSrc%>'">닫기</button>
 	</div>
 	
 	<%=html%>

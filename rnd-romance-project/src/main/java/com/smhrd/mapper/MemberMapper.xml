@@ -27,6 +27,10 @@
 	<select id="selectAllByName" parameterType="memberDTO" resultType="memberDTO">
         select * from member_table where member_name = #{member_name}
 	</select>
+	
+	<select id="selectAllInVideo" parameterType="String" resultType="memberDTO">
+        select * from member_table where member_id = (select member_id from upload_video_table where video_file = #{video_file})
+	</select>
      
      
 </mapper>
