@@ -213,7 +213,7 @@ header[role=banner]::after {
 		margin-left: 1em;
 	}
 	.main-nav li:nth-last-child(2) {
-		margin-left: 2em;
+		margin-left: 1em;
 	}
 	.main-nav a {
 		display: inline-block;
@@ -726,6 +726,9 @@ header[role=banner]::after {
 	        <nav class="main-nav">
 	            <ul style="padding-left: 0px;">
 	                <!-- inser more links here -->
+	                <li>
+	                    <a class="cd-signin" href="Category.jsp">Category</a>
+	                </li>
 	                <li>
 	                    <a class="cd-signin" href="UpdateMember.jsp">Edit Profile</a>
 	                </li>

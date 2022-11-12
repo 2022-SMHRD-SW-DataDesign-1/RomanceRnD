@@ -308,6 +308,7 @@ input::placeholder {
 	padding: 2.5rem 0;
 	margin: 0 auto;
 	box-shadow: 6px 6px 6px rgb(0 0 0/ 30%);
+	margin-top: 6rem;
 }
 
 .modify_wrap {
@@ -326,6 +327,7 @@ input::placeholder {
 	font-size: .85rem;
 	color: #777;
 	padding-bottom: 1.5rem;
+	float: left;
 }
 
 .user_modify .modify_content ul {
@@ -393,6 +395,23 @@ input::placeholder {
 	align-items: baseline;
 	align-content: stretch;
 }
+
+.mbti_sel {
+ width: 150px;
+    height: 30px;
+    padding-left: 5px;
+    font-size: 15px;
+    color:#999;
+    border: 1px solid #999;
+    border-radius: 3px;
+ }
+ input[name=search_pl]::placeholder {
+    font-size: .9rem;
+}
+/*  input[name=member_pw]::placeholder {
+  /* color: #a00; */
+  font-size: .8em;
+} */
 </style>
 </head>
 
@@ -441,9 +460,39 @@ input::placeholder {
 				<div class="modify_wrap">
 					<img src="img/Update.png" />
 					<h4>회원 정보 수정</h4>
-					<p>Email : <%=info.getMember_id()%></p>
-					<p>User name : <%=info.getMember_name()%></p>
-					<!-- 여기에 프로필 사진 수정 할 것 만들어 두기 -->
+					<ul>
+						<li> <p>Email : <%=info.getMember_id()%></p></li>
+						<li> <p>Name : <%=info.getMember_name()%></p></li>
+						<li class="MBTI"> 
+							<p>MBTI :
+						    	<select class="mbti_sel">
+						   			<option value="none">=== 선택 ===</option>
+						          	<option>ENFJ</option>
+						          	<option>ENTJ</option>
+						          	<option>ENFP</option>
+						          	<option>ENTP</option>
+						          	<option>ESFP</option>
+						          	<option>ESFJ</option>
+						          	<option>ESTP</option>
+						          	<option>ESTJ</option>
+						          	<option>INFP</option>
+						          	<option>INFJ</option>
+						          	<option>INTP</option>
+						          	<option>ISTP</option>
+						          	<option>ISFP</option>
+						          	<option>ISFJ</option>
+						          	<option>ISTJ</option>
+						          	<option>INTJ</option>
+						      	</select>
+					      	</p>
+					  	</li>
+						<li> 
+							<p>Profile:
+							<input style="display:none;" type="file" id="profile_img" name="profile_file">
+						    <label for="profile_img">파일찾기</label>
+						    </p> 
+						</li>
+					</ul>
 					<div class="modify_content">
 						<ul>
 							<li class="password"><input name="member_pw" placeholder="새로운 비밀번호를 작성하세요"></li>
