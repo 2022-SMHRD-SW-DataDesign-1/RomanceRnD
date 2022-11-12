@@ -66,7 +66,7 @@ html * {
 
 body {
 	font-size: 100%;
-	font-family: "PT Sans", sans-serif;
+	font-family:  'Noto Sans KR', 'NanumGothic', '나눔고딕';
 	color: #505260;
 	background-color: #fff;
 }
@@ -81,7 +81,7 @@ img {
 }
 
 input, textarea {
-	font-family: "PT Sans", sans-serif;
+	font-family:  'Noto Sans KR', 'NanumGothic', '나눔고딕';
 	font-size: 16px;
 	font-size: 1rem;
 }
@@ -646,6 +646,9 @@ header[role=banner]::after {
 .search_icon {
 	display: inline-block;
 }
+.cat_btn{
+	background: #eee;
+}
 </style>
 
 <script
@@ -727,7 +730,7 @@ header[role=banner]::after {
 	            <ul style="padding-left: 0px;">
 	                <!-- inser more links here -->
 	                <li>
-	                    <a class="cd-signin" href="Category.jsp">Category</a>
+	                    <a class="cd-signin cat_btn" href="Category.jsp" style="background: #75add2e3;">Category</a>
 	                </li>
 	                <li>
 	                    <a class="cd-signin" href="UpdateMember.jsp">Edit Profile</a>

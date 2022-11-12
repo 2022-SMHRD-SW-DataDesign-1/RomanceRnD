@@ -52,7 +52,7 @@
 	
 	body {
 	  font-size: 100%;
-	  font-family: "PT Sans", sans-serif;
+	  font-family:  'Noto Sans KR', 'NanumGothic', '나눔고딕';
 	  color: #505260;
 	  background-color: #fff;
 	}
@@ -67,7 +67,7 @@
 	}
 	
 	input, textarea {
-	  font-family: "PT Sans", sans-serif;
+	  font-family:  'Noto Sans KR', 'NanumGothic', '나눔고딕';
 	  font-size: 16px;
 	  font-size: 1rem;
 	}
@@ -548,36 +548,8 @@
     <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
         <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;"></div>
     </div>
-    <!-- Spinner End -->
+ 
 
-
-    <!-- Topbar Start -->
-    <!-- <div class="container-fluid bg-dark text-light px-0 py-2">
-        <div class="row gx-0 d-none d-lg-flex">
-            <div class="col-lg-7 px-5 text-start">
-                <div class="h-100 d-inline-flex align-items-center me-4">
-                    <span class="fa fa-phone-alt me-2"></span>
-                    <span>010-3615-0272</span>
-                </div>
-                <div class="h-100 d-inline-flex align-items-center">
-                    <span class="far fa-envelope me-2"></span>
-                    <span>keonungs@gmail.com</span>
-                </div>
-            </div>
-            <div class="col-lg-5 px-5 text-end">
-                <div class="h-100 d-inline-flex align-items-center mx-n2">
-                    <span>Follow Us:</span>
-                    <a class="btn btn-link text-light" href=""><i class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-link text-light" href=""><i class="fab fa-twitter"></i></a>
-                    <a class="btn btn-link text-light" href=""><i class="fab fa-linkedin-in"></i></a>
-                    <a class="btn btn-link text-light" href=""><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-        </div>
-    </div> -->
-    <!-- Topbar End -->
-
-    <% memberDTO info = (memberDTO)session.getAttribute("info"); %>
     
     <!-- Navbar Start -->
     	<!-- 염건웅_수정: 상단 navbar 높이 수정 -->
@@ -585,7 +557,7 @@
         <a href="index.jsp" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
             <h1 class="m-0">Mentorvation</h1>
         </a>
-        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+<%--         <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -594,19 +566,7 @@
                 <a href="recommendation.jsp" class="nav-item nav-link">Recommendation</a>
                 <a href="calendar.jsp" class="nav-item nav-link">Calendar</a>
                 <a href="profile.jsp" class="nav-item nav-link">Profile</a>
-                <!-- <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                    <div class="dropdown-menu bg-light m-0">
-                        <a href="feature.jsp" class="dropdown-item">Features</a>
-                        <a href="quote.jsp" class="dropdown-item">Free Quote</a>
-                        <a href="team.jsp" class="dropdown-item">Our Team</a>
-                        <a href="testimonial.jsp" class="dropdown-item">Testimonial</a>
-                        <a href="404.jsp" class="dropdown-item">404 Page</a>
-                    </div>
-                </div>
-                <a href="contact.jsp" class="nav-item nav-link">Contact</a> -->
             </div>
-            <!-- <a href="" class="btn btn-primary py-4 px-lg-4 rounded-0 d-none d-lg-block">LOGIN<i class="fa fa-arrow-right ms-3"></i></a> -->
          	<nav class="main-nav">
 				<ul>
 					<!-- inser more links here -->
@@ -619,12 +579,12 @@
 				</ul>
 			</nav>
             
-        </div>
+        </div> --%>
     </nav>
     <!-- Navbar End -->
 
 
-    <!-- Page Header Start -->
+<!--     Page Header Start
     <div class="container-fluid page-header py-5 mb-5 wow fadeIn" data-wow-delay="0.1s">
         <div class="container text-center py-5">
             <h1 class="display-3 text-white mb-4 animated slideInDown">404 Error</h1>
@@ -637,7 +597,7 @@
             </nav>
         </div>
     </div>
-    <!-- Page Header End -->
+    Page Header End -->
 
 
     <!-- 404 Start -->
@@ -657,7 +617,7 @@
     <!-- 404 End -->
         
 
-    <!-- Footer Start -->
+<!--     Footer Start
     <div class="container-fluid bg-dark text-light footer mt-5 py-5 wow fadeIn" data-wow-delay="0.1s">
         <div class="container py-5">
             <div class="row g-5">
@@ -700,10 +660,10 @@
             </div>
         </div>
     </div>
-    <!-- Footer End -->
+    Footer End -->
 
 
-    <!-- Copyright Start -->
+<!--     Copyright Start
     <div class="container-fluid copyright py-4">
         <div class="container">
             <div class="row">
@@ -711,13 +671,13 @@
                     &copy; <a class="border-bottom" href="#">Your Site Name</a>, All Right Reserved.
                 </div>
                 <div class="col-md-6 text-center text-md-end">
-                    <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+                    /*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/
                     Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a> Distributed By <a href="https://themewagon.com">ThemeWagon</a>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Copyright End -->
+    Copyright End -->
 
 
     <!-- Back to Top -->

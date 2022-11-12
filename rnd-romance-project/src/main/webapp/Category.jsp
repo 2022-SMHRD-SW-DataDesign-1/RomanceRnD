@@ -1,3 +1,4 @@
+<%@page import="java.util.function.Function"%>
 <%@page import="com.smhrd.model.memberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -55,6 +56,7 @@
 	  font-family: 'Noto Sans KR', 'NanumGothic', '나눔고딕';
 	  color: #505260;
 	  background-color: #fff;
+  	  place-content: center;
 	}
 	
 	a {
@@ -67,7 +69,7 @@
 	}
 	
 	input, textarea {
-	  font-family: "PT Sans", sans-serif;
+	  font-family:  'Noto Sans KR', 'NanumGothic', '나눔고딕';
 	  font-size: 16px;
 	  font-size: 1rem;
 	}
@@ -567,23 +569,103 @@
 		align-items: baseline;
 		align-content: stretch;
 	}
-	
-	input[type="checkbox"] {
-    width: 5rem;
-    height: 5rem;
-    border-radius: 50%;
-    border: 1px solid #999;
-    appearance: none;
-    cursor: pointer;
-    transition: background 0.2s;
-    font-size: .2rem
-  }
 
-  input[type="checkbox"]:checked {
-    background: #32e732;
-    border: none;
-  }
-	
+/* html, body {
+  height: 100%;
+}
+
+body {
+  display: grid;
+  place-content: center;
+}
+ */
+.btn {
+  background: hsl(var(--hue), 98%, 80%);
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  color: black;
+  font: 600 1.05rem/1 "Nunito", sans-serif;
+  letter-spacing: 0.05em;
+  overflow: hidden;
+  padding: 1.15em 3.5em;
+  min-height: 3.3em;
+  position: relative;
+  text-transform: lowercase;
+}
+.btn--yellow {
+  --hue: 46;
+}
+.btn--green {
+  --hue: 163;
+}
+.btn--purple {
+  --hue: 244;
+}
+.btn--red {
+  --hue: 0;
+}
+.btn--blue {
+  --hue: 210;
+}
+.btn:active, .btn:focus {
+  outline: 3px solid hsl(calc(var(--hue) + 90), 98%, 80%);
+}
+.btn + .btn {
+  margin-top: 2.5em;
+}
+.btn__txt {
+  position: relative;
+  z-index: 2;
+}
+.btn__bg {
+  background: hsl(var(--hueBg), 98%, 80%);
+  border-radius: 50%;
+  display: block;
+  height: 0;
+  left: 50%;
+  margin: -50% 0 0 -50%;
+  padding-top: 100%;
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  transform: scale(0);
+  transform-origin: 50% 50%;
+  transition: transform 0.175s cubic-bezier(0.5, 1, 0.89, 1);
+  z-index: 1;
+}
+.btn__bg:nth-of-type(1) {
+  --hueBg: calc(var(--hue) - 90);
+  transition-delay: 0.1725s;
+}
+.btn__bg:nth-of-type(2) {
+  --hueBg: calc(var(--hue) - 180);
+  transition-delay: 0.115s;
+}
+.btn__bg:nth-of-type(3) {
+  --hueBg: calc(var(--hue) - 270);
+  transition-delay: 0.0575s;
+}
+.btn__bg:nth-of-type(4) {
+  --hueBg: calc(var(--hue) - 360);
+  transition-delay: 0s;
+}
+.btn:hover .btn__bg, .btn:focus .btn__bg, .btn:active .btn__bg {
+  transform: scale(1.5);
+  transition: transform 0.35s cubic-bezier(0.11, 0, 0.5, 0);
+}
+.btn:hover .btn__bg:nth-of-type(1), .btn:focus .btn__bg:nth-of-type(1), .btn:active .btn__bg:nth-of-type(1) {
+  transition-delay: 0.115s;
+}
+.btn:hover .btn__bg:nth-of-type(2), .btn:focus .btn__bg:nth-of-type(2), .btn:active .btn__bg:nth-of-type(2) {
+  transition-delay: 0.23s;
+}
+.btn:hover .btn__bg:nth-of-type(3), .btn:focus .btn__bg:nth-of-type(3), .btn:active .btn__bg:nth-of-type(3) {
+  transition-delay: 0.345s;
+}
+.btn:hover .btn__bg:nth-of-type(4), .btn:focus .btn__bg:nth-of-type(4), .btn:active .btn__bg:nth-of-type(4) {
+  transition-delay: 0.46s;
+}
 </style>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -625,16 +707,49 @@
         </div>
     	</nav>
     <!-- Navbar End -->
+   
+    <!-- 카테고리 버튼 -->
+	<button type="button" class="btn btn--purple">
+  <span class="btn__txt">Purple button</span>
+  <i class="btn__bg" aria-hidden="true"></i>
+  <i class="btn__bg" aria-hidden="true"></i>
+  <i class="btn__bg" aria-hidden="true"></i>
+  <i class="btn__bg" aria-hidden="true"></i>
+</button>
+
+<button type="button" class="btn btn--green">
+  <span class="btn__txt">Green button</span>
+  <i class="btn__bg" aria-hidden="true"></i>
+  <i class="btn__bg" aria-hidden="true"></i>
+  <i class="btn__bg" aria-hidden="true"></i>
+  <i class="btn__bg" aria-hidden="true"></i>
+</button>
+
+<button type="button" class="btn btn--red">
+  <span class="btn__txt">Red button</span>
+  <i class="btn__bg" aria-hidden="true"></i>
+  <i class="btn__bg" aria-hidden="true"></i>
+  <i class="btn__bg" aria-hidden="true"></i>
+  <i class="btn__bg" aria-hidden="true"></i>
+</button>
+
+<button type="button" class="btn btn--blue">
+  <span class="btn__txt">Blue button</span>
+  <i class="btn__bg" aria-hidden="true"></i>
+  <i class="btn__bg" aria-hidden="true"></i>
+  <i class="btn__bg" aria-hidden="true"></i>
+  <i class="btn__bg" aria-hidden="true"></i>
+</button>
+
+
+<button type="button" class="btn btn--yellow">
+  <span class="btn__txt">Yellow button</span>
+  <i class="btn__bg" aria-hidden="true"></i>
+  <i class="btn__bg" aria-hidden="true"></i>
+  <i class="btn__bg" aria-hidden="true"></i>
+  <i class="btn__bg" aria-hidden="true"></i>
+</button>
     
-    <label for="cat_title" style=”cursor:pointer“><input type="checkbox" id="cat_title">스포츠</label>
-    <label for="cat_title" style=”cursor:pointer“><input type="checkbox" id="cat_title">심리</label>
-    <label for="cat_title" style=”cursor:pointer“><input type="checkbox" id="cat_title">프로그래밍</label>
-    <label for="cat_title" style=”cursor:pointer“><input type="checkbox" id="cat_title">방구</label>
-    <label for="cat_title" style=”cursor:pointer“><input type="checkbox" id="cat_title">엽떡</label>
-    <label for="cat_title" style=”cursor:pointer“><input type="checkbox" id="cat_title">알리오제비</label>
-    <label for="cat_title" style=”cursor:pointer“><input type="checkbox" id="cat_title">ㅇㅇ</label>
-    <label for="cat_title" style=”cursor:pointer“><input type="checkbox" id="cat_title">ㄱㄱ</label>
-    <label for="cat_title" style=”cursor:pointer“><input type="checkbox" id="cat_title">ㄴㄴ</label>
-    <label for="cat_title" style=”cursor:pointer“><input type="checkbox" id="cat_title">ㅎㅎ</label>
-    <label for="cat_title" style=”cursor:pointer“><input type="checkbox" id="cat_title">호ㅗㅗ</label>
+
+    
 </body>    

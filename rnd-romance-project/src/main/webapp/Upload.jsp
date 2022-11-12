@@ -130,7 +130,7 @@ img {
 }
 
 textarea {
-	font-family: "PT Sans", sans-serif;
+	font-family:  'Noto Sans KR', 'NanumGothic', '나눔고딕';
 	font-size: 16px;
 	font-size: 1rem;
 }

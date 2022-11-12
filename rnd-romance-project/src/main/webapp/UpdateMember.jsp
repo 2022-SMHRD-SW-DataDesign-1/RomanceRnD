@@ -50,7 +50,6 @@ body, div, dl, dt, dd, ul, ol, li, h2, h3, h4, h5, form, fieldset, p,
 	button, input {
 	margin: 0;
 	padding: 0;
-	font-family: 'Noto Sans KR', 'NanumGothic', '나눔고딕';
 	line-height: 1.5;
 	letter-spacing: -0.5px
 }
@@ -130,7 +129,7 @@ img {
 }
 
 textarea {
-	font-family: "PT Sans", sans-serif;
+	font-family:  'Noto Sans KR', 'NanumGothic', '나눔고딕';
 	font-size: 16px;
 	font-size: 1rem;
 }
@@ -461,8 +460,8 @@ input::placeholder {
 					<img src="img/Update.png" />
 					<h4>회원 정보 수정</h4>
 					<ul>
-						<li> <p>Email : <%=info.getMember_id()%></p></li>
-						<li> <p>Name : <%=info.getMember_name()%></p></li>
+						<li> <p>E-mail : <%=info.getMember_id()%></p></li>
+						<li> <p>Name  : <%=info.getMember_name()%></p></li>
 						<li class="MBTI"> 
 							<p>MBTI :
 						    	<select class="mbti_sel">

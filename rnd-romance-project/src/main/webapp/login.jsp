@@ -25,7 +25,7 @@ html * {
 
 body {
   font-size: 100%;
-  font-family: "PT Sans", sans-serif;
+  font-family:  'Noto Sans KR', 'NanumGothic', '나눔고딕';
   color: #505260;
   background-color: #fff;
 }
@@ -40,7 +40,7 @@ img {
 }
 
 input, textarea {
-  font-family: "PT Sans", sans-serif;
+  font-family:  'Noto Sans KR', 'NanumGothic', '나눔고딕';
   font-size: 16px;
   font-size: 1rem;
 }
