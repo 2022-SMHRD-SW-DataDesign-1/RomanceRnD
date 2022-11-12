@@ -25,7 +25,7 @@
 	</select>
 	
 	<select id="selectAllByName" parameterType="memberDTO" resultType="memberDTO">
-        select * from member_table where member_id = #{member_id}
+        select * from member_table where member_name = #{member_name}
 	</select>
      
      

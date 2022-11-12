@@ -71,7 +71,7 @@ public class memberDAO {
       // 회원정보 Name으로 전체 조회 메소드
       public memberDTO selectAllByName(String dto) {
          SqlSession session = sqlSessionFactory.openSession(true);
-         memberDTO info = session.selectOne("selectAll", dto);
+         memberDTO info = session.selectOne("selectAllByName", dto);
          
          session.close();
          

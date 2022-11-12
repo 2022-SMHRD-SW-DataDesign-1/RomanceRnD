@@ -662,6 +662,9 @@ header[role=banner]::after {
 
 	String profile_name = request.getParameter("profile_name");
 	System.out.println(profile_name);
+	if (profile_name == null) {
+		profile_name = request.getParameter("searchIdOrName");
+	}
 	
 	
 	/* Profile_Search_Member Start */
@@ -727,7 +730,7 @@ header[role=banner]::after {
 			<div class="search_box" style="margin-left: 180px;margin-bottom: 0;">
 				<form action="SearchService.do" method="get">
 					<div>
-						<input name="profile_id" class="search_text" type="text" placeholder="search">
+						<input name="searchIdOrName" class="search_text" type="text" placeholder="search">
 					</div>
 				</form>
 			</div>
@@ -761,7 +764,7 @@ header[role=banner]::after {
      			<img src="img/profile_img04.png" alt="profile-user-img" class="profile-user-img-img">
                 <div style="text-align: left; margin-left:4rem;">
 					<div>
-			            <h4 class="display-5 mb-5" style="padding: 0em; color: #222; font-size:2.5rem; font-weight:500 !important; margin-bottom: 0rem !important;"><%= profile_id %></h4>
+			            <h4 class="display-5 mb-5" style="padding: 0em; color: #222; font-size:2.5rem; font-weight:500 !important; margin-bottom: 0rem !important;"><%= profileName %></h4>
 		            </div>
 		            
 					<div style="width: 16em; padding-top:.6rem; text-align: center;">
@@ -788,7 +791,7 @@ header[role=banner]::after {
 						        <h1 class="modal-title fs-5" id="staticBackdropLabel">Handshake</h1>
 						        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 						      </div>
-						      <div class="modal-body">Would you like to send Handshake to <%=profile_id%>
+						      <div class="modal-body">Would you like to send Handshake to <%=profileId%>
 						      </div>
 						      <div class="modal-footer">
 						        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
