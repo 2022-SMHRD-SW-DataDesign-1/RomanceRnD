@@ -39,8 +39,8 @@ public class SearchService extends HttpServlet implements Command {
     	}else {
     		System.out.println("서치 성공");
     	}
-    	
     	String res = list.get(0).getMember_name();
+    	System.out.println("res: "+res);
     	
     	return "profile.jsp?profile_name="+res;
     }

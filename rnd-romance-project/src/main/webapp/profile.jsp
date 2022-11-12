@@ -656,12 +656,18 @@ header[role=banner]::after {
 	<%
 	/* dwyane code Start */
 	
+	Boolean logined = false;
 	/* Session_Login_Member Start */
 	memberDTO info = (memberDTO) session.getAttribute("info");
-	String member_name = info.getMember_name();
-	String member_id = info.getMember_id();
+	if (info != null) {
+		String member_name = info.getMember_name();
+		String member_id = info.getMember_id();
+		logined = true;
+	}
 	/* Session_Login_Member End */
 
+	/* Session_Logined_Check */
+	
 	String profile_name = request.getParameter("profile_name");
 	System.out.println(profile_name);
 	
@@ -704,9 +710,7 @@ header[role=banner]::after {
 	</div>
 	<!-- Spinner End -->
 
-	<%
-	info = (memberDTO) session.getAttribute("info");
-	%>
+
     <!-- Navbar Start -->
     <%if(info == null){ %>
 			<nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0" style="height: 6em;">
@@ -805,7 +809,11 @@ header[role=banner]::after {
 						        <h1 class="modal-title fs-5" id="staticBackdropLabel">Handshake</h1>
 						        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 						      </div>
-						      <div class="modal-body">Would you like to send handshake to <span style="font-weight: bold;color: #4a69bd;"><%=profileName%></span> ?
+						      <% if (info != null) { %>
+						      	<div class="modal-body">Would you like to send handshake to <span style="font-weight: bold;color: #4a69bd;"><%=profileName%></span> ?
+						      <% }else { %>
+						      	<div class="modal-body"><span style="font-weight: bold;">Please login to use handshake!</span>
+						      <% } %>
 						      </div>
 						      <div class="modal-footer">
 						        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -815,13 +823,13 @@ header[role=banner]::after {
 								if(info != null) {
 								%>
 								<form action="handshakeService.do" method="post">
-									<input type="hidden" name="member_id"value="<%=profileName%>"> 
+									<input type="hidden" name="member_id"value="<%=info.getMember_id()%>"> 
 									<input type="hidden" name="hs_id" value="<%=profileId%>">
 									<input type="hidden" name="profile_name" value="<%=profile_name%>">
 									<input type="submit" class="btn btn-primary" value="Ok"
 										onclick="btn-follow" id="follow11">
 								</form>
-								<%} %>
+								<% } %>
 						      </div>
 						    </div>
 						  </div>

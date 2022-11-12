@@ -656,13 +656,13 @@ header[role=banner]::after {
        <a href="index.jsp" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
            <h1 class="m-0">Mentorvation</h1>
        </a>
-	<div class="search_box" style="margin-left: 180px;margin-bottom: 0;">
-		<form action="SearchService.do" method="get">
-			<div>
-				<input name="profile_id" class="search_text" type="text" placeholder="search">
-			</div>
-		</form>
-	</div>
+		<div class="search_box" style="margin-left: 180px; margin-bottom: 0;">
+	        <form action="SearchService.do" method="get">
+	            <div>
+	                <input name="searchIdOrName" class="search_text" type="text" placeholder="search">
+	            </div>
+	        </form>
+	    </div>
        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
 		<span class="navbar-toggler-icon"></span>
 	</button>

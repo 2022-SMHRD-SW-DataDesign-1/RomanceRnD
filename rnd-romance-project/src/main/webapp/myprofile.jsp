@@ -1,3 +1,4 @@
+<%@page import="com.smhrd.model.handshakeDAO"%>
 <%@page import="com.smhrd.model.videoDAO"%>
 <%@page import="com.smhrd.model.videoDTO"%>
 <%@page import="java.lang.ProcessHandle.Info"%>
@@ -671,6 +672,20 @@ header[role=banner]::after {
 
 	String profile_id = request.getParameter("profile_id");
 	System.out.println(profile_id);
+	
+	/* Handshake countAll Start */
+	// mentor
+	System.out.println("member_id"+member_id);
+	
+	int countHsAll = new handshakeDAO().handshakeCnt(member_id);
+	System.out.println("countHsAll: "+ countHsAll);
+	
+	// mentee
+	int countHserAll = new handshakeDAO().handshakerCnt(member_id);
+	System.out.println("countHserAll: "+ countHserAll); 
+	
+	/* Handshake countAll End */
+	
 	/* dwyane code End */
 	%>
 
@@ -738,10 +753,10 @@ header[role=banner]::after {
 							<tr style="text-align: center; width: 16em;">
 								<td style="text-align: left; width: 8em; color: #666;">Mentor</td>
 								<td
-									style="text-align: left; width: 8em; color: #444; font-weight: bold;">10</td>
+									style="text-align: left; width: 8em; color: #444; font-weight: bold;"><%=countHsAll%></td>
 								<td style="text-align: left; width: 8em; color: #666;">Mentee</td>
 								<td
-									style="text-align: left; width: 8em; color: #444; font-weight: bold;">10</td>
+									style="text-align: left; width: 8em; color: #444; font-weight: bold;"><%=countHserAll%></td>
 							</tr>
 						</table>
 					</div>
