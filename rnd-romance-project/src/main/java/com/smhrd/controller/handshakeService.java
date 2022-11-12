@@ -20,13 +20,12 @@ public class handshakeService extends HttpServlet implements Command {
     	System.out.println("[handshakeService]");
     	
     	String member_id = request.getParameter("member_id");
-    	//String proile_id = request.getParameter("profile_id");
     	String hs_id = request.getParameter("hs_id");
-    	//int follow_ck = Integer.parseInt(request.getParameter("follow_ck"));
+    	String profile_name = request.getParameter("profile_name");
 
     	System.out.println("member_id :" + member_id);
-    	//System.out.println("hs_id :" + hs_id);
-    	System.out.println("profile_id :" + hs_id);
+    	System.out.println("hs_id :" + hs_id);
+    	System.out.println("profile_name :" + profile_name);
     	
     	handshakeDTO dto = new handshakeDTO(member_id, hs_id);
     	
@@ -46,7 +45,7 @@ public class handshakeService extends HttpServlet implements Command {
     	
     	}
     	
-    	return "profile.jsp";
+    	return "profile.jsp?profile_name="+profile_name;
     }
 
 }

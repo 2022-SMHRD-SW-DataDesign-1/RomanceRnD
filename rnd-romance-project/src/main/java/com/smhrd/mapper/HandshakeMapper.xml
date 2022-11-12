@@ -16,11 +16,11 @@
 		select count(*) from handshake_table where member_id = #{member_id} and hs_id = #{hs_id}
 	</select>
 	
-	<select id="followCnt" parameterType="String" resultType="int">
+	<select id="handshakeCnt" parameterType="String" resultType="int">
 		select count(*) from handshake_table where member_id = #{member_id}
 	</select>
 	
-	<select id="followerCnt" parameterType="String" resultType="int">
+	<select id="handshakerCnt" parameterType="String" resultType="int">
 		select count(*) from handshake_table where hs_id = #{member_id}
 	</select>
 	

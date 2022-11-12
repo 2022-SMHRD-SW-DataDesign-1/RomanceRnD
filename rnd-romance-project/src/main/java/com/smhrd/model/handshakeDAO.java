@@ -46,10 +46,10 @@ public class handshakeDAO {
 	}
 	
 	// 내가 팔로우한 사람
-	public int followCnt(String dto) {
+	public int handshakeCnt(String dto) {
 		SqlSession session = sqlSessionFactory.openSession(true);
 		
-		int row =session.selectOne("followCnt", dto);
+		int row =session.selectOne("handshakeCnt", dto);
 	
 		session.close();
 		
@@ -57,10 +57,10 @@ public class handshakeDAO {
 	}
 	
 	// 상대가 나를 팔로우한 사람
-		public int followerCnt(String dto) {
+		public int handshakerCnt(String dto) {
 			SqlSession session = sqlSessionFactory.openSession(true);
 			
-			int row =session.selectOne("followerCnt", dto);
+			int row =session.selectOne("handshakerCnt", dto);
 		
 			session.close();
 			

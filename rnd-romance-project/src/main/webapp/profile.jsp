@@ -1,3 +1,4 @@
+<%@page import="com.smhrd.model.handshakeDAO"%>
 <%@page import="com.smhrd.model.videoDAO"%>
 <%@page import="com.smhrd.model.videoDTO"%>
 <%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
@@ -654,6 +655,7 @@ header[role=banner]::after {
 	<!-- Scriptlet -->
 	<%
 	/* dwyane code Start */
+	
 	/* Session_Login_Member Start */
 	memberDTO info = (memberDTO) session.getAttribute("info");
 	String member_name = info.getMember_name();
@@ -662,10 +664,10 @@ header[role=banner]::after {
 
 	String profile_name = request.getParameter("profile_name");
 	System.out.println(profile_name);
+	
 	if (profile_name == null) {
 		profile_name = request.getParameter("searchIdOrName");
 	}
-	
 	
 	/* Profile_Search_Member Start */
 	memberDTO profileList = new memberDAO().selectAllByName(profile_name);
@@ -679,6 +681,18 @@ header[role=banner]::after {
 	ArrayList<videoDTO> videoList = new videoDAO().selectAllVideos(profileId);
 	System.out.println("videoList: " + videoList);
 	/* Profile_Video End */
+	
+	/* Handshake countAll Start */
+	// mentor
+	int countHsAll = new handshakeDAO().handshakeCnt(profileId);
+	System.out.println("countHsAll: "+ countHsAll);
+	
+	// mentee
+	int countHserAll = new handshakeDAO().handshakerCnt(profileId);
+	System.out.println("countHserAll: "+ countHserAll); 
+	
+	/* Handshake countAll End */
+	
 	/* dwyane code End */
 	%>
 	
@@ -771,9 +785,9 @@ header[role=banner]::after {
 						<table style="border: 1px">
 							<tr style="text-align: center; width:16em;">
 								<td style="text-align: left;width: 8em; color:#666;">Mentor</td>
-								<td style="text-align: left;width: 8em; color:#444; font-weight:bold;">10</td>
+								<td style="text-align: left;width: 8em; color:#444; font-weight:bold;"><%=countHsAll%></td>
 								<td style="text-align: left;width: 8em; color:#666;">Mentee</td>
-								<td style="text-align: left;width: 8em; color:#444; font-weight:bold;">10</td>
+								<td style="text-align: left;width: 8em; color:#444; font-weight:bold;"><%=countHserAll%></td>
 							</tr>
 						</table>
 					</div>
@@ -791,7 +805,7 @@ header[role=banner]::after {
 						        <h1 class="modal-title fs-5" id="staticBackdropLabel">Handshake</h1>
 						        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 						      </div>
-						      <div class="modal-body">Would you like to send Handshake to <%=profileId%>
+						      <div class="modal-body">Would you like to send handshake to <span style="font-weight: bold;color: #4a69bd;"><%=profileName%></span> ?
 						      </div>
 						      <div class="modal-footer">
 						        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -801,9 +815,9 @@ header[role=banner]::after {
 								if(info != null) {
 								%>
 								<form action="handshakeService.do" method="post">
-									<input type="hidden" name="member_id"
-										value="<%=profileName%>"> <input
-										type="hidden" name="hs_id" value="<%=profileId%>">
+									<input type="hidden" name="member_id"value="<%=profileName%>"> 
+									<input type="hidden" name="hs_id" value="<%=profileId%>">
+									<input type="hidden" name="profile_name" value="<%=profile_name%>">
 									<input type="submit" class="btn btn-primary" value="Ok"
 										onclick="btn-follow" id="follow11">
 								</form>
@@ -865,16 +879,17 @@ header[role=banner]::after {
 		  </div>
         </div>
         
-            <!-- Individual Video Start -->
-            <div class="row g-4 portfolio-container">
-            	<%
+            <!-- Video Container Start -->
+			<div class="row g-4 portfolio-container">
+				<!-- Individual Video Start -->
+				<%
 				String html = "";
 				System.out.println("videoList.size():" + videoList.size());
 				for (int i = 0; i < videoList.size(); i++) {
 
-					html += " <div class='col-lg-4 col-md-6 portfolio-item first wow fadeInUp'data-wow-delay='0.3s'> ";
-					html += " <div class='portfolio-inner rounded'> ";
-					html += " <img class='img-fluid' src='./file/" + videoList.get(i).getVideo_thumbnail() + ".png'alt=''> ";
+					html += " <div class='col-lg-4 col-md-6 portfolio-item first wow fadeInUp'data-wow-delay='0.3s' style='width: 24rem;height: 14rem;border-radius: 0.6rem;padding-left: unset;padding-right: unset; margin: 1.5rem;border: solid #999;box-shadow: 4px 4px 4px rgb(0 0 0 / 34%);'> ";
+					html += " <div class='portfolio-inner rounded' style='height: 100%;width: 100%;'> ";
+					html += " <img class='img-fluid' src='./file/" + videoList.get(i).getVideo_thumbnail() + ".png'alt='img' style='width: 100%;height: 100%;'> ";
 					html += " <div class='portfolio-text'> ";
 					html += " <h4 class='text-white mb-4'></h4> ";
 					html += " <div class='d-flex'> ";
@@ -884,9 +899,9 @@ header[role=banner]::after {
 				}
 				%>
 				<%=html%>
-    		</div>
-			<!-- Individual Video End -->
-            
+				<!-- Individual Video End -->
+			</div>
+			<!-- Video Container End -->
 
     <!-- Projects End -->
 	
