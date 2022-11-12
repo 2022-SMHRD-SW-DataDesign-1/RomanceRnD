@@ -635,14 +635,14 @@
             <div class="navbar-nav ms-auto p-4 p-lg-0">
                 <a href="index.jsp" class="nav-item nav-link active">Home</a>
                 <a href="watchvideo.jsp" class="nav-item nav-link">Recommendation</a>
-                <a href="calendar.jsp" class="nav-item nav-link">Mycalendar</a>
-                <a href="myprofile.jsp" class="nav-item nav-link">Myprofile</a>
+                <a href="calendar.jsp" class="nav-item nav-link">My Calendar</a>
+                <a href="myprofile.jsp" class="nav-item nav-link">My Profile</a>
              
             </div>
          	<nav class="main-nav">
 				<ul style="padding-left: 0px;">
 					<!-- inser more links here -->
-						<li><a class="cd-signin" href="UpdateMember.jsp">회원정보수정</a></li>
+						<li><a class="cd-signin" href="UpdateMember.jsp">Edit Profile</a></li>
 						<li><a class="cd-signin" href="LogoutService.do">Logout</a></li>
 				</ul>
 			</nav>

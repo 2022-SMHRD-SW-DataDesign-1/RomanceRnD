@@ -22,27 +22,27 @@ public class SearchService extends HttpServlet implements Command {
     	
     	System.out.println("[SearchService]");
     	
-    	String profile_id= request.getParameter("profile_id");
-    	String member_id= request.getParameter("member_id");
-    	String member_name = request.getParameter("member_name");
-    	
-    	System.out.println("profile_id :" + profile_id);
-    	System.out.println("member_id :" + member_id);
-    	System.out.println("member_name :" + member_name);
-    	
+    	String searchIdOrName= request.getParameter("searchIdOrName");
+    	System.out.println("searchIdOrName :" + searchIdOrName);
     	
     	//videoDTO dto = new videoDTO();
     	memberDTO dto = new memberDTO();
     	
-    	List<videoDTO> list = new memberDAO().searchVideo();
+    	List<memberDTO> list = new memberDAO().searchIdOrName(searchIdOrName);
     	
-    	if(list.equals("member_name") && list.equals(member_id) ) {
-    		System.out.println("서치 성공");
-    	}else {
+    	System.out.println("list"+ list);
+    	System.out.println("list"+ list.size());
+    	
+    	if (list.size() == 0) {
     		System.out.println("서치 실패");
+    		return "404.jsp";
+    	}else {
+    		System.out.println("서치 성공");
     	}
     	
-    	return "profile.jsp";
+    	String res = list.get(0).getMember_name();
+    	
+    	return "profile.jsp?profile_name="+res;
     }
 
 }

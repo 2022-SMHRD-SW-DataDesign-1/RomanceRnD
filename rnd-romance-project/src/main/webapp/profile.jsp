@@ -651,31 +651,34 @@ header[role=banner]::after {
 </head>
 
 <body>
-
+	<!-- Scriptlet -->
 	<%
-	/* dwyane */
-	/* String profile_id = request.getParameter("profile_id");
-	System.out.println(profile_id); */
-	/* memberDTO info = (memberDTO)session.getAttribute("info"); */
-	/* Login_Member Start */
+	/* dwyane code Start */
+	/* Session_Login_Member Start */
 	memberDTO info = (memberDTO) session.getAttribute("info");
-	System.out.println("info: " + info);
 	String member_name = info.getMember_name();
 	String member_id = info.getMember_id();
-	/* Login_Member Start */
+	/* Session_Login_Member End */
 
-	/* Video Start */
-	ArrayList<videoDTO> videoList = new videoDAO().selectAllVideos(member_id);
+	String profile_name = request.getParameter("profile_name");
+	System.out.println(profile_name);
+	
+	
+	/* Profile_Search_Member Start */
+	memberDTO profileList = new memberDAO().selectAllByName(profile_name);
+	
+	System.out.println("profileList"+ profileList);
+	String profileName = profileList.getMember_name();
+	String profileId = profileList.getMember_id();
+	/* Profile_Search_Member End */
+	
+	/* Profile_Video Start */
+	ArrayList<videoDTO> videoList = new videoDAO().selectAllVideos(profileId);
 	System.out.println("videoList: " + videoList);
-
-	/* Video End */
+	/* Profile_Video End */
+	/* dwyane code End */
 	%>
 	
-	<%
-	/* dwyane */
-	String profile_id = request.getParameter("profile_id");
-	System.out.println(profile_id);
-	%>
 	<!-- Spinner Start -->
 	<div id="spinner"
 		class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
@@ -735,14 +738,14 @@ header[role=banner]::after {
 	            <div class="navbar-nav ms-auto p-4 p-lg-0">
 	                <a href="index.jsp" class="nav-item nav-link active">Home</a>
 	                <a href="watchvideo.jsp" class="nav-item nav-link">Recommendation</a>
-	                <a href="calendar.jsp" class="nav-item nav-link">Mycalendar</a>
-	                <a href="myprofile.jsp" class="nav-item nav-link">Myprofile</a>
+	                <a href="calendar.jsp" class="nav-item nav-link">My Calendar</a>
+	                <a href="myprofile.jsp" class="nav-item nav-link">My Profile</a>
 	             
 	            </div>
 	         	<nav class="main-nav">
 					<ul style="padding-left: 0px;">
 						<!-- inser more links here -->
-							<li><a class="cd-signin" href="UpdateMember.jsp">회원정보수정</a></li>
+							<li><a class="cd-signin" href="UpdateMember.jsp">Edit Profile</a></li>
 							<li><a class="cd-signin" href="LogoutService.do">Logout</a></li>
 					</ul>
 				</nav>
@@ -791,18 +794,17 @@ header[role=banner]::after {
 						        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
 						        <!-- 우정 : href 매핑 바꿔줘야할듯 -->
 						        <!-- <a href="follow.jsp"><button type="button" class="btn btn-primary">Ok</button></a> -->
-
-										<%
-										if(info != null) {
-										%>
-										<form action="handshakeService.do" method="post">
-											<input type="hidden" name="member_id"
-												value="<%=info.getMember_id()%>"> <input
-												type="hidden" name="hs_id" value="<%=profile_id%>">
-											<input type="submit" class="btn btn-primary" value="Ok"
-												onclick="btn-follow" id="follow11">
-										</form>
-										<%} %>
+								<%
+								if(info != null) {
+								%>
+								<form action="handshakeService.do" method="post">
+									<input type="hidden" name="member_id"
+										value="<%=profileName%>"> <input
+										type="hidden" name="hs_id" value="<%=profileId%>">
+									<input type="submit" class="btn btn-primary" value="Ok"
+										onclick="btn-follow" id="follow11">
+								</form>
+								<%} %>
 						      </div>
 						    </div>
 						  </div>

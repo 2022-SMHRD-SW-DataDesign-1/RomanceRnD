@@ -670,14 +670,14 @@ header[role=banner]::after {
            <div class="navbar-nav ms-auto p-4 p-lg-0">
                <a href="index.jsp" class="nav-item nav-link active">Home</a>
                <a href="watchvideo.jsp" class="nav-item nav-link">Recommendation</a>
-               <a href="calendar.jsp" class="nav-item nav-link">Mycalendar</a>
-               <a href="myprofile.jsp" class="nav-item nav-link">Myprofile</a>
+               <a href="calendar.jsp" class="nav-item nav-link">My Calendar</a>
+               <a href="myprofile.jsp" class="nav-item nav-link">My Profile</a>
             
            </div>
         	<nav class="main-nav">
 			<ul style="padding-left: 0px;">
 				<!-- inser more links here -->
-					<li><a class="cd-signin" href="UpdateMember.jsp">회원정보수정</a></li>
+					<li><a class="cd-signin" href="UpdateMember.jsp">Edit Profile</a></li>
 					<li><a class="cd-signin" href="LogoutService.do">Logout</a></li>
 			</ul>
 		</nav>
@@ -973,6 +973,7 @@ header[role=banner]::after {
             $(document).ready(function (){
  
                     var calendarEl = document.getElementById('calendar');
+                    var jsondata = new Object();
                     calendar = new FullCalendar.Calendar(calendarEl, {
                     	// 한가연 초기 날짜 지정
                         /* initialDate: '2022-02-07', */
@@ -997,6 +998,7 @@ header[role=banner]::after {
                         /**
                          * 드래그로 이벤트 수정하기
                          */
+                         // dwyane1
                         eventDrop: function (info){
                             console.log(info);
                             if(confirm("'"+ info.event.title +"' 일정을 수정하시겠습니까 ?")){
@@ -1004,9 +1006,9 @@ header[role=banner]::after {
                             var events = new Array(); // Json 데이터를 받기 위한 배열 선언
                             var obj = new Object();
  
-                            obj.title = info.event._def.title;
-                            obj.start = info.event._instance.range.start;
-                            obj.end = info.event._instance.range.end;
+                            obj.title = allEvent[i]._def.title; // 이벤트 명칭  ConsoleLog 로 확인 가능.
+                            obj.start = allEvent[i]._instance.range.start; // 시작
+                            obj.end = allEvent[i]._instance.range.end; // 끝
                             events.push(obj);
  
                             console.log(events);
@@ -1026,7 +1028,9 @@ header[role=banner]::after {
                          */
                         select: function (arg) { // 캘린더에서 이벤트를 생성할 수 있다.
  
-                            var title = prompt('일정을 입력해주세요.');
+                            var title = prompt('일정 제목을 입력해주세요.');
+                            var content = prompt('일정 내용을 입력해주세요.');
+                            var cost = prompt('일정 예약금을 입력해주세요.');
                             if (title) {
                                 calendar.addEvent({
                                     title: title,
@@ -1035,43 +1039,45 @@ header[role=banner]::after {
                                     allDay: arg.allDay,
                                 })
                             }
- 
+                            
                             var allEvent = calendar.getEvents(); // .getEvents() 함수로 모든 이벤트를 Array 형식으로 가져온다. (FullCalendar 기능 참조)
- 
+ 							
                             var events = new Array(); // Json 데이터를 받기 위한 배열 선언
                             for (var i = 0; i < allEvent.length; i++) {
                                 var obj = new Object();     // Json 을 담기 위해 Object 선언
-                                // alert(allEvent[i]._def.title); // 이벤트 명칭 알람
+                                /* alert(allEvent[i]._def.title); // 이벤트 명칭 알람 */
                                 obj.title = allEvent[i]._def.title; // 이벤트 명칭  ConsoleLog 로 확인 가능.
                                 obj.start = allEvent[i]._instance.range.start; // 시작
                                 obj.end = allEvent[i]._instance.range.end; // 끝
- 
+                                
+ 								console.log("obj: ", obj);
                                 events.push(obj);
                             }
                             
-                            
+                            /* var jsondata = events; */
                             var jsondata = JSON.stringify(events);
                             console.log("jsondata",jsondata);
-                            // saveData(jsondata);
  
                             /* 가연 캘린더 데이터 저장하는  */
-                            $(function saveData(jsondata) {
+                            $(function saveData() {
+                            console.log("jsondata22",jsondata);
                                 $.ajax({
                                     url: "CalenderService.do",
                                     method: "post",
                                     dataType: "json",
-                                    data: JSON.stringify(events),
-                                    contentType: 'application/json',
-                                    /* 가연,,,,,
+                                    data: {"data" : jsondata,
+                                    	   "content" : content,
+                                    	   "cost" : cost},
+                                    
                                     	success: function (data) {
-										location.href="CalenderService.do";
-									} */
+										/* location.href="CalenderService.do"; */
+									}
                                 })
                                     .done(function (result) {
                                         // alert(result);
                                     })
                                     .fail(function (request, status, error) {
-                                         // alert("에러 발생" + error);
+                                    	// alert("에러 발생" + error);
                                     });
                                 calendar.unselect()
                             });

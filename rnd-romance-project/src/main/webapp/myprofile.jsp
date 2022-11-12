@@ -656,28 +656,22 @@ header[role=banner]::after {
 <body>
 	<!-- Scriptlet -->
 	<%
-	/* dwyane */
-	/* String profile_id = request.getParameter("profile_id");
-	System.out.println(profile_id); */
-	/* memberDTO info = (memberDTO)session.getAttribute("info"); */
-	/* Login_Member Start */
+	/* dwyane code Start */
+
+	/* Session_Login_Member Start */
 	memberDTO info = (memberDTO) session.getAttribute("info");
-	System.out.println("info: " + info);
 	String member_name = info.getMember_name();
 	String member_id = info.getMember_id();
-	/* Login_Member Start */
+	/* Session_Login_Member End */
 
-	/* Video Start */
+	/* Session_Login_Video Start */
 	ArrayList<videoDTO> videoList = new videoDAO().selectAllVideos(member_id);
 	System.out.println("videoList: " + videoList);
+	/* Session_Login_Video End */
 
-	/* Video End */
-	%>
-	
-	<%
-	/* dwyane */
 	String profile_id = request.getParameter("profile_id");
 	System.out.println(profile_id);
+	/* dwyane code End */
 	%>
 
 	<!-- Spinner Start -->
@@ -690,72 +684,80 @@ header[role=banner]::after {
 
 	<!-- Navbar Start -->
 	<nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0" style="height: 6em;">
-       <a href="index.jsp" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
-           <h1 class="m-0">Mentorvation</h1>
-       </a>
-	<div class="search_box" style="margin-left: 180px;margin-bottom: 0;">
-		<form action="SearchService.do" method="get">
-			<div>
-				<input name="profile_id" class="search_text" type="text" placeholder="search">
-			</div>
-		</form>
-	</div>
-       <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-		<span class="navbar-toggler-icon"></span>
-	</button>
-       <div class="collapse navbar-collapse" id="navbarCollapse">
-           <div class="navbar-nav ms-auto p-4 p-lg-0">
-               <a href="index.jsp" class="nav-item nav-link active">Home</a>
-               <a href="watchvideo.jsp" class="nav-item nav-link">Recommendation</a>
-               <a href="calendar.jsp" class="nav-item nav-link">Mycalendar</a>
-               <a href="myprofile.jsp" class="nav-item nav-link">Myprofile</a>
-            
-           </div>
-        	<nav class="main-nav">
-			<ul style="padding-left: 0px;">
-				<!-- inser more links here -->
-					<li><a class="cd-signin" href="UpdateMember.jsp">회원정보수정</a></li>
-					<li><a class="cd-signin" href="LogoutService.do">Logout</a></li>
-			</ul>
-		</nav>
-       </div>
-   	</nav>
+	    <a href="index.jsp" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+	        <h1 class="m-0">Mentorvation</h1>
+	    </a>
+	    <div class="search_box" style="margin-left: 180px; margin-bottom: 0;">
+	        <form action="SearchService.do" method="get">
+	            <div>
+	                <input name="searchIdOrName" class="search_text" type="text" placeholder="search">
+	            </div>
+	        </form>
+	    </div>
+	    <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+	        <span class="navbar-toggler-icon"></span>
+	    </button>
+	    <div class="collapse navbar-collapse" id="navbarCollapse">
+	        <div class="navbar-nav ms-auto p-4 p-lg-0">
+	            <a href="index.jsp" class="nav-item nav-link active">Home</a>
+	            <a href="watchvideo.jsp" class="nav-item nav-link">Recommendation</a>
+	            <a href="calendar.jsp" class="nav-item nav-link">My Calendar</a>
+	            <a href="myprofile.jsp" class="nav-item nav-link">My Profile</a>
+	        </div>
+	        <nav class="main-nav">
+	            <ul style="padding-left: 0px;">
+	                <!-- inser more links here -->
+	                <li>
+	                    <a class="cd-signin" href="UpdateMember.jsp">Edit Profile</a>
+	                </li>
+	                <li>
+	                    <a class="cd-signin" href="LogoutService.do">Logout</a>
+	                </li>
+	            </ul>
+	        </nav>
+	    </div>
+	</nav>
 	<!-- Navbar ENd -->
 
 
 	<!-- Projects Start -->
 	<div class="container-xxl py-5">
 		<div class="container" style="text-align: center">
-			<div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="display:inline-flex; align-items:center; justify-content:center; margin-bottom:3rem;">
-     			<img src="img/profile_img04.png" alt="profile-user-img" class="profile-user-img-img">
-                <div style="text-align: left; margin-left:4rem;">
+			<div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s"
+				style="display: inline-flex; align-items: center; justify-content: center; margin-bottom: 3rem;">
+				<img src="img/profile_img04.png" alt="profile-user-img"
+					class="profile-user-img-img">
+				<div style="text-align: left; margin-left: 4rem;">
 					<div>
-			            <h4 class="display-5 mb-5" style="padding: 0em; color: #222; font-size:2.5rem; font-weight:500 !important; margin-bottom: 0rem !important;"><%= profile_id %></h4>
-		            </div>
-		            
-					<div style="width: 16em; padding-top:.6rem; text-align: center;">
+						<h4 class="display-5 mb-5"
+							style="padding: 0em; color: #222; font-size: 2.5rem; font-weight: 500 !important; margin-bottom: 0rem !important;"><%=member_name%></h4>
+					</div>
+
+					<div style="width: 16em; padding-top: .6rem; text-align: center;">
 						<table style="border: 1px">
-							<tr style="text-align: center; width:16em;">
-								<td style="text-align: left;width: 8em; color:#666;">Mentor</td>
-								<td style="text-align: left;width: 8em; color:#444; font-weight:bold;">10</td>
-								<td style="text-align: left;width: 8em; color:#666;">Mentee</td>
-								<td style="text-align: left;width: 8em; color:#444; font-weight:bold;">10</td>
+							<tr style="text-align: center; width: 16em;">
+								<td style="text-align: left; width: 8em; color: #666;">Mentor</td>
+								<td
+									style="text-align: left; width: 8em; color: #444; font-weight: bold;">10</td>
+								<td style="text-align: left; width: 8em; color: #666;">Mentee</td>
+								<td
+									style="text-align: left; width: 8em; color: #444; font-weight: bold;">10</td>
 							</tr>
 						</table>
 					</div>
-			<!-- upload 버튼   -->
-			<div class="profile_up_btn">
-				<ul>
-					<li><a href="Upload.jsp"><button type="submit">Upload</button></a></li>
-					<li><a href="UpdateMember.jsp"><button type="submit">회원정보수정</button></a></li>
-				</ul>
-			</div>		
-			<!-- upload 버튼 End   -->
-			<textarea class="profile_txtArea" rows="" cols=""></textarea>
-			
+					<!-- upload 버튼   -->
+					<div class="profile_up_btn">
+						<ul>
+							<li><a href="Upload.jsp"><button type="submit">Upload</button></a></li>
+							<li><a href="UpdateMember.jsp"><button type="submit">회원정보수정</button></a></li>
+						</ul>
+					</div>
+					<!-- upload 버튼 End   -->
+					<textarea class="profile_txtArea" rows="" cols=""></textarea>
+				</div>
+			</div>
+			<!-- Projects End -->
 
-
-		</div>
 			<!-- Video Container Start -->
 			<div class="row g-4 portfolio-container">
 
@@ -777,342 +779,376 @@ header[role=banner]::after {
 				}
 				%>
 				<%=html%>
-
 				<!-- Individual Video End -->
-
 			</div>
 			<!-- Video Container End -->
-	</div>
-	<!-- Projects End -->
 
-    <!-- Back to Top -->
-    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top">
-    	<i class="bi bi-arrow-up"></i>
-    </a>
+			<!-- Back to Top -->
+			<a href="#"
+				class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top">
+				<i class="bi bi-arrow-up"></i>
+			</a>
 
-	<!-- cd-user-modal Start -->
-	<div class="cd-user-modal">
-		<!-- this is the entire modal form, including the background -->
-		<div class="cd-user-modal-container">
-			<!-- this is the container wrapper -->
-			<ul class="cd-switcher">
-				<li><a href="#0">Sign in</a></li>
-				<li><a href="#0">New account</a></li>
-			</ul>
+			<!-- cd-user-modal Start -->
+			<div class="cd-user-modal">
+				<!-- this is the entire modal form, including the background -->
+				<div class="cd-user-modal-container">
+					<!-- this is the container wrapper -->
+					<ul class="cd-switcher">
+						<li><a href="#0">Sign in</a></li>
+						<li><a href="#0">New account</a></li>
+					</ul>
 
-			<div id="cd-login">
-				<!-- log in form -->
-				<form action="LoginService.do" class="cd-form" method="post">
-					<p class="fieldset">
-						<label class="image-replace cd-email" for="signin-email">Username</label>
-						<input class="full-width has-padding has-border" id="signin-email"
-							type="text" name="member_name" placeholder="Username"> <span
-							class="cd-error-message">Error message here!</span>
-					</p>
+					<div id="cd-login">
+						<!-- log in form -->
+						<form action="LoginService.do" class="cd-form" method="post">
+							<p class="fieldset">
+								<label class="image-replace cd-email" for="signin-email">Username</label>
+								<input class="full-width has-padding has-border"
+									id="signin-email" type="text" name="member_name"
+									placeholder="Username"> <span class="cd-error-message">Error
+									message here!</span>
+							</p>
 
-					<p class="fieldset">
-						<label class="image-replace cd-password" for="signin-password">Password</label>
-						<input class="full-width has-padding has-border"
-							id="signin-password" type="text" name="member_pw"
-							placeholder="Password"> <a href="#0"
-							class="hide-password">Hide</a> <span class="cd-error-message">Error
-							message here!</span>
-					</p>
+							<p class="fieldset">
+								<label class="image-replace cd-password" for="signin-password">Password</label>
+								<input class="full-width has-padding has-border"
+									id="signin-password" type="text" name="member_pw"
+									placeholder="Password"> <a href="#0"
+									class="hide-password">Hide</a> <span class="cd-error-message">Error
+									message here!</span>
+							</p>
 
-					<p class="fieldset">
-						<input type="checkbox" id="remember-me" checked> <label
-							for="remember-me">Remember me</label>
-					</p>
+							<p class="fieldset">
+								<input type="checkbox" id="remember-me" checked> <label
+									for="remember-me">Remember me</label>
+							</p>
 
-					<p class="fieldset">
-						<input class="full-width" type="submit" value="Login">
-					</p>
-				</form>
+							<p class="fieldset">
+								<input class="full-width" type="submit" value="Login">
+							</p>
+						</form>
 
-				<p class="cd-form-bottom-message">
-					<a href="#0">Forgot your password?</a>
-				</p>
-				<!-- <a href="#0" class="cd-close-form">Close</a> -->
+						<p class="cd-form-bottom-message">
+							<a href="#0">Forgot your password?</a>
+						</p>
+						<!-- <a href="#0" class="cd-close-form">Close</a> -->
+					</div>
+					<!-- cd-login -->
+
+					<div id="cd-signup">
+						<!-- sign up form -->
+						<form action="JoinService.do" class="cd-form" method="post">
+							<p class="fieldset">
+								<label class="image-replace cd-username" for="signup-username">Username</label>
+								<input class="full-width has-padding has-border"
+									name="member_name" id="signup-username" type="text"
+									placeholder="Username"> <span class="cd-error-message">Error
+									message here!</span>
+							</p>
+
+							<p class="fieldset">
+								<label class="image-replace cd-email" for="signup-email">E-mail</label>
+								<input class="full-width has-padding has-border"
+									name="member_id" id="signup-email" type="email"
+									placeholder="E-mail"> <span class="cd-error-message">Error
+									message here!</span>
+							</p>
+
+							<p class="fieldset">
+								<label class="image-replace cd-password" for="signup-password">Password</label>
+								<input class="full-width has-padding has-border"
+									id="signup-password" type="text" name="member_pw"
+									placeholder="Password"> <a href="#0"
+									class="hide-password">Hide</a> <span class="cd-error-message">Error
+									message here!</span>
+							</p>
+
+							<p class="fieldset">
+								<input type="checkbox" id="accept-terms"> <label
+									for="accept-terms">I agree to the <a href="#0">Terms</a></label>
+							</p>
+
+							<p class="fieldset">
+								<input class="full-width has-padding" type="submit"
+									value="Create account">
+							</p>
+						</form>
+
+						<!-- <a href="#0" class="cd-close-form">Close</a> -->
+					</div>
+
+					<!-- cd-signup -->
+					<div id="cd-reset-password">
+						<!-- reset password form -->
+						<p class="cd-form-message">Lost your password? Please enter
+							your email address. You will receive a link to create a new
+							password.</p>
+
+						<form class="cd-form">
+							<p class="fieldset">
+								<label class="image-replace cd-email" for="reset-email">E-mail</label>
+								<input class="full-width has-padding has-border"
+									id="reset-email" type="email" placeholder="E-mail"> <span
+									class="cd-error-message">Error message here!</span>
+							</p>
+
+							<p class="fieldset">
+								<input class="full-width has-padding" type="submit"
+									value="Reset password">
+							</p>
+						</form>
+
+						<p class="cd-form-bottom-message">
+							<a href="#0">Back to log-in</a>
+						</p>
+					</div>
+					<!-- cd-reset-password -->
+					<a href="#0" class="cd-close-form">Close</a>
+				</div>
+				<!-- cd-user-modal-container -->
 			</div>
-			<!-- cd-login -->
+			<!-- cd-user-modal -->
 
-			<div id="cd-signup">
-				<!-- sign up form -->
-				<form action="JoinService.do" class="cd-form" method="post">
-					<p class="fieldset">
-						<label class="image-replace cd-username" for="signup-username">Username</label>
-						<input class="full-width has-padding has-border"
-							name="member_name" id="signup-username" type="text"
-							placeholder="Username"> <span class="cd-error-message">Error
-							message here!</span>
-					</p>
+			<!-- JavaScript -->
+			<script>
+			jQuery(document).ready(function($) {
+			    var $form_modal = $('.cd-user-modal'),
+			        $form_login = $form_modal
+			        .find('#cd-login'),
+			        $form_signup = $form_modal
+			        .find('#cd-signup'),
+			        $form_forgot_password = $form_modal
+			        .find('#cd-reset-password'),
+			        $form_modal_tab = $('.cd-switcher'),
+			        $tab_login = $form_modal_tab
+			        .children('li').eq(0).children('a'),
+			        $tab_signup = $form_modal_tab
+			        .children('li').eq(1).children('a'),
+			        $forgot_password_link = $form_login
+			        .find('.cd-form-bottom-message a'),
+			        $back_to_login_link = $form_forgot_password
+			        .find('.cd-form-bottom-message a'),
+			        $main_nav = $('.main-nav');
 
-					<p class="fieldset">
-						<label class="image-replace cd-email" for="signup-email">E-mail</label>
-						<input class="full-width has-padding has-border" name="member_id"
-							id="signup-email" type="email" placeholder="E-mail"> <span
-							class="cd-error-message">Error message here!</span>
-					</p>
+			    //open modal
+			    $main_nav.on(
+			        'click',
+			        function(event) {
 
-					<p class="fieldset">
-						<label class="image-replace cd-password" for="signup-password">Password</label>
-						<input class="full-width has-padding has-border"
-							id="signup-password" type="text" name="member_pw"
-							placeholder="Password"> <a href="#0"
-							class="hide-password">Hide</a> <span class="cd-error-message">Error
-							message here!</span>
-					</p>
+			            if ($(event.target).is(
+			                    $main_nav)) {
+			                // on mobile open the submenu
+			                $(this)
+			                    .children(
+			                        'ul')
+			                    .toggleClass(
+			                        'is-visible');
+			            } else {
+			                // on mobile close submenu
+			                $main_nav
+			                    .children(
+			                        'ul')
+			                    .removeClass(
+			                        'is-visible');
+			                //show modal layer
+			                $form_modal
+			                    .addClass('is-visible');
+			                //show the selected form
+			                ($(event.target)
+			                    .is('.cd-signup')) ? signup_selected(): login_selected();
+			            }
 
-					<p class="fieldset">
-						<input type="checkbox" id="accept-terms"> <label
-							for="accept-terms">I agree to the <a href="#0">Terms</a></label>
-					</p>
+			        });
 
-					<p class="fieldset">
-						<input class="full-width has-padding" type="submit"
-							value="Create account">
-					</p>
-				</form>
+			    //close modal
+			    $('.cd-user-modal')
+			        .on(
+			            'click',
+			            function(event) {
+			                if ($(event.target).is(
+			                        $form_modal) ||
+			                    $(
+			                        event.target)
+			                    .is(
+			                        '.cd-close-form')) {
+			                    $form_modal
+			                        .removeClass('is-visible');
+			                }
+			            });
+			    //close modal when clicking the esc keyboard button
+			    $(document)
+			        .keyup(
+			            function(event) {
+			                if (event.which == '27') {
+			                    $form_modal
+			                        .removeClass('is-visible');
+			                }
+			            });
 
-				<!-- <a href="#0" class="cd-close-form">Close</a> -->
-			</div>
+			    //switch from a tab to another
+			    $form_modal_tab
+			        .on(
+			            'click',
+			            function(event) {
+			                event.preventDefault();
+			                ($(event.target)
+			                    .is($tab_login)) ? login_selected(): signup_selected();
+			            });
 
-			<!-- cd-signup -->
-			<div id="cd-reset-password">
-				<!-- reset password form -->
-				<p class="cd-form-message">Lost your password? Please enter your
-					email address. You will receive a link to create a new password.</p>
+			    //hide or show password
+			    $('.hide-password')
+			        .on(
+			            'click',
+			            function() {
+			                var $this = $(this),
+			                    $password_field = $this
+			                    .prev('input');
 
-				<form class="cd-form">
-					<p class="fieldset">
-						<label class="image-replace cd-email" for="reset-email">E-mail</label>
-						<input class="full-width has-padding has-border" id="reset-email"
-							type="email" placeholder="E-mail"> <span
-							class="cd-error-message">Error message here!</span>
-					</p>
+			                ('password' == $password_field
+			                    .attr('type')) ? $password_field
+			                    .attr('type',
+			                        'text'): $password_field
+			                    .attr(
+			                        'type',
+			                        'password');
+			                ('Hide' == $this.text()) ? $this
+			                    .text('Show'): $this
+			                    .text('Hide');
+			                //focus and move cursor to the end of input field
+			                $password_field
+			                    .putCursorAtEnd();
+			            });
 
-					<p class="fieldset">
-						<input class="full-width has-padding" type="submit"
-							value="Reset password">
-					</p>
-				</form>
+			    //show forgot-password form 
+			    $forgot_password_link.on('click', function(
+			        event) {
+			        event.preventDefault();
+			        forgot_password_selected();
+			    });
 
-				<p class="cd-form-bottom-message">
-					<a href="#0">Back to log-in</a>
-				</p>
-			</div>
-			<!-- cd-reset-password -->
-			<a href="#0" class="cd-close-form">Close</a>
-		</div>
-		<!-- cd-user-modal-container -->
-	</div>
-	<!-- cd-user-modal -->
+			    //back to login from the forgot-password form
+			    $back_to_login_link.on('click', function(
+			        event) {
+			        event.preventDefault();
+			        login_selected();
+			    });
 
-	<!-- JavaScript -->
-	<script>
-		jQuery(document).ready(function($) {
-			var $form_modal = $('.cd-user-modal'), $form_login = $form_modal
-					.find('#cd-login'), $form_signup = $form_modal
-					.find('#cd-signup'), $form_forgot_password = $form_modal
-					.find('#cd-reset-password'), $form_modal_tab = $('.cd-switcher'), $tab_login = $form_modal_tab
-					.children('li').eq(0).children('a'), $tab_signup = $form_modal_tab
-					.children('li').eq(1).children('a'), $forgot_password_link = $form_login
-					.find('.cd-form-bottom-message a'), $back_to_login_link = $form_forgot_password
-					.find('.cd-form-bottom-message a'), $main_nav = $('.main-nav');
-	
-			//open modal
-			$main_nav
-					.on(
-							'click',function(event) {
-	
-								if ($(event.target).is($main_nav)) {
-									// on mobile open the submenu
-									$(this).children('ul').toggleClass('is-visible');
-								} else {
-									// on mobile close submenu
-									$main_nav.children('ul').removeClass('is-visible');
-									//show modal layer
-									$form_modal.addClass('is-visible');
-									//show the selected form
-									($(event.target).is('.cd-signup')) ? signup_selected(): login_selected();
-								}
-	
-							});
-	
-			//close modal
-			$('.cd-user-modal').on('click',function(event) {
-						if ($(event.target).is($form_modal)
-								|| $(event.target).is(
-										'.cd-close-form')) {
-							$form_modal
-									.removeClass('is-visible');
-						}
-					});
-			//close modal when clicking the esc keyboard button
-			$(document).keyup(function(event) {
-				if (event.which == '27') {
-					$form_modal.removeClass('is-visible');
-				}
-			});
-	
-			//switch from a tab to another
-			$form_modal_tab
-					.on(
-							'click',
-							function(event) {
-								event.preventDefault();
-								($(event.target).is($tab_login)) ? login_selected()
-										: signup_selected();
-							});
-	
-			//hide or show password
-			$('.hide-password')
-					.on(
-							'click',
-							function() {
-								var $this = $(this), $password_field = $this
-										.prev('input');
-	
-								('password' == $password_field
-										.attr('type')) ? $password_field
-										.attr('type', 'text')
-										: $password_field.attr(
-												'type',
-												'password');
-								('Hide' == $this.text()) ? $this
-										.text('Show')
-										: $this.text('Hide');
-								//focus and move cursor to the end of input field
-								$password_field
-										.putCursorAtEnd();
-							});
-	
-			//show forgot-password form 
-			$forgot_password_link.on('click', function(event) {
-				event.preventDefault();
-				forgot_password_selected();
-			});
-	
-			//back to login from the forgot-password form
-			$back_to_login_link.on('click', function(event) {
-				event.preventDefault();
-				login_selected();
-			});
-	
-			function login_selected() {
-				$form_login.addClass('is-selected');
-				$form_signup.removeClass('is-selected');
-				$form_forgot_password
-						.removeClass('is-selected');
-				$tab_login.addClass('selected');
-				$tab_signup.removeClass('selected');
-			}
-	
-			function signup_selected() {
-				$form_login.removeClass('is-selected');
-				$form_signup.addClass('is-selected');
-	
-				$form_forgot_password
-						.removeClass('is-selected');
-				$tab_login.removeClass('selected');
-				$tab_signup.addClass('selected');
-			}
-	
-			function forgot_password_selected() {
-				$form_login.removeClass('is-selected');
-				$form_signup.removeClass('is-selected');
-				$form_forgot_password.addClass('is-selected');
-			}
-	
-			//REMOVE THIS - it's just to show error messages 
-			/* $form_login.find('input[type="submit"]').on('click', function(event){
-			  event.preventDefault();
-			  $form_login.find('input[type="email"]').toggleClass('has-error').next('span').toggleClass('is-visible');
-			});
-			$form_signup.find('input[type="submit"]').on('click', function(event){
-			  event.preventDefault();
-			  $form_signup.find('input[type="email"]').toggleClass('has-error').next('span').toggleClass('is-visible');
-			}); */
-	
-			//IE9 placeholder fallback
-			//credits http://www.hagenburger.net/BLOG/HTML5-Input-Placeholder-Fix-With-jQuery.html
-			if (!Modernizr.input.placeholder) {
-				$('[placeholder]')
-						.focus(
-								function() {
-									var input = $(this);
-									if (input.val() == input
-											.attr('placeholder')) {
-										input.val('');
-									}
-								})
-						.blur(
-								function() {
-									var input = $(this);
-									if (input.val() == ''
-											|| input.val() == input
-													.attr('placeholder')) {
-										input
-												.val(input
-														.attr('placeholder'));
-									}
-								}).blur();
-				$('[placeholder]')
-						.parents('form')
-						.submit(
-								function() {
-									$(this)
-											.find(
-													'[placeholder]')
-											.each(
-													function() {
-														var input = $(this);
-														if (input
-																.val() == input
-																.attr('placeholder')) {
-															input
-																	.val('');
-														}
-													})
-								});
-			}
-	
-		});
+			    function login_selected() {
+			        $form_login.addClass('is-selected');
+			        $form_signup.removeClass('is-selected');
+			        $form_forgot_password
+			            .removeClass('is-selected');
+			        $tab_login.addClass('selected');
+			        $tab_signup.removeClass('selected');
+			    }
 
-		//credits https://css-tricks.com/snippets/jquery/move-cursor-to-end-of-textarea-or-input/
-		jQuery.fn.putCursorAtEnd = function() {
-			return this.each(function() {
-				// If this function exists...
-				if (this.setSelectionRange) {
-					// ... then use it (Doesn't work in IE)
-					// Double the length because Opera is inconsistent about whether a carriage return is one character or two. Sigh.
-					var len = $(this).val().length * 2;
-					this.setSelectionRange(len, len);
-				} else {
-					// ... otherwise replace the contents with itself
-					// (Doesn't work in Google Chrome)
-					$(this).val($(this).val());
-				}
+			    function signup_selected() {
+			        $form_login.removeClass('is-selected');
+			        $form_signup.addClass('is-selected');
+
+			        $form_forgot_password
+			            .removeClass('is-selected');
+			        $tab_login.removeClass('selected');
+			        $tab_signup.addClass('selected');
+			    }
+
+			    function forgot_password_selected() {
+			        $form_login.removeClass('is-selected');
+			        $form_signup.removeClass('is-selected');
+			        $form_forgot_password
+			            .addClass('is-selected');
+			    }
+
+			    //REMOVE THIS - it's just to show error messages 
+			    /* $form_login.find('input[type="submit"]').on('click', function(event){
+			      event.preventDefault();
+			      $form_login.find('input[type="email"]').toggleClass('has-error').next('span').toggleClass('is-visible');
+			    });
+			    $form_signup.find('input[type="submit"]').on('click', function(event){
+			      event.preventDefault();
+			      $form_signup.find('input[type="email"]').toggleClass('has-error').next('span').toggleClass('is-visible');
+			    }); */
+
+			    //IE9 placeholder fallback
+			    //credits http://www.hagenburger.net/BLOG/HTML5-Input-Placeholder-Fix-With-jQuery.html
+			    if (!Modernizr.input.placeholder) {
+			        $('[placeholder]')
+			            .focus(
+			                function() {
+			                    var input = $(this);
+			                    if (input.val() == input
+			                        .attr('placeholder')) {
+			                        input.val('');
+			                    }
+			                })
+			            .blur(
+			                function() {
+			                    var input = $(this);
+			                    if (input.val() == '' ||
+			                        input
+			                        .val() == input
+			                        .attr('placeholder')) {
+			                        input
+			                            .val(input
+			                                .attr('placeholder'));
+			                    }
+			                }).blur();
+			        $('[placeholder]')
+			            .parents('form')
+			            .submit(
+			                function() {
+			                    $(this)
+			                        .find(
+			                            '[placeholder]')
+			                        .each(
+			                            function() {
+			                                var input = $(this);
+			                                if (input
+			                                    .val() == input
+			                                    .attr('placeholder')) {
+			                                    input
+			                                        .val('');
+			                                }
+			                            })
+			                });
+			    }
+
 			});
 
-		};
-	</script>
+			//credits https://css-tricks.com/snippets/jquery/move-cursor-to-end-of-textarea-or-input/
+			jQuery.fn.putCursorAtEnd = function() {
+			    return this.each(function() {
+			        // If this function exists...
+			        if (this.setSelectionRange) {
+			            // ... then use it (Doesn't work in IE)
+			            // Double the length because Opera is inconsistent about whether a carriage return is one character or two. Sigh.
+			            var len = $(this).val().length * 2;
+			            this.setSelectionRange(len, len);
+			        } else {
+			            // ... otherwise replace the contents with itself
+			            // (Doesn't work in Google Chrome)
+			            $(this).val($(this).val());
+			        }
+			    });
 
-	<!-- JavaScript Libraries -->
-	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-	<script src="lib/wow/wow.min.js"></script>
-	<script src="lib/easing/easing.min.js"></script>
-	<script src="lib/waypoints/waypoints.min.js"></script>
-	<script src="lib/owlcarousel/owl.carousel.min.js"></script>
-	<script src="lib/counterup/counterup.min.js"></script>
-	<script src="lib/parallax/parallax.min.js"></script>
-	<script src="lib/isotope/isotope.pkgd.min.js"></script>
-	<script src="lib/lightbox/js/lightbox.min.js"></script>
+			};
+			</script>
 
-	<!-- Template Javascript -->
-	<script src="js/main.js"></script>
+			<!-- JavaScript Libraries -->
+			<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+			<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+			<script src="lib/wow/wow.min.js"></script>
+			<script src="lib/easing/easing.min.js"></script>
+			<script src="lib/waypoints/waypoints.min.js"></script>
+			<script src="lib/owlcarousel/owl.carousel.min.js"></script>
+			<script src="lib/counterup/counterup.min.js"></script>
+			<script src="lib/parallax/parallax.min.js"></script>
+			<script src="lib/isotope/isotope.pkgd.min.js"></script>
+			<script src="lib/lightbox/js/lightbox.min.js"></script>
+
+			<!-- Template Javascript -->
+			<script src="js/main.js"></script>
 </body>
 
 

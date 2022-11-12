@@ -47,7 +47,7 @@ public class memberDAO {
          
       }
    
-   // 회원정보 전체 조회 메소드
+      // 회원정보 ID로 전체 조회 메소드
       public memberDTO selectAll(String dto) {
          SqlSession session = sqlSessionFactory.openSession(true);
          memberDTO info = session.selectOne("selectAll", dto);
@@ -57,14 +57,24 @@ public class memberDAO {
          return info;
       }
       
-      // 검색
-      public List<videoDTO> searchVideo() {
+      // 회원 아이디 및 이름으로 검색
+      public List<memberDTO> searchIdOrName(String dto) {
          SqlSession session = sqlSessionFactory.openSession(true);
          
-          List<videoDTO> list = session.selectList("searchVideo");
+          List<memberDTO> list = session.selectList("searchIdOrName", dto);
           
           session.close();
           
           return list;
+      }
+      
+      // 회원정보 Name으로 전체 조회 메소드
+      public memberDTO selectAllByName(String dto) {
+         SqlSession session = sqlSessionFactory.openSession(true);
+         memberDTO info = session.selectOne("selectAll", dto);
+         
+         session.close();
+         
+         return info;
       }
 }

@@ -4,27 +4,29 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.smhrd.mapper.MemberMapper">
 
-   <insert id="join" parameterType="memberDTO">
+	<insert id="join" parameterType="memberDTO">
       insert into member_table values(#{member_id}, #{member_pw}, #{member_name}, 1 , 'm', 'test', 'test', 'test')
-   </insert>
+	</insert>
    
-   <select id="login" parameterType="memberDTO" resultType="memberDTO">
+	<select id="login" parameterType="memberDTO" resultType="memberDTO">
         select * from member_table where member_name = #{member_name} and member_pw = #{member_pw}
-     </select>
+	</select>
    
-   <update id="updateId" parameterType="String">
-        update member_table set member_pw = #{member_pw}
-        where member_id = #{member_id}
-     </update>
+	<update id="updateId" parameterType="String">
+        update member_table set member_pw = #{member_pw} where member_id = #{member_id}
+	</update>
      
-   <select id="selectAll" parameterType="memberDTO" resultType="memberDTO">
+	<select id="selectAll" parameterType="memberDTO" resultType="memberDTO">
         select * from member_table where member_id = #{member_id}
-     </select>
+	</select>
      
-       <select id="searchVideo" parameterType="memberDTO" resultType="memberDTO">
-        <!-- select * from upload_video_table -->
-        select * from member_table
-     </select>
+	<select id="searchIdOrName" parameterType="String" resultType="memberDTO">
+		select * from member_table where member_id = #{searchIdOrName} or member_name = #{searchIdOrName}
+	</select>
+	
+	<select id="selectAllByName" parameterType="memberDTO" resultType="memberDTO">
+        select * from member_table where member_id = #{member_id}
+	</select>
      
      
 </mapper>

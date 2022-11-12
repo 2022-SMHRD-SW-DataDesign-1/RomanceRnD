@@ -107,6 +107,30 @@
 		    <version>5.11.3</version>
 		</dependency>
 		<!-- 한가연_스케줄_추가_테스트 End -->
+		
+		<!-- 염건웅_test Start -->
+		<dependency>
+		    <groupId>com.fasterxml.jackson.core</groupId>
+		    <artifactId>jackson-core</artifactId>
+		    <version>2.4.6</version>
+		</dependency>
+		
+		<dependency>
+    		<groupId>com.fasterxml.jackson.core</groupId>
+    		<artifactId>jackson-databind</artifactId>
+    		<version>2.4.6</version>
+		</dependency>
+		<!-- 염건웅_test End -->
+		
+		<!-- 염건웅_gson Start -->
+		<!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
+		<dependency>
+		    <groupId>com.google.code.gson</groupId>
+		    <artifactId>gson</artifactId>
+		    <version>2.8.9</version>
+		</dependency>
+		<!-- 염건웅_gson End -->
+
 
 	</dependencies>
 	
