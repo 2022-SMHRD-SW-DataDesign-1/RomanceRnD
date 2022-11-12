@@ -533,7 +533,7 @@ h6,
 /* 추가 */
 .profile_txtArea{width:100%; font-size:.8rem; border:1px solid #dedede; padding:.2rem; box-sizing:border-box; outline:none;}
 .form_posit{position:fixed; width:100%; height:100%;}
-.search_holder{font-size:.7rem;}
+.search_holder{font-size:.8rem;}
 .add.nav_position{position:fixed;}
 
 
@@ -549,14 +549,13 @@ h6,
 .userWrap{display:flex; align-items:center; justify-content:center; height:100%; margin-top:-120px;}
 .modify_wrap ul{font-size:0;}
 .modify_wrap ul > li{clear:both; width:100%; padding-bottom:.5rem;}
-.modify_wrap ul > li:first-child{float:left; margin-left:1.5rem;}
+.modify_wrap ul > li:first-child{float:left;}
 .modify_wrap ul > li:first-child p{float:left;}
 .modify_wrap ul > li:first-child label{float:left;}
 .modify_wrap ul > li:last-child{padding-bottom:0;}
 .modify_wrap ul > li p.modify_txt{display:inline-block; font-size:1rem; padding-right:1.2rem; vertical-align:middle;}
 .modify_wrap ul > li .mod_txt{display:inline-block; width:60%; height:30px; border:1px solid #dedede; font-size:.7rem;}
-.modify_wrap label {display: inline-block; color: #fff; font-size:.8rem; background-color: #999; border-radius:5px;
-padding: .3rem 1rem; vertical-align: middle; cursor: pointer;}
+.modify_wrap label {display: inline-block; color: #fff;font-size: 15px;background-color: #999;border-radius: 3px;padding: 0.3rem 1rem;vertical-align: middle;cursor: pointer;}
 .modify_wrap .modify_upload_btn{background:#616fb7; color:#fff; border:none; border-radius:5px; padding:.3rem 1rem; margin-top:1.5rem;}
 
 

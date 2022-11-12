@@ -438,10 +438,23 @@ input::placeholder {
 					<ul>
 						<li><p class="modify_txt">비디오파일</p>
 							<label for="file">파일찾기</label> 
-							<input style="border:none; background:none;" type="file" id="file" name="video_file">
+							<input style="display:none;" type="file" id="file" name="video_file">
 						</li>
 						<li><p class="modify_txt">비디오가격</p><input class="mod_txt" type="number" name="video_price"></li>
 						<li><p class="modify_txt">비디오설명</p><input class="mod_txt" type="text" name="video_desc"></li>
+						<li>
+							<form>
+  								<input type="radio" name="category" checked="checked" value="스포츠" /> 스포츠
+  								<input type="radio" name="category" value="심리" /> 심리
+  								<input type="radio" name="category" value="드로잉" /> 드로잉
+  								<input type="radio" name="category" value="캠핑" /> 캠핑
+  								<input type="radio" name="category" value="프로그래밍" /> 프로그래밍
+  								<input type="radio" name="category" value="요리" /> 요리
+  								<input type="radio" name="category" value="베이킹" /> 베이킹
+  								<input type="radio" name="category" value="교육" /> 교육
+  								<input type="radio" name="category" value="언어" /> 언어
+							</form>
+						</li>
 					</ul>
 					<input class="modify_upload_btn" type="submit" value="Upload">
 				</form>

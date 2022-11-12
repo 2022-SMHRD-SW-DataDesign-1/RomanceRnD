@@ -555,18 +555,18 @@
 	}
 	
 	.search_text {
-		border: 0;
-		outline: 0;
-		background: #eee;
-		display: flex;
-		flex-direction: row;
-		padding: 0 0.2rem;
-		height: 100%;
-		width: 100%;
-		justify-content: space-evenly;
-		align-items: baseline;
-		align-content: stretch;
-	}
+    border: 0;
+    outline: 0;
+    background: #eee;
+    display: flex;
+    flex-direction: row;
+    padding: 0 1rem;
+    height: 100%;
+    width: 100%;
+    justify-content: space-evenly;
+    align-items: baseline;
+    align-content: stretch;
+}
 	
 </style>
 
@@ -750,7 +750,7 @@
                             <!-- 1. 버튼 영상보기 -->
                             <!-- 2. 버튼 프로필 가기 -->
                             <%String profile_id = "test@test.com"; %>
-                                <class="btn btn-lg-square rounded-circle mx-2" href="img/service-1.jpg" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
+                                <a class="btn btn-lg-square rounded-circle mx-2" href="img/service-1.jpg" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
                                 <a class="btn btn-lg-square rounded-circle mx-2" href="profile.jsp?profile_id=<%= profile_id%>"><i class="fa fa-link"></i></a>
                             </div>
                         </div>
