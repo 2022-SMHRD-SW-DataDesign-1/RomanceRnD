@@ -760,16 +760,15 @@ header[role=banner]::after {
 
 			<!-- Video Container Start -->
 			<div class="row g-4 portfolio-container">
-
 				<!-- Individual Video Start -->
 				<%
 				String html = "";
 				System.out.println("videoList.size():" + videoList.size());
 				for (int i = 0; i < videoList.size(); i++) {
 
-					html += " <div class='col-lg-4 col-md-6 portfolio-item first wow fadeInUp'data-wow-delay='0.3s'> ";
-					html += " <div class='portfolio-inner rounded'> ";
-					html += " <img class='img-fluid' src='./file/" + videoList.get(i).getVideo_thumbnail() + ".png'alt=''> ";
+					html += " <div class='col-lg-4 col-md-6 portfolio-item first wow fadeInUp'data-wow-delay='0.3s' style='width: 24rem;height: 14rem;border-radius: 0.6rem;padding-left: unset;padding-right: unset; margin: 1.5rem;border: solid #999;box-shadow: 4px 4px 4px rgb(0 0 0 / 34%);'> ";
+					html += " <div class='portfolio-inner rounded' style='height: 100%;width: 100%;'> ";
+					html += " <img class='img-fluid' src='./file/" + videoList.get(i).getVideo_thumbnail() + ".png'alt='img' style='width: 100%;height: 100%;'> ";
 					html += " <div class='portfolio-text'> ";
 					html += " <h4 class='text-white mb-4'></h4> ";
 					html += " <div class='d-flex'> ";

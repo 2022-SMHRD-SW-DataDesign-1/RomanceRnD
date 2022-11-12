@@ -571,7 +571,7 @@
 		}else if (video_file_str.equals("mp4")) {
 			html += " <div class='video'> ";
 			html += " <div style='display: flex; justify-content: center; align-items: center; min-height: 100vh;'> ";
-			html += " <video controls width='100%' autoplay muted style='border-radius: 41px;box-shadow: 30px 30px 30px rgb(0 0 0/ 81%);'> ";
+			html += " <video controls autoplay muted style='background: #000000;width: 761px;height: 891px;border-radius: 41px;border-radius: 41px;box-shadow: 30px 30px 30px rgb(0 0 0/ 81%);'> ";
 			html += " <source src="+src+" type='video/mp4'> ";
 			html += " </video></div></div> ";
 			html += " </video></div></div> ";
