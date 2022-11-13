@@ -452,7 +452,7 @@ input::placeholder {
 	<!-- Navbar End -->
 
 	<!-- Wrapper -->
-	<form action="UpdateService.do" method="post" class="form_posit">
+	<form action="UpdateService.do" class="form_posit" method="post" enctype="multipart/form-data">
 		<div id="wrapper">
 			<!-- Menu -->
 			<div class="user_modify">
@@ -462,41 +462,43 @@ input::placeholder {
 					<ul>
 						<li> <p>E-mail : <%=info.getMember_id()%></p></li>
 						<li> <p>Name  : <%=info.getMember_name()%></p></li>
+						<!-- form Start -->
 						<li class="MBTI"> 
 							<p>MBTI :
-						    	<select class="mbti_sel">
+						    	<select class="mbti_sel" name="member_mbti">
 						   			<option value="none">=== 선택 ===</option>
-						          	<option>ENFJ</option>
-						          	<option>ENTJ</option>
-						          	<option>ENFP</option>
-						          	<option>ENTP</option>
-						          	<option>ESFP</option>
-						          	<option>ESFJ</option>
-						          	<option>ESTP</option>
-						          	<option>ESTJ</option>
-						          	<option>INFP</option>
-						          	<option>INFJ</option>
-						          	<option>INTP</option>
-						          	<option>ISTP</option>
-						          	<option>ISFP</option>
-						          	<option>ISFJ</option>
-						          	<option>ISTJ</option>
-						          	<option>INTJ</option>
+						          	<option value="enfj">ENFJ</option>
+						          	<option value="entj">ENTJ</option>
+						          	<option value="enfp">ENFP</option>
+						          	<option value="entp">ENTP</option>
+						          	<option value="esfp">ESFP</option>
+						          	<option value="esfj">ESFJ</option>
+						          	<option value="estp">ESTP</option>
+						          	<option value="estj">ESTJ</option>
+						          	<option value="infp">INFP</option>
+						          	<option value="infj">INFJ</option>
+						          	<option value="intp">INTP</option>
+						          	<option value="istp">ISTP</option>
+						          	<option value="isfp">ISFP</option>
+						          	<option value="isfj">ISFJ</option>
+						          	<option value="istj">ISTJ</option>
+						          	<option value="intj">INTJ</option>
 						      	</select>
 					      	</p>
 					  	</li>
-						<li> 
-							<p>Profile:
-							<input style="display:none;" type="file" id="profile_img" name="profile_file">
-						    <label for="profile_img">파일찾기</label>
-						    </p> 
-						</li>
-					</ul>
-					<div class="modify_content">
-						<ul>
-							<li class="password"><input name="member_pw" placeholder="새로운 비밀번호를 작성하세요"></li>
-							<li class="join_btn"><button type="submit">OK</button></li>
+					  	
+							<li> 
+								<p>Profile: 
+							    <label for="file">파일찾기</label>
+							    <input style="display:none;" type="file" id="file" name="member_image_file">
+							    </p> 
+							</li>
 						</ul>
+						<div class="modify_content">
+							<ul>
+								<li class="password"><input name="member_pw" placeholder="새로운 비밀번호를 작성하세요"></li>
+								<li class="join_btn"><button type="submit">OK</button></li>
+							</ul>
 					</div>
 				</div>
 			</div>

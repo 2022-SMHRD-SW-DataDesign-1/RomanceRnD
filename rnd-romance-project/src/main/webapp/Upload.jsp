@@ -442,7 +442,7 @@ input::placeholder {
 						</li>
 						<li><p class="modify_txt">비디오가격</p><input class="mod_txt" type="number" name="video_price"></li>
 						<li><p class="modify_txt">비디오설명</p><input class="mod_txt" type="text" name="video_desc"></li>
-						<li>
+						<!-- <li>
 							<form>
   								<input type="radio" name="category" checked="checked" value="스포츠" /> 스포츠
   								<input type="radio" name="category" value="심리" /> 심리
@@ -454,7 +454,7 @@ input::placeholder {
   								<input type="radio" name="category" value="교육" /> 교육
   								<input type="radio" name="category" value="언어" /> 언어
 							</form>
-						</li>
+						</li> -->
 					</ul>
 					<input class="modify_upload_btn" type="submit" value="Upload">
 				</form>

@@ -29,6 +29,12 @@ public class handshakeService extends HttpServlet implements Command {
     	
     	handshakeDTO dto = new handshakeDTO(member_id, hs_id);
     	
+    	// 자기 자신을 follow 할때
+    	
+    	if (member_id.equals(hs_id)) {
+    		return "handshakeyourself.jsp";
+    	}
+    	
     	// 팔로우 체크
     	//int row = new handshakeDAO().followCheck(dto);
     	int row = new handshakeDAO().followCheck(dto);

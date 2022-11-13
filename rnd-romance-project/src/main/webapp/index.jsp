@@ -609,7 +609,7 @@
 	                <a href="watchvideo.jsp" class="nav-item nav-link">Recommendation</a>
 	            </div>
 	         	<nav class="main-nav">
-					<ul style="padding-left: 0px;">
+					<ul style="padding-left: 0px;">	
 						<!-- inser more links here -->
 							<li><a class="cd-signin" href="#0">Sign in</a></li>
 					</ul>
@@ -664,7 +664,7 @@
                                 <div class="col-lg-7">
                                     <h1 class="display-1 text-white mb-5 animated slideInDown">YOU WERE THE</h1>
                                     <h1 class="display-1 text-white mb-5 animated slideInDown" style="font-color: green;!important">MENTOR</h1>
-                                    <a href="" class="btn btn-primary py-sm-3 px-sm-4">Get Mentor Recommendation</a>
+                                    <a href="watchvideo.jsp" class="btn btn-primary py-sm-3 px-sm-4">Get Mentor Recommendation</a>
                                 </div>
                             </div>
                         </div>
@@ -821,7 +821,7 @@
         </div>
     </div>
    	<div style="text-align:center;">
-   		<a href="" class="btn btn-primary py-sm-3 px-sm-4" style="background: #4a69bd; border-radius: 20px; border-color:white;">Recommend Mentor Video</a>
+   		<a href="watchvideo.jsp" class="btn btn-primary py-sm-3 px-sm-4" style="background: #4a69bd; border-radius: 20px; border-color:white;">Recommend Mentor Video</a>
    	</div>
    	<br><br>
    	

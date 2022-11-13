@@ -67,6 +67,12 @@
    	<description></description>
    	<servlet-class>com.smhrd.controller.CalenderService</servlet-class>
    </servlet>
+   <servlet>
+   	<servlet-name>EditProfileService</servlet-name>
+   	<display-name>EditProfileService</display-name>
+   	<description></description>
+   	<servlet-class>com.smhrd.controller.EditProfileService</servlet-class>
+   </servlet>
 
    <servlet-mapping>
    	<servlet-name>JoinService</servlet-name>
@@ -114,6 +120,10 @@
    <servlet-mapping>
    	<servlet-name>CalenderService</servlet-name>
    	<url-pattern>/CalenderService</url-pattern>
+   </servlet-mapping>
+   <servlet-mapping>
+   	<servlet-name>EditProfileService</servlet-name>
+   	<url-pattern>/EditProfileService</url-pattern>
    </servlet-mapping>
   
 </web-app>
