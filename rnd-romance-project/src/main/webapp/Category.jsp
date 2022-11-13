@@ -595,24 +595,36 @@ body {
 }
 .btn--yellow {
   --hue: 46;
+/*   border-radius: 50%;
+  height: 4rem; */
 }
 .btn--green {
   --hue: 163;
+/*   border-radius: 50%;
+  height: 5rem; */
 }
 .btn--purple {
   --hue: 244;
+/*   border-radius: 50%;
+  height: 6rem; */
 }
 .btn--red {
   --hue: 0;
+  /* border-radius: 50%;
+  height: 2.2rem; */
 }
 .btn--blue {
   --hue: 210;
+  /* border-radius: 50%;
+  height: 2.7rem; */
 }
 .btn:active, .btn:focus {
   outline: 3px solid hsl(calc(var(--hue) + 90), 98%, 80%);
 }
 .btn + .btn {
   margin-top: 2.5em;
+  margin-left: 3rem;
+  
 }
 .btn__txt {
   position: relative;
@@ -666,6 +678,11 @@ body {
 .btn:hover .btn__bg:nth-of-type(4), .btn:focus .btn__bg:nth-of-type(4), .btn:active .btn__bg:nth-of-type(4) {
   transition-delay: 0.46s;
 }
+.categoryss {
+    /* justify-content: center; */
+    text-align: center;
+    margin-top: 3.2rem;
+}
 </style>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -710,8 +727,11 @@ body {
    
     <!-- 카테고리 버튼 -->
 
-	<form action="">
-		<button type="button" class="btn btn--purple" style="margin-top: 2.5em;">
+	<form action="UpdateService.do">
+	
+	<div class="categoryss">
+		<div>
+		<button type="button" class="btn btn--purple" value="CAT_SPORTS" style="margin-top: 2.5em;">
 		  <span class="btn__txt">SPORTS</span>
 		  <i class="btn__bg" aria-hidden="true"></i>
 		  <i class="btn__bg" aria-hidden="true"></i>
@@ -719,7 +739,7 @@ body {
 		  <i class="btn__bg" aria-hidden="true"></i>
 		</button>
 			
-		<button type="button" class="btn btn--green">
+		<button type="button" class="btn btn--green" value="CAT_DRAWING">
 		  <span class="btn__txt">DRAWING</span>
 		  <i class="btn__bg" aria-hidden="true"></i>
 		  <i class="btn__bg" aria-hidden="true"></i>
@@ -727,15 +747,17 @@ body {
 		  <i class="btn__bg" aria-hidden="true"></i>
 		</button>
 		
-		<button type="button" class="btn btn--red">
+		<button type="button" class="btn btn--red" value="CAT_ANIMALS">
 		  <span class="btn__txt">ANIMALS</span>
 		  <i class="btn__bg" aria-hidden="true"></i>
 		  <i class="btn__bg" aria-hidden="true"></i>
 		  <i class="btn__bg" aria-hidden="true"></i>
 		  <i class="btn__bg" aria-hidden="true"></i>
 		</button>
+   		</div>
 		
-		<button type="button" class="btn btn--blue">
+		<div>
+		<button type="button" class="btn btn--blue" value="CAT_MARKETING">
 		  <span class="btn__txt">MARKETING</span>
 		  <i class="btn__bg" aria-hidden="true"></i>
 		  <i class="btn__bg" aria-hidden="true"></i>
@@ -743,14 +765,14 @@ body {
 		  <i class="btn__bg" aria-hidden="true"></i>
 		</button>
 		
-		<button type="button" class="btn btn--yellow">
+		<button type="button" class="btn btn--yellow" value="CAT_COOKING">
 		  <span class="btn__txt">COOKING</span>
 		  <i class="btn__bg" aria-hidden="true"></i>
 		  <i class="btn__bg" aria-hidden="true"></i>
 		  <i class="btn__bg" aria-hidden="true"></i>
 		  <i class="btn__bg" aria-hidden="true"></i>
 		</button>
-	 	<button type="button" class="btn btn--purple">
+	 	<button type="button" class="btn btn--purple" value="CAT_BAKING">
 		  <span class="btn__txt">BAKING</span>
 		  <i class="btn__bg" aria-hidden="true"></i>
 		  <i class="btn__bg" aria-hidden="true"></i>
@@ -758,7 +780,7 @@ body {
 		  <i class="btn__bg" aria-hidden="true"></i>
 		</button>
 		
-		<button type="button" class="btn btn--green">
+		<button type="button" class="btn btn--green" value="CAT_PROGRAMMING">
 		  <span class="btn__txt">PROGRAMMING</span>
 		  <i class="btn__bg" aria-hidden="true"></i>
 		  <i class="btn__bg" aria-hidden="true"></i>
@@ -766,15 +788,16 @@ body {
 		  <i class="btn__bg" aria-hidden="true"></i>
 		</button>
 		
-		<button type="button" class="btn btn--red">
+		<button type="button" class="btn btn--red" value="CAT_CAMPING">
 		  <span class="btn__txt">CAMPING</span>
 		  <i class="btn__bg" aria-hidden="true"></i>
 		  <i class="btn__bg" aria-hidden="true"></i>
 		  <i class="btn__bg" aria-hidden="true"></i>
 		  <i class="btn__bg" aria-hidden="true"></i>
 		</button>
-		
-		<button type="button" class="btn btn--blue">
+		</div>
+		<div>
+		<button type="button" class="btn btn--blue" value="CAT_DESIGN">
 		  <span class="btn__txt">DESIGN</span>
 		  <i class="btn__bg" aria-hidden="true"></i>
 		  <i class="btn__bg" aria-hidden="true"></i>
@@ -783,7 +806,7 @@ body {
 		</button>
 		
 		
-		<button type="button" class="btn btn--yellow">
+		<button type="button" class="btn btn--yellow" value="CAT_VIDEO_PRODUCTION">
 		  <span class="btn__txt">VIDEO PRODUCTION</span>
 		  <i class="btn__bg" aria-hidden="true"></i>
 		  <i class="btn__bg" aria-hidden="true"></i>
@@ -791,7 +814,7 @@ body {
 		  <i class="btn__bg" aria-hidden="true"></i>
 		</button>   
 	
-		<button type="button" class="btn btn--purple">
+		<button type="button" class="btn btn--purple"  value="CAT_MENTAL_MANAGEMENT">
 		  <span class="btn__txt">MENTAL MANAGEMENT</span>
 		  <i class="btn__bg" aria-hidden="true"></i>
 		  <i class="btn__bg" aria-hidden="true"></i>
@@ -799,15 +822,16 @@ body {
 		  <i class="btn__bg" aria-hidden="true"></i>
 		</button>
 		
-		<button type="button" class="btn btn--green">
+		<button type="button" class="btn btn--green" value="CAT_LANGUAGE">
 		  <span class="btn__txt">LANGUAGE</span>
 		  <i class="btn__bg" aria-hidden="true"></i>
 		  <i class="btn__bg" aria-hidden="true"></i>
 		  <i class="btn__bg" aria-hidden="true"></i>
 		  <i class="btn__bg" aria-hidden="true"></i>
 		</button>
-		
-		<button type="button" class="btn btn--red">
+		</div>
+		<div>
+		<button type="button" class="btn btn--red" value="CAT_EDUCATION">
 		  <span class="btn__txt">EDUCATION</span>
 		  <i class="btn__bg" aria-hidden="true"></i>
 		  <i class="btn__bg" aria-hidden="true"></i>
@@ -815,7 +839,7 @@ body {
 		  <i class="btn__bg" aria-hidden="true"></i>
 		</button>
 		
-		<button type="button" class="btn btn--blue">
+		<button type="button" class="btn btn--blue" value="CAT_INVESTMENT">
 		  <span class="btn__txt">INVESTMENT</span>
 		  <i class="btn__bg" aria-hidden="true"></i>
 		  <i class="btn__bg" aria-hidden="true"></i>
@@ -824,22 +848,23 @@ body {
 		</button>
 		
 		
-		<button type="button" class="btn btn--yellow">
+		<button type="button" class="btn btn--yellow" value="CAT_MOTIVATION">
 		  <span class="btn__txt">MOTIVATION</span>
 		  <i class="btn__bg" aria-hidden="true"></i>
 		  <i class="btn__bg" aria-hidden="true"></i>
 		  <i class="btn__bg" aria-hidden="true"></i>
 		  <i class="btn__bg" aria-hidden="true"></i>
 		</button>
-	 	<button type="button" class="btn btn--purple">
+	 	<button type="button" class="btn btn--purple" value="CAT_MENTALITY">
 		  <span class="btn__txt">MENTALITY</span>
 		  <i class="btn__bg" aria-hidden="true"></i>
 		  <i class="btn__bg" aria-hidden="true"></i>
 		  <i class="btn__bg" aria-hidden="true"></i>
 		  <i class="btn__bg" aria-hidden="true"></i>
 		</button>
-		
-		<button type="button" class="btn btn--green">
+		</div>
+		<div>		
+		<button type="button" class="btn btn--green" value="CAT_SELF_INTRODUCTION">
 		  <span class="btn__txt">SELF INTRODUCTION</span>
 		  <i class="btn__bg" aria-hidden="true"></i>
 		  <i class="btn__bg" aria-hidden="true"></i>
@@ -847,7 +872,7 @@ body {
 		  <i class="btn__bg" aria-hidden="true"></i>
 		</button>
 		
-		<button type="button" class="btn btn--red">
+		<button type="button" class="btn btn--red" value="CAT_PERFOMANCE">
 		  <span class="btn__txt">PERFOMANCE</span>
 		  <i class="btn__bg" aria-hidden="true"></i>
 		  <i class="btn__bg" aria-hidden="true"></i>
@@ -855,7 +880,7 @@ body {
 		  <i class="btn__bg" aria-hidden="true"></i>
 		</button>
 		
-		<button type="button" class="btn btn--blue">
+		<button type="button" class="btn btn--blue" value="CAT_ACCOUNTING">
 		  <span class="btn__txt">ACCOUNTING</span>
 		  <i class="btn__bg" aria-hidden="true"></i>
 		  <i class="btn__bg" aria-hidden="true"></i>
@@ -864,14 +889,31 @@ body {
 		</button>
 		
 		
-		<button type="button" class="btn btn--yellow">
+		<button type="button" class="btn btn--yellow" value="CAT_MUSIC">
 		  <span class="btn__txt">MUSIC</span>
 		  <i class="btn__bg" aria-hidden="true"></i>
 		  <i class="btn__bg" aria-hidden="true"></i>
 		  <i class="btn__bg" aria-hidden="true"></i>
 		  <i class="btn__bg" aria-hidden="true"></i>
-		</button>  
+		</button> 
+		</div>
+		
+	</div> 
 
 		<input type="submit" value="제출하기">
 	</form>	
+	
+	<script type="text/javascript">
+	var cateArray = new Array();
+	$('.btn').click(function() {
+		var categoryTitle = $(this).val();
+		let newLength = cateArray.push(categoryTitle);
+		console.log(cateArray);
+	});
+
+
+	
+	</script>
+	
+	
 </body>    
