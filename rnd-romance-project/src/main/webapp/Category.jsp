@@ -709,47 +709,169 @@ body {
     <!-- Navbar End -->
    
     <!-- 카테고리 버튼 -->
-	<button type="button" class="btn btn--purple">
-  <span class="btn__txt">Purple button</span>
-  <i class="btn__bg" aria-hidden="true"></i>
-  <i class="btn__bg" aria-hidden="true"></i>
-  <i class="btn__bg" aria-hidden="true"></i>
-  <i class="btn__bg" aria-hidden="true"></i>
-</button>
 
-<button type="button" class="btn btn--green">
-  <span class="btn__txt">Green button</span>
-  <i class="btn__bg" aria-hidden="true"></i>
-  <i class="btn__bg" aria-hidden="true"></i>
-  <i class="btn__bg" aria-hidden="true"></i>
-  <i class="btn__bg" aria-hidden="true"></i>
-</button>
+	<form action="">
+		<button type="button" class="btn btn--purple" style="margin-top: 2.5em;">
+		  <span class="btn__txt">SPORTS</span>
+		  <i class="btn__bg" aria-hidden="true"></i>
+		  <i class="btn__bg" aria-hidden="true"></i>
+		  <i class="btn__bg" aria-hidden="true"></i>
+		  <i class="btn__bg" aria-hidden="true"></i>
+		</button>
+			
+		<button type="button" class="btn btn--green">
+		  <span class="btn__txt">DRAWING</span>
+		  <i class="btn__bg" aria-hidden="true"></i>
+		  <i class="btn__bg" aria-hidden="true"></i>
+		  <i class="btn__bg" aria-hidden="true"></i>
+		  <i class="btn__bg" aria-hidden="true"></i>
+		</button>
+		
+		<button type="button" class="btn btn--red">
+		  <span class="btn__txt">ANIMALS</span>
+		  <i class="btn__bg" aria-hidden="true"></i>
+		  <i class="btn__bg" aria-hidden="true"></i>
+		  <i class="btn__bg" aria-hidden="true"></i>
+		  <i class="btn__bg" aria-hidden="true"></i>
+		</button>
+		
+		<button type="button" class="btn btn--blue">
+		  <span class="btn__txt">MARKETING</span>
+		  <i class="btn__bg" aria-hidden="true"></i>
+		  <i class="btn__bg" aria-hidden="true"></i>
+		  <i class="btn__bg" aria-hidden="true"></i>
+		  <i class="btn__bg" aria-hidden="true"></i>
+		</button>
+		
+		<button type="button" class="btn btn--yellow">
+		  <span class="btn__txt">COOKING</span>
+		  <i class="btn__bg" aria-hidden="true"></i>
+		  <i class="btn__bg" aria-hidden="true"></i>
+		  <i class="btn__bg" aria-hidden="true"></i>
+		  <i class="btn__bg" aria-hidden="true"></i>
+		</button>
+	 	<button type="button" class="btn btn--purple">
+		  <span class="btn__txt">BAKING</span>
+		  <i class="btn__bg" aria-hidden="true"></i>
+		  <i class="btn__bg" aria-hidden="true"></i>
+		  <i class="btn__bg" aria-hidden="true"></i>
+		  <i class="btn__bg" aria-hidden="true"></i>
+		</button>
+		
+		<button type="button" class="btn btn--green">
+		  <span class="btn__txt">PROGRAMMING</span>
+		  <i class="btn__bg" aria-hidden="true"></i>
+		  <i class="btn__bg" aria-hidden="true"></i>
+		  <i class="btn__bg" aria-hidden="true"></i>
+		  <i class="btn__bg" aria-hidden="true"></i>
+		</button>
+		
+		<button type="button" class="btn btn--red">
+		  <span class="btn__txt">CAMPING</span>
+		  <i class="btn__bg" aria-hidden="true"></i>
+		  <i class="btn__bg" aria-hidden="true"></i>
+		  <i class="btn__bg" aria-hidden="true"></i>
+		  <i class="btn__bg" aria-hidden="true"></i>
+		</button>
+		
+		<button type="button" class="btn btn--blue">
+		  <span class="btn__txt">DESIGN</span>
+		  <i class="btn__bg" aria-hidden="true"></i>
+		  <i class="btn__bg" aria-hidden="true"></i>
+		  <i class="btn__bg" aria-hidden="true"></i>
+		  <i class="btn__bg" aria-hidden="true"></i>
+		</button>
+		
+		
+		<button type="button" class="btn btn--yellow">
+		  <span class="btn__txt">VIDEO PRODUCTION</span>
+		  <i class="btn__bg" aria-hidden="true"></i>
+		  <i class="btn__bg" aria-hidden="true"></i>
+		  <i class="btn__bg" aria-hidden="true"></i>
+		  <i class="btn__bg" aria-hidden="true"></i>
+		</button>   
+	
+		<button type="button" class="btn btn--purple">
+		  <span class="btn__txt">MENTAL MANAGEMENT</span>
+		  <i class="btn__bg" aria-hidden="true"></i>
+		  <i class="btn__bg" aria-hidden="true"></i>
+		  <i class="btn__bg" aria-hidden="true"></i>
+		  <i class="btn__bg" aria-hidden="true"></i>
+		</button>
+		
+		<button type="button" class="btn btn--green">
+		  <span class="btn__txt">LANGUAGE</span>
+		  <i class="btn__bg" aria-hidden="true"></i>
+		  <i class="btn__bg" aria-hidden="true"></i>
+		  <i class="btn__bg" aria-hidden="true"></i>
+		  <i class="btn__bg" aria-hidden="true"></i>
+		</button>
+		
+		<button type="button" class="btn btn--red">
+		  <span class="btn__txt">EDUCATION</span>
+		  <i class="btn__bg" aria-hidden="true"></i>
+		  <i class="btn__bg" aria-hidden="true"></i>
+		  <i class="btn__bg" aria-hidden="true"></i>
+		  <i class="btn__bg" aria-hidden="true"></i>
+		</button>
+		
+		<button type="button" class="btn btn--blue">
+		  <span class="btn__txt">INVESTMENT</span>
+		  <i class="btn__bg" aria-hidden="true"></i>
+		  <i class="btn__bg" aria-hidden="true"></i>
+		  <i class="btn__bg" aria-hidden="true"></i>
+		  <i class="btn__bg" aria-hidden="true"></i>
+		</button>
+		
+		
+		<button type="button" class="btn btn--yellow">
+		  <span class="btn__txt">MOTIVATION</span>
+		  <i class="btn__bg" aria-hidden="true"></i>
+		  <i class="btn__bg" aria-hidden="true"></i>
+		  <i class="btn__bg" aria-hidden="true"></i>
+		  <i class="btn__bg" aria-hidden="true"></i>
+		</button>
+	 	<button type="button" class="btn btn--purple">
+		  <span class="btn__txt">MENTALITY</span>
+		  <i class="btn__bg" aria-hidden="true"></i>
+		  <i class="btn__bg" aria-hidden="true"></i>
+		  <i class="btn__bg" aria-hidden="true"></i>
+		  <i class="btn__bg" aria-hidden="true"></i>
+		</button>
+		
+		<button type="button" class="btn btn--green">
+		  <span class="btn__txt">SELF INTRODUCTION</span>
+		  <i class="btn__bg" aria-hidden="true"></i>
+		  <i class="btn__bg" aria-hidden="true"></i>
+		  <i class="btn__bg" aria-hidden="true"></i>
+		  <i class="btn__bg" aria-hidden="true"></i>
+		</button>
+		
+		<button type="button" class="btn btn--red">
+		  <span class="btn__txt">PERFOMANCE</span>
+		  <i class="btn__bg" aria-hidden="true"></i>
+		  <i class="btn__bg" aria-hidden="true"></i>
+		  <i class="btn__bg" aria-hidden="true"></i>
+		  <i class="btn__bg" aria-hidden="true"></i>
+		</button>
+		
+		<button type="button" class="btn btn--blue">
+		  <span class="btn__txt">ACCOUNTING</span>
+		  <i class="btn__bg" aria-hidden="true"></i>
+		  <i class="btn__bg" aria-hidden="true"></i>
+		  <i class="btn__bg" aria-hidden="true"></i>
+		  <i class="btn__bg" aria-hidden="true"></i>
+		</button>
+		
+		
+		<button type="button" class="btn btn--yellow">
+		  <span class="btn__txt">MUSIC</span>
+		  <i class="btn__bg" aria-hidden="true"></i>
+		  <i class="btn__bg" aria-hidden="true"></i>
+		  <i class="btn__bg" aria-hidden="true"></i>
+		  <i class="btn__bg" aria-hidden="true"></i>
+		</button>  
 
-<button type="button" class="btn btn--red">
-  <span class="btn__txt">Red button</span>
-  <i class="btn__bg" aria-hidden="true"></i>
-  <i class="btn__bg" aria-hidden="true"></i>
-  <i class="btn__bg" aria-hidden="true"></i>
-  <i class="btn__bg" aria-hidden="true"></i>
-</button>
-
-<button type="button" class="btn btn--blue">
-  <span class="btn__txt">Blue button</span>
-  <i class="btn__bg" aria-hidden="true"></i>
-  <i class="btn__bg" aria-hidden="true"></i>
-  <i class="btn__bg" aria-hidden="true"></i>
-  <i class="btn__bg" aria-hidden="true"></i>
-</button>
-
-
-<button type="button" class="btn btn--yellow">
-  <span class="btn__txt">Yellow button</span>
-  <i class="btn__bg" aria-hidden="true"></i>
-  <i class="btn__bg" aria-hidden="true"></i>
-  <i class="btn__bg" aria-hidden="true"></i>
-  <i class="btn__bg" aria-hidden="true"></i>
-</button>
-    
-
-    
+		<input type="submit" value="제출하기">
+	</form>	
 </body>    
