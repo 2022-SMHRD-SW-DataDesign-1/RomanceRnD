@@ -681,6 +681,7 @@ header[role=banner]::after {
 	System.out.println("profileList"+ profileList);
 	String profileName = profileList.getMember_name();
 	String profileId = profileList.getMember_id();
+	String profileImage = profileList.getMember_image_file();
 	/* Profile_Search_Member End */
 	
 	/* Profile_Video Start */
@@ -720,7 +721,7 @@ header[role=banner]::after {
 				<div class="search_box" style="margin-left: 180px;margin-bottom: 0;">
 					<form action="SearchService.do" method="get">
 						<div>
-							<input name="profile_id" class="search_text" type="text" placeholder="search">
+							<input name="searchIdOrName" class="search_text" type="text" placeholder="search">
 						</div>
 					</form>
 				</div>
@@ -779,7 +780,7 @@ header[role=banner]::after {
     <div class="container-xxl py-5">
         <div class="container" style="text-align: center">
             <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="display:inline-flex; align-items:center; justify-content:center; margin-bottom:3rem;">
-     			<img src='./file/<%=info.getMember_image_file()%>' alt="profile-user-img"class="profile-user-img-img">
+     			<img src='./file/<%= profileImage %>' alt="profile-user-img"class="profile-user-img-img">
                 <div style="text-align: left; margin-left:4rem;">
 					<div>
 			            <h4 class="display-5 mb-5" style="padding: 0em; color: #222; font-size:2.5rem; font-weight:500 !important; margin-bottom: 0rem !important;"><%= profileName %></h4>

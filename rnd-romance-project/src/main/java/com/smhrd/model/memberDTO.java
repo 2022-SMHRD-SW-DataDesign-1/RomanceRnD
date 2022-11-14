@@ -43,18 +43,17 @@ public class memberDTO {
 		this.member_auth = member_auth;
 	}
 
-	public memberDTO(String member_pw, String member_mbti, String member_image_file, String member_image_path, String member_id) {
+	public memberDTO(String member_pw, String member_mbti, String member_image_file, String member_image_path, String member_profile, String member_id) {
 		this.member_pw = member_pw;
 		this.member_mbti = member_mbti;
 		this.member_image_path = member_image_path;
 		this.member_image_file = member_image_file;
+		this.member_profile= member_profile;
 		this.member_id = member_id;
 	}
 
 	public memberDTO(String member_pw) {
-		// TODO Auto-generated constructor stub
 		this.member_pw = member_pw;
-
 	}
 
 }

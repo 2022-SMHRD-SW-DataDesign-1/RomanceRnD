@@ -1,3 +1,11 @@
+<%@page import="java.util.Collections"%>
+<%@page import="java.util.List"%>
+<%@page import="java.util.HashSet"%>
+<%@page import="java.util.Set"%>
+<%@page import="java.lang.reflect.Array"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.smhrd.model.memberDAO"%>
+<%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
 <%@page import="com.smhrd.model.memberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -576,8 +584,33 @@
 </head>
 
 <body>
+	
+	<!-- Scriptlet -->
+	<% 
+		memberDTO dto = new memberDTO();
+		memberDTO info = (memberDTO)session.getAttribute("info");
+		
+		/* Random Mentor Profile Recommendation Start */
+		ArrayList<memberDTO> selectRandomMentorList = new memberDAO().selectRandomMentorList(dto);
+		int totalMentors = selectRandomMentorList.size();
+		System.out.println("totalMentors: "+totalMentors);
+		ArrayList<Integer> saveRandomSelectedMentor = new ArrayList<Integer>();
+		
+		/* 랜덤 값 생성 중복 제거 */
+        Set<Integer> set = new HashSet<>();
 
-	<% memberDTO info = (memberDTO)session.getAttribute("info"); %>
+        while (saveRandomSelectedMentor.size() < 9) {
+            Double randomSelectedMentor = Math.random() * totalMentors;
+            saveRandomSelectedMentor.add(randomSelectedMentor.intValue());
+        }
+
+        List<Integer> saveRandomSelectedMentorList = new ArrayList<>(saveRandomSelectedMentor);
+        Collections.sort(saveRandomSelectedMentorList);
+
+        System.out.println(saveRandomSelectedMentorList);
+		
+		
+	%>
 
 
     <!-- Spinner Start -->
@@ -733,42 +766,16 @@
             </div>
             <div class="row wow fadeInUp" data-wow-delay="0.3s">
                 <div class="col-12 text-center">
-                    <ul class="list-inline rounded mb-5" id="portfolio-flters">
+                    <!-- <ul class="list-inline rounded mb-5" id="portfolio-flters">
                         <li class="mx-2 active" data-filter="*">All</li>
                         <li class="mx-2" data-filter=".first">Handshake</li>
                         <li class="mx-2" data-filter=".second">Tea Time</li>
-                    </ul>
+                    </ul> -->
                 </div>
             </div>
             <div class="row g-4 portfolio-container">
-                <div class="col-lg-4 col-md-6 portfolio-item first wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="portfolio-inner rounded">
-                        <img class="img-fluid" src="img/service-1.jpg" alt="">
-                        <div class="portfolio-text">
-                            <h4 class="text-white mb-4">Landscaping</h4>
-                            <div class="d-flex">
-                            <!-- 1. 버튼 영상보기 -->
-                            <!-- 2. 버튼 프로필 가기 -->
-                            <%String profile_id = "test@test.com"; %>
-                                <a class="btn btn-lg-square rounded-circle mx-2" href="img/service-1.jpg" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
-                                <a class="btn btn-lg-square rounded-circle mx-2" href="profile.jsp?profile_id=<%= profile_id%>"><i class="fa fa-link"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 portfolio-item second wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="portfolio-inner rounded">
-                        <img class="img-fluid" src="img/service-2.jpg" alt="">
-                        <div class="portfolio-text">
-                            <h4 class="text-white mb-4">Pruning plants</h4>
-                            <div class="d-flex">
-                                <a class="btn btn-lg-square rounded-circle mx-2" href="img/service-2.jpg" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
-                                <a class="btn btn-lg-square rounded-circle mx-2" href=""><i class="fa fa-link"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 portfolio-item first wow fadeInUp" data-wow-delay="0.5s">
+                
+                <!-- <div class="col-lg-4 col-md-6 portfolio-item first wow fadeInUp" data-wow-delay="0.5s">
                     <div class="portfolio-inner rounded">
                         <img class="img-fluid" src="img/service-3.jpg" alt="">
                         <div class="portfolio-text">
@@ -779,44 +786,40 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-6 portfolio-item second wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="portfolio-inner rounded">
-                        <img class="img-fluid" src="img/service-4.jpg" alt="">
-                        <div class="portfolio-text">
-                            <h4 class="text-white mb-4">Garden Maintenance</h4>
-                            <div class="d-flex">
-                                <a class="btn btn-lg-square rounded-circle mx-2" href="img/service-4.jpg" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
-                                <a class="btn btn-lg-square rounded-circle mx-2" href=""><i class="fa fa-link"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 portfolio-item first wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="portfolio-inner rounded">
-                        <img class="img-fluid" src="img/service-5.jpg" alt="">
-                        <div class="portfolio-text">
-                            <h4 class="text-white mb-4">Green Technology</h4>
-                            <div class="d-flex">
-                                <a class="btn btn-lg-square rounded-circle mx-2" href="img/service-5.jpg" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
-                                <a class="btn btn-lg-square rounded-circle mx-2" href=""><i class="fa fa-link"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 portfolio-item second wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="portfolio-inner rounded">
-                        <img class="img-fluid" src="img/service-6.jpg" alt="">
-                        <div class="portfolio-text">
-                            <h4 class="text-white mb-4">Urban Gardening</h4>
-                            <div class="d-flex">
-                                <!-- <a class="btn btn-lg-square rounded-circle mx-2" href="img/test.mp4" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
-                                <a class="btn btn-lg-square rounded-circle mx-2" href=""><i class="fa fa-link"></i></a> -->
-                                <iframe width="auto" height="auto" src="https://www.youtube.com/embed/03qXDRVIPcA" title="K-미래에서는 모두가 승자입니다 | 샘 리처드 펜실베니아주립대 교수, 로리 멀비 ‘World In Conversation’ 디렉터 | 지식 GSEEK | 세바시 1556회" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                </div> -->
+                
+                <!-- Random Mentor Profile Recommendation Implement Start -->
+                <%
+                	String html = "";
+	                
+               		for (int i =0; i < 9; i++) {
+	                	String htmlScriptlet = "";
+	                	String htmlScriptlet2 = "";
+	                	htmlScriptlet = "./file/"+selectRandomMentorList.get(saveRandomSelectedMentorList.get(i)).getMember_image_file();
+	                	htmlScriptlet2 = "profile.jsp?profile_name=" + selectRandomMentorList.get(saveRandomSelectedMentorList.get(i)).getMember_name();
+	                	System.out.println("htmlScriptlet"+htmlScriptlet);
+               			html += "<div class='col-lg-4 col-md-6 portfolio-item second wow fadeInUp' data-wow-delay='0.1s'>\n" +
+    	                        "                    <div class='portfolio-inner rounded'>\n";
+
+    	                        
+                        html += "<img class='img-fluid' src='"+ htmlScriptlet;
+                        		
+    	                html += "' alt=''>\n" +
+    	                        "                        <div class='portfolio-text'>\n" +
+    	                        "                            <h4 class='text-white mb-4'>Garden Maintenance</h4>\n" +
+    	                        "                            <div class='d-flex'>\n" +
+    	                        "                                <a class='btn btn-lg-square rounded-circle mx-2' ";
+    	                html += "href='"+ htmlScriptlet +"' data-lightbox='portfolio'><i class='fa fa-eye'></i></a>\n";
+    	                html += "                                <a class='btn btn-lg-square rounded-circle mx-2' ";
+    	                html += "href='"+ htmlScriptlet2 +"'><i class='fa fa-link'></i></a>\n";
+ 	                	html += "                                    </div>\n" +
+    	                        "                        </div>\n" +
+    	                        "                    </div>\n" +
+    	                        "                </div>";
+               		}
+                %>
+             	<%=html%>
+                <!-- Random Mentor Profile Recommendation Implement Start -->
             </div>
         </div>
     </div>

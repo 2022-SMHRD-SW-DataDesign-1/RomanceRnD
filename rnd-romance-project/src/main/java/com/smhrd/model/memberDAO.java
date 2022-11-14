@@ -82,7 +82,7 @@ public class memberDAO {
          return info;
       }
       
-  	// SelectMemberAllInWatchVideo
+  	// 영상 보기 모든 맴버 리스트 가져오기
   	public ArrayList<memberDTO> selectAllInVideo (String dto) {
   		SqlSession session = sqlSessionFactory.openSession(true);
 
@@ -91,5 +91,15 @@ public class memberDAO {
 
   		return (ArrayList<memberDTO>) list;
 
+  	}
+  	// 랜던 멘토 추천 이름 리스트 가져오기
+  	public ArrayList<memberDTO> selectRandomMentorList (memberDTO dto) {
+  		SqlSession session = sqlSessionFactory.openSession(true);
+  		
+  		List<memberDTO> list = session.selectList("selectRandomMentorList", dto);
+  		session.close();
+  		
+  		return (ArrayList<memberDTO>) list;
+  		
   	}
 }

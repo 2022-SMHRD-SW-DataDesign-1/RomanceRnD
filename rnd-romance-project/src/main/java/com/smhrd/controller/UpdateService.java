@@ -61,7 +61,6 @@ public class UpdateService implements Command {
 
 		/* BigDecimal video_seq = new BigDecimal(multi.getParameter("video_seq")); */
 		String member_image_file = multi.getFilesystemName("member_image_file");
-		multi.getFilesystemName(member_image_file);
 		String member_image_path = savePath;
 		// date 타입 어케 받아오는 지 모르겠음.
 		
@@ -82,8 +81,11 @@ public class UpdateService implements Command {
 		String member_name = info.getMember_name();
 		String member_mbti = multi.getParameter("member_mbti");
 		String member_pw = multi.getParameter("member_pw");
+		String member_profile = multi.getParameter("member_profile");
+		
 		System.out.println("member_id"+member_id);
 		System.out.println("member_name"+member_name);
+		System.out.println("member_profile"+member_profile);
 		System.out.println("member_mbti"+member_mbti);
 		System.out.println("member_pw"+member_pw);
 
@@ -91,10 +93,17 @@ public class UpdateService implements Command {
 		System.out.println("member_image_file :" + member_image_file);
 
 		
-    			
+
+		if ( member_image_file == null) {
+			member_image_file = "default.png";
+		}
+		if ( member_profile == null) {
+			member_profile = info.getMember_profile();
+		}
     	// 파일찾기 End
 		// dwyane_add
 		// 파일 공백 제거
+		
 		member_image_file = member_image_file.replaceAll("\\s", "");
 		
 		try {
@@ -104,13 +113,22 @@ public class UpdateService implements Command {
 			e.printStackTrace();
 		}
 		
-		memberDTO updateInfo = new memberDTO(member_pw, member_mbti, member_image_file, member_image_path, member_id);
+		memberDTO updateInfo = new memberDTO(member_pw, member_mbti, member_image_file, member_image_path, member_profile, member_id);
+		
+		if (member_pw.equals(null)) {
+			member_pw = info.getMember_pw();
+		}
+		
+		if (member_image_path.equals(null)) {
+			member_image_path = "C:\\Users\\smhrd\\Desktop\\web\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\rnd-romance-project\\file";
+		}
 		
 		int row = new memberDAO().updateId(updateInfo);
 						
 		if(row > 0) {
 			System.out.println("회원정보수정 성공");
 			// 수정한 값으로 세션값을 변경
+			updateInfo = new memberDTO(member_id, member_pw, member_name ,info.getMember_age() ,info.getMember_type(), info.getMember_profile(), info.getMember_auth(), member_mbti, member_image_path, member_image_file);
 			session.setAttribute("info", updateInfo);
 		}
 		else {

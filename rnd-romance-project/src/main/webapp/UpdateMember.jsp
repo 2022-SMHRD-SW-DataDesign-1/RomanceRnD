@@ -458,7 +458,7 @@ input::placeholder {
 			<div class="user_modify">
 				<div class="modify_wrap">
 					<img src="img/Update.png" />
-					<h4>회원 정보 수정</h4>
+					<h4>Edit Profile</h4>
 					<ul>
 						<li> <p>E-mail : <%=info.getMember_id()%></p></li>
 						<li> <p>Name  : <%=info.getMember_name()%></p></li>
@@ -466,7 +466,7 @@ input::placeholder {
 						<li class="MBTI"> 
 							<p>MBTI :
 						    	<select class="mbti_sel" name="member_mbti">
-						   			<option value="none">=== 선택 ===</option>
+						   			<option value="none">=== Select ===</option>
 						          	<option value="enfj">ENFJ</option>
 						          	<option value="entj">ENTJ</option>
 						          	<option value="enfp">ENFP</option>
@@ -497,6 +497,7 @@ input::placeholder {
 						<div class="modify_content">
 							<ul>
 								<li class="password"><input name="member_pw" placeholder="새로운 비밀번호를 작성하세요"></li>
+								<li class="password"><input name="member_profile" placeholder="자기소개 수정"></li>
 								<li class="join_btn"><button type="submit">OK</button></li>
 							</ul>
 					</div>

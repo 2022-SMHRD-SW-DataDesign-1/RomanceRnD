@@ -573,7 +573,7 @@
 					<%if(info == null){ %>
 						<li><a class="cd-signin" href="#0">Sign in</a></li>
 					<%}else{ %>
-						<li><a class="cd-signin" href="UpdateMember.jsp">회원정보수정</a></li>
+						<li><a class="cd-signin" href="UpdateMember.jsp">Edit Profile</a></li>
 						<li><a class="cd-signin" href="LogoutService.do">Logout</a></li>
 					<%} %>
 				</ul>

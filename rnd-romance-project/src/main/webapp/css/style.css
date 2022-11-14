@@ -531,7 +531,7 @@ h6,
 
 
 /* 추가 */
-.profile_txtArea{width:100%; font-size:.8rem; border:1px solid #dedede; padding:.2rem; box-sizing:border-box; outline:none;}
+.profile_txtArea{width:100%; font-size:.8rem; border:1px solid #dedede; padding:.2rem; box-sizing:border-box; outline:none;resize: none;border-radius: 0.444rem;}
 .form_posit{position:fixed; width:100%; height:100%;}
 .search_holder{font-size:.8rem;}
 .add.nav_position{position:fixed;}

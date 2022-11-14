@@ -775,11 +775,11 @@ header[role=banner]::after {
 					<div class="profile_up_btn">
 						<ul>
 							<li><a href="Upload.jsp"><button type="submit">Upload</button></a></li>
-							<li><a href="UpdateMember.jsp"><button type="submit">회원정보수정</button></a></li>
+							<li><a href="UpdateMember.jsp"><button type="submit">Edit Profile</button></a></li>
 						</ul>
 					</div>
 					<!-- upload 버튼 End   -->
-					<textarea class="profile_txtArea" rows="" cols=""></textarea>
+					<textarea class="profile_txtArea" rows="" cols="" readonly="readonly"><%= info.getMember_profile() %></textarea>
 				</div>
 			</div>
 			<!-- Projects End -->
