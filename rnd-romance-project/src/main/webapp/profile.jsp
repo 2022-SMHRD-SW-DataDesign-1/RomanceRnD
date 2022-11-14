@@ -603,10 +603,11 @@ header[role=banner]::after {
 }
 
 .profile-user-img-img {
-	height: 200px;
+	width: 161px;
+	height: 161px;
+	border-radius: 70%;
 	overflow: hidden;
 	/* 한가연 검색창 추가 */
-	/* 장서연 높이값수정, border, width값 삭제 */
 }
 
 @media screen and (max-width:981px) {
@@ -895,10 +896,27 @@ header[role=banner]::after {
 				String html = "";
 				System.out.println("videoList.size():" + videoList.size());
 				for (int i = 0; i < videoList.size(); i++) {
-
 					html += " <div class='col-lg-4 col-md-6 portfolio-item first wow fadeInUp'data-wow-delay='0.3s' style='width: 24rem;height: 14rem;border-radius: 0.6rem;padding-left: unset;padding-right: unset; margin: 1.5rem;border: solid #999;box-shadow: 4px 4px 4px rgb(0 0 0 / 34%);'> ";
 					html += " <div class='portfolio-inner rounded' style='height: 100%;width: 100%;'> ";
-					html += " <img class='img-fluid' src='./file/" + videoList.get(i).getVideo_thumbnail() + ".png'alt='img' style='width: 100%;height: 100%;'> ";
+
+					
+					
+					String videoOrImage = "";
+					videoOrImage = videoList.get(i).getVideo_file();
+					System.out.println("videoOrImage: "+ videoOrImage);
+					
+					String[] videoOrImageList = videoOrImage.split("\\.");
+					System.out.println("videoOrImageList: "+ videoOrImageList);
+					System.out.println("videoOrImageList: "+ videoOrImageList.length);
+					System.out.println("videoOrImageList11: "+ videoOrImageList[1]);
+					String videoOrImageCheck = (videoOrImageList[(videoOrImageList.length)-1]).toLowerCase();
+
+					if (videoOrImageCheck.equals("jpg") || videoOrImageCheck.equals("png") || videoOrImageCheck.equals("gif") || videoOrImageCheck.equals("jpeg")) {
+						html += " <img class='img-fluid' src='./file/" + videoList.get(i).getVideo_file() +"'alt='img' style='width: 100%;height: 100%;'> ";
+					}else {
+						html += " <img class='img-fluid' src='./file/" + videoList.get(i).getVideo_thumbnail() + ".png'alt='img' style='width: 100%;height: 100%;'> ";
+					}
+					
 					html += " <div class='portfolio-text'> ";
 					html += " <h4 class='text-white mb-4'></h4> ";
 					html += " <div class='d-flex'> ";

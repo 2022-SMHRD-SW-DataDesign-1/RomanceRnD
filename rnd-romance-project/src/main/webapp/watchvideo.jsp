@@ -559,6 +559,9 @@
 	<%  
 		memberDTO info = (memberDTO) session.getAttribute("info");
 		String member_name = info.getMember_name();
+		if (info != null) {
+			member_name = info.getMember_name();
+		}
 		
 		String video_file = request.getParameter("video_file");
 		System.out.println("video_file: "+ video_file);

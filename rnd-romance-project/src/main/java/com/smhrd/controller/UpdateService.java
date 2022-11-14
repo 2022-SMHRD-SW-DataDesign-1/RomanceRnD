@@ -129,7 +129,7 @@ public class UpdateService implements Command {
 			System.out.println("회원정보수정 성공");
 			// 수정한 값으로 세션값을 변경
 			session.removeAttribute("info");
-			updateInfo = new memberDTO(info.getMember_id(), member_pw, info.getMember_name(), info.getMember_age() ,info.getMember_type(), member_profile, info.getMember_auth(), member_mbti, info.getMember_image_path(), info.getMember_image_file());
+			updateInfo = new memberDTO(info.getMember_id(), member_pw, info.getMember_name(), info.getMember_age() ,info.getMember_type(), member_profile, info.getMember_auth(), member_mbti, member_image_path, member_image_file);
 			session.setAttribute("info", updateInfo);
 			return "myprofile.jsp";
 		}

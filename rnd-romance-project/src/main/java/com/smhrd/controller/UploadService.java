@@ -28,21 +28,14 @@ public class UploadService extends HttpServlet implements Command {
 		System.out.println("[UploadService]");
 		HttpSession session = request.getSession();
 		memberDTO info = (memberDTO) session.getAttribute("info");
-		System.out.println("UploadService_Session:"+ info);
 		
-		// MultipartRequest 파라미터 정리
-		// 절대 경로 저장경로(콘솔에 찍어보면 확인가능) ""여기 안에 경로를 적어주면 이 경로에 넣겠다임
 		String savePath = request.getServletContext().getRealPath("file");
 		System.out.println(savePath);
 		
-		// 사이즈
-		// *1000 해버린 상태임(영상 담기 위해서)
 		int maxSize = 1000 * 1024 * 1024;
 
-		// 인코딩 방식
 		String encoding = "UTF-8";
 		
-		// 중복제거 (중복 이름 제거) 해주는 객체
 		DefaultFileRenamePolicy rename = new DefaultFileRenamePolicy();
 		
 		MultipartRequest multi = null;
@@ -51,83 +44,78 @@ public class UploadService extends HttpServlet implements Command {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		// new MultipartRequest(request, 저장경로, 사이즈, 인코딩 방식, 중복제거)
-
-		/* BigDecimal video_seq = new BigDecimal(multi.getParameter("video_seq")); */
 		String member_id = info.getMember_id();
 		String video_file = multi.getFilesystemName("video_file");
 		BigDecimal video_price = new BigDecimal(multi.getParameter("video_price"));
 		String video_desc = multi.getParameter("video_desc");
 		String video_path = savePath;
-		// date 타입 어케 받아오는 지 모르겠음.
 		
-		// 주의점 filename은 객체가 좀 다르다 getFilesystemName으로
-		//String filename = multi.getFilesystemName("filename");
-		
-		// dwyane_add
-		// 파일 공백 제거
 		video_file = video_file.replaceAll("\\s", "");
 		
 		try {
-			// filename = URLEncoder.encode(filename, "UTF-8");
 			video_file = URLEncoder.encode(video_file , "UTF-8");
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
-		// String content = multi.getParameter("content");
-
-		/* System.out.println("video_seq : " + video_seq); */
-		System.out.println("member_id :" + member_id);
-		System.out.println("video_file :" + video_file);
-		System.out.println("video_price :" + video_price);
-		System.out.println("video_desc :" + video_desc);
-		/* System.out.println("permissions :" + permissions); */
-		
-		// System.out.println("content : "+ content);
-		//System.out.println("filename :"+filename);
 
 		videoDTO dto = new videoDTO(member_id, video_file, video_price, video_desc, video_path);
 		
-		// 생성 전 마지막 썸네일 조회
-		videoDTO lastThumbnail = new videoDAO().selectLastThumbnail();
-		System.out.println("lastThumbnail: "+lastThumbnail);
-		String lastThumbnail_name = lastThumbnail.getVideo_thumbnail().substring(0,9);
-		int lastThumbnail_str = Integer.parseInt(lastThumbnail.getVideo_thumbnail().substring(9,lastThumbnail.getVideo_thumbnail().length()));
+		String[] videoOrImageList = video_file.split("\\.");
+		String videoOrImageCheck = (videoOrImageList[(videoOrImageList.length)-1]).toLowerCase();
 		
-		String lastThumbnail_new_name = lastThumbnail_name + (lastThumbnail_str+1);
+		String lastThumbnail_new_name = "";
+		if (videoOrImageCheck.equals("mp4")) {
+			// 생성 전 마지막 썸네일 조회
+			videoDTO lastThumbnail = new videoDAO().selectLastThumbnail();
+			int videoSeq = ((BigDecimal)lastThumbnail.getVideo_seq()).intValue();
+			System.out.println("lastThumbnail: "+lastThumbnail);
+			String lastThumbnail_name = lastThumbnail.getVideo_thumbnail().substring(0,9);
+			int lastThumbnail_str = Integer.parseInt(lastThumbnail.getVideo_thumbnail().substring(9,lastThumbnail.getVideo_thumbnail().length()));
+			
+			lastThumbnail_new_name = lastThumbnail_name + (lastThumbnail_str+1);
+		}
 		
 		// 동영상 업로드			
 
 		int row = new videoDAO().upload(dto);
 		if (row > 0) {
-			System.out.println("업로드 성공!");
+			/*
+			 * System.out.println("업로드 성공!");
+			 * 
+			 * info.getMember_mbti(); video_path videoSeq videoDAO.insertVideoCategory();
+			 */
+			
+			
 		} else {
 			System.out.println("업로드 실패!");
 		}
 		
+		if (videoOrImageCheck.equals("mp4")) {
 //		썸네일 생성
-		String result = "";
-		try {
-			result = Thumbnail.thumbnail.makeThumbnail(video_path, video_file);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		if (result != null) {
-			System.out.println("썸네일 생성 성공!");
-		} else {
-			System.out.println("썸네일 생성 실패!");
+			String result = "";
+			try {
+				result = Thumbnail.thumbnail.makeThumbnail(video_path, video_file);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+			if (result != null) {
+				System.out.println("썸네일 생성 성공!");
+			} else {
+				System.out.println("썸네일 생성 실패!");
+			}
 		}
 		
 		
 //		마지막 썸네일 수정
-		int rowThumbnail = new videoDAO().updateThumbnail(lastThumbnail_new_name);
-		
-		if (rowThumbnail > 0) {
-			System.out.println("Thumnail_update 성공!");
-		} else {
-			System.out.println("Thumnail_update 실패!");
+		if (videoOrImageCheck.equals("mp4")) {
+			int rowThumbnail = new videoDAO().updateThumbnail(lastThumbnail_new_name);
+			
+			if (rowThumbnail > 0) {
+				System.out.println("Thumnail_update 성공!");
+			} else {
+				System.out.println("Thumnail_update 실패!");
+			}
 		}
 		
 		return "myprofile.jsp";

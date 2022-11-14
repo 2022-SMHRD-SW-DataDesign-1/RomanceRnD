@@ -826,7 +826,7 @@
         </div>
     </div>
    	<div style="text-align:center;">
-   		<a href="watchvideo.jsp" class="btn btn-primary py-sm-3 px-sm-4" style="background: #4a69bd; border-radius: 20px; border-color:white;">Recommend Mentor Video</a>
+   		<a href="index.jsp" class="btn btn-primary py-sm-3 px-sm-4" style="background: #4a69bd; border-radius: 20px; border-color:white;">Get New Mentor</a>
    	</div>
    	<br><br>
    	
