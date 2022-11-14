@@ -19,8 +19,8 @@ public class memberDTO {
 	private String member_profile;
 	private String member_auth;
 	private String member_mbti;
-	private String member_image_file;
 	private String member_image_path;
+	private String member_image_file;
 
 	public memberDTO(String member_id, String member_pw, String member_name) {
 		this.member_id = member_id;
@@ -43,13 +43,12 @@ public class memberDTO {
 		this.member_auth = member_auth;
 	}
 
-	public memberDTO(String member_id, String member_pw, String member_mbti, String member_image_file,
-			String member_image_path) {
-		this.member_id = member_id;
+	public memberDTO(String member_pw, String member_mbti, String member_image_file, String member_image_path, String member_id) {
 		this.member_pw = member_pw;
 		this.member_mbti = member_mbti;
-		this.member_image_file = member_image_file;
 		this.member_image_path = member_image_path;
+		this.member_image_file = member_image_file;
+		this.member_id = member_id;
 	}
 
 	public memberDTO(String member_pw) {

@@ -39,9 +39,12 @@ public class memberDAO {
    
    // 회원정보 수정 메소드
       public int updateId(memberDTO dto) {
+    	 System.out.println("updateId들어왔음");
+    	 System.out.println("updateId들어왔음 memberDTO: "+dto.getMember_id());
          SqlSession session = sqlSessionFactory.openSession(true);
          int row = session.update("updateId", dto);
          
+         System.out.println("Row"+row);
          session.close();
          
          return row;

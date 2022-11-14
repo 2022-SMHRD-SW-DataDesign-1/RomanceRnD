@@ -108,7 +108,7 @@ public class UpdateService implements Command {
 		
 		int row = new memberDAO().updateId(updateInfo);
 						
-		if(row >0) {
+		if(row > 0) {
 			System.out.println("회원정보수정 성공");
 			// 수정한 값으로 세션값을 변경
 			session.setAttribute("info", updateInfo);

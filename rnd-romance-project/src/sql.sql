@@ -18,6 +18,8 @@ insert into UPLOAD_VIDEO_TABLE values(
 
 )
 select * from upload_video_table;
+select * from member_table;
 
 
-sele
+
+update member_table set member_pw = 'testpw', member_mbti = 'entj', member_image_file = 'default2.png', member_image_path= 'test2' where member_id = 'test@test.com';

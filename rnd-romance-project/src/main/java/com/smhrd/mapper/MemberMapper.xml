@@ -13,7 +13,7 @@
 	</select>
    
 	<update id="updateId" parameterType="memberDTO">
-        update member_table set member_pw = #{member_pw}, member_mbti = #{member_mbti}, member_image_file = #{member_image_file}, member_image_path= #{member_image_path} where member_id = #{member_id}
+        update member_table set member_pw = #{member_pw}, member_mbti = #{member_mbti}, member_image_file = #{member_image_file} where member_id = #{member_id}
 	</update>
      
 	<select id="selectAll" parameterType="memberDTO" resultType="memberDTO">
