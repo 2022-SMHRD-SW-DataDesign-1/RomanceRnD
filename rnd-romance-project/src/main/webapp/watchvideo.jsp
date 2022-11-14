@@ -555,7 +555,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
 </head>
 <body>
-
+	<!-- Scriptlet -->
 	<%  
 		memberDTO info = (memberDTO) session.getAttribute("info");
 		String member_name = info.getMember_name();
@@ -606,6 +606,9 @@
 			html += " </video></div></div> ";
 			html += " </video></div></div> ";
 		}
+		
+		/* Data Collection for Recommendation */
+		
 	%>
 	<div class="video_title">MENTORVATION
 			<button type="button" onclick="location.href='<%=videoSrc%>'">닫기</button>

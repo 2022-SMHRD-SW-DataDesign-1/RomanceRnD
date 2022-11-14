@@ -3,6 +3,8 @@ package com.smhrd.controller;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import com.smhrd.command.Command;
+import com.smhrd.model.categoryDAO;
+import com.smhrd.model.categoryDTO;
 import com.smhrd.model.memberDTO;
 import com.smhrd.model.videoDAO;
 import com.smhrd.model.videoDTO;
@@ -48,6 +50,9 @@ public class UploadService extends HttpServlet implements Command {
 		String video_file = multi.getFilesystemName("video_file");
 		BigDecimal video_price = new BigDecimal(multi.getParameter("video_price"));
 		String video_desc = multi.getParameter("video_desc");
+		
+		
+		
 		String video_path = savePath;
 		
 		video_file = video_file.replaceAll("\\s", "");
@@ -79,12 +84,20 @@ public class UploadService extends HttpServlet implements Command {
 
 		int row = new videoDAO().upload(dto);
 		if (row > 0) {
-			/*
-			 * System.out.println("업로드 성공!");
-			 * 
-			 * info.getMember_mbti(); video_path videoSeq videoDAO.insertVideoCategory();
-			 */
+			System.out.println("업로드 성공!");
 			
+			String member_cat = multi.getParameter("member_cat");
+			System.out.println("member_cat"+member_cat);
+			String member_cat_id = member_id;
+			System.out.println("member_cat_id:"+ member_cat_id);
+			
+			categoryDTO catDTO = new categoryDTO(member_cat , member_cat_id);
+			int row2 = new categoryDAO().updateCat(catDTO);
+				if (row2 > 0) {
+					System.out.println("카테고리 업데이트 성공!");
+				}else {
+					System.out.println("카테고리 업데이트 실패!");
+				}
 			
 		} else {
 			System.out.println("업로드 실패!");

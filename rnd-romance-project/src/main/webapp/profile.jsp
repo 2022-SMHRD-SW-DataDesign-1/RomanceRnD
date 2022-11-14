@@ -664,7 +664,8 @@ header[role=banner]::after {
 		String member_name = info.getMember_name();
 		String member_id = info.getMember_id();
 		logined = true;
-	}
+	} 
+	
 	/* Session_Login_Member End */
 
 	/* Session_Logined_Check */
@@ -700,6 +701,10 @@ header[role=banner]::after {
 	System.out.println("countHserAll: "+ countHserAll); 
 	
 	/* Handshake countAll End */
+	
+	if (info != null || profile_name != null) {
+		
+	}
 	
 	/* dwyane code End */
 	%>

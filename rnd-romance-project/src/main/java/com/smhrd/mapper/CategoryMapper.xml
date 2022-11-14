@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smhrd.mapper.CategoryMapper">
+
+	<insert id="insertCat" parameterType="String">
+		insert into category_table values (#{member_cat_id}, 0)
+	</insert>
+	
+	<update id="updateCat" parameterType="categoryDTO">
+        update category_table set category_id = #{member_cat} where member_id = #{member_cat_id}
+	</update>
+	
+</mapper>

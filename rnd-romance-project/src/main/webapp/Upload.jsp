@@ -387,6 +387,16 @@ input::placeholder {
 	justify-content: space-evenly;
 	align-items: baseline;
 	align-content: stretch;
+ }
+	
+.cat_sel {
+ 	width: 150px;
+    height: 30px;
+    padding-left: 5px;
+    font-size: 15px;
+    color:#999;
+    border: 1px solid #999;
+    border-radius: 3px;
 }
 </style>
 </head>
@@ -442,6 +452,33 @@ input::placeholder {
 						</li>
 						<li><p class="modify_txt">비디오가격</p><input class="mod_txt" type="number" name="video_price"></li>
 						<li><p class="modify_txt">비디오설명</p><input class="mod_txt" type="text" name="video_desc"></li>
+						<li class="MBTI"> 
+							<p>MBTI :
+						    	<select class="cat_sel" name="member_cat">
+						   			<option value="none">=== Select ===</option>
+						          	<option value="1">Sports</option>
+						          	<option value="2">Drawing</option>
+						          	<option value="3">Animals</option>
+						          	<option value="4">Marketing</option>
+						          	<option value="5">Cooking</option>
+						          	<option value="6">Baking</option>
+						          	<option value="7">Programming</option>
+						          	<option value="8">Camping</option>
+						          	<option value="9">Design</option>
+						          	<option value="10">Video Production</option>
+						          	<option value="11">Mental Management</option>
+						          	<option value="12">Language</option>
+						          	<option value="13">Education</option>
+						          	<option value="14">Investment</option>
+						          	<option value="15">Motivation</option>
+						          	<option value="16">Mentality</option>
+						          	<option value="17">Self Introduction</option>
+						          	<option value="18">Performance</option>
+						          	<option value="19">Accounting</option>
+						          	<option value="20">Music</option>
+						      	</select>
+					      	</p>
+						
 						<!-- <li>
 							<form>
   								<input type="radio" name="category" checked="checked" value="스포츠" /> 스포츠

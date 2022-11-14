@@ -1,7 +1,8 @@
 package com.smhrd.controller;
 
 import com.smhrd.command.Command;
-
+import com.smhrd.model.categoryDAO;
+import com.smhrd.model.categoryDTO;
 import com.smhrd.model.memberDAO;
 import com.smhrd.model.memberDTO;
 
@@ -42,6 +43,15 @@ public class JoinService extends HttpServlet implements Command {
 		
 		if(row > 0) {
 			System.out.println("회원가입 성공");
+			
+			String member_cat_id = member_id;
+			System.out.println("member_cat_id: "+ member_cat_id);
+			int row2 = new categoryDAO().insertCat(member_cat_id);
+				if (row2 > 0) {
+					System.out.println("카테고리 업로드 성공!");
+				}else {
+					System.out.println("카테고리 업로드 실패!");
+				}
 			
 			// 일단 회원가입 페이지 없어서 임시로 index 보내놈
 			moveURL = "./index.jsp";
