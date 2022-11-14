@@ -793,25 +793,27 @@
                 	String html = "";
 	                
                		for (int i =0; i < 9; i++) {
-	                	String htmlScriptlet = "";
-	                	String htmlScriptlet2 = "";
-	                	htmlScriptlet = "./file/"+selectRandomMentorList.get(saveRandomSelectedMentorList.get(i)).getMember_image_file();
-	                	htmlScriptlet2 = "profile.jsp?profile_name=" + selectRandomMentorList.get(saveRandomSelectedMentorList.get(i)).getMember_name();
-	                	System.out.println("htmlScriptlet"+htmlScriptlet);
+	                	String htmlImage = "";
+	                	String htmlMemberName = "";
+	                	String htmlShowMemberName = "";
+	                	htmlImage = "./file/"+selectRandomMentorList.get(saveRandomSelectedMentorList.get(i)).getMember_image_file();
+	                	htmlMemberName = "profile.jsp?profile_name=" + selectRandomMentorList.get(saveRandomSelectedMentorList.get(i)).getMember_name();
+	                	htmlShowMemberName = selectRandomMentorList.get(saveRandomSelectedMentorList.get(i)).getMember_name();
+	                	System.out.println("htmlImage"+htmlImage);
                			html += "<div class='col-lg-4 col-md-6 portfolio-item second wow fadeInUp' data-wow-delay='0.1s'>\n" +
     	                        "                    <div class='portfolio-inner rounded'>\n";
 
     	                        
-                        html += "<img class='img-fluid' src='"+ htmlScriptlet;
+                        html += "<img class='img-fluid' src='"+ htmlImage;
                         		
     	                html += "' alt=''>\n" +
     	                        "                        <div class='portfolio-text'>\n" +
-    	                        "                            <h4 class='text-white mb-4'>Garden Maintenance</h4>\n" +
+    	                        "                            <h4 class='text-white mb-4'>"+ htmlShowMemberName +"</h4>\n" +
     	                        "                            <div class='d-flex'>\n" +
     	                        "                                <a class='btn btn-lg-square rounded-circle mx-2' ";
-    	                html += "href='"+ htmlScriptlet +"' data-lightbox='portfolio'><i class='fa fa-eye'></i></a>\n";
+    	                html += "href='"+ htmlImage +"' data-lightbox='portfolio'><i class='fa fa-eye'></i></a>\n";
     	                html += "                                <a class='btn btn-lg-square rounded-circle mx-2' ";
-    	                html += "href='"+ htmlScriptlet2 +"'><i class='fa fa-link'></i></a>\n";
+    	                html += "href='"+ htmlMemberName +"'><i class='fa fa-link'></i></a>\n";
  	                	html += "                                    </div>\n" +
     	                        "                        </div>\n" +
     	                        "                    </div>\n" +
