@@ -435,8 +435,8 @@ input::placeholder {
 			<div class="modify_wrap">
 				<h4 style="color: #444;">UPLOAD</h4>
 				<form action="UploadService.do" method="post" enctype="multipart/form-data">
-					<ul>
-						<li><p class="modify_txt">비디오파일</p>
+					<ul style="border:1px; width:340px; height:165px;">
+						<li style="padding:7px;"><p class="modify_txt">비디오파일</p>
 							<label for="file">파일찾기</label> 
 							<input style="display:none;" type="file" id="file" name="video_file">
 						</li>

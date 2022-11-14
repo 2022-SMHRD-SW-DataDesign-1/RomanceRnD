@@ -899,8 +899,9 @@ body {
 		</div>
 		
 	</div> 
-
-		<input type="submit" value="제출하기">
+		<span style="margin:900px; position:relative; top:100px;">
+		<input type="submit" value="제출하기" style="background: #f7f1e3; border:10px; padding:10px">
+		</span>
 	</form>	
 	
 	<script type="text/javascript">
