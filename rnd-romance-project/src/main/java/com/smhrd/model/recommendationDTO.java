@@ -8,7 +8,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
 public class recommendationDTO {
 	
@@ -19,6 +18,15 @@ public class recommendationDTO {
 	private String memberName;
 	
 	public recommendationDTO(String profileId, String profileName, String memberId, String memberName) {
+		this.profileId = profileId;
+		this.profileName = profileName;
+		this.memberId = memberId;
+		this.memberName = memberName;
+	}
+
+	public recommendationDTO(String watchseq, String profileId, String profileName, String memberId,
+			String memberName) {
+		this.watchseq = watchseq;
 		this.profileId = profileId;
 		this.profileName = profileName;
 		this.memberId = memberId;

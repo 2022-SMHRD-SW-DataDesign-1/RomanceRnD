@@ -20,6 +20,16 @@ public class recommendationPfDAO {
 
 		return row;
 	}
-		
+	
+	// selectWatchHistory
+	public ArrayList<recommendationPfDTO> selectWatchProfileHistory (String dto) {
+  		SqlSession session = sqlSessionFactory.openSession(true);
+  		
+  		List<recommendationPfDTO> list = session.selectList("selectWatchProfileHistory", dto);
+  		session.close();
+  		
+  		return (ArrayList<recommendationPfDTO>) list;
+  		
+  	}
 		
 }

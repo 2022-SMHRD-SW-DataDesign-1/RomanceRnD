@@ -1,3 +1,9 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.smhrd.model.recommendationPfDAO"%>
+<%@page import="com.smhrd.model.recommendationDAO"%>
+<%@page import="com.smhrd.model.recommendationPfDTO"%>
+<%@page import="com.smhrd.model.recommendationDTO"%>
+<%@page import="com.smhrd.model.memberDAO"%>
 <%@page import="com.smhrd.model.memberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -545,7 +551,34 @@
 <body>
 	
 	<%  
+		/* Session 추천 받는 사용자 Start */
 		memberDTO info = (memberDTO)session.getAttribute("info");
+		/* Session 추천 받는 사용자 End*/
+		
+		/* Member 데이터 Start */
+		String memberId = info.getMember_id();
+		String memberName = info.getMember_name();
+		String memberMbti = info.getMember_mbti();
+		System.out.println("info: "+info);
+		System.out.println("memberId: "+memberId);
+		/* Member 데이터 End */
+		
+		/* 데이터 가져오기 Start */
+		recommendationDTO dto = new recommendationDTO();
+		recommendationPfDTO dtoPf = new recommendationPfDTO();
+		
+		ArrayList<recommendationDTO> watchVideoList = new recommendationDAO().selectWatchHistory(memberId);
+		ArrayList<recommendationPfDTO> watchProfileList = new recommendationPfDAO().selectWatchProfileHistory(memberId);
+		/* 데이터 가져오기 End */
+		System.out.println("watchVideoListgetProfileId: "+watchVideoList.get(0).getProfileId());
+		
+		System.out.println("watchVideoList: "+watchVideoList);
+		System.out.println("watchProfileList: "+watchProfileList);
+		System.out.println("watchVideoList: "+watchProfileList.get(0));
+		
+		
+	
+	
 	%>
     <!-- Spinner Start -->
     <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
@@ -627,7 +660,7 @@
     <!-- Carousel Start -->
     <!-- <div class="container-fluid p-0 wow fadeIn" data-wow-delay="1.0s" style="width: 100em;"> -->
     <div style="text-align: right;">
-	    <button type="button" onclick="location.href='profile.jsp'">닫기</button>
+	    <button type="button" onclick="location.href='index.jsp'">닫기</button>
     </div>
     <div class="container-fluid p-0 wow fadeIn" style="width: 46em;">
         <div id="header-carousel" class="carousel slide" data-bs-ride="carousel">

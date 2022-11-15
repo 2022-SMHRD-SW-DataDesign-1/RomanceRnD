@@ -14,7 +14,7 @@
 		<typeAlias type="com.smhrd.model.CalenderDTO" alias="CalenderDTO"/>
 		<typeAlias type="com.smhrd.model.categoryDTO" alias="categoryDTO"/>
 		<typeAlias type="com.smhrd.model.recommendationDTO" alias="recommendationDTO"/>
-		<typeAlias type="com.smhrd.model.recommendationDTO" alias="recommendationPfDTO"/>
+		<typeAlias type="com.smhrd.model.recommendationPfDTO" alias="recommendationPfDTO"/>
 	</typeAliases>
 	
 	

@@ -7,5 +7,9 @@
 	<insert id="saveRecommendation" parameterType="recommendationDTO">
         insert into watchcategory values (watchseqval.nextval, #{profileId}, #{profileName}, #{memberId}, #{memberName})
 	</insert>
+	
+	<select id="selectWatchHistory" parameterType="String" resultType="recommendationDTO">
+		select * from watchcategory where member_id = #{memberId}
+	</select>
 
 </mapper>
