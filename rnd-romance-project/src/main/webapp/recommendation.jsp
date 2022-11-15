@@ -1,13 +1,13 @@
+<%@page import="com.smhrd.model.videoDTO"%>
+<%@page import="com.smhrd.model.videoDAO"%>
 <%@page import="java.util.Collections"%>
+<%@page import="java.util.List"%>
 <%@page import="java.util.HashSet"%>
 <%@page import="java.util.Set"%>
-<%@page import="java.util.List"%>
+<%@page import="java.lang.reflect.Array"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="com.smhrd.model.recommendationPfDAO"%>
-<%@page import="com.smhrd.model.recommendationDAO"%>
-<%@page import="com.smhrd.model.recommendationPfDTO"%>
-<%@page import="com.smhrd.model.recommendationDTO"%>
 <%@page import="com.smhrd.model.memberDAO"%>
+<%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
 <%@page import="com.smhrd.model.memberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -16,7 +16,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Gardener - Gardening Website Template</title>
+    <title>MENTORVATION</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -62,9 +62,9 @@
 	
 	body {
 	  font-size: 100%;
-	  font-family: "PT Sans", sans-serif;
+	  font-family: 'Noto Sans KR', 'NanumGothic', '나눔고딕';
 	  color: #505260;
-	  background-color: #3d3d3d;
+	  background-color: #fff;
 	}
 	
 	a {
@@ -77,7 +77,7 @@
 	}
 	
 	input, textarea {
-	  font-family: "PT Sans", sans-serif;
+	  font-family: 'Noto Sans KR', 'NanumGothic', '나눔고딕';
 	  font-size: 16px;
 	  font-size: 1rem;
 	}
@@ -216,7 +216,7 @@
 	    border: none;
 	  }
 	  .main-nav a.cd-signin {
-	    background:#4a69bd;
+	    background: #4a69bd;
 	    border: none;
 	  }
 	}
@@ -546,41 +546,49 @@
 	#display-1 text-white mb-5 animated slideInDown_2 {
 		font-color: green !important;
 	}
+	@media screen and (max-width:981px) {
+	.search_box {
+		/* padding: 0.4rem; */
+		margin-left: 150px;
+	}
+	}
+	
+	.search_box {
+		background: #eee;
+		padding: 0.4rem;
+		margin: 1rem 0;
+		width: 15%;
+		border: 0;
+		outline: none;
+		border-radius: 0.9rem;
+		/* box-shadow: inset 7px 2px 10px #d8dbd9, inset -5px -5px 12px #fff; */
+	}
+	
+	.search_text {
+    border: 0;
+    outline: 0;
+    background: #eee;
+    display: flex;
+    flex-direction: row;
+    padding: 0 1rem;
+    height: 100%;
+    width: 100%;
+    justify-content: space-evenly;
+    align-items: baseline;
+    align-content: stretch;
+}
+	
 </style>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+
 </head>
 
 <body>
 	
-	<%  
-		/* Session 추천 받는 사용자 Start */
-		/* memberDTO info = (memberDTO)session.getAttribute("info"); */
-		/* Session 추천 받는 사용자 End*/
-		
-		/* Member 데이터 Start */
-		/* String memberId = info.getMember_id();
-		String memberName = info.getMember_name();
-		String memberMbti = info.getMember_mbti();
-		System.out.println("info: "+info);
-		System.out.println("memberId: "+memberId); */
-		/* Member 데이터 End */
-		
-		/* 데이터 가져오기 Start */
-		/* recommendationDTO dto = new recommendationDTO();
-		recommendationPfDTO dtoPf = new recommendationPfDTO();
-		
-		List<recommendationDTO> watchVideoList = new recommendationDAO().selectWatchHistory(memberId);
-		List<recommendationPfDTO> watchProfileList = new recommendationPfDAO().selectHistoryWatchProfile(memberId); */
-		/* 데이터 가져오기 End */
-		/* System.out.println("watchVideoListgetProfileId: "+watchVideoList.get(0).getProfileId());
-		
-		System.out.println("watchVideoList: "+watchVideoList);
-		System.out.println("watchProfileList: "+watchProfileList);
-		System.out.println("watchVideoList: "+watchProfileList.get(0)); */
-		
-		/* Random 출력 Start */
+	<!-- Scriptlet -->
+	<% 
 		memberDTO dto = new memberDTO();
 		memberDTO info = (memberDTO)session.getAttribute("info");
 		
@@ -603,183 +611,122 @@
 
         System.out.println(saveRandomSelectedMentorList);
 		
+        
+       	/* start */
+       	
+        List<videoDTO> videoAllList = new videoDAO().selectRandomAllVideos();
+       	System.out.println("videoAllList"+videoAllList);
+       	ArrayList<videoDTO> videoList = new ArrayList<videoDTO>(); 
+       	for (int i = 0; i < 9; i++) {
+       		videoList.add(videoAllList.get(saveRandomSelectedMentorList.get(i))); 
+       	}
+       	
 	%>
-    <!-- Spinner Start -->
-    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-        <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;"></div>
-    </div>
-    <!-- Spinner End -->
-
-
-    <!-- Topbar Start -->
-    <!-- <div class="container-fluid bg-dark text-light px-0 py-2">
-        <div class="row gx-0 d-none d-lg-flex">
-            <div class="col-lg-7 px-5 text-start">
-                <div class="h-100 d-inline-flex align-items-center me-4">
-                    <span class="fa fa-phone-alt me-2"></span>
-                    <span>010-3615-0272</span>
-                </div>
-                <div class="h-100 d-inline-flex align-items-center">
-                    <span class="far fa-envelope me-2"></span>
-                    <span>keonungs@gmail.com</span>
-                </div>
-            </div>
-            <div class="col-lg-5 px-5 text-end">
-                <div class="h-100 d-inline-flex align-items-center mx-n2">
-                    <span>Follow Us:</span>
-                    <a class="btn btn-link text-light" href=""><i class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-link text-light" href=""><i class="fab fa-twitter"></i></a>
-                    <a class="btn btn-link text-light" href=""><i class="fab fa-linkedin-in"></i></a>
-                    <a class="btn btn-link text-light" href=""><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-        </div>
-    </div> -->
-    <!-- Topbar End -->
     
-     <!-- Navbar Start -->
-    	<!-- 염건웅_수정: 상단 navbar 높이 수정 -->
-		<nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0" style="height: 6em;">
-        <a href="index.jsp" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
-            <h1 class="m-0">Mentorvation</h1>
-        </a>
-        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-            <div class="navbar-nav ms-auto p-4 p-lg-0">
-                <a href="index.jsp" class="nav-item nav-link active">Home</a>
-                <a href="recommendation.jsp" class="nav-item nav-link">Recommendation</a>
-                <a href="calendar.jsp" class="nav-item nav-link">Calendar</a>
-                <a href="profile.jsp" class="nav-item nav-link">Profile</a>
-                <!-- <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                    <div class="dropdown-menu bg-light m-0">
-                        <a href="feature.jsp" class="dropdown-item">Features</a>
-                        <a href="quote.jsp" class="dropdown-item">Free Quote</a>
-                        <a href="team.jsp" class="dropdown-item">Our Team</a>
-                        <a href="testimonial.jsp" class="dropdown-item">Testimonial</a>
-                        <a href="404.jsp" class="dropdown-item">404 Page</a>
-                    </div>
-                </div>
-                <a href="contact.jsp" class="nav-item nav-link">Contact</a> -->
+    <!-- Mentor Recommendation -->
+	<!-- Projects Start -->
+	<button type="button" onclick="location.href='index.jsp'">닫기</button>
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
+                <p class="fs-5 fw-bold text-primary">MENTORVATION</p>
+                <h1 class="display-5 mb-5">Mentor Recommendation</h1>
             </div>
-            <!-- <a href="" class="btn btn-primary py-4 px-lg-4 rounded-0 d-none d-lg-block">LOGIN<i class="fa fa-arrow-right ms-3"></i></a> -->
-         	<nav class="main-nav">
-				<ul>
-					<!-- inser more links here -->
-					<%if(info == null){ %>
-						<li><a class="cd-signin" href="#0">Sign in</a></li>
-					<%}else{ %>
-						<li><a class="cd-signin" href="LogoutService.do">Logout</a></li>
-					<%} %>
-				</ul>
-			</nav>
-            
+            <div class="row wow fadeInUp" data-wow-delay="0.3s">
+                <div class="col-12 text-center">
+                    <!-- <ul class="list-inline rounded mb-5" id="portfolio-flters">
+                        <li class="mx-2 active" data-filter="*">All</li>
+                        <li class="mx-2" data-filter=".first">Handshake</li>
+                        <li class="mx-2" data-filter=".second">Tea Time</li>
+                    </ul> -->
+                </div>
+            </div>
+            <div class="row g-4 portfolio-container">
+                
+                <!-- <div class="col-lg-4 col-md-6 portfolio-item first wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="portfolio-inner rounded">
+                        <img class="img-fluid" src="img/service-3.jpg" alt="">
+                        <div class="portfolio-text">
+                            <h4 class="text-white mb-4">Irrigation & Drainage</h4>
+                            <div class="d-flex">
+                                <a class="btn btn-lg-square rounded-circle mx-2" href="img/service-3.jpg" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
+                                <a class="btn btn-lg-square rounded-circle mx-2" href=""><i class="fa fa-link"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+                
+                <!-- Random Mentor Profile Recommendation Implement Start -->
+                <!-- Video Container Start -->
+			<div class="container-xxl py-5">
+		<div class="container" style="text-align: center">
+			<div class="row g-4 portfolio-container">
+				<!-- Individual Video Start -->
+				<%
+				String html = "";
+				System.out.println("videoList.size():" + videoList.size());
+				for (int i = 0; i < videoList.size(); i++) {
+					
+					String videoOrImage = "";
+					videoOrImage = videoList.get(i).getVideo_file();
+					System.out.println("videoOrImage: "+ videoOrImage);
+					
+					String[] videoOrImageList = videoOrImage.split("\\.");
+					String videoOrImageCheck = "";
+					if ((videoOrImageList.length) > 1) {
+					System.out.println("videoOrImageList: "+ videoOrImageList);
+					System.out.println("videoOrImageList: "+ videoOrImageList.length);
+					System.out.println("videoOrImageList11: "+ videoOrImageList[1]);
+					videoOrImageCheck = (videoOrImageList[(videoOrImageList.length)-1]).toLowerCase();
+					}
+					
+					html += " <div class='col-lg-4 col-md-6 portfolio-item first wow fadeInUp'data-wow-delay='0.3s' style='width: 23rem;height: 14rem;border-radius: 0.6rem;padding-left: unset;padding-right: unset; margin: 1.5rem;border: solid #999;box-shadow: 4px 4px 4px rgb(0 0 0 / 34%);'> ";
+					html += " <div class='portfolio-inner rounded' style='height: 100%;width: 100%;'> ";
+					
+					
+					if (videoOrImageCheck.equals("jpg") || videoOrImageCheck.equals("png") || videoOrImageCheck.equals("gif") || videoOrImageCheck.equals("jpeg")) {
+						html += " <img class='img-fluid' src='./file/" + videoList.get(i).getVideo_file() +"'alt='img' style='width: 100%;height: 100%;'> ";
+					}else {
+						html += " <img class='img-fluid' src='./file/" + videoList.get(i).getVideo_thumbnail() + ".png'alt='img' style='width: 100%;height: 100%;'> ";
+					}
+					
+					
+					
+					
+					html += " <div class='portfolio-text'> ";
+					html += " <h4 class='text-white mb-4'></h4> ";
+					html += " <div class='d-flex'> ";
+					
+					
+					html += " <a class='btn btn-lg-square rounded-circle mx-2' href='watchvideo.jsp?video_file=" + videoList.get(i).getVideo_file()+ "'><i class='fa fa-eye'></i>";
+					html += " </a></div></div></div></div> ";
+				}
+				%>
+				<%=html%>
+				<!-- Individual Video End -->
+			</div>
+			</div>
+			</div>
+		
+			<!-- Video Container End -->
+                <!-- Random Mentor Profile Recommendation Implement Start -->
+            </div>
         </div>
-    </nav>
-    <!-- Navbar End -->
-
-
-    <!-- Carousel Start -->
-    <!-- <div class="container-fluid p-0 wow fadeIn" data-wow-delay="1.0s" style="width: 100em;"> -->
-    <div style="text-align: right;">
-	    <button type="button" onclick="location.href='index.jsp'">닫기</button>
     </div>
-    <div class="container-fluid p-0 wow fadeIn" style="width: 46em;">
-        <div id="header-carousel" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner" style="border-radius: 8px;">
-                <div class="carousel-item active" style="width: 46em; height: 49em;">
-                    <img class="" src="./img/metormain.png" alt="Image" style="height: 100%">
-                    <div class="carousel-caption">
-                        <!-- <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8">
-                                    <h1 class="display-1 text-white mb-5 animated slideInDown">Do you have a mentor?</h1>
-                                    <a href="" class="btn btn-primary py-sm-3 px-sm-4">멘토추천받기</a>
-                                </div>
-                            </div>
-                        </div> -->
-                    </div>
-                </div>
-                <div class="carousel-item" style="width: 46em; height: 49em;">
-                    <img class="" src="img/metormain.png" alt="Image" style="height: 100%">
-                    <div class="carousel-caption">
-                        <!-- <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-7">
-                                    <h1 class="display-1 text-white mb-5 animated slideInDown">Your Create new hobby </h1>
-                                    <a href="" class="btn btn-primary py-sm-3 px-sm-4">취미 추천 받기</a>
-                                </div>
-                            </div>
-                        </div> -->
-                    </div>
-                </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#header-carousel"
-                data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#header-carousel"
-                data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-        </div>
-    </div>
-    <!-- Carousel End -->
-
-
-    <!-- Top Feature Start -->
-    <!-- <div class="container-fluid top-feature py-5 pt-lg-0">
-        <div class="container py-5 pt-lg-0">
-            <div class="row gx-0">
-                <div class="col-lg-4 wow fadeIn" data-wow-delay="0.1s">
-                    <div class="bg-white shadow d-flex align-items-center h-100 px-5" style="min-height: 160px;">
-                        <div class="d-flex">
-                            <div class="flex-shrink-0 btn-lg-square rounded-circle bg-light">
-                                <i class="fa fa-times text-primary"></i>
-                            </div>
-                            <div class="ps-3">
-                                <h4>No Hidden Cost</h4>
-                                <span>Clita erat ipsum lorem sit sed stet duo justo</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 wow fadeIn" data-wow-delay="0.3s">
-                    <div class="bg-white shadow d-flex align-items-center h-100 px-5" style="min-height: 160px;">
-                        <div class="d-flex">
-                            <div class="flex-shrink-0 btn-lg-square rounded-circle bg-light">
-                                <i class="fa fa-users text-primary"></i>
-                            </div>
-                            <div class="ps-3">
-                                <h4>Dedicated Team</h4>
-                                <span>Clita erat ipsum lorem sit sed stet duo justo</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 wow fadeIn" data-wow-delay="0.5s">
-                    <div class="bg-white shadow d-flex align-items-center h-100 px-5" style="min-height: 160px;">
-                        <div class="d-flex">
-                            <div class="flex-shrink-0 btn-lg-square rounded-circle bg-light">
-                                <i class="fa fa-phone text-primary"></i>
-                            </div>
-                            <div class="ps-3">
-                                <h4>24/7 Available</h4>
-                                <span>Clita erat ipsum lorem sit sed stet duo justo</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
-    <!-- Top Feature End -->
-
-	<!-- cd-user-modal Start -->
+   <div style="text-align:center;margin-top:31px;">
+   		<a href="recommendation.jsp" class="btn btn-primary py-sm-3 px-sm-4" style="background: #4a69bd; border-radius: 20px; border-color:white;">Get New Mentor</a>
+   	</div>
+   	<br><br>
+   	
+    
+    <!-- Projects End -->
+    <!-- Mentor Recommendation End-->
+	
+	    
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
+    
+    <!-- cd-user-modal Start -->
     <div class="cd-user-modal">
 		<!-- this is the entire modal form, including the background -->
 		<div class="cd-user-modal-container">
@@ -893,7 +840,7 @@
 		<!-- cd-user-modal-container -->
 	</div>
 	<!-- cd-user-modal -->
-  
+	
 	<!-- JavaScript -->
 	<script>
 		jQuery(document).ready(function($){
@@ -1046,7 +993,8 @@
 		  
 		};
 	</script>
-	
+  
+
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>

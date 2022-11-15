@@ -33,6 +33,16 @@ public class videoDAO {
 
 	}
 	
+	public ArrayList<videoDTO> selectRandomAllVideos () {
+		SqlSession session = sqlSessionFactory.openSession(true);
+
+		List<videoDTO> list = session.selectList("selectRandomAllVideos");
+		session.close();
+
+		return (ArrayList<videoDTO>) list;
+
+	}
+	
 		
 
 		// 가장 마지막 들어온 Thumbnail update

@@ -18,6 +18,10 @@
 		)
   	</insert>
   	
+  	<select id="selectRandomAllVideos" parameterType="String" resultType="videoDTO">
+  		select * from upload_video_table order by video_seq asc
+ 	</select>
+  	
   	<select id="selectAllVideos" parameterType="String" resultType="videoDTO">
   		select * from upload_video_table where member_id = #{member_id} order by video_seq asc
  	</select>
