@@ -8,8 +8,8 @@
         insert into watchcategoryprofile values (watchseqvalprofile.nextval, #{profileChckId}, #{profileChckName}, #{memberChckId}, #{memberChckName})
 	</insert>
 	
-	<select id="selectWatchProfileHistory" parameterType="String" resultType="recommendationPfDTO">
-		select * from watchcategoryprofile where member_id = #{memberId}
+	<select id="selectHistoryWatchProfile" parameterType="String" resultType="recommendationPfDTO">
+		select * from watchcategoryprofile where member_name = #{dto}
 	</select>
 	
 </mapper>

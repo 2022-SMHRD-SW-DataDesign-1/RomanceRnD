@@ -591,13 +591,13 @@
 		memberDTO info = (memberDTO)session.getAttribute("info");
 		
 		/* Random Mentor Profile Recommendation Start */
-		ArrayList<memberDTO> selectRandomMentorList = new memberDAO().selectRandomMentorList(dto);
+		/* ArrayList<memberDTO> selectRandomMentorList = new memberDAO().selectRandomMentorList(dto);
 		int totalMentors = selectRandomMentorList.size();
 		System.out.println("totalMentors: "+totalMentors);
-		ArrayList<Integer> saveRandomSelectedMentor = new ArrayList<Integer>();
+		ArrayList<Integer> saveRandomSelectedMentor = new ArrayList<Integer>(); */
 		
 		/* 랜덤 값 생성 중복 제거 */
-        Set<Integer> set = new HashSet<>();
+        /* Set<Integer> set = new HashSet<>();
 
         while (saveRandomSelectedMentor.size() < 9) {
             Double randomSelectedMentor = Math.random() * totalMentors;
@@ -607,7 +607,7 @@
         List<Integer> saveRandomSelectedMentorList = new ArrayList<>(saveRandomSelectedMentor);
         Collections.sort(saveRandomSelectedMentorList);
 
-        System.out.println(saveRandomSelectedMentorList);
+        System.out.println(saveRandomSelectedMentorList); */
 		
 		
 	%>
@@ -667,7 +667,7 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
                 <a href="index.jsp" class="nav-item nav-link active">Home</a>
-                <a href="watchvideo.jsp" class="nav-item nav-link">Recommendation</a>
+                <a href="recommendation" class="nav-item nav-link">Recommendation</a>
                 <a href="calendar.jsp" class="nav-item nav-link">My Calendar</a>
                 <a href="myprofile.jsp" class="nav-item nav-link">My Profile</a>
              
@@ -792,7 +792,7 @@
                 <%
                 	String html = "";
 	                
-               		for (int i =0; i < 9; i++) {
+               		/* for (int i =0; i < 9; i++) {
 	                	String htmlImage = "";
 	                	String htmlMemberName = "";
 	                	String htmlShowMemberName = "";
@@ -818,7 +818,7 @@
     	                        "                        </div>\n" +
     	                        "                    </div>\n" +
     	                        "                </div>";
-               		}
+               		} */
                 %>
              	<%=html%>
                 <!-- Random Mentor Profile Recommendation Implement Start -->

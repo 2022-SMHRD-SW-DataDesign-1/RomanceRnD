@@ -22,14 +22,14 @@ public class recommendationPfDAO {
 	}
 	
 	// selectWatchHistory
-	public ArrayList<recommendationPfDTO> selectWatchProfileHistory (String dto) {
+	public List<recommendationPfDTO> selectHistoryWatchProfile (String dto) {
   		SqlSession session = sqlSessionFactory.openSession(true);
   		
-  		List<recommendationPfDTO> list = session.selectList("selectWatchProfileHistory", dto);
+  		List<recommendationPfDTO> list = session.selectList("selectHistoryWatchProfile", dto);
   		session.close();
+  		System.out.println("여기"+list);
   		
-  		return (ArrayList<recommendationPfDTO>) list;
-  		
+  		return list;
   	}
 		
 }

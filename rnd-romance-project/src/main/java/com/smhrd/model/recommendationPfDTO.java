@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class recommendationPfDTO {
 	
-	private String watchseq;
+	private BigDecimal watchseq;
 	private String profileChckId;
 	private String profileChckName;
 	private String memberChckId;
@@ -24,7 +24,7 @@ public class recommendationPfDTO {
 		this.memberChckName = memberChckName;
 	}
 
-	public recommendationPfDTO(String watchseq, String profileChckId, String profileChckName, String memberChckId,
+	public recommendationPfDTO(BigDecimal watchseq, String profileChckId, String profileChckName, String memberChckId,
 			String memberChckName) {
 		this.watchseq = watchseq;
 		this.profileChckId = profileChckId;

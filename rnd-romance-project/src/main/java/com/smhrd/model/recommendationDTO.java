@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class recommendationDTO {
 	
-	private String watchseq;
+	private BigDecimal watchseq;
 	private String profileId;
 	private String profileName;
 	private String memberId;
@@ -24,7 +24,7 @@ public class recommendationDTO {
 		this.memberName = memberName;
 	}
 
-	public recommendationDTO(String watchseq, String profileId, String profileName, String memberId,
+	public recommendationDTO(BigDecimal watchseq, String profileId, String profileName, String memberId,
 			String memberName) {
 		this.watchseq = watchseq;
 		this.profileId = profileId;

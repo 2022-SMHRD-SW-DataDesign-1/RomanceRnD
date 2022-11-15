@@ -9,7 +9,7 @@
 	</insert>
 	
 	<select id="selectWatchHistory" parameterType="String" resultType="recommendationDTO">
-		select * from watchcategory where member_id = #{memberId}
+		select * from watchcategory where member_id = #{dto}
 	</select>
 
 </mapper>

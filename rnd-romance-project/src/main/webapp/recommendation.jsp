@@ -1,3 +1,7 @@
+<%@page import="java.util.Collections"%>
+<%@page import="java.util.HashSet"%>
+<%@page import="java.util.Set"%>
+<%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.smhrd.model.recommendationPfDAO"%>
 <%@page import="com.smhrd.model.recommendationDAO"%>
@@ -552,33 +556,53 @@
 	
 	<%  
 		/* Session 추천 받는 사용자 Start */
-		memberDTO info = (memberDTO)session.getAttribute("info");
+		/* memberDTO info = (memberDTO)session.getAttribute("info"); */
 		/* Session 추천 받는 사용자 End*/
 		
 		/* Member 데이터 Start */
-		String memberId = info.getMember_id();
+		/* String memberId = info.getMember_id();
 		String memberName = info.getMember_name();
 		String memberMbti = info.getMember_mbti();
 		System.out.println("info: "+info);
-		System.out.println("memberId: "+memberId);
+		System.out.println("memberId: "+memberId); */
 		/* Member 데이터 End */
 		
 		/* 데이터 가져오기 Start */
-		recommendationDTO dto = new recommendationDTO();
+		/* recommendationDTO dto = new recommendationDTO();
 		recommendationPfDTO dtoPf = new recommendationPfDTO();
 		
-		ArrayList<recommendationDTO> watchVideoList = new recommendationDAO().selectWatchHistory(memberId);
-		ArrayList<recommendationPfDTO> watchProfileList = new recommendationPfDAO().selectWatchProfileHistory(memberId);
+		List<recommendationDTO> watchVideoList = new recommendationDAO().selectWatchHistory(memberId);
+		List<recommendationPfDTO> watchProfileList = new recommendationPfDAO().selectHistoryWatchProfile(memberId); */
 		/* 데이터 가져오기 End */
-		System.out.println("watchVideoListgetProfileId: "+watchVideoList.get(0).getProfileId());
+		/* System.out.println("watchVideoListgetProfileId: "+watchVideoList.get(0).getProfileId());
 		
 		System.out.println("watchVideoList: "+watchVideoList);
 		System.out.println("watchProfileList: "+watchProfileList);
-		System.out.println("watchVideoList: "+watchProfileList.get(0));
+		System.out.println("watchVideoList: "+watchProfileList.get(0)); */
 		
+		/* Random 출력 Start */
+		memberDTO dto = new memberDTO();
+		memberDTO info = (memberDTO)session.getAttribute("info");
 		
-	
-	
+		/* Random Mentor Profile Recommendation Start */
+		ArrayList<memberDTO> selectRandomMentorList = new memberDAO().selectRandomMentorList(dto);
+		int totalMentors = selectRandomMentorList.size();
+		System.out.println("totalMentors: "+totalMentors);
+		ArrayList<Integer> saveRandomSelectedMentor = new ArrayList<Integer>();
+		
+		/* 랜덤 값 생성 중복 제거 */
+        Set<Integer> set = new HashSet<>();
+
+        while (saveRandomSelectedMentor.size() < 9) {
+            Double randomSelectedMentor = Math.random() * totalMentors;
+            saveRandomSelectedMentor.add(randomSelectedMentor.intValue());
+        }
+
+        List<Integer> saveRandomSelectedMentorList = new ArrayList<>(saveRandomSelectedMentor);
+        Collections.sort(saveRandomSelectedMentorList);
+
+        System.out.println(saveRandomSelectedMentorList);
+		
 	%>
     <!-- Spinner Start -->
     <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">

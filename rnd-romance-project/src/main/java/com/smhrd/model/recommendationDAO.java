@@ -23,13 +23,14 @@ public class recommendationDAO {
 		}
 		
 		// selectWatchHistory
-		public ArrayList<recommendationDTO> selectWatchHistory (String dto) {
+		public List<recommendationDTO> selectWatchHistory (String dto) {
 	  		SqlSession session = sqlSessionFactory.openSession(true);
 	  		
 	  		List<recommendationDTO> list = session.selectList("selectWatchHistory", dto);
+	  		System.out.println("여기"+list);
 	  		session.close();
 	  		
-	  		return (ArrayList<recommendationDTO>) list;
+	  		return list;
 	  		
 	  	}
 		
