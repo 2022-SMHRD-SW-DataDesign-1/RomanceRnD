@@ -13,6 +13,8 @@
 		<typeAlias type="com.smhrd.model.handshakeDTO" alias="handshakeDTO"/>
 		<typeAlias type="com.smhrd.model.CalenderDTO" alias="CalenderDTO"/>
 		<typeAlias type="com.smhrd.model.categoryDTO" alias="categoryDTO"/>
+		<typeAlias type="com.smhrd.model.recommendationDTO" alias="recommendationDTO"/>
+		<typeAlias type="com.smhrd.model.recommendationDTO" alias="recommendationPfDTO"/>
 	</typeAliases>
 	
 	
@@ -35,6 +37,8 @@
   	<mapper resource="com/smhrd/mapper/HandshakeMapper.xml"/>
   	<mapper resource="com/smhrd/mapper/CalenderMapper.xml"/>
   	<mapper resource="com/smhrd/mapper/CategoryMapper.xml"/>
+  	<mapper resource="com/smhrd/mapper/RecommendationMapper.xml"/>
+  	<mapper resource="com/smhrd/mapper/RecommendationPfMapper.xml"/>
   	
   </mappers>
 </configuration>

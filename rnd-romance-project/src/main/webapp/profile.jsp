@@ -1,3 +1,5 @@
+<%@page import="com.smhrd.model.recommendationPfDAO"%>
+<%@page import="com.smhrd.model.recommendationPfDTO"%>
 <%@page import="com.smhrd.model.handshakeDAO"%>
 <%@page import="com.smhrd.model.videoDAO"%>
 <%@page import="com.smhrd.model.videoDTO"%>
@@ -702,9 +704,22 @@ header[role=banner]::after {
 	
 	/* Handshake countAll End */
 	
-	if (info != null || profile_name != null) {
+	/* Data Collection for Recommendation Start */
+	
+	if (info != null && profileList != null) {
+		String profileChckId = profileList.getMember_id();
+		String profileChckName = profileList.getMember_name();
+		String memberChckId = info.getMember_id();
+		String memberChckName = info.getMember_name();
+		System.out.println("profileChckId"+profileChckId);
+		System.out.println("profileChckName"+profileChckName);
+		System.out.println("memberChckId"+memberChckId);
+		System.out.println("memberChckName"+memberChckName);
 		
+		recommendationPfDTO dto = new recommendationPfDTO(profileChckId, profileChckName, memberChckId, memberChckName);
+		int row = new recommendationPfDAO().saveProfileRecommendation(dto);
 	}
+	/* Data Collection for Recommendation End */
 	
 	/* dwyane code End */
 	%>

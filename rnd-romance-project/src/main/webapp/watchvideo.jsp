@@ -1,3 +1,5 @@
+<%@page import="com.smhrd.model.recommendationDAO"%>
+<%@page import="com.smhrd.model.recommendationDTO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.smhrd.model.memberDAO"%>
 <%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
@@ -558,7 +560,7 @@
 	<!-- Scriptlet -->
 	<%  
 		memberDTO info = (memberDTO) session.getAttribute("info");
-		String member_name = info.getMember_name();
+		String member_name = "";
 		if (info != null) {
 			member_name = info.getMember_name();
 		}
@@ -607,7 +609,23 @@
 			html += " </video></div></div> ";
 		}
 		
-		/* Data Collection for Recommendation */
+		/* Data Collection for Recommendation Start */
+		
+		if (info != null && memberList.get(0) != null) {
+			String profileId = memberList.get(0).getMember_id();
+			String profileName = memberList.get(0).getMember_name();
+			String memberId = info.getMember_id();
+			String memberName = info.getMember_name();
+			System.out.println("profileId"+profileId);
+			System.out.println("profileName"+profileName);
+			System.out.println("memberId"+memberId);
+			System.out.println("memberName"+memberName);
+			
+			recommendationDTO dto = new recommendationDTO(profileId, profileName, memberId, memberName);
+			int row = new recommendationDAO().saveRecommendation(dto);
+		/* Data Collection for Recommendation End */
+			
+		}
 		
 	%>
 	<div class="video_title">MENTORVATION
