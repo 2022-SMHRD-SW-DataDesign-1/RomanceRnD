@@ -1,11 +1,11 @@
 # RomanceRnD
 RomanceRnd_Keonung Yeom, Woojeonng Choi, Gayeon Han
-# 📎 Mentorvation(팀명: 낭만연구소)
+# 👩‍👦‍👦 Mentorvation(팀명: 낭만연구소)
 
 
 ![그림1](https://user-images.githubusercontent.com/112544742/203277050-4b2cdb84-e0bf-4d90-ad3f-6fc0d0bc1e92.png)
 
-## 👀 서비스 소개
+## 🌐 서비스 소개
 * 서비스명: Mentorvation
 * 서비스설명: 추천 시스템 기반 멘토 만남 서비스
 
@@ -15,7 +15,7 @@ RomanceRnd_Keonung Yeom, Woojeonng Choi, Gayeon Han
 2022.11.03 ~ 2022.11.11 (2주)
 <br>
 
-## ⭐ 주요 기능
+## 🧑‍🔧 주요 기능
 * 사용자 기반 영상 추천
 * 핸드쉐이크(팔로우 기능) 기능
 * 티타임(멘토 예약) 기능
@@ -24,7 +24,7 @@ RomanceRnd_Keonung Yeom, Woojeonng Choi, Gayeon Han
 * 스케쥴 예약
 <br>
 
-## ⛏ 기술스택
+## 🖥️ 기술스택
 <table>
     <tr>
         <th>구분</th>
@@ -79,67 +79,67 @@ RomanceRnd_Keonung Yeom, Woojeonng Choi, Gayeon Han
 
 <br>
 
-## ⚙ 시스템 아키텍처(구조) 예시 
+## 📍 시스템 아키텍처(구조) 예시 
 ![그림3](https://user-images.githubusercontent.com/112544742/203277702-c82fbace-b9ce-4f0a-8ee4-e144920bd49b.png)
 
 <br>
 
-## 📌 SW유스케이스
+## 📍 SW유스케이스
 ![그림2](https://user-images.githubusercontent.com/112544742/203277517-8a949ee8-965c-440e-92d8-9cb13867b69d.png)
 
 <br>
 
-## 📌 서비스 흐름도
+## 📍 서비스 흐름도
 ![image](https://user-images.githubusercontent.com/25995055/178401048-d6484bda-a2d7-40e1-998b-2bd195cd9f89.png)
 <br>
 
-## 📌 ER다이어그램
+## 📍 ER다이어그램
 ![그림4](https://user-images.githubusercontent.com/112544742/203277864-0f7ac068-b60a-4330-acb8-156f170d6f38.png)
 
 <br>
 
-## 🖥 화면 구성
+## 🖥️ 화면 구성
 
-### 로그인/회원가입/회원관리/회원수정/회원탈퇴
+### 📍 로그인/회원가입/회원관리/회원수정/회원탈퇴
 ![KakaoTalk_20221122_184915186](https://user-images.githubusercontent.com/112544742/203283889-26418e2e-a9c4-4aeb-875a-96bfa40efd6d.png)
 ![KakaoTalk_20221122_184915316](https://user-images.githubusercontent.com/112544742/203283896-64b7623a-9281-494d-8c48-70f70bf12676.png)
 ![KakaoTalk_20221122_184915472](https://user-images.githubusercontent.com/112544742/203284406-de75ecd7-b54a-4d7a-a0cf-9a48a56079ee.png)
 
 <br>
 
-### 멘토 프로필 추천
+### 📍 멘토 프로필 추천
 ![캡처](https://user-images.githubusercontent.com/112544742/203283948-b79434d6-2c85-4c39-8274-30db567094c8.PNG)
 
 <br>
 
-### 영상 추천
+### 📍 영상 추천
 ![111](https://user-images.githubusercontent.com/112544742/203285907-87f46493-689c-4f53-a8d3-3d3bb1dbda9f.png)
 
 
 <br>
 
-### 티타임
+### 📍 티타임 ☕
 ![티타임](https://user-images.githubusercontent.com/112544742/203284012-60c46430-0e21-4ed2-832b-307477c519c5.png)
 
 <br>
 
-### 카테고리 선택
+### 📍 카테고리 선택
 ![KakaoTalk_20221122_183655098](https://user-images.githubusercontent.com/112544742/203284242-755ce166-a411-4860-a95f-6bc350c0ab08.png)
 
 <br>
 
-### 프로필 피드
+### 📍 프로필 피드
 ![KakaoTalk_20221122_184902399](https://user-images.githubusercontent.com/112544742/203284281-8e92ca8c-4b82-409a-9732-65e0b0e614b7.png)
 
 <br>
 
-### 영상 업로드/ 썸네일
+### 📍 영상 업로드/ 썸네일
 ![KakaoTalk_20221122_184915821](https://user-images.githubusercontent.com/112544742/203284400-598fc2b7-ef3a-42b3-b5b7-c589f6806ffe.png)
 ![KakaoTalk_20221122_184902399](https://user-images.githubusercontent.com/112544742/203284437-74f24bb7-ee40-43ae-ba06-0543fdab1046.png)
 
 <br>
 
-## 👨‍👩‍👦‍👦 팀원 역할
+## 🧑🏻👩🏻🧑🏻 팀원 역할🎨⚙💻
 <table>
   <tr>
     <td align="center"><img src="https://item.kakaocdn.net/do/fd49574de6581aa2a91d82ff6adb6c0115b3f4e3c2033bfd702a321ec6eda72c" width="100" height="100"/></td>
@@ -163,7 +163,7 @@ RomanceRnd_Keonung Yeom, Woojeonng Choi, Gayeon Han
   </tr>
 </table>
 
-## 🤾‍♂️ 트러블슈팅
+## ✂️ 트러블슈팅
 개념: 문제 해결을 위해 문제의 원인을 논리적이고 체계적으로 찾는 일이며 제품이나 프로세스의 운영을 재개 프로젝트 진행하는 동안 발생했던 이슈 중 가장 기억에 남았던 문제와 해결 프로세스 나열(2~5가지 정도)
 
 문제1 - 데이터 베이스 수집 및 전처리
