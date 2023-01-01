@@ -1,5 +1,5 @@
 # RomanceRnD
-RomanceRnd_Keonung Yeom, Woojeonng Choi, Gayeon Han
+RomanceRnd_Keonung Yeom, Woojeong Choi, Gayeon Han
 # 👩‍👦‍👦 Mentorvation(팀명: 낭만연구소)
 
 
