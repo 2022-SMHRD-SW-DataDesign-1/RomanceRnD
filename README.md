@@ -17,6 +17,7 @@ RomanceRnd_Keonung Yeom, Woojeong Choi, Gayeon Han
 
 ## 🧑‍🔧 주요 기능
 * 사용자 기반 영상 추천
+* 사용자 기반 멘토 프로필 추천
 * 핸드쉐이크(팔로우 기능) 기능
 * 티타임(멘토 예약) 기능
 * 업로드 기능
